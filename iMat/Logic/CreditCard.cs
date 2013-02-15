@@ -12,7 +12,7 @@ namespace Logic
         MasterCard,
         Amex
     }
-    class CreditCard
+    public class CreditCard
     {
         public CardType CardType { get; set; }
         public string CardNumber { get; set; }
