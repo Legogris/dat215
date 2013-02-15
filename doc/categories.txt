@@ -1,0 +1,29 @@
+- Frukt och grönt
+  - Bär
+  - Citrusfrukter
+  - Exotiska frukter
+  - Grönsaksfrukter
+  - Kål
+  - Meloner
+  - Rotfrukter (+ potatis)
+  - Stenfrukter
+  - Örter
+- Kött
+- Fisk
+- Mejeriprodukter
+- Bröd
+- Drycker
+  - Varma
+  - Kalla
+- Snacks & sött
+- Skafferi
+  - Pasta
+  - Ris
+  - Mjöl, socker & salt
+  - Baljväxter
+  - Nötter & frön
+
+
+
+Kokosnöt: Både i nötter & frön, exotiska frukter
+Bullar: Både i bröd och snacks
