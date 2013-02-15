@@ -1,0 +1,14 @@
+Dimensioner iMat
+
+Enheter i cm.
+
+
+main window = 25x18
+
+toolbar = 25x3 (toolbar inkluderar menyrad som är 25x0,5)
+
+itemfönster = 15x15
+
+kategorilista = 5x15
+
+shoppinglista = 5x15
