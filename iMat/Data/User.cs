@@ -6,20 +6,21 @@ using System.Threading.Tasks;
 
 namespace Data
 {
+    [Serializable()]
     public class User
     {
-        private string password;
-        public string UserName { get; private set; }
+        public string Password { private get; set; }
+        public string Email { get; set; }
 
-        public User(string userName, string password)
+        public User(string email, string password)
         {
-            UserName = userName;
-            this.password = password;
+            Email = email;
+            Password = password;
         }
 
         public bool isPassword(string password)
         {
-            return this.password == password;
+            return Password == password;
         }
     }
 }

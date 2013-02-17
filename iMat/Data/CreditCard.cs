@@ -12,6 +12,7 @@ namespace Data
         MasterCard,
         Amex
     }
+    [Serializable()]
     public class CreditCard
     {
         public CardType CardType { get; set; }

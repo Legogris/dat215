@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-    public class Customer
+    [Serializable()]
+    public class ShippingAddress
     {
         public string Address { get; set; }
         public string Email { get; set; }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Data
 {
+    [Serializable()]
     public class ShoppingItem
     {
         public double Amount { get; private set; }

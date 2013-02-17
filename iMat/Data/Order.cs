@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Data
 {
+    [Serializable()]
     public class Order
     {
         public DateTime Date { get; private set; }

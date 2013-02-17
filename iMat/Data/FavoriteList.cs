@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Data
 {
+    [Serializable()]
     public class FavoriteList 
     {
         private readonly List<ShoppingItem> items;
