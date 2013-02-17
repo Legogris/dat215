@@ -7,8 +7,8 @@
     <ProjectGuid>{E5D041CD-3798-4815-808F-FB5F59EC0206}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Logic</RootNamespace>
-    <AssemblyName>Logic</AssemblyName>
+    <RootNamespace>Data</RootNamespace>
+    <AssemblyName>Data</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="CreditCard.cs" />
     <Compile Include="Customer.cs" />
+    <Compile Include="FavoriteList.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductCategory.cs" />
