@@ -22,4 +22,5 @@ namespace Data
         public int ValidYear { get; set; }
         public int VerificationCode { get; set; }
     }
+
 }

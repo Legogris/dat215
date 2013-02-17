@@ -13,11 +13,13 @@ namespace Data
         public int OrderNumber { get; private set; }
         public IList<ShoppingItem> Items { get; private set; }
 
-        public Order(ShoppingCart cart, DateTime date, int orderNumber)
+        public Order(ShoppingCart cart, DateTime date, int orderNumber) : this(cart.GetItems(), date, orderNumber) { }
+
+        public Order(IList<ShoppingItem> items, DateTime date, int orderNumber)
         {
             Date = date;
             OrderNumber = orderNumber;
-            Items = cart.GetItems();
+            Items = items;
         }
     }
 }

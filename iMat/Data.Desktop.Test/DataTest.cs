@@ -9,10 +9,11 @@ namespace Data.Desktop.Test
 {
     class DataTest
     {
-        private static readonly string path = "test.db";
+        private static readonly string dbPath = "config.db";
+        private static readonly string productsPath = "products.txt";
         static void Main(string[] args)
         {
-            DataHandler dh = new DataHandler();
+            DataHandler dh = new DataHandler(productsPath);
 
             //Mock credit card
             CreditCard card = new CreditCard();
@@ -24,9 +25,9 @@ namespace Data.Desktop.Test
             //Mock favorite
             List<ShoppingItem> favorites = new List<ShoppingItem>();
 
-            dh.WriteToFile(path);
+            dh.WriteToFile(dbPath);
 
-            dh = DataHandler.ReadFromFile(path);
+            dh = DataHandler.ReadFromFile(dbPath, productsPath);
         }
     }
 }

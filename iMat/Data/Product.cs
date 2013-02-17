@@ -14,12 +14,54 @@ namespace Data
         public string Name { get; set; }
         public double Price { get; set; }
         public int ProductID { get; set; }
-        public int Unit { get; set; }
-        public int UnitSuffix { get; set; }
+        public string Unit { get; set; }
+        public string UnitSuffix { get; set; }
 
         public Product()
         {
             Categories = new HashSet<ProductCategory>();
+        }
+
+        public override int GetHashCode()
+        {
+            return ProductID.GetHashCode();
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            Product si = obj as Product;
+            return Equals(si);
+        }
+
+        public bool Equals(Product si)
+        {
+            if ((object)si == null)
+            {
+                return false;
+            }
+            return si.ProductID == ProductID;
+        }
+
+        public static bool operator ==(Product a, Product b)
+        {
+            if (System.Object.ReferenceEquals(a, b))
+            {
+                return true;
+            }
+            if ((object)a == null || (object)b == null)
+            {
+                return false;
+            }
+            return a.Equals(b);
+        }
+
+        public static bool operator !=(Product a, Product b)
+        {
+            return !(a == b);
         }
     }
 }

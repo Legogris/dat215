@@ -31,6 +31,11 @@ namespace Data
 
         private IList<ShoppingItem> items;
 
+        public ShoppingCart()
+        {
+            items = new List<ShoppingItem>();
+        }
+
         public double Total
         {
             get
