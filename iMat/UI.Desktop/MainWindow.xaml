@@ -1,0 +1,23 @@
+﻿<Window x:Class="UI.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="iMat" Height="350" Width="525">
+    <Grid>
+        <Menu HorizontalAlignment="Stretch" Height="18" VerticalAlignment="Top">
+            <MenuItem Header="Arkiv">
+                <MenuItem Header="Logga ut..."/>
+                <MenuItem Header="Avsluta"/>
+            </MenuItem>
+            <MenuItem Header="Hantera">
+                <MenuItem Header="Listor..."/>
+                <MenuItem Header="Konto..."/>
+            </MenuItem>
+            <MenuItem Header="Hjälp" Click="MenuItem_Click_1">
+                <MenuItem Header="Om iMat..."/>
+                <MenuItem Header="Besök iMats hemsida"/>
+                <MenuItem Header="Användarguide"/>
+            </MenuItem>
+        </Menu>
+
+    </Grid>
+</Window>
