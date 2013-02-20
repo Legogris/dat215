@@ -53,12 +53,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BulkSelector.xaml.cs">
+      <DependentUpon>BulkSelector.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CategoryControl.xaml.cs">
       <DependentUpon>CategoryControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="CategoryLeftMargin.xaml.cs">
       <DependentUpon>CategoryLeftMargin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Spinner.xaml.cs">
+      <DependentUpon>Spinner.xaml</DependentUpon>
+    </Compile>
+    <Page Include="BulkSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CategoryControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -76,6 +86,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="CategoryLeftMargin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Spinner.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
