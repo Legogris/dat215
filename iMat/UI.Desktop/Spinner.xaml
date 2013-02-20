@@ -6,8 +6,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="65" d:DesignWidth="117">
     <Grid>
-        <TextBox x:Name="SpinnerTextBox" HorizontalAlignment="Left" Height="23" Margin="1,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" PreviewTextInput="SpinnerTextBox_PreviewTextInput_1" TextChanged="textChanged"/>
-        <Button x:Name="SpinnerDecrease" Content="−" HorizontalAlignment="Left" Margin="32,2,0,0" VerticalAlignment="Top" Width="20" Click="spinnerDecrease"/>
-        <Button x:Name="SpinnerIncrease" Content="+" HorizontalAlignment="Left" Margin="52,2,0,0" VerticalAlignment="Top" Width="20" Click="spinnerIncrease"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="SpinnerTextBox" HorizontalAlignment="Stretch" Height="23" Margin="1,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PreviewTextInput="SpinnerTextBox_PreviewTextInput_1" TextChanged="textChanged"/>
+        <Button x:Name="SpinnerDecrease" Content="−" HorizontalAlignment="Left" Margin="1,2,0,0" VerticalAlignment="Top" Width="20" Click="spinnerDecrease" Grid.Column="1" Height="22"/>
+        <Button x:Name="SpinnerIncrease" Content="+" HorizontalAlignment="Left" Margin="21,2,0,0" VerticalAlignment="Top" Width="20" Click="spinnerIncrease" Grid.Column="1" Height="22"/>
     </Grid>
 </UserControl>

@@ -62,6 +62,12 @@
     <Compile Include="CategoryLeftMargin.xaml.cs">
       <DependentUpon>CategoryLeftMargin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ListView.xaml.cs">
+      <DependentUpon>ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListViewItem.xaml.cs">
+      <DependentUpon>ListViewItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Spinner.xaml.cs">
       <DependentUpon>Spinner.xaml</DependentUpon>
     </Compile>
@@ -70,6 +76,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CategoryControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListViewItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
