@@ -36,9 +36,9 @@ namespace UI.Desktop
         
         private void categorySourceUpdated()
         {
-            categoryStackPanel.Children.Clear();
+            container.Children.Clear();
             CategoryControl root = new CategoryControl(rootCategory);
-            categoryStackPanel.Children.Add(root);
+            container.Children.Add(root);
             root.Expand();
             Thickness margin = root.stackPanel.Margin;
             margin.Left = 0;
