@@ -37,17 +37,12 @@ namespace UI.Desktop
         private void categorySourceUpdated()
         {
             categoryStackPanel.Children.Clear();
-            Label rootLabel = new Label() {
-                Content = rootCategory.Name,
-                HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch
-            };
-            categoryStackPanel.Children.Add(rootLabel);
-            foreach (ProductCategory pc in rootCategory.SubCategories)
-            {
-                Label label = new Label();
-                label.Content = pc.Name;
-                categoryStackPanel.Children.Add(label);
-            }
+            CategoryControl root = new CategoryControl(rootCategory);
+            categoryStackPanel.Children.Add(root);
+            root.Expand();
+            Thickness margin = root.stackPanel.Margin;
+            margin.Left = 0;
+            root.stackPanel.Margin = margin;
         }
     }
 }

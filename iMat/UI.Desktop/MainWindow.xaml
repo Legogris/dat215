@@ -20,7 +20,7 @@
             </MenuItem>
         </Menu>
 
-        <local:CategoryLeftMargin x:Name="leftMargin" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top"/>
+        <local:CategoryLeftMargin x:Name="leftMargin" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Stretch"/>
 
     </Grid>
 </Window>
