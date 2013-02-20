@@ -74,13 +74,20 @@ namespace UI.Desktop
 
         private void SpinnerTextBox_PreviewTextInput_1(object sender, TextCompositionEventArgs e)
         {
-            e.Handled = !isTextAllowed(e.Text);
+            e.Handled = isTextAllowed(e.Text);
         }
 
         private bool isTextAllowed(String s)
         {
-            Regex regex = new Regex("[^0-9.]+"); // tillåter oändligt många decimaltecken
-            return !regex.IsMatch(s);
+            Regex regex = new Regex("[^0-9,]+"); // tillåter oändligt många decimaltecken
+            return regex.IsMatch(s);
+        }
+
+        private void textChanged(object sender, TextChangedEventArgs e)
+        {
+            if (SpinnerTextBox.Text.Length != 0) {
+                value = Convert.ToDouble(SpinnerTextBox.Text);
+            }
         }
     }
 }
