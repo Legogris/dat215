@@ -110,14 +110,14 @@
 110;PASTA;Penne;9.9;kr/förp;product_110.jpg;end
 111;PASTA;Rigatoni;11.0;kr/förp;product_111.jpg;end
 112;PASTA;Spaghetti;12.0;kr/förp;product_112.jpg;end
-113;POTATO_RICE;Basmati-ris;24.0;kr/kg;product_113.jpg;end
-114;POTATO_RICE;Fullkornsris;28.0;kr/kg;product_114.jpg;end
-115;POTATO_RICE;Jasmin-ris;25.0;kr/kg;product_115.jpg;end
-116;POTATO_RICE;Potatis;7.0;kr/kg;product_116.jpg;end
-117;POTATO_RICE;Potatis röd;6.0;kr/kg;product_117.jpg;end
-118;POTATO_RICE;Potatis söt;26.0;kr/kg;product_118.jpg;end
-119;POTATO_RICE;Potatispuré;9.9;kr/förp;product_119.jpg;end
-120;POTATO_RICE;Råris;24.0;kr/kg;product_120.jpg;end
+113;RICE;Basmati-ris;24.0;kr/kg;product_113.jpg;end
+114;RICE;Fullkornsris;28.0;kr/kg;product_114.jpg;end
+115;RICE;Jasmin-ris;25.0;kr/kg;product_115.jpg;end
+116;RICE;Potatis;7.0;kr/kg;product_116.jpg;end
+117;RICE;Potatis röd;6.0;kr/kg;product_117.jpg;end
+118;RICE;Potatis söt;26.0;kr/kg;product_118.jpg;end
+119;RICE;Potatispuré;9.9;kr/förp;product_119.jpg;end
+120;RICE;Råris;24.0;kr/kg;product_120.jpg;end
 121;ROOT_VEGETABLE;Kålrot;9.95;kr/kg;product_121.jpg;end
 122;ROOT_VEGETABLE;Majrova;10.0;kr/kg;product_122.jpg;end
 123;ROOT_VEGETABLE;Morot;5.0;kr/kg;product_123.jpg;end
