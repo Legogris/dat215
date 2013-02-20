@@ -40,12 +40,16 @@ namespace Data.Desktop
         public static DataHandler ReadFromFile(string configPath, string productsPath)
         {
             DataHandler dh = null;
-            Stream stream = File.Open(configPath, FileMode.Open);
+            FileStream stream = File.Open(configPath, FileMode.OpenOrCreate);
             try
             {
                 BinaryFormatter formatter = new BinaryFormatter();
+                
                 dh = (DataHandler)formatter.Deserialize(stream);
 
+            }
+            catch {
+                dh = new DataHandler(productsPath);
             }
             finally
             {
@@ -182,6 +186,11 @@ namespace Data.Desktop
         public List<Order> GetOrders()
         {
             return orders;
+        }
+
+        public ProductCategory GetRootCategory()
+        {
+            return rootCategory;
         }
     }
 }

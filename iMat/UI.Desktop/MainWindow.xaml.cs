@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data.Desktop;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,14 +21,22 @@ namespace UI.Desktop
     /// </summary>
     public partial class MainWindow : Window
     {
+        private DataHandler dataHandler;
         public MainWindow()
         {
             InitializeComponent();
+            initDataBinding();
+        }
+        
+        private void initDataBinding() {
+            dataHandler = DataHandler.ReadFromFile("asdf", "products.txt");
+            leftMargin.RootCategory = dataHandler.GetRootCategory();
         }
 
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        private void menuItemQuitClick(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
+
     }
 }

@@ -1,24 +1,26 @@
-﻿<Window x:Class="UI.Desktop.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:UI.Desktop" x:Class="UI.Desktop.MainWindow"
         Title="iMat" Height="350" Width="525">
     <Grid>
-        <Menu HorizontalAlignment="Stretch" Height="18" VerticalAlignment="Top">
+        <Menu HorizontalAlignment="Stretch" Height="22" VerticalAlignment="Top">
             <MenuItem Header="Arkiv">
-                <MenuItem Header="Logga ut..."/>
-                <MenuItem Header="Avsluta"/>
+                <MenuItem x:Name="menuItemLogOut" Header="Logga ut"/>
+                <MenuItem x:Name="menuItemQuit" Header="Avsluta" Click="menuItemQuitClick" InputGestureText="Ctrl+Q"/>
             </MenuItem>
             <MenuItem Header="Hantera">
-                <MenuItem Header="Listor..."/>
-                <MenuItem Header="Konto..."/>
+                <MenuItem x:Name="menuItemLists" Header="Listor"/>
+                <MenuItem x:Name="menuItemAccount" Header="Konto"/>
             </MenuItem>
-            <MenuItem Header="Hjälp" Click="MenuItem_Click_1">
-                <MenuItem Header="Om iMat..."/>
+            <MenuItem Header="Hjälp">
+                <MenuItem x:Name="menuItemAbout" Header="Om iMat"/>
                 <MenuItem Header="Besök iMats hemsida"/>
                 <MenuItem Header="Användarguide"/>
             </MenuItem>
         </Menu>
-        <Label Content="test asdf asdf" HorizontalAlignment="Left" Margin="109,96,0,0" VerticalAlignment="Top"/>
+
+        <local:CategoryLeftMargin x:Name="leftMargin" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
