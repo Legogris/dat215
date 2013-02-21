@@ -8,16 +8,15 @@
              d:DesignHeight="60" d:DesignWidth="270">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition MinWidth="120" Width="1*"/>
+            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <local:Spinner x:Name="amountSpinner" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="53,0,0,0" Height="25"/>
         <local:Spinner x:Name="bulkSpinner" HorizontalAlignment="Stretch" Margin="53,31,0,0" VerticalAlignment="Top" Height="25"/>
         <Label Content="Jämförpris:" HorizontalAlignment="Left" Margin="0,31,0,0" VerticalAlignment="Top" Height="26" Width="68" Grid.Column="1"/>
         <Label Content="Pris:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="31" Grid.Column="1"/>
-        <Label Content="pris" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="29" Margin="4,0,0,0" Grid.Column="2"/>
-        <Label Content="jmfpris" HorizontalAlignment="Left" Margin="4,31,0,0" VerticalAlignment="Top" Height="26" Width="46" Grid.Column="2"/>
+        <Label Content="pris" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="29" Margin="79,0,0,0" Grid.Column="1"/>
+        <Label Content="jmfpris" HorizontalAlignment="Left" Margin="79,31,0,0" VerticalAlignment="Top" Height="26" Width="46" Grid.Column="1"/>
         <RadioButton x:Name="radioButtonAmount" Content="Antal" HorizontalAlignment="Left" Margin="2,5,0,0" VerticalAlignment="Top" IsChecked="True" Checked="checkedChangeAmount" Height="16" Width="44"/>
         <RadioButton x:Name="radioButtonBulk" Content="Vikt" HorizontalAlignment="Left" Margin="2,36,0,0" VerticalAlignment="Top" Checked="checkedChangeBulk" Height="16" Width="36"/>
     </Grid>

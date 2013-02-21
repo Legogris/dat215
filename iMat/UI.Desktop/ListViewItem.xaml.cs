@@ -24,5 +24,10 @@ namespace UI.Desktop
         {
             InitializeComponent();
         }
+
+        private void addToShoppingCartButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
