@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,17 @@ namespace UI.Desktop
     /// </summary>
     public partial class ListViewItem : UserControl
     {
-        public ListViewItem()
+        private Product product;
+
+        public ListViewItem(Product p)
         {
             InitializeComponent();
+            product = p;
+            initLabels();
+        }
+
+        private void initLabels() {
+            productName.Content = product.Name;
         }
 
         private void addToShoppingCartButton_Click(object sender, RoutedEventArgs e)

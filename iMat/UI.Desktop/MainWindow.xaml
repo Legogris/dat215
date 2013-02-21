@@ -26,7 +26,7 @@
             </Grid.ColumnDefinitions>
 
             <local:CategoryLeftMargin x:Name="leftMargin" HorizontalAlignment="Left" VerticalAlignment="Stretch"/>
-            <local:ListView HorizontalAlignment="Stretch" Margin="0,10,0,0" VerticalAlignment="Stretch" Grid.Column="1"/>
+            <local:ListView x:Name="listView" HorizontalAlignment="Stretch" Margin="0,10,0,0" VerticalAlignment="Stretch" Grid.Column="1"/>
 
         </Grid>
 

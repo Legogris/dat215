@@ -31,6 +31,7 @@ namespace UI.Desktop
         private void initDataBinding() {
             dataHandler = DataHandler.ReadFromFile("asdf", "products.txt");
             leftMargin.RootCategory = dataHandler.GetRootCategory();
+            listView.ProductCategory = dataHandler.GetRootCategory();
         }
 
         private void menuItemQuitClick(object sender, RoutedEventArgs e)

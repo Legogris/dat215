@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,11 +21,28 @@ namespace UI.Desktop
     /// </summary>
     public partial class ListView : UserControl
     {
+        private ProductCategory category;
+        
+        public ProductCategory ProductCategory
+        {
+            get { return category; }
+            set
+            {
+                category = value;
+                categorySourceUpdated();
+            }
+        }
+
         public ListView()
         {
             InitializeComponent();
-            stackPanel.Children.Add(new ListViewItem());
-            stackPanel.Children.Add(new ListViewItem());
+        }
+
+        private void categorySourceUpdated()
+        {
+            foreach (Product product in category.GetProducts()) {
+                stackPanel.Children.Add(new ListViewItem(product));
+            }
         }
     }
 }
