@@ -53,47 +53,55 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AbstractSelector.cs" />
-    <Compile Include="BulkSelector.xaml.cs">
-      <DependentUpon>BulkSelector.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="CategoryControl.xaml.cs">
+    <Compile Include="Content\Controls\CategoryControl.xaml.cs">
       <DependentUpon>CategoryControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CategoryLeftMargin.xaml.cs">
-      <DependentUpon>CategoryLeftMargin.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ItemSelector.xaml.cs">
-      <DependentUpon>ItemSelector.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ListView.xaml.cs">
-      <DependentUpon>ListView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ListViewItem.xaml.cs">
+    <Compile Include="Content\Controls\ListViewItem.xaml.cs">
       <DependentUpon>ListViewItem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Spinner.xaml.cs">
+    <Compile Include="Content\ListView.xaml.cs">
+      <DependentUpon>ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\ProductBrowser.xaml.cs">
+      <DependentUpon>ProductBrowser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AbstractSelector.cs" />
+    <Compile Include="Controls\BulkSelector.xaml.cs">
+      <DependentUpon>BulkSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ItemSelector.xaml.cs">
+      <DependentUpon>ItemSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Spinner.xaml.cs">
       <DependentUpon>Spinner.xaml</DependentUpon>
     </Compile>
-    <Page Include="BulkSelector.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Content\Controls\CategoryControl.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="CategoryControl.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Content\Controls\ListViewItem.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="ItemSelector.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Content\ListView.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="ListView.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Content\ProductBrowser.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="ListViewItem.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Controls\BulkSelector.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ItemSelector.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Spinner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -107,14 +115,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="CategoryLeftMargin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Spinner.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
