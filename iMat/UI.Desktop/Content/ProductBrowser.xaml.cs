@@ -32,6 +32,7 @@ namespace UI.Desktop
         private ProductsViewMode viewMode;
         private ListView listView;
         private GridView gridView;
+        private TreeView treeView;
 
         public ProductCategory RootCategory
         {
@@ -47,9 +48,13 @@ namespace UI.Desktop
                 switch (value)
                 {
                     case ProductsViewMode.Grid:
-                        throw new NotImplementedException();
+                        itemFrame.Content = gridView;
+                        break;
                     case ProductsViewMode.List:
                         itemFrame.Content = listView;
+                        break;
+                    case ProductsViewMode.Tree:
+                        itemFrame.Content = treeView;
                         break;
                     default:
                         throw new NotImplementedException();
@@ -62,6 +67,8 @@ namespace UI.Desktop
         {
             InitializeComponent();
             listView = new ListView();
+            gridView = new GridView();
+            treeView = new TreeView();
             ViewMode = ProductsViewMode.List;
         }
         
@@ -75,13 +82,14 @@ namespace UI.Desktop
             margin.Left = 0;
             root.stackPanel.Margin = margin;
             listView.DataContext = rootCategory;
+            gridView.DataContext = rootCategory;
+            treeView.DataContext = rootCategory;
 
             root.ProductCategorySelectionChanged += root_ProductCategorySelectionChanged;
         }
 
         void root_ProductCategorySelectionChanged(UserControl sender, CategoryControl.ProductCategoryChangedEventArgs e)
         {
-            listView.DataContext = e.Category;
         }
     }
 }

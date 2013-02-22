@@ -17,17 +17,16 @@ using System.Windows.Shapes;
 namespace UI.Desktop
 {
     /// <summary>
-    /// Interaction logic for ListView.xaml
+    /// Interaction logic for GridView.xaml
     /// </summary>
-    public partial class ListView : UserControl
+    public partial class GridView : UserControl
     {
-        public ListView()
+        public GridView()
         {
             InitializeComponent();
-            this.DataContextChanged += ListView_DataContextChanged;
+            DataContextChanged += GridView_DataContextChanged;
         }
-
-        void ListView_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        void GridView_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (e.NewValue != e.OldValue)
             {
@@ -37,7 +36,7 @@ namespace UI.Desktop
                 {
                     foreach (Product product in pc.GetProducts())
                     {
-                        stackPanel.Children.Add(new ListViewItem(product));
+                        stackPanel.Children.Add(new GridViewItem(product));
                     }
                 }
             }

@@ -1,0 +1,18 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI.Desktop" x:Class="UI.Desktop.GridViewItem" 
+             mc:Ignorable="d" 
+             d:DesignHeight="150" d:DesignWidth="600">
+    <Grid Margin="0,0,146,0.4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="productName" Content="produkt" HorizontalAlignment="Left" Margin="44,26,0,0" VerticalAlignment="Top"/>
+        <local:ItemSelector HorizontalAlignment="Stretch" Margin="10,57,140,0" VerticalAlignment="Top"/>
+        <Button x:Name="addToShoppingCartButton" Content="Lägg till i kundvagn" HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top" Width="137" Height="19" Click="addToShoppingCartButton_Click"/>
+
+    </Grid>
+</UserControl>

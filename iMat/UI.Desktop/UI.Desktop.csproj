@@ -56,14 +56,23 @@
     <Compile Include="Content\Controls\CategoryControl.xaml.cs">
       <DependentUpon>CategoryControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Content\Controls\GridViewItem.xaml.cs">
+      <DependentUpon>GridViewItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Content\Controls\ListViewItem.xaml.cs">
       <DependentUpon>ListViewItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\GridView.xaml.cs">
+      <DependentUpon>GridView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Content\ListView.xaml.cs">
       <DependentUpon>ListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Content\ProductBrowser.xaml.cs">
       <DependentUpon>ProductBrowser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\TreeView.xaml.cs">
+      <DependentUpon>TreeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\AbstractSelector.cs" />
     <Compile Include="Controls\BulkSelector.xaml.cs">
@@ -79,9 +88,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Content\Controls\GridViewItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Content\Controls\ListViewItem.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Content\GridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Content\ListView.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -90,6 +107,10 @@
     <Page Include="Content\ProductBrowser.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Content\TreeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\BulkSelector.xaml">
       <Generator>MSBuild:Compile</Generator>
