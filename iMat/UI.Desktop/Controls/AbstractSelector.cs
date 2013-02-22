@@ -16,6 +16,11 @@ namespace UI.Desktop
         protected abstract Label PriceLabel { get; }
         protected abstract Label JmfLabel { get; }
         protected abstract Spinner AmountSpinner { get; }
+        public double NumberOfItems
+        {
+            get;
+            private set;
+        }
 
         public AbstractSelector(Product p) {
             product = p;
@@ -39,6 +44,7 @@ namespace UI.Desktop
 
         void amountSpinner_AmountChanged(Spinner spinner) {
             updatePrice(spinner.Value);
+            NumberOfItems = spinner.Value;
         }
     }
 }
