@@ -62,6 +62,9 @@
     <Compile Include="Content\Controls\ListViewItem.xaml.cs">
       <DependentUpon>ListViewItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Content\Controls\ShoppingCartItem.xaml.cs">
+      <DependentUpon>ShoppingCartItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Content\GridView.xaml.cs">
       <DependentUpon>GridView.xaml</DependentUpon>
     </Compile>
@@ -70,6 +73,9 @@
     </Compile>
     <Compile Include="Content\ProductBrowser.xaml.cs">
       <DependentUpon>ProductBrowser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\ShoppingCart.xaml.cs">
+      <DependentUpon>ShoppingCart.xaml</DependentUpon>
     </Compile>
     <Compile Include="Content\TreeView.xaml.cs">
       <DependentUpon>TreeView.xaml</DependentUpon>
@@ -96,6 +102,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Content\Controls\ShoppingCartItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Content\GridView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -105,6 +115,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Content\ProductBrowser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Content\ShoppingCart.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

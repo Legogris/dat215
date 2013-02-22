@@ -12,19 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using UI.Desktop.Content.Controls;
 
-namespace UI.Desktop.Content
+namespace UI.Desktop.Content.Controls
 {
     /// <summary>
-    /// Interaction logic for ShoppingCart.xaml
+    /// Interaction logic for ShoppingCartItem.xaml
     /// </summary>
-    public partial class ShoppingCart : UserControl
+    public partial class ShoppingCartItem : UserControl
     {
-        public ShoppingCart()
+        public ShoppingCartItem()
         {
             InitializeComponent();
-            stackPanel.Children.Add(new ShoppingCartItem());
         }
     }
 }
