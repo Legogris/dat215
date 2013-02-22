@@ -47,7 +47,12 @@ namespace UI.Desktop
 
         private void addToShoppingCartButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (ItemAdded != null)
+            {
+                ItemAdded.Invoke(this, new CartEventArgs(CartEventArgs.CartEventType.Add, new ShoppingItem(product, sel.NumberOfItems)));
+            }
         }
+
+        public event Data.ShoppingCartChangedHandler ItemAdded;
     }
 }

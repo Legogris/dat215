@@ -73,7 +73,7 @@ namespace UI.Desktop
 
             listView.ItemAdded += itemAdded;
             //TODO: Implement for grid view and tree view
-            //gridView.ItemAdded += itemAdded;
+            gridView.ItemAdded += itemAdded;
             //treeView.ItemAdded += itemAdded;
         }
         
