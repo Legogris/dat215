@@ -24,6 +24,8 @@ namespace UI.Desktop
         private double step = 1;
         private double value;
         private bool enabled = false;
+        public delegate void ValueChangedHandler(Spinner sender);
+        public event ValueChangedHandler ValueChanged;
 
         public double Value {
             get { return value; }
@@ -31,7 +33,7 @@ namespace UI.Desktop
         }
         public double Step {
             get { return step; }
-            set { step = value; }
+            set { step = value; this.value = value; UpdateTextField(); }
         }
         public bool Enabled {
             get { return enabled; }
@@ -41,6 +43,7 @@ namespace UI.Desktop
         public Spinner()
         {
             InitializeComponent();
+            
             toggleState();
         }
         
@@ -53,9 +56,9 @@ namespace UI.Desktop
         private void spinnerDecrease(object sender, RoutedEventArgs e)
         {
             value = value-step;
-            if (value < 0)
+            if (value < step)
             {
-                value = 0;
+                value = step;
             }
             UpdateTextField();
         }
@@ -65,6 +68,7 @@ namespace UI.Desktop
             SpinnerTextBox.IsEnabled = enabled;
             SpinnerIncrease.IsEnabled = enabled;
             SpinnerDecrease.IsEnabled = enabled;
+            checkDecreasePossible();
         }
 
         public void UpdateTextField()
@@ -85,9 +89,23 @@ namespace UI.Desktop
 
         private void textChanged(object sender, TextChangedEventArgs e)
         {
-            if (SpinnerTextBox.Text.Length != 0) {
+            if (SpinnerTextBox.Text.Length != 0)
+            {
                 value = Convert.ToDouble(SpinnerTextBox.Text);
             }
+            else {
+                value = step;
+            }
+            checkDecreasePossible();
+
+            if (ValueChanged != null)
+            {
+                ValueChanged.Invoke(this);
+            }
+        }
+
+        private void checkDecreasePossible() {
+            SpinnerDecrease.IsEnabled = (value != step) && enabled;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,16 +21,16 @@ namespace UI.Desktop
     /// </summary>
     public partial class BulkSelector : AbstractSelector
     {
-        protected override Label PriceLabel {
-            get { return priceLabel; }
-        }
+        protected override Label PriceLabel
+        { get { return priceLabel; } }
 
         protected override Label JmfLabel
-        {
-            get { return jmfLabel; }
-        }
+        { get { return jmfLabel; } }
 
-        public BulkSelector()
+        protected override Spinner AmountSpinner
+        { get { return amountSpinner; } }
+
+        public BulkSelector(Product p) : base(p)
         {
             InitializeComponent();
             bulkSpinner.Step = 0.2;

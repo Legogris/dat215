@@ -16,6 +16,6 @@
         <Label Content="Pris:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="31" Grid.Column="1"/>
         <Label x:Name="priceLabel" Content="pris" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Margin="79,0,0,0" Grid.Column="1"/>
         <Label x:Name="jmfLabel" Content="jmfpris" HorizontalAlignment="Left" Margin="79,31,0,0" VerticalAlignment="Top" Height="26" Grid.Column="1"/>
-        <Label Content="Antal" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top"/>
+        <Label Content="Antal" HorizontalAlignment="Left" Margin="13,0,0,0" VerticalAlignment="Top"/>
     </Grid>
 </local:AbstractSelector>

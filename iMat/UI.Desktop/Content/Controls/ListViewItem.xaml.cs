@@ -22,16 +22,27 @@ namespace UI.Desktop
     public partial class ListViewItem : UserControl
     {
         private Product product;
+        private AbstractSelector sel;
 
         public ListViewItem(Product p)
         {
             InitializeComponent();
             product = p;
-            initLabels();
+            initContent();
         }
 
-        private void initLabels() {
+        private void initContent() {
             productName.Content = product.Name;
+            if (product.UnitSuffix == "kg")
+            {
+                sel = new BulkSelector(product);
+            }
+            else {
+                sel = new ItemSelector(product);
+            }
+            sel.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
+            sel.VerticalAlignment = System.Windows.VerticalAlignment.Top;
+            selectorContainer.Children.Add(sel);
         }
 
         private void addToShoppingCartButton_Click(object sender, RoutedEventArgs e)
