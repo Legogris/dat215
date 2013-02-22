@@ -30,12 +30,27 @@ namespace UI.Desktop
         
         private void initDataBinding() {
             dataHandler = DataHandler.ReadFromFile("asdf", "Resources/products.txt");
-            leftMargin.RootCategory = dataHandler.GetRootCategory();
+            productBrowser.RootCategory = dataHandler.GetRootCategory();
         }
 
         private void menuItemQuitClick(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void gridViewButton_Click(object sender, RoutedEventArgs e)
+        {
+            productBrowser.ViewMode = ProductBrowser.ProductsViewMode.Grid;
+        }
+
+        private void listViewButton_Click(object sender, RoutedEventArgs e)
+        {
+            productBrowser.ViewMode = ProductBrowser.ProductsViewMode.List;
+        }
+
+        private void treeViewButton_Click(object sender, RoutedEventArgs e)
+        {
+            productBrowser.ViewMode = ProductBrowser.ProductsViewMode.Tree;
         }
     }
 }

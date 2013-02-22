@@ -24,7 +24,8 @@ namespace UI.Desktop
         public enum ProductsViewMode
         {
             List,
-            Grid
+            Grid,
+            Tree
         }
 
         private ProductCategory rootCategory;
