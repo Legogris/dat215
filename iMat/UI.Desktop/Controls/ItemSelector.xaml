@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:UI.Desktop"
              mc:Ignorable="d" 
-             d:DesignHeight="60" d:DesignWidth="300">
+             d:DesignHeight="60" d:DesignWidth="320">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="130"/>
@@ -14,8 +14,8 @@
         <local:Spinner x:Name="amountSpinner" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="53,0,0,0" Height="25" Enabled="True"/>
         <Label Content="Jämförpris:" HorizontalAlignment="Left" Margin="0,31,0,0" VerticalAlignment="Top" Height="26" Width="68" Grid.Column="1"/>
         <Label Content="Pris:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="31" Grid.Column="1"/>
-        <Label x:Name="priceLabel" Content="pris" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Margin="79,0,0,0" Grid.Column="1"/>
-        <Label x:Name="jmfLabel" Content="jmfpris" HorizontalAlignment="Left" Margin="79,31,0,0" VerticalAlignment="Top" Height="26" Grid.Column="1"/>
+        <Label x:Name="priceLabel" Content="1337,00 kr" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Margin="79,0,0,0" Width="90" Grid.Column="1"/>
+        <Label x:Name="jmfLabel" Content="1337,00 kr/st" HorizontalAlignment="Left" Margin="79,31,0,0" VerticalAlignment="Top" Height="26" Width="90" Grid.Column="1"/>
         <Label Content="Antal" HorizontalAlignment="Left" Margin="13,0,0,0" VerticalAlignment="Top"/>
     </Grid>
 </local:AbstractSelector>

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UI.Desktop"
              mc:Ignorable="d" 
-             d:DesignHeight="60" d:DesignWidth="270">
+             d:DesignHeight="60" d:DesignWidth="320">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="130"/>
@@ -15,8 +15,8 @@
         <local:Spinner x:Name="bulkSpinner" HorizontalAlignment="Stretch" Margin="53,31,0,0" VerticalAlignment="Top" Height="25"/>
         <Label Content="Jämförpris:" HorizontalAlignment="Left" Margin="0,31,0,0" VerticalAlignment="Top" Height="26" Width="68" Grid.Column="1"/>
         <Label Content="Pris:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="31" Grid.Column="1"/>
-        <Label x:Name="priceLabel" Content="pris" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Margin="79,0,0,0" Grid.Column="1"/>
-        <Label x:Name="jmfLabel" Content="jmfpris" HorizontalAlignment="Left" Margin="79,31,0,0" VerticalAlignment="Top" Height="26" Grid.Column="1"/>
+        <Label x:Name="priceLabel" Content="pris" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Margin="79,0,0,0" Width="90" Grid.Column="1"/>
+        <Label x:Name="jmfLabel" Content="jmfpris" HorizontalAlignment="Left" Margin="79,31,0,0" VerticalAlignment="Top" Height="26" Width="90" Grid.Column="1"/>
         <RadioButton x:Name="radioButtonAmount" Content="Antal" HorizontalAlignment="Left" Margin="2,5,0,0" VerticalAlignment="Top" IsChecked="True" Checked="checkedChangeAmount" Height="16" Width="44"/>
         <RadioButton x:Name="radioButtonBulk" Content="Vikt" HorizontalAlignment="Left" Margin="2,36,0,0" VerticalAlignment="Top" Checked="checkedChangeBulk" Height="16" Width="36"/>
     </Grid>
