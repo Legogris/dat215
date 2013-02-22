@@ -11,7 +11,7 @@
             <ColumnDefinition Width="130"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <local:Spinner x:Name="amountSpinner" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="53,0,0,0" Height="25"/>
+        <local:Spinner x:Name="amountSpinner" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="53,0,0,0" Height="25" Enabled="True"/>
         <Label Content="Jämförpris:" HorizontalAlignment="Left" Margin="0,31,0,0" VerticalAlignment="Top" Height="26" Width="68" Grid.Column="1"/>
         <Label Content="Pris:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="31" Grid.Column="1"/>
         <Label x:Name="priceLabel" Content="pris" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Margin="79,0,0,0" Grid.Column="1"/>
