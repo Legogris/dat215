@@ -23,6 +23,18 @@ namespace UI.Desktop
     {
         private ProductCategory productCategory;
         private bool expanded = false;
+        public delegate void ProductCategoryChangedHandler(UserControl sender, ProductCategoryChangedEventArgs e);
+        public event ProductCategoryChangedHandler ProductCategorySelectionChanged;
+
+        public class ProductCategoryChangedEventArgs
+        {
+            public ProductCategory Category { get; private set; }
+            public ProductCategoryChangedEventArgs(ProductCategory pc)
+            {
+                Category = pc;
+            }
+        }
+
         public CategoryControl(ProductCategory pc)
         {
             InitializeComponent();
@@ -39,6 +51,7 @@ namespace UI.Desktop
             else {
                 Expand();
             }
+            ProductCategorySelectionChanged.Invoke(this, new ProductCategoryChangedEventArgs(productCategory));
         }
 
         public void Expand()
@@ -48,7 +61,13 @@ namespace UI.Desktop
             {
                 CategoryControl c = new CategoryControl(pc);
                 stackPanel.Children.Add(c);
+                c.ProductCategorySelectionChanged += childProductCategorySelectionChanged;
             }
+        }
+
+        void childProductCategorySelectionChanged(UserControl sender, CategoryControl.ProductCategoryChangedEventArgs e)
+        {
+            ProductCategorySelectionChanged.Invoke(sender, e);
         }
 
         public void Retract() {

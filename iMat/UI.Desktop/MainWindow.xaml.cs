@@ -31,13 +31,11 @@ namespace UI.Desktop
         private void initDataBinding() {
             dataHandler = DataHandler.ReadFromFile("asdf", "Resources/products.txt");
             leftMargin.RootCategory = dataHandler.GetRootCategory();
-            listView.DataContext = dataHandler.GetRootCategory();
         }
 
         private void menuItemQuitClick(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-
     }
 }

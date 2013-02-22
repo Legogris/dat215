@@ -21,7 +21,16 @@ namespace UI.Desktop
     /// </summary>
     public partial class CategoryLeftMargin : UserControl
     {
+        public enum ProductsViewMode
+        {
+            List,
+            Grid
+        }
+
         private ProductCategory rootCategory;
+        private ProductsViewMode viewMode;
+        private ListView listView;
+        private GridView gridView;
 
         public ProductCategory RootCategory
         {
@@ -29,9 +38,30 @@ namespace UI.Desktop
             set { rootCategory = value;
                 categorySourceUpdated(); }
         }
+
+        public ProductsViewMode ViewMode
+        {
+            get { return viewMode; }
+            set {
+                switch (value)
+                {
+                    case ProductsViewMode.Grid:
+                        throw new NotImplementedException();
+                    case ProductsViewMode.List:
+                        itemFrame.Content = listView;
+                        break;
+                    default:
+                        throw new NotImplementedException();
+                }
+                viewMode = value;
+            }
+        }
+
         public CategoryLeftMargin()
         {
             InitializeComponent();
+            listView = new ListView();
+            ViewMode = ProductsViewMode.List;
         }
         
         private void categorySourceUpdated()
@@ -43,6 +73,14 @@ namespace UI.Desktop
             Thickness margin = root.stackPanel.Margin;
             margin.Left = 0;
             root.stackPanel.Margin = margin;
+            listView.DataContext = rootCategory;
+
+            root.ProductCategorySelectionChanged += root_ProductCategorySelectionChanged;
+        }
+
+        void root_ProductCategorySelectionChanged(UserControl sender, CategoryControl.ProductCategoryChangedEventArgs e)
+        {
+            listView.DataContext = e.Category;
         }
     }
 }
