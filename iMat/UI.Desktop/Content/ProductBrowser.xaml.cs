@@ -90,6 +90,7 @@ namespace UI.Desktop
 
         void root_ProductCategorySelectionChanged(UserControl sender, CategoryControl.ProductCategoryChangedEventArgs e)
         {
+            listView.DataContext = gridView.DataContext = e.Category;
         }
     }
 }

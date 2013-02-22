@@ -13,13 +13,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Data;
 
 namespace UI.Desktop
 {
     /// <summary>
     /// Interaction logic for ListViewItem.xaml
     /// </summary>
-    public partial class ListViewItem : UserControl
+    public partial class ListViewItem : UserControl 
     {
         private Product product;
         private AbstractSelector sel;
