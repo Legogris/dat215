@@ -7,27 +7,9 @@ using System.Threading.Tasks;
 namespace Data
 {
     [Serializable()]
-    public class ShoppingCart
+    public class ShoppingCart : IShoppingCartNotifier
     {
-        public class CartEventArgs {
-            public enum CartEventType
-            {
-                Add,
-                Remove,
-                Change,
-                Clear
-            }
-            public CartEventType EventType { get; private set; }
-            public ShoppingItem ShoppingItem { get; private set; }
-
-            public CartEventArgs(CartEventType eventType, ShoppingItem shoppingItem)
-            {
-                EventType = eventType;
-                ShoppingItem = shoppingItem;
-            }
-        }
-
-        public delegate void ShoppingCartChangedHandler(ShoppingCart sender, CartEventArgs e);
+        public event ShoppingCartChangedHandler Changed;
 
         private IList<ShoppingItem> items;
 
@@ -52,7 +34,10 @@ namespace Data
         public void Add(ShoppingItem item)
         {
             items.Add(item);
-            Changed(this, new CartEventArgs(CartEventArgs.CartEventType.Add, item));
+            if (Changed != null)
+            {
+                Changed(this, new CartEventArgs(CartEventArgs.CartEventType.Add, item));
+            }
         }
 
         public void Add(Product product)
@@ -68,13 +53,19 @@ namespace Data
         public void Clear()
         {
             items.Clear();
-            Changed(this, new CartEventArgs(CartEventArgs.CartEventType.Clear, null));
+            if (Changed != null)
+            {
+                Changed(this, new CartEventArgs(CartEventArgs.CartEventType.Clear, null));
+            }
         }
 
         public bool Remove(ShoppingItem item)
         {
             bool retVal = items.Remove(item);
-            Changed(this, new CartEventArgs(CartEventArgs.CartEventType.Remove, item));
+            if (Changed != null)
+            {
+                Changed(this, new CartEventArgs(CartEventArgs.CartEventType.Remove, item));
+            }
             return retVal;
         }
 
@@ -83,8 +74,6 @@ namespace Data
             ShoppingItem item = items[index];
             Remove(item);
         }
-
-        public event ShoppingCartChangedHandler Changed;
 
     }
 }

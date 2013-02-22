@@ -37,10 +37,22 @@ namespace UI.Desktop
                 {
                     foreach (Product product in pc.GetProducts())
                     {
-                        stackPanel.Children.Add(new ListViewItem(product));
+                        ListViewItem li = new ListViewItem(product);
+                        stackPanel.Children.Add(li);
+                        li.ItemAdded += li_ItemAdded;
                     }
                 }
             }
         }
+
+        void li_ItemAdded(object sender, CartEventArgs e)
+        {
+            if (ItemAdded != null)
+            {
+                ItemAdded.Invoke(sender, e);
+            }
+        }
+
+        public event ShoppingCartChangedHandler ItemAdded;
     }
 }

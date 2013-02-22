@@ -70,6 +70,11 @@ namespace UI.Desktop
             gridView = new GridView();
             treeView = new TreeView();
             ViewMode = ProductsViewMode.List;
+
+            listView.ItemAdded += itemAdded;
+            //TODO: Implement for grid view and tree view
+            //gridView.ItemAdded += itemAdded;
+            //treeView.ItemAdded += itemAdded;
         }
         
         private void categorySourceUpdated()
@@ -92,5 +97,15 @@ namespace UI.Desktop
         {
             listView.DataContext = gridView.DataContext = e.Category;
         }
+
+        void itemAdded(object sender, CartEventArgs e)
+        {
+            if (ItemAdded != null)
+            {
+                ItemAdded.Invoke(sender, e);
+            }
+        }
+
+        public event ShoppingCartChangedHandler ItemAdded;
     }
 }

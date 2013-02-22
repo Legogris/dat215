@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CreditCard.cs" />
+    <Compile Include="IShoppingCart.cs" />
     <Compile Include="ShippingAddress.cs" />
     <Compile Include="FavoriteList.cs" />
     <Compile Include="Order.cs" />

@@ -31,6 +31,12 @@ namespace UI.Desktop
         private void initDataBinding() {
             dataHandler = DataHandler.ReadFromFile("asdf", "Resources/products.txt");
             productBrowser.RootCategory = dataHandler.GetRootCategory();
+            productBrowser.ItemAdded += productBrowser_ItemAdded;
+        }
+
+        void productBrowser_ItemAdded(object sender, Data.CartEventArgs e)
+        {
+            dataHandler.GetCart().Add(e.ShoppingItem);
         }
 
         private void menuItemQuitClick(object sender, RoutedEventArgs e)

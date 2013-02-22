@@ -20,7 +20,7 @@ namespace UI.Desktop
     /// <summary>
     /// Interaction logic for ListViewItem.xaml
     /// </summary>
-    public partial class ListViewItem : UserControl 
+    public partial class ListViewItem : UserControl
     {
         private Product product;
         private AbstractSelector sel;
@@ -48,7 +48,12 @@ namespace UI.Desktop
 
         private void addToShoppingCartButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (ItemAdded != null)
+            {
+                ItemAdded.Invoke(this, new Data.CartEventArgs(Data.CartEventArgs.CartEventType.Add, new Data.ShoppingItem(product, sel.NumberOfItems)));
+            }
         }
+
+        public event Data.ShoppingCartChangedHandler ItemAdded;
     }
 }

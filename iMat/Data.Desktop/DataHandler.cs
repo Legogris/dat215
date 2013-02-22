@@ -192,5 +192,10 @@ namespace Data.Desktop
         {
             return rootCategory;
         }
+
+        public ShoppingCart GetCart()
+        {
+            return cart;
+        }
     }
 }
