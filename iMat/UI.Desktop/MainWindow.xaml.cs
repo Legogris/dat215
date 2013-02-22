@@ -37,5 +37,11 @@ namespace UI.Desktop
         {
             this.Close();
         }
+
+        private void ToCheckout_Click(object sender, RoutedEventArgs e)
+        {
+            Checkout.CheckoutWindow temp = new Checkout.CheckoutWindow();
+            temp.Show();
+        }
     }
 }

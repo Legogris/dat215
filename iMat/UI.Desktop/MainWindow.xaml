@@ -18,6 +18,7 @@
                 <MenuItem Header="Besök iMats hemsida"/>
                 <MenuItem Header="Användarguide"/>
             </MenuItem>
+            <Button x:Name="ToCheckout" Content="Till Kassan" Height="22" VerticalAlignment="Top" Width="66" Click="ToCheckout_Click"/>
         </Menu>
         <Grid Margin="0,20,0,0" HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
