@@ -15,6 +15,17 @@ namespace Data
         public IList<ProductCategory> SubCategories { get; private set; }
         private IList<Product> products;
 
+        public IList<object> Children
+        {
+            get
+            {
+                List<object> children = new List<object>();
+                children.AddRange(SubCategories);
+                children.AddRange(products);
+                return children;
+            }
+        }
+
         public ProductCategory(string id, string name, ProductCategory parent)
         {
             this.ID = id;

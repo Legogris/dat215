@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,13 @@ namespace UI.Desktop
         public TreeView()
         {
             InitializeComponent();
+            DataContextChanged += TreeView_DataContextChanged;
+        }
+
+        void TreeView_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            ProductCategory pc = e.NewValue as ProductCategory;
+            treeView.ItemsSource = pc.SubCategories;
         }
 
         public event Data.ShoppingCartChangedHandler ItemAdded;
