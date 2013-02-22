@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,16 +22,15 @@ namespace UI.Desktop
     public partial class ItemSelector : AbstractSelector
     {
         protected override Label PriceLabel
-        {
-            get { return priceLabel; }
-        }
+        { get { return priceLabel; } }
 
         protected override Label JmfLabel
-        {
-            get { return jmfLabel; }
-        }
+        { get { return jmfLabel; } }
 
-        public ItemSelector()
+        protected override Spinner AmountSpinner
+        { get { return amountSpinner; } }
+
+        public ItemSelector(Product p) : base(p)
         {
             InitializeComponent();
             base.init();

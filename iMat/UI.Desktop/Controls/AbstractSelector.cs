@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,33 +11,34 @@ namespace UI.Desktop
     public abstract class AbstractSelector : UserControl
     {
         public static readonly string CURRENCY = " kr";
+        protected Product product;
 
-        protected abstract Label PriceLabel
-        {
-            get;
-        }
+        protected abstract Label PriceLabel { get; }
+        protected abstract Label JmfLabel { get; }
+        protected abstract Spinner AmountSpinner { get; }
 
-        protected abstract Label JmfLabel
-        {
-            get;
-        }
-
-        public AbstractSelector() {
-            
+        public AbstractSelector(Product p) {
+            product = p;
         }
 
         protected void init() {
-            updatePrice();
+            updatePrice(1);
             updateJmf();
+            AmountSpinner.Step = 1;
+            AmountSpinner.ValueChanged += amountSpinner_AmountChanged;
         }
 
-        protected void updatePrice()
+        protected void updatePrice(double multiplier)
         {
-            PriceLabel.Content = "100,00 kr";
+            PriceLabel.Content = (multiplier*product.Price) + CURRENCY;
         }
 
         private void updateJmf() {
-            JmfLabel.Content = "1000,00 kr/frp";
+            JmfLabel.Content = product.Price + " " + product.Unit;
+        }
+
+        void amountSpinner_AmountChanged(Spinner spinner) {
+            updatePrice(spinner.Value);
         }
     }
 }
