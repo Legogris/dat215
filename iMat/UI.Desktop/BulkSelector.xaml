@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="UI.Desktop.BulkSelector"
+﻿<local:AbstractSelector x:Class="UI.Desktop.BulkSelector"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -15,9 +15,9 @@
         <local:Spinner x:Name="bulkSpinner" HorizontalAlignment="Stretch" Margin="53,31,0,0" VerticalAlignment="Top" Height="25"/>
         <Label Content="Jämförpris:" HorizontalAlignment="Left" Margin="0,31,0,0" VerticalAlignment="Top" Height="26" Width="68" Grid.Column="1"/>
         <Label Content="Pris:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="31" Grid.Column="1"/>
-        <Label Content="pris" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="29" Margin="79,0,0,0" Grid.Column="1"/>
-        <Label Content="jmfpris" HorizontalAlignment="Left" Margin="79,31,0,0" VerticalAlignment="Top" Height="26" Width="46" Grid.Column="1"/>
+        <Label x:Name="priceLabel" Content="pris" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Margin="79,0,0,0" Grid.Column="1"/>
+        <Label x:Name="jmfLabel" Content="jmfpris" HorizontalAlignment="Left" Margin="79,31,0,0" VerticalAlignment="Top" Height="26" Grid.Column="1"/>
         <RadioButton x:Name="radioButtonAmount" Content="Antal" HorizontalAlignment="Left" Margin="2,5,0,0" VerticalAlignment="Top" IsChecked="True" Checked="checkedChangeAmount" Height="16" Width="44"/>
         <RadioButton x:Name="radioButtonBulk" Content="Vikt" HorizontalAlignment="Left" Margin="2,36,0,0" VerticalAlignment="Top" Checked="checkedChangeBulk" Height="16" Width="36"/>
     </Grid>
-</UserControl>
+</local:AbstractSelector>

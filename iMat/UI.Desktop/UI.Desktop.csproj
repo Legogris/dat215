@@ -53,6 +53,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AbstractSelector.cs" />
     <Compile Include="BulkSelector.xaml.cs">
       <DependentUpon>BulkSelector.xaml</DependentUpon>
     </Compile>
