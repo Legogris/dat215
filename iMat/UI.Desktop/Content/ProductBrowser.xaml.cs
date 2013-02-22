@@ -49,12 +49,15 @@ namespace UI.Desktop
                 {
                     case ProductsViewMode.Grid:
                         itemFrame.Content = gridView;
+                        showCategories();
                         break;
                     case ProductsViewMode.List:
                         itemFrame.Content = listView;
+                        showCategories();
                         break;
                     case ProductsViewMode.Tree:
                         itemFrame.Content = treeView;
+                        hideCategories();
                         break;
                     default:
                         throw new NotImplementedException();
@@ -75,6 +78,16 @@ namespace UI.Desktop
             //TODO: Implement for grid view and tree view
             gridView.ItemAdded += itemAdded;
             treeView.ItemAdded += itemAdded;
+        }
+
+        private void showCategories()
+        {
+            categoryListScrollView.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        private void hideCategories()
+        {
+            categoryListScrollView.Visibility = System.Windows.Visibility.Collapsed;
         }
         
         private void categorySourceUpdated()

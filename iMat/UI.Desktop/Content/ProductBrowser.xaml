@@ -6,9 +6,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <ScrollViewer HorizontalAlignment="Left" Margin="10,10,0,10" VerticalAlignment="Stretch" Width="150">
-            <StackPanel x:Name="container" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-        </ScrollViewer>
-        <Frame x:Name="itemFrame" Content="Frame" Margin="165,0,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" NavigationUIVisibility="Hidden"/>
+        <DockPanel x:Name="dockPanel">
+            <ScrollViewer x:Name="categoryListScrollView" HorizontalAlignment="Left" Margin="10,10,0,10" VerticalAlignment="Stretch" Width="150" DockPanel.Dock="Left">
+                <StackPanel x:Name="container" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            </ScrollViewer>
+            <Frame x:Name="itemFrame" Content="Frame" DockPanel.Dock="Right" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" NavigationUIVisibility="Hidden"/>
+        </DockPanel>
     </Grid>
 </UserControl>

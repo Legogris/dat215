@@ -24,5 +24,7 @@ namespace UI.Desktop
         {
             InitializeComponent();
         }
+
+        public event Data.ShoppingCartChangedHandler ItemAdded;
     }
 }
