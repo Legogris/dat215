@@ -9,6 +9,6 @@
         <ScrollViewer HorizontalAlignment="Left" Margin="10,10,0,10" VerticalAlignment="Stretch" Width="150">
             <StackPanel x:Name="container" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         </ScrollViewer>
-        <Frame x:Name="itemFrame" Content="Frame" Margin="165,0,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+        <Frame x:Name="itemFrame" Content="Frame" Margin="165,0,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" NavigationUIVisibility="Hidden"/>
     </Grid>
 </UserControl>
