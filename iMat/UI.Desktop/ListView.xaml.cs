@@ -31,6 +31,7 @@ namespace UI.Desktop
         {
             if (e.NewValue != e.OldValue)
             {
+                stackPanel.Children.Clear();
                 ProductCategory pc = e.NewValue as ProductCategory;
                 if (pc != null)
                 {
