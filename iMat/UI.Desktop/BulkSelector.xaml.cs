@@ -18,12 +18,22 @@ namespace UI.Desktop
     /// <summary>
     /// Interaction logic for BulkSelector.xaml
     /// </summary>
-    public partial class BulkSelector : UserControl
+    public partial class BulkSelector : AbstractSelector
     {
+        protected override Label PriceLabel {
+            get { return priceLabel; }
+        }
+
+        protected override Label JmfLabel
+        {
+            get { return jmfLabel; }
+        }
+
         public BulkSelector()
         {
             InitializeComponent();
             bulkSpinner.Step = 0.2;
+            base.init();
         }
 
         private void checkedChangeAmount(object sender, RoutedEventArgs e)
