@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,12 +20,17 @@ namespace UI.Desktop.Content
     /// <summary>
     /// Interaction logic for ShoppingCart.xaml
     /// </summary>
-    public partial class ShoppingCart : UserControl
+    public partial class ShoppingCartView : UserControl
     {
-        public ShoppingCart()
+        public ShoppingCartView()
         {
             InitializeComponent();
-            stackPanel.Children.Add(new ShoppingCartItem());
+                        
+        }
+
+        public void ShoppingCartChanged(Data.CartEventArgs e) {
+            stackPanel.Children.Add(new ShoppingCartItem(e.ShoppingItem));
+            
         }
     }
 }

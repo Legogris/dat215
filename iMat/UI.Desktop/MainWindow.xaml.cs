@@ -32,6 +32,12 @@ namespace UI.Desktop
             dataHandler = DataHandler.ReadFromFile("asdf", "Resources/products.txt");
             productBrowser.RootCategory = dataHandler.GetRootCategory();
             productBrowser.ItemAdded += productBrowser_ItemAdded;
+            dataHandler.GetCart().Changed += shoppingCart_ItemAdded;
+        }
+
+        void shoppingCart_ItemAdded(object sender, Data.CartEventArgs e)
+        {
+            shoppingCart.ShoppingCartChanged(e);
         }
 
         void productBrowser_ItemAdded(object sender, Data.CartEventArgs e)

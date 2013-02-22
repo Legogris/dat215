@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,16 @@ namespace UI.Desktop.Content.Controls
     /// </summary>
     public partial class ShoppingCartItem : UserControl
     {
-        public ShoppingCartItem()
+        private ShoppingItem shoppingItem;
+
+        public ShoppingCartItem(ShoppingItem shoppingItem)
         {
             InitializeComponent();
+            this.shoppingItem = shoppingItem;
+            nameLabel.Content = shoppingItem.Product.Name;
+            amountTextBox.Text = shoppingItem.Amount + "";
+            unitSuffixLabel.Content = shoppingItem.Product.UnitSuffix;
+            costLabel.Content = shoppingItem.Total + AbstractSelector.CURRENCY;
         }
     }
 }

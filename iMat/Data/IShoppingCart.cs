@@ -21,12 +21,18 @@ namespace Data
             Clear
         }
         public CartEventType EventType { get; private set; }
+        public ShoppingCart ShoppingCart { get; private set; }
         public ShoppingItem ShoppingItem { get; private set; }
-        
+                
         public CartEventArgs(CartEventType eventType, ShoppingItem shoppingItem)
         {
             EventType = eventType;
             ShoppingItem = shoppingItem;
+        }
+
+        public CartEventArgs(CartEventType eventType, ShoppingItem shoppingItem, ShoppingCart shoppingCart) : this(eventType, shoppingItem)
+        {
+            ShoppingCart = shoppingCart;
         }
     }
 }

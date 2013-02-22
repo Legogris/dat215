@@ -7,16 +7,16 @@
              d:DesignHeight="40" d:DesignWidth="250">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="58"/>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="78"/>
+            <ColumnDefinition Width="80"/>
             <ColumnDefinition Width="60"/>
             <ColumnDefinition Width="22"/>
         </Grid.ColumnDefinitions>
-        <Button Content="x" HorizontalAlignment="Left" Margin="0,5,5,0" VerticalAlignment="Top" Width="16" Grid.Column="3" Height="20"/>
-        <Label Content="Kanelbulleasdfas" Grid.Column="1" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,5,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="30"/>
-        <Label Content="st" HorizontalAlignment="Left" Margin="40,5,0,0" VerticalAlignment="Top"/>
-        <Label Content="100,00 kr" Grid.Column="2" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="removeButton" Content="x" HorizontalAlignment="Left" Margin="0,5,5,0" VerticalAlignment="Top" Width="16" Grid.Column="3" Height="20"/>
+        <Label x:Name="nameLabel" Content="Kanelbulle" Grid.Column="1" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="amountTextBox" HorizontalAlignment="Left" Height="23" Margin="10,5,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="30"/>
+        <Label x:Name="unitSuffixLabel" Content="st" HorizontalAlignment="Left" Margin="40,5,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="costLabel" Content="100,00 kr" Grid.Column="2" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </UserControl>
