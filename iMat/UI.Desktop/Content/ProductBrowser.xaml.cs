@@ -17,9 +17,9 @@ using Data;
 namespace UI.Desktop
 {
     /// <summary>
-    /// Interaction logic for UserControl1.xaml
+    /// Interaction logic for ProductBrowser.xaml
     /// </summary>
-    public partial class CategoryLeftMargin : UserControl
+    public partial class ProductBrowser : UserControl
     {
         public enum ProductsViewMode
         {
@@ -57,7 +57,7 @@ namespace UI.Desktop
             }
         }
 
-        public CategoryLeftMargin()
+        public ProductBrowser()
         {
             InitializeComponent();
             listView = new ListView();
