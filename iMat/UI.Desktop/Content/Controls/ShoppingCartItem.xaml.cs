@@ -21,16 +21,23 @@ namespace UI.Desktop.Content.Controls
     /// </summary>
     public partial class ShoppingCartItem : UserControl
     {
-        private ShoppingItem shoppingItem;
+        public ShoppingItem ShoppingItem
+        {
+            get; set;
+        }
 
         public ShoppingCartItem(ShoppingItem shoppingItem)
         {
             InitializeComponent();
-            this.shoppingItem = shoppingItem;
+            ShoppingItem = shoppingItem;
             nameLabel.Content = shoppingItem.Product.Name;
-            amountTextBox.Text = shoppingItem.Amount + "";
             unitSuffixLabel.Content = shoppingItem.Product.UnitSuffix;
-            costLabel.Content = shoppingItem.Total + AbstractSelector.CURRENCY;
+            updateAmount();
+        }
+
+        public void updateAmount() {
+            amountTextBox.Text = ShoppingItem.Amount + "";
+            costLabel.Content = ShoppingItem.Total + AbstractSelector.CURRENCY;
         }
     }
 }

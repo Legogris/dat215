@@ -9,7 +9,7 @@ namespace Data
     [Serializable()]
     public class ShoppingItem
     {
-        public double Amount { get; private set; }
+        public double Amount { get; set; }
         public Product Product { get; private set; }
         public double Total { get { return Product.Price * Amount; } }
 

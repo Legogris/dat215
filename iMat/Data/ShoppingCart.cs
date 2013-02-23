@@ -33,6 +33,13 @@ namespace Data
 
         public void Add(ShoppingItem item)
         {
+            foreach (ShoppingItem si in items)
+            {
+                if (si.Product == item.Product) {
+                    ChangePlaceHolder(si, item.Amount);
+                    return;
+                }
+            }
             items.Add(item);
             if (Changed != null)
             {
@@ -57,6 +64,12 @@ namespace Data
             {
                 Changed(this, new CartEventArgs(CartEventArgs.CartEventType.Clear, null));
             }
+        }
+
+        public void ChangePlaceHolder(ShoppingItem shoppingItem, double amount)
+        {
+            shoppingItem.Amount += amount;
+            Changed(this, new CartEventArgs(CartEventArgs.CartEventType.Change, shoppingItem));
         }
 
         public bool Remove(ShoppingItem item)

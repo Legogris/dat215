@@ -22,6 +22,7 @@ namespace UI.Desktop.Content
     /// </summary>
     public partial class ShoppingCartView : UserControl
     {
+
         public ShoppingCart ShoppingCart
         {
             get;
@@ -30,33 +31,43 @@ namespace UI.Desktop.Content
 
         public ShoppingCartView()
         {
-            InitializeComponent();
-                        
+            InitializeComponent();                        
         }
 
         public void ShoppingCartChanged(Data.CartEventArgs e) {
             if (e.EventType == CartEventArgs.CartEventType.Add)
             {
-                stackPanel.Children.Add(new ShoppingCartItem(e.ShoppingItem));
-                updateTotalLabels();
+                ShoppingCartItem si = new ShoppingCartItem(e.ShoppingItem);
+                stackPanel.Children.Add(si);
             }
             else if (e.EventType == CartEventArgs.CartEventType.Change)
             {
-
+                foreach (ShoppingCartItem sci in stackPanel.Children)
+                {
+                    if (sci.ShoppingItem == e.ShoppingItem) {
+                        sci.updateAmount();
+                    }
+                }
             }
             else if (e.EventType == CartEventArgs.CartEventType.Clear)
             {
-
+                stackPanel.Children.Clear();
             }
             else if (e.EventType == CartEventArgs.CartEventType.Remove)
             {
-
+                
             }
+            updateTotalLabels();
         }
 
         private void updateTotalLabels() {
             grandTotalLabel.Content = ShoppingCart.Total + " kr";
             itemsTotalLabel.Content = ShoppingCart.GetItems().Count + " st";
+        }
+
+        private void clearShoppingCartButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShoppingCart.Clear();
         }
     }
 }
