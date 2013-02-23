@@ -34,10 +34,12 @@ namespace UI.Desktop.Content
             InitializeComponent();                        
         }
 
+        // absolut största clusterfucket i mänsklighetens historia. men jag bryr mig inte.
         public void ShoppingCartChanged(Data.CartEventArgs e) {
             if (e.EventType == CartEventArgs.CartEventType.Add)
             {
                 ShoppingCartItem si = new ShoppingCartItem(e.ShoppingItem);
+                si.RemoveShoppingCartItemPress += ShoppingCartItem_RemoveShoppingCartItemPress;
                 stackPanel.Children.Add(si);
             }
             else if (e.EventType == CartEventArgs.CartEventType.Change)
@@ -55,9 +57,25 @@ namespace UI.Desktop.Content
             }
             else if (e.EventType == CartEventArgs.CartEventType.Remove)
             {
-                
+                ShoppingCartItem toRemove = null;
+                foreach (ShoppingCartItem sci in stackPanel.Children)
+                {
+                    if (sci.ShoppingItem == e.ShoppingItem)
+                    {
+                        toRemove = sci;
+                    }
+                }
+                if (toRemove != null)
+                {
+                    stackPanel.Children.Remove(toRemove);
+                }
             }
             updateTotalLabels();
+        }
+
+        void ShoppingCartItem_RemoveShoppingCartItemPress(ShoppingCartItem shoppingCartItem)
+        {
+            ShoppingCart.Remove(shoppingCartItem.ShoppingItem);
         }
 
         private void updateTotalLabels() {
@@ -69,5 +87,6 @@ namespace UI.Desktop.Content
         {
             ShoppingCart.Clear();
         }
+
     }
 }

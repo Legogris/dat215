@@ -21,6 +21,9 @@ namespace UI.Desktop.Content.Controls
     /// </summary>
     public partial class ShoppingCartItem : UserControl
     {
+        public delegate void RemoveShoppingCartItem(ShoppingCartItem shoppingCartItem);
+        public event RemoveShoppingCartItem RemoveShoppingCartItemPress;
+
         public ShoppingItem ShoppingItem
         {
             get; set;
@@ -38,6 +41,21 @@ namespace UI.Desktop.Content.Controls
         public void updateAmount() {
             amountTextBox.Text = ShoppingItem.Amount + "";
             costLabel.Content = ShoppingItem.Total + AbstractSelector.CURRENCY;
+        }
+
+        private void mouseEnter(object sender, MouseEventArgs e)
+        {
+            removeButton.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        private void mouseLeave(object sender, MouseEventArgs e)
+        {
+            removeButton.Visibility = System.Windows.Visibility.Collapsed;
+        }
+
+        private void removeButton_Click(object sender, RoutedEventArgs e)
+        {
+            RemoveShoppingCartItemPress.Invoke(this);
         }
     }
 }
