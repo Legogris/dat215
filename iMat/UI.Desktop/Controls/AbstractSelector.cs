@@ -19,7 +19,7 @@ namespace UI.Desktop
         public double NumberOfItems
         {
             get;
-            private set;
+            protected set;
         }
 
         public AbstractSelector(Product p) {
@@ -30,7 +30,7 @@ namespace UI.Desktop
             updatePrice(1);
             updateJmf();
             AmountSpinner.Step = 1;
-            AmountSpinner.ValueChanged += amountSpinner_AmountChanged;
+            AmountSpinner.ValueChanged += spinner_AmountChanged;
         }
 
         protected void updatePrice(double multiplier)
@@ -42,7 +42,7 @@ namespace UI.Desktop
             JmfLabel.Content = product.Price + " " + product.Unit;
         }
 
-        void amountSpinner_AmountChanged(Spinner spinner) {
+        protected void spinner_AmountChanged(Spinner spinner) {
             updatePrice(spinner.Value);
             NumberOfItems = spinner.Value;
         }

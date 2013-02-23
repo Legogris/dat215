@@ -29,12 +29,13 @@ namespace UI.Desktop
 
         protected override Spinner AmountSpinner
         { get { return amountSpinner; } }
-
+        
         public BulkSelector(Product p) : base(p)
         {
             InitializeComponent();
             bulkSpinner.Step = 0.2;
             base.init();
+            bulkSpinner.ValueChanged += spinner_AmountChanged;
         }
 
         private void checkedChangeAmount(object sender, RoutedEventArgs e)
@@ -51,6 +52,13 @@ namespace UI.Desktop
         {
             amountSpinner.Enabled = useAmount;
             bulkSpinner.Enabled = !useAmount;
+            if (useAmount)
+            {
+                spinner_AmountChanged(amountSpinner);
+            }
+            else {
+                spinner_AmountChanged(bulkSpinner);
+            }
         }
     }
 }
