@@ -54,7 +54,7 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <local:ProductBrowser x:Name="productBrowser" HorizontalAlignment="Left" VerticalAlignment="Stretch" Grid.ColumnSpan="2"/>
-            <Content:ShoppingCartView x:Name="shoppingCart" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+            <Content:ShoppingCartView x:Name="shoppingCart" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Loaded="shoppingCart_Loaded"/>
         </Grid>
     </Grid>
 </Window>

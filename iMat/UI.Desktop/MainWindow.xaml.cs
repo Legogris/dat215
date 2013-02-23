@@ -65,5 +65,10 @@ namespace UI.Desktop
         {
             productBrowser.ViewMode = ProductBrowser.ProductsViewMode.Tree;
         }
+
+        private void shoppingCart_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
