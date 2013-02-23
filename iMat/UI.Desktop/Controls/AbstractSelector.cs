@@ -30,6 +30,7 @@ namespace UI.Desktop
             updatePrice(1);
             updateJmf();
             AmountSpinner.Step = 1;
+            NumberOfItems = AmountSpinner.Step;
             AmountSpinner.ValueChanged += spinner_AmountChanged;
         }
 
