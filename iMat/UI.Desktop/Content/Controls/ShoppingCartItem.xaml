@@ -17,7 +17,7 @@
             <Button x:Name="removeButton" Content="x" HorizontalAlignment="Left" VerticalAlignment="Top" Width="16" Height="20" Visibility="Hidden" Click="removeButton_Click"/>
         </Grid>
         <Label x:Name="nameLabel" Content="Kanelbulle" Grid.Column="1" HorizontalAlignment="Stretch" Margin="0,5,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="amountTextBox" HorizontalAlignment="Left" Height="23" Margin="10,5,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="30"/>
+        <TextBox x:Name="amountTextBox" HorizontalAlignment="Left" Height="23" Margin="10,5,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="30" KeyDown="amountTextBox_KeyDown"/>
         <Label x:Name="unitSuffixLabel" Content="st" HorizontalAlignment="Stretch" Margin="40,5,0,0" VerticalAlignment="Top"/>
         <Label x:Name="costLabel" Content="100,00 kr" Grid.Column="2" HorizontalAlignment="Stretch" Margin="0,5,0,0" VerticalAlignment="Top"/>
 
