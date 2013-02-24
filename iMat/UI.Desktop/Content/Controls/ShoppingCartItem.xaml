@@ -4,22 +4,31 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="40" d:DesignWidth="250" MouseEnter="mouseEnter" MouseLeave="mouseLeave">
-    <Grid>
+             d:DesignHeight="40" d:DesignWidth="230" MouseEnter="mouseEnter" MouseLeave="mouseLeave">
+    <Grid Width="230">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="78"/>
+            <ColumnDefinition Width="70"/>
             <ColumnDefinition Width="80"/>
             <ColumnDefinition Width="60"/>
-            <ColumnDefinition Width="22"/>
+            <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="3" Margin="0,5,0,0">
             <Label HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-            <Button x:Name="removeButton" Content="x" HorizontalAlignment="Left" VerticalAlignment="Top" Width="16" Height="20" Visibility="Hidden" Click="removeButton_Click"/>
+            <Button x:Name="removeButton" Content="x" HorizontalAlignment="Left" VerticalAlignment="Top" Width="16" Height="20" Visibility="Hidden" Click="removeButton_Click" BorderBrush="Transparent">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#00000000" Offset="0"/>
+                        <GradientStop Color="#00000000" Offset="0.5"/>
+                        <GradientStop Color="#00000000" Offset="0.5"/>
+                        <GradientStop Color="#00000000" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
         </Grid>
-        <Label x:Name="nameLabel" Content="Kanelbulle" Grid.Column="1" HorizontalAlignment="Stretch" Margin="0,5,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="amountTextBox" HorizontalAlignment="Left" Height="23" Margin="10,5,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="30" KeyDown="amountTextBox_KeyDown"/>
-        <Label x:Name="unitSuffixLabel" Content="st" HorizontalAlignment="Stretch" Margin="40,5,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="costLabel" Content="100,00 kr" Grid.Column="2" HorizontalAlignment="Stretch" Margin="0,5,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="nameLabel" Content="Kanelbulle" Grid.Column="1" HorizontalAlignment="Stretch" Margin="0,5,0,0" VerticalAlignment="Top" Height="26"/>
+        <TextBox x:Name="amountTextBox" HorizontalAlignment="Left" Height="23" Margin="5,5,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="30" KeyDown="amountTextBox_KeyDown"/>
+        <Label x:Name="unitSuffixLabel" Content="asdf" HorizontalAlignment="Stretch" Margin="35,5,0,0" VerticalAlignment="Top" Height="26"/>
+        <Label x:Name="costLabel" Content="100,00 kr" Grid.Column="2" HorizontalAlignment="Stretch" Margin="0,5,0,0" VerticalAlignment="Top" Height="26"/>
 
     </Grid>
 </UserControl>
