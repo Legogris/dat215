@@ -3,15 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI.Desktop.Content.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="700"
+             x:Name="uc">
     <Grid>
-        <TreeView x:Name="treeView"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding}">
+        <TreeView x:Name="treeView"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding}" Background="Red" HorizontalContentAlignment="Stretch" Width="{Binding Width, ElementName=uc, Mode=Default}">
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate ItemsSource="{Binding Children}">
-                    <Grid Width="100" Height="20">
-                        <TextBlock Text="{Binding Path=Name}"></TextBlock>
-                    </Grid>
+                    <local:TreeViewItem HorizontalAlignment="Stretch" Background="AntiqueWhite" HorizontalContentAlignment="Stretch" Width="{Binding Width, ElementName=treeView, Mode=Default}" />
                 </HierarchicalDataTemplate>
             </TreeView.ItemTemplate>
         </TreeView>

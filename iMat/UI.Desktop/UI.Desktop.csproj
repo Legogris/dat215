@@ -53,6 +53,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Content\Controls\AbstractTreeViewItem.cs" />
     <Compile Include="Content\Controls\CategoryControl.xaml.cs">
       <DependentUpon>CategoryControl.xaml</DependentUpon>
     </Compile>
@@ -64,6 +65,15 @@
     </Compile>
     <Compile Include="Content\Controls\ShoppingCartItem.xaml.cs">
       <DependentUpon>ShoppingCartItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Controls\TreeViewCategoryItem.xaml.cs">
+      <DependentUpon>TreeViewCategoryItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Controls\TreeViewItem.xaml.cs">
+      <DependentUpon>TreeViewItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Controls\TreeViewProductItem.xaml.cs">
+      <DependentUpon>TreeViewProductItem.xaml</DependentUpon>
     </Compile>
     <Compile Include="Content\GridView.xaml.cs">
       <DependentUpon>GridView.xaml</DependentUpon>
@@ -103,6 +113,18 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Content\Controls\ShoppingCartItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Content\Controls\TreeViewCategoryItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Content\Controls\TreeViewItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Content\Controls\TreeViewProductItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
