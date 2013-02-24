@@ -30,18 +30,38 @@
             <ToolBarTray HorizontalAlignment="Left" DockPanel.Dock="Left">
                 <ToolBar >
                     <TextBox x:Name="searchField" Width="100"/>
-                    <Button x:Name="searchButton" Content="Sök"/>
+                    <Button x:Name="searchButton" Content="" ToolTip="Sök" Width="22">
+                        <Button.Background>
+                            <ImageBrush ImageSource="C:\Users\Madäng\dat215\iMat\UI.Desktop\Resources\Icons\search_button_lightBlue.png"/>
+                        </Button.Background>
+                    </Button>
                 </ToolBar>
                 <ToolBar >
                     <ComboBox x:Name="sortCB" Text="Sortera"/>
-                    <Button x:Name="filterButton" Content="Filter"/>
+                    <Button x:Name="filterButton" Content="" ToolTip="Filter" Width="25">
+                        <Button.Background>
+                            <ImageBrush ImageSource="C:\Users\Madäng\dat215\iMat\UI.Desktop\Resources\Icons\filter.png" Stretch="Uniform"/>
+                        </Button.Background>
+                    </Button>
                 </ToolBar>
             </ToolBarTray>
             <ToolBarTray HorizontalAlignment="Right" DockPanel.Dock="Right">
                 <ToolBar HorizontalAlignment="Right">
-                    <Button x:Name="listViewButton" Content="List view" Margin="0,0,0,0.4" VerticalAlignment="Stretch" Click="listViewButton_Click"/>
-                    <Button x:Name="gridViewButton" Content="Grid view" Click="gridViewButton_Click"/>
-                    <Button x:Name="treeViewButton" Content="Tree view" Click="treeViewButton_Click"/>
+                    <Button x:Name="listViewButton" Content="" VerticalAlignment="Stretch" Click="listViewButton_Click" ToolTip="List view" Width="25">
+                        <Button.Background>
+                            <ImageBrush Stretch="UniformToFill" ImageSource="C:\Users\Madäng\dat215\iMat\UI.Desktop\Resources\Icons\list_order.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="gridViewButton" Content="" Click="gridViewButton_Click" Cursor="Grid view" Width="25">
+                        <Button.Background>
+                            <ImageBrush ImageSource="C:\Users\Madäng\dat215\iMat\UI.Desktop\Resources\Icons\thumbnail_order.png" Stretch="Uniform"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="treeViewButton" Content="" Click="treeViewButton_Click" ToolTip="Tree view" Width="25" Margin="0,0,0,-5">
+                        <Button.Background>
+                            <ImageBrush ImageSource="C:\Users\Madäng\dat215\iMat\UI.Desktop\Resources\Icons\treeView_order.png"/>
+                        </Button.Background>
+                    </Button>
                 </ToolBar>
                 <ToolBar HorizontalAlignment="Right">
                     <ComboBox x:Name="listCB" Text="Listor"/>
@@ -49,6 +69,9 @@
             </ToolBarTray>
         </DockPanel>
         <Grid Margin="0,0,0,0" Grid.Row="2">
+            <Grid.Background>
+                <ImageBrush/>
+            </Grid.Background>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="Auto"/>
