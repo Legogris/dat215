@@ -1,0 +1,9 @@
+﻿<Window x:Class="UI.Desktop.Preferences"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Preferences" Height="480" Width="640"
+        ResizeMode="NoResize">
+    <Grid x:Name="content">
+        
+    </Grid>
+</Window>

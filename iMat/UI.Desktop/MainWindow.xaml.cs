@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UI.Desktop.Controls;
 
 namespace UI.Desktop
 {
@@ -57,7 +58,16 @@ namespace UI.Desktop
 
         void addNewShoppingList_Click(object sender, RoutedEventArgs e)
         {
-            dataHandler.GetFavorites().Add(new FavoriteList("asdf" + dataHandler.GetFavorites().Count));
+            TextBoxPopup tbp = new TextBoxPopup();
+            tbp.Owner = this;
+            
+            // Open the dialog box modally 
+            tbp.ShowDialog();
+            if (tbp.DialogResult == true)
+            {
+                string s = tbp.TextBoxText;
+                dataHandler.GetFavorites().Add(new FavoriteList(s));
+            }
         }
 
         private void initDataBinding() {
@@ -106,6 +116,16 @@ namespace UI.Desktop
         private void Window_Closing_1(object sender, System.ComponentModel.CancelEventArgs e)
         {
             dataHandler.WriteToFile(DATABASE);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Preferences pref = new Preferences();
+            
+            
+            
+            
+            pref.Show();
         }
     }
 }

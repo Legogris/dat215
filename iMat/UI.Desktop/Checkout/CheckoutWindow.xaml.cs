@@ -22,6 +22,7 @@ namespace UI.Desktop.Checkout
     {
         private CheckoutStep1 step1;
         private CheckoutStep2 step2;
+        private CheckoutStep3 step3;
         private ShoppingCart shoppingCart;
 
 
@@ -34,7 +35,21 @@ namespace UI.Desktop.Checkout
             step2 = new CheckoutStep2();
             step2.NextStep2 += step2_NextStep2;
             step2.BackStep2 += step2_BackStep2;
+            step3 = new CheckoutStep3();
+            step3.ExitCheckout += step3_ExitCheckout;
+            step3.BackStep3 += step3_BackStep3;
             PageGrid.Children.Add(step1);
+        }
+
+        void step3_BackStep3(object sender, EventArgs e)
+        {
+            PageGrid.Children.Clear();
+            PageGrid.Children.Add(step2);
+        }
+
+        void step3_ExitCheckout(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         void step2_BackStep2(object sender, EventArgs e)
@@ -47,8 +62,8 @@ namespace UI.Desktop.Checkout
 
         void step2_NextStep2(object sender, EventArgs e)
         {
-            //PageGrid.Children.Clear();
-            //PageGrid.Children.Add
+            PageGrid.Children.Clear();
+            PageGrid.Children.Add(step3);
         }
 
         void step1_NextStep(object sender, EventArgs e)
