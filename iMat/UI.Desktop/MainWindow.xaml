@@ -33,7 +33,7 @@
                     <TextBox x:Name="searchField" Width="100"/>
                     <Button x:Name="searchButton" Content="" ToolTip="Sök" Width="22">
                         <Button.Background>
-                            <ImageBrush ImageSource="..\Resources\Icons\search_button_lightBlue.png" />
+                            <ImageBrush ImageSource="Resources\Icons\search_256.png" />
                         </Button.Background>
                     </Button>
                 </ToolBar>
@@ -41,7 +41,7 @@
                     <ComboBox x:Name="sortCB" Text="Sortera"/>
                     <Button x:Name="filterButton" Content="" ToolTip="Filter" Width="25">
                         <Button.Background>
-                            <ImageBrush ImageSource="..\Resources\Icons\filter.png" Stretch="Uniform"/>
+                            <ImageBrush ImageSource="Resources\Icons\filter.png" Stretch="Uniform"/>
                         </Button.Background>
                     </Button>
                 </ToolBar>
@@ -60,12 +60,12 @@
                     </Button>
                     <Button x:Name="treeViewButton" Content="" Click="treeViewButton_Click" ToolTip="Tree view" Width="25" Margin="0,0,0,-5" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" HorizontalAlignment="Center" VerticalAlignment="Top">
                         <Button.Background>
-                            <ImageBrush ImageSource="..\Resources\Icons\treeView_order.png"/>
+                            <ImageBrush ImageSource="Resources\Icons\treeView_order.png"/>
                         </Button.Background>
                     </Button>
                 </ToolBar>
                 <ToolBar HorizontalAlignment="Right">
-                    <Button Content="" Height="22" VerticalAlignment="Top" Width="28" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" ToolTip="Listor">
+                    <Button Content="" Height="22" VerticalAlignment="Top" Width="28" BorderBrush="{x:Null}" ToolTip="Listor">
                         <Button.Background>
                             <ImageBrush ImageSource="Resources\Icons\listbutton.png" Stretch="Uniform"/>
                         </Button.Background>
