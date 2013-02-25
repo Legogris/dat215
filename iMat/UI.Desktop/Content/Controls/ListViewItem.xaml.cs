@@ -1,5 +1,4 @@
-﻿using Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,57 +13,32 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Data;
+using Data.Desktop;
 
 namespace UI.Desktop
 {
     /// <summary>
     /// Interaction logic for ListViewItem.xaml
     /// </summary>
-    public partial class ListViewItem : UserControl
+    public partial class ListViewItem : ProductView
     {
-        private Product product;
-        private AbstractSelector sel;
-
-        public Product Product { get { return product; } }
-
-        public ListViewItem(Product p)
+        public ListViewItem(Product p) : base(p)
         {
             InitializeComponent();
-            product = p;
             initContent();
+        }        override protected double NumberOfItems
+        {
+            get
+            {
+                return 0;
+            }
         }
 
         private void initContent() {
-            productName.Content = product.Name;
-            if (product.UnitSuffix == "kg")
-            {
-                sel = new BulkSelector(product);
-            }
-            else {
-                sel = new ItemSelector(product);
-            }
-            sel.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
-            sel.VerticalAlignment = System.Windows.VerticalAlignment.Top;
-
-            try
-            {
-                BitmapImage bmp = new BitmapImage();
-                bmp.BeginInit();
-                bmp.UriSource = new Uri("pack://application:,,,/UI.Desktop;component/Resources/ProductImages/" + product.ImageName);
-                bmp.EndInit();
-                productImage.Source = bmp;
-            }
-            catch { }
+            productName.Content = Product.Name;
+            productPriceLabel.Content = string.Format("{0:0.00} kr", Product.Price);
+            productJmfLabel.Content = string.Format("{0:0.00} {1}", Product.Price, Product.Unit);
+            productImage.Source = ImageManager.GetImageForProduct(Product);
         }
-
-        private void addToShoppingCartButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (ItemAdded != null)
-            {
-                ItemAdded.Invoke(this, new Data.CartEventArgs(Data.CartEventArgs.CartEventType.Add, new Data.ShoppingItem(product, sel.NumberOfItems)));
-            }
-        }
-
-        public event Data.ShoppingCartChangedHandler ItemAdded;
     }
 }

@@ -14,48 +14,44 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Data;
+using Data.Desktop;
 
 namespace UI.Desktop
 {
     /// <summary>
     /// Interaction logic for ListViewItem.xaml
     /// </summary>
-    public partial class DetailedItem : UserControl
+    public partial class DetailedItem : ProductView
     {
-        private Product product;
         private AbstractSelector sel;
+        
+        override protected double NumberOfItems
+        {
+            get
+            {
+                return sel.NumberOfItems;
+            }
+        }
 
-        public Product Product { get { return product; } }
-
-        public DetailedItem(Product p)
+        public DetailedItem(Product p) :  base(p)
         {
             InitializeComponent();
-            product = p;
             initContent();
         }
 
         private void initContent() {
-            productName.Content = product.Name;
-            if (product.UnitSuffix == "kg")
+            productName.Content = Product.Name;
+            if (Product.UnitSuffix == "kg")
             {
-                sel = new BulkSelector(product);
+                sel = new BulkSelector(Product);
             }
             else {
-                sel = new ItemSelector(product);
+                sel = new ItemSelector(Product);
             }
             sel.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
             sel.VerticalAlignment = System.Windows.VerticalAlignment.Top;
             selectorContainer.Children.Add(sel);
+            productImage.Source = ImageManager.GetImageForProduct(Product);
         }
-
-        private void addToShoppingCartButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (ItemAdded != null)
-            {
-                ItemAdded.Invoke(this, new Data.CartEventArgs(Data.CartEventArgs.CartEventType.Add, new Data.ShoppingItem(product, sel.NumberOfItems)));
-            }
-        }
-
-        public event Data.ShoppingCartChangedHandler ItemAdded;
     }
 }

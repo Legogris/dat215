@@ -50,7 +50,8 @@
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
-    <ApplicationIcon>imatIcon.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -97,6 +98,7 @@
     <Compile Include="Content\Controls\ListViewItem.xaml.cs">
       <DependentUpon>ListViewItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Content\Controls\ProductView.cs" />
     <Compile Include="Content\Controls\ShoppingCartItem.xaml.cs">
       <DependentUpon>ShoppingCartItem.xaml</DependentUpon>
     </Compile>
