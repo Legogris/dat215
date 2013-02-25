@@ -19,9 +19,22 @@ namespace UI.Desktop.Checkout
     /// </summary>
     public partial class CheckoutWindow : Window
     {
+        private CheckoutStep1 step1;
+        private CheckoutStep2 step2;
+
+        public enum CheckoutStepEnum
+        {
+            Step1,
+            Step2,
+            Step3
+        }
+
         public CheckoutWindow()
         {
             InitializeComponent();
+            step1 = new CheckoutStep1();
+            step2 = new CheckoutStep2();
         }
+
     }
 }

@@ -83,5 +83,11 @@ namespace UI.Desktop
         {
             dataHandler.WriteToFile(DATABASE);
         }
+
+        private void menuItemCheckout_Click_1(object sender, RoutedEventArgs e)
+        {
+            Checkout.CheckoutWindow temp = new Checkout.CheckoutWindow();
+            temp.Show();
+        }
     }
 }

@@ -32,7 +32,10 @@ namespace UI.Desktop.Checkout
 
         private void PickupInStore_Checked(object sender, RoutedEventArgs e)
         {
-            StoreComboBox.IsEnabled = true;
+            if (StoreComboBox != null)
+            {
+                StoreComboBox.IsEnabled = true;
+            }
         }
     }
 }

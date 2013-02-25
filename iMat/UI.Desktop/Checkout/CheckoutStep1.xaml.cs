@@ -24,5 +24,10 @@ namespace UI.Desktop.Checkout
         {
             InitializeComponent();
         }
+
+        private void NextStep1Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
