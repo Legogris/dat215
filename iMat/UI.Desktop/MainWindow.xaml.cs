@@ -24,7 +24,12 @@ namespace UI.Desktop
         private DataHandler dataHandler;
         public MainWindow()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception ex) {
+            }
             initDataBinding();
         }
         

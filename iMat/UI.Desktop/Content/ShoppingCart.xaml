@@ -27,11 +27,7 @@
         <Label x:Name="itemsTotalLabel" Content="0 st" HorizontalAlignment="Left" Margin="189,0,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="29" Grid.RowSpan="2"/>
         <Button Content="" HorizontalAlignment="Left" Margin="0,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="245" Height="50" BorderBrush="{x:Null}" ToolTip="Till Kassan" Foreground="{x:Null}">
             <Button.Background>
-
-                <ImageBrush ImageSource="C:\Users\Madäng\dat215\iMat\UI.Desktop\Resources\Icons\checkoutButton.png"/>
-
-
-
+                <ImageBrush ImageSource="..\Resources\Icons\checkoutButton.png"/>
             </Button.Background>
         </Button>
 
@@ -44,7 +40,7 @@
         </Button>
         <Button x:Name="clearShoppingCartButton" Content="" HorizontalAlignment="Left" Margin="195,65,0,0" Grid.Row="2" VerticalAlignment="Top" Width="50" Height="50" Click="clearShoppingCartButton_Click" ToolTip="Rensa kundvagn">
             <Button.Background>
-                <ImageBrush ImageSource="C:\Users\Madäng\dat215\iMat\UI.Desktop\Resources\Icons\trash.png"/>
+                <ImageBrush ImageSource="..\Resources\Icons\trash.png"/>
             </Button.Background>
         </Button>
         <Label Content="obs! verkligen inte slutgiltig design" HorizontalAlignment="Left" Margin="10,191,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="209"/>

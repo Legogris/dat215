@@ -256,6 +256,8 @@
     <Resource Include="Resources\Icons\tree_order.png" />
     <Resource Include="Resources\Icons\user.png" />
     <Resource Include="Resources\Icons\checkoutButton.png" />
+    <Resource Include="Resources\Icons\search_button_lightBlue.png" />
+    <Resource Include="Resources\Icons\treeView_order.png" />
     <Content Include="Resources\products.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
