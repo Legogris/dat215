@@ -51,22 +51,28 @@ namespace UI.Desktop
                 shoppingListContextMenu.Items.Add(item);
             }
             MenuItem addNew = new MenuItem();
-            addNew.Header = "ny för fan";
+            addNew.Header = "Lägg till ny grej";
             shoppingListContextMenu.Items.Add(addNew);
             addNew.Click += addNewShoppingList_Click;
+        }
+
+        private void addNewItemToContextMenu(FavoriteList list)
+        {
+            shoppingListContextMenu.Items.Insert(shoppingListContextMenu.Items.Count-1, list.Name);
         }
 
         void addNewShoppingList_Click(object sender, RoutedEventArgs e)
         {
             TextBoxPopup tbp = new TextBoxPopup();
             tbp.Owner = this;
-            
-            // Open the dialog box modally 
             tbp.ShowDialog();
             if (tbp.DialogResult == true)
             {
                 string s = tbp.TextBoxText;
-                dataHandler.GetFavorites().Add(new FavoriteList(s));
+                FavoriteList list = new FavoriteList(s);
+                dataHandler.GetFavorites().Add(list);
+                addNewItemToContextMenu(list);
+                // TODO: lägg till sakerna i kundvagnen till den nya listan
             }
         }
 
