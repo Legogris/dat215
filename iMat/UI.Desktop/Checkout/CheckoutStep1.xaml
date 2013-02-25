@@ -13,9 +13,9 @@
         <TextBox x:Name="PasswordTextBox" HorizontalAlignment="Left" Height="30" Margin="100,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240"/>
         <Label x:Name="RepeatPasswordLabel" Content="Rep. Lösen:" HorizontalAlignment="Left" Height="30" Margin="10,115,0,0" VerticalAlignment="Top" Width="85"/>
         <TextBox x:Name="RepeatPasswordTextBox" HorizontalAlignment="Left" Height="30" Margin="100,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240"/>
-        <Label x:Name="LogInLabel" Content="Logga in med ett iMat-konto --&gt;" HorizontalAlignment="Left" Height="30" Margin="10,250,0,0" VerticalAlignment="Top" Width="280"/>
-        <Label x:Name="CheckoutWithoutRegisterLabel" Content="Jag vill handla utan att registrera mig --&gt;" HorizontalAlignment="Left" Height="30" Margin="10,280,0,0" VerticalAlignment="Top" Width="280"/>
-        <Button x:Name="NextStep1Button" Content="Vidare --&gt;" HorizontalAlignment="Left" Height="25" Margin="255,315,0,0" VerticalAlignment="Top" Width="85"/>
+        <Label x:Name="LogInLabel" Content="Logga in med ett iMat-konto --&gt;" HorizontalAlignment="Left" Height="30" Margin="10,295,0,0" VerticalAlignment="Top" Width="280"/>
+        <Label x:Name="CheckoutWithoutRegisterLabel" Content="Jag vill handla utan att registrera mig --&gt;" HorizontalAlignment="Left" Height="30" Margin="10,330,0,0" VerticalAlignment="Top" Width="280"/>
+        <Button x:Name="NextStep1Button" Content="Vidare --&gt;" HorizontalAlignment="Left" Height="25" Margin="255,365,0,0" VerticalAlignment="Top" Width="85" Click="NextStep1Button_Click"/>
 
     </Grid>
 </UserControl>
