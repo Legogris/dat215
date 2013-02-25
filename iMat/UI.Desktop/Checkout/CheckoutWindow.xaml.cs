@@ -41,6 +41,8 @@ namespace UI.Desktop.Checkout
         {
             PageGrid.Children.Clear();
             PageGrid.Children.Add(step1);
+            Step1Indicator.BorderBrush = Brushes.Black;
+            Step2Indicator.BorderBrush = Brushes.Transparent;
         }
 
         void step2_NextStep2(object sender, EventArgs e)
@@ -53,6 +55,8 @@ namespace UI.Desktop.Checkout
         {
             PageGrid.Children.Clear();
             PageGrid.Children.Add(step2);
+            Step1Indicator.BorderBrush = Brushes.Transparent;
+            Step2Indicator.BorderBrush = Brushes.Black;
         }
 
     }
