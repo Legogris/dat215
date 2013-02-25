@@ -78,6 +78,9 @@
     <Compile Include="Checkout\CheckoutStep2.xaml.cs">
       <DependentUpon>CheckoutStep2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Checkout\CheckoutStep3.xaml.cs">
+      <DependentUpon>CheckoutStep3.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Checkout\CheckoutWindow.xaml.cs">
       <DependentUpon>CheckoutWindow.xaml</DependentUpon>
     </Compile>
@@ -136,6 +139,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Checkout\CheckoutStep2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Checkout\CheckoutStep3.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -305,9 +312,7 @@
     <Resource Include="Resources\Icons\checkoutButton.png" />
     <Resource Include="Resources\Icons\search_button_lightBlue.png" />
     <Resource Include="Resources\Icons\treeView_order.png" />
-
     <Resource Include="imatIcon.ico" />
-
     <Resource Include="Resources\ProductImages\product_1.jpg" />
     <Resource Include="Resources\ProductImages\product_10.jpg" />
     <Resource Include="Resources\ProductImages\product_100.jpg" />
