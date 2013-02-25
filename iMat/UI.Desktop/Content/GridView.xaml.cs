@@ -43,8 +43,8 @@ namespace UI.Desktop
                         } else {
                             li = new GridViewItem(product);
                             gridItems[product] = li;
+                            li.ItemAdded += li_ItemAdded;
                         }
-                        li.ItemAdded += li_ItemAdded;
                         stackPanel.Children.Add(li);
                     }
                 }

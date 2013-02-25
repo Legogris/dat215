@@ -48,9 +48,9 @@ namespace UI.Desktop
                             } else {
                                 li = new ListViewItem(product);
                                 listItems[product] = li;
+                                li.ItemAdded += li_ItemAdded;
                             }
                             stackPanel.Children.Add(li);
-                            li.ItemAdded += li_ItemAdded;
                         }
                         catch {}
                     }
