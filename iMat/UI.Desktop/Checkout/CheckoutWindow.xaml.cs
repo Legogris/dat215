@@ -29,7 +29,21 @@ namespace UI.Desktop.Checkout
             step1 = new CheckoutStep1();
             step1.NextStep += step1_NextStep;
             step2 = new CheckoutStep2();
+            step2.NextStep2 += step2_NextStep2;
+            step2.BackStep2 += step2_BackStep2;
             PageGrid.Children.Add(step1);
+        }
+
+        void step2_BackStep2(object sender, EventArgs e)
+        {
+            PageGrid.Children.Clear();
+            PageGrid.Children.Add(step1);
+        }
+
+        void step2_NextStep2(object sender, EventArgs e)
+        {
+            //PageGrid.Children.Clear();
+            //PageGrid.Children.Add
         }
 
         void step1_NextStep(object sender, EventArgs e)
