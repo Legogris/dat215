@@ -65,9 +65,9 @@
                     </Button>
                 </ToolBar>
                 <ToolBar HorizontalAlignment="Right">
-                    <Button Content="" Height="22" VerticalAlignment="Top" Width="28" BorderBrush="{x:Null}" ToolTip="Listor" Click="Button_Click_1">
+                    <Button Content="" Height="26" VerticalAlignment="Top" Width="28" BorderBrush="{x:Null}" ToolTip="Listor" Click="Button_Click_1">
                         <Button.Background>
-                            <ImageBrush ImageSource="Resources\Icons\listbutton.png" Stretch="Uniform"/>
+                            <ImageBrush ImageSource="Resources\Icons\copyList_2.png" Stretch="Uniform"/>
                         </Button.Background>
                     </Button>
                     <ComboBox Height="22" Margin="0" VerticalAlignment="Top" Width="14"/>
