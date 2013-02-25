@@ -158,6 +158,9 @@ namespace Data.Desktop
                 BinaryFormatter formatter = new BinaryFormatter();
                 formatter.Serialize(stream, this);
             }
+            catch {
+                
+            }
             finally
             {
                 stream.Close();

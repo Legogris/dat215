@@ -27,6 +27,7 @@
         <Label x:Name="itemsTotalLabel" Content="0 st" HorizontalAlignment="Left" Margin="189,0,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="29" Grid.RowSpan="2"/>
         <Button HorizontalAlignment="Left" Margin="0,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="245" Height="50" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" ToolTip="Till Kassan" Foreground="{x:Null}">
             <Button.Background>
+
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#FFD8D8D8"/>
                     <GradientStop Color="#FFC3F390" Offset="0.695"/>
@@ -34,6 +35,7 @@
                     <GradientStop Color="#FF9FF04E" Offset="1"/>
                     <GradientStop Color="#FFCAEEA5" Offset="0.467"/>
                 </LinearGradientBrush>
+
             </Button.Background>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <TextBlock Margin="10, 0, 0, 0" Foreground="Black" Width="93" Height="24" OpacityMask="Black" Text="Till Kassan" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Vrinda" FontSize="18" FontWeight="Bold"/>
