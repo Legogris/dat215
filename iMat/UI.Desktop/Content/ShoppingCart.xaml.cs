@@ -40,6 +40,7 @@ namespace UI.Desktop.Content
             {
                 ShoppingCartItem si = new ShoppingCartItem(e.ShoppingItem);
                 si.RemoveShoppingCartItemPress += ShoppingCartItem_RemoveShoppingCartItemPress;
+                si.ItemAmountChangedFromTextBox += ShoppingCartItem_ItemAmountChangedFromTextBox;
                 stackPanel.Children.Add(si);
             }
             else if (e.EventType == CartEventArgs.CartEventType.Change)
@@ -71,6 +72,11 @@ namespace UI.Desktop.Content
                 }
             }
             updateTotalLabels();
+        }
+
+        void ShoppingCartItem_ItemAmountChangedFromTextBox(ShoppingCartItem shoppingCartItem, double d)
+        {
+            ShoppingCart.Change(shoppingCartItem.ShoppingItem, d);
         }
 
         void ShoppingCartItem_RemoveShoppingCartItemPress(ShoppingCartItem shoppingCartItem)

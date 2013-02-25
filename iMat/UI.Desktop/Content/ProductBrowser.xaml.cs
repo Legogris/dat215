@@ -72,6 +72,8 @@ namespace UI.Desktop
             listView = new ListView();
             gridView = new GridView();
             treeView = new TreeView();
+            treeView.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
+            treeView.Width = 500;
             ViewMode = ProductsViewMode.List;
 
             listView.ItemAdded += itemAdded;

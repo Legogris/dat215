@@ -81,8 +81,8 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <local:ProductBrowser x:Name="productBrowser" HorizontalAlignment="Left" VerticalAlignment="Stretch" Grid.ColumnSpan="2"/>
-            <Content:ShoppingCartView x:Name="shoppingCart" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Loaded="shoppingCart_Loaded"/>
+            <local:ProductBrowser x:Name="productBrowser" HorizontalAlignment="Left" VerticalAlignment="Stretch"/>
+            <Content:ShoppingCartView x:Name="shoppingCart" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Stretch" Loaded="shoppingCart_Loaded"/>
         </Grid>
     </Grid>
 </Window>

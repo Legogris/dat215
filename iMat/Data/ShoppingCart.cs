@@ -66,6 +66,12 @@ namespace Data
             }
         }
 
+        public void Change(ShoppingItem shoppingItem, double amount)
+        {
+            shoppingItem.Amount = amount;
+            Changed(this, new CartEventArgs(CartEventArgs.CartEventType.Change, shoppingItem));
+        }
+
         public void ChangePlaceHolder(ShoppingItem shoppingItem, double amount)
         {
             shoppingItem.Amount += amount;

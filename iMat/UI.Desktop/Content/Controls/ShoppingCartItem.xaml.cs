@@ -23,6 +23,8 @@ namespace UI.Desktop.Content.Controls
     {
         public delegate void RemoveShoppingCartItem(ShoppingCartItem shoppingCartItem);
         public event RemoveShoppingCartItem RemoveShoppingCartItemPress;
+        public delegate void ItemAmountChanged(ShoppingCartItem shoppingCartItem, double amount);
+        public event ItemAmountChanged ItemAmountChangedFromTextBox;
 
         public ShoppingItem ShoppingItem
         {
@@ -56,6 +58,14 @@ namespace UI.Desktop.Content.Controls
         private void removeButton_Click(object sender, RoutedEventArgs e)
         {
             RemoveShoppingCartItemPress.Invoke(this);
+        }
+
+        private void amountTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                ItemAmountChangedFromTextBox.Invoke(this, Convert.ToDouble(amountTextBox.Text));
+            }
         }
     }
 }

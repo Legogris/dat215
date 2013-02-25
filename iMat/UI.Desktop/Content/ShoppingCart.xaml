@@ -12,9 +12,12 @@
             <RowDefinition Height="24"/>
             <RowDefinition Height="130"/>
         </Grid.RowDefinitions>
-        <StackPanel x:Name="stackPanel" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="217"/>
+        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <StackPanel x:Name="stackPanel" Width="230" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        </ScrollViewer>
         <Label Content="Totalt:" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Margin="10,0,0,0" Height="26" Width="43" Grid.RowSpan="2"/>
         <Label Content="Antal varor:" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Margin="120,0,0,0" Height="26" Width="71" Grid.RowSpan="2"/>
+
         <Label x:Name="grandTotalLabel" Content="0,00 kr" HorizontalAlignment="Left" Margin="50,0,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="45" Grid.RowSpan="2"/>
         <Label x:Name="itemsTotalLabel" Content="0 st" HorizontalAlignment="Left" Margin="189,0,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="29" Grid.RowSpan="2"/>
         <Button Content="" HorizontalAlignment="Left" Margin="0,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="245" Height="50" BorderBrush="{x:Null}" ToolTip="Till Kassan" Foreground="{x:Null}">
