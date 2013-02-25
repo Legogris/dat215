@@ -107,5 +107,15 @@ namespace UI.Desktop
         {
             dataHandler.WriteToFile(DATABASE);
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Preferences pref = new Preferences();
+            
+            
+            
+            
+            pref.Show();
+        }
     }
 }

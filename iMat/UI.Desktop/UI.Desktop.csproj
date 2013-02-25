@@ -109,6 +109,12 @@
     <Compile Include="Content\GridView.xaml.cs">
       <DependentUpon>GridView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Preferences.xaml.cs">
+      <DependentUpon>Preferences.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Preferences\ListControl.xaml.cs">
+      <DependentUpon>ListControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Content\ListView.xaml.cs">
       <DependentUpon>ListView.xaml</DependentUpon>
     </Compile>
@@ -176,6 +182,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Content\GridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Preferences.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Preferences\ListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -298,9 +312,7 @@
     <Resource Include="Resources\Icons\checkoutButton.png" />
     <Resource Include="Resources\Icons\search_button_lightBlue.png" />
     <Resource Include="Resources\Icons\treeView_order.png" />
-
     <Resource Include="imatIcon.ico" />
-
     <Resource Include="Resources\ProductImages\product_1.jpg" />
     <Resource Include="Resources\ProductImages\product_10.jpg" />
     <Resource Include="Resources\ProductImages\product_100.jpg" />
