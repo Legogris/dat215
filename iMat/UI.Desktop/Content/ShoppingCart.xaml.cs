@@ -31,7 +31,9 @@ namespace UI.Desktop.Content
 
         public ShoppingCartView()
         {
-            InitializeComponent();                        
+            InitializeComponent();
+            var pMenu = (ContextMenu)this.Resources["TestContextMenu"];
+            addShoppingCartToListButton.ContextMenu = pMenu;         
         }
 
         // absolut största clusterfucket i mänsklighetens historia. men jag bryr mig inte.
@@ -94,5 +96,10 @@ namespace UI.Desktop.Content
             ShoppingCart.Clear();
         }
 
+        private void addShoppingCartToListButton_Click(object sender, RoutedEventArgs e)
+        {
+            addShoppingCartToListButton.ContextMenu.IsOpen = true;
+            e.Handled = true;
+        }
     }
 }
