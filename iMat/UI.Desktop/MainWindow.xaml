@@ -47,24 +47,29 @@
             </ToolBarTray>
             <ToolBarTray HorizontalAlignment="Right" DockPanel.Dock="Right">
                 <ToolBar HorizontalAlignment="Right">
-                    <Button x:Name="listViewButton" Content="" VerticalAlignment="Stretch" Click="listViewButton_Click" ToolTip="List view" Width="25">
+                    <Button x:Name="listViewButton" Content="" VerticalAlignment="Stretch" Click="listViewButton_Click" ToolTip="List view" Width="25" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}">
                         <Button.Background>
                             <ImageBrush Stretch="UniformToFill" ImageSource="C:\Users\Madäng\dat215\iMat\UI.Desktop\Resources\Icons\list_order.png"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="gridViewButton" Content="" Click="gridViewButton_Click" Cursor="Grid view" Width="25">
+                    <Button x:Name="gridViewButton" Content="" Click="gridViewButton_Click" Cursor="Grid view" Width="25" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}">
                         <Button.Background>
                             <ImageBrush ImageSource="C:\Users\Madäng\dat215\iMat\UI.Desktop\Resources\Icons\thumbnail_order.png" Stretch="Uniform"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="treeViewButton" Content="" Click="treeViewButton_Click" ToolTip="Tree view" Width="25" Margin="0,0,0,-5">
+                    <Button x:Name="treeViewButton" Content="" Click="treeViewButton_Click" ToolTip="Tree view" Width="25" Margin="0,0,0,-5" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" HorizontalAlignment="Center" VerticalAlignment="Top">
                         <Button.Background>
                             <ImageBrush ImageSource="C:\Users\Madäng\dat215\iMat\UI.Desktop\Resources\Icons\treeView_order.png"/>
                         </Button.Background>
                     </Button>
                 </ToolBar>
                 <ToolBar HorizontalAlignment="Right">
-                    <ComboBox x:Name="listCB" Text="Listor"/>
+                    <Button Content="" Height="22" VerticalAlignment="Top" Width="28" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" ToolTip="Listor">
+                        <Button.Background>
+                            <ImageBrush ImageSource="C:\Users\Madäng\dat215\iMat\UI.Desktop\Resources\Icons\listbutton.png" Stretch="Uniform"/>
+                        </Button.Background>
+                    </Button>
+                    <ComboBox Height="22" Margin="0" VerticalAlignment="Top" Width="14"/>
                 </ToolBar>
             </ToolBarTray>
         </DockPanel>
