@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Data.Desktop;
+using System.Diagnostics;
 
 namespace Data.Desktop.Test
 {
@@ -23,11 +24,12 @@ namespace Data.Desktop.Test
             dh.GetCreditCards().Add(card);
 
             //Mock favorite
-            List<ShoppingItem> favorites = new List<ShoppingItem>();
-
+            FavoriteList fl = new FavoriteList("bananer i pyjamas");
+            dh.GetFavorites().Add(fl);
             dh.WriteToFile(dbPath);
-
             dh = DataHandler.ReadFromFile(dbPath, productsPath);
+            
+            Console.WriteLine(dh.GetFavorites().ElementAt(0).Name);
         }
     }
 }
