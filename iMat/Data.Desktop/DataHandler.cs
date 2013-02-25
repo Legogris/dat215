@@ -104,9 +104,15 @@ namespace Data.Desktop
                         UnitSuffix = ds[4].Split('/')[1],
                         ImageName = ds[5]
                     };
-                    ProductCategory cat = rootCategory.GetCategoryByID(ds[1]);
-                    cat.AddProduct(p);
+                    string[] products = ds[1].Split(',');
+                    foreach (string ps in products)
+                    {
+                        ProductCategory cat = rootCategory.GetCategoryByID(ps);
+                        cat.AddProduct(p);
+                    }
                 }
+            }
+            catch (Exception e)  {
             }
             finally { sr.Close(); }
 

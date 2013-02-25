@@ -21,6 +21,7 @@ namespace UI.Desktop
     /// </summary>
     public partial class GridView : UserControl
     {
+        Dictionary<Product, GridViewItem> gridItems = new Dictionary<Product, GridViewItem>();
         public GridView()
         {
             InitializeComponent();
@@ -36,8 +37,14 @@ namespace UI.Desktop
                 {
                     foreach (Product product in pc.GetProducts())
                     {
-                        GridViewItem li = new GridViewItem(product);
-                        li.ItemAdded += li_ItemAdded;
+                        GridViewItem li;
+                        if(gridItems.ContainsKey(product)) {
+                            li = gridItems[product];
+                        } else {
+                            li = new GridViewItem(product);
+                            gridItems[product] = li;
+                            li.ItemAdded += li_ItemAdded;
+                        }
                         stackPanel.Children.Add(li);
                     }
                 }

@@ -6,6 +6,11 @@
              xmlns:Controls="clr-namespace:UI.Desktop.Content.Controls" x:Class="UI.Desktop.Content.ShoppingCartView" 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="250">
+    <UserControl.Resources>
+        <ContextMenu x:Key="TestContextMenu">
+            <MenuItem Header="asdfasdf" />
+        </ContextMenu>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -29,19 +34,13 @@
 
             </Button.Background>
         </Button>
-        <Button Content="" HorizontalAlignment="Left" Margin="124,65,0,0" Grid.Row="2" VerticalAlignment="Top" Width="66" Height="50" ToolTip="Visa kundvagn">
-            <Button.Background>
 
-                <ImageBrush ImageSource="C:\Users\Madäng\dat215\iMat\UI.Desktop\Resources\Icons\ShoppingCart_Show.png"/>
+        <Button Content="visa&#xA;kundvagn" HorizontalAlignment="Left" Margin="120,60,0,0" Grid.Row="2" VerticalAlignment="Top" Width="55" Height="50"/>
+        <Button x:Name="addShoppingCartToListButton" HorizontalAlignment="Left" Margin="10,60,0,0" Grid.Row="2" VerticalAlignment="Top" Width="105" Height="50" ToolTip="Lägg till i lista" Click="addShoppingCartToListButton_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="..\Resources\Icons\CartToList.png" Width="64" Height="32"/>
+            </StackPanel>
 
-
-
-            </Button.Background>
-        </Button>
-        <Button Content="" HorizontalAlignment="Left" Margin="0,65,0,0" Grid.Row="2" VerticalAlignment="Top" Width="119" Height="50" ToolTip="Lägg till i lista">
-            <Button.Background>
-                <ImageBrush ImageSource="C:\Users\Madäng\dat215\iMat\UI.Desktop\Resources\Icons\ListToCart.png"/>
-            </Button.Background>
         </Button>
         <Button x:Name="clearShoppingCartButton" Content="" HorizontalAlignment="Left" Margin="195,65,0,0" Grid.Row="2" VerticalAlignment="Top" Width="50" Height="50" Click="clearShoppingCartButton_Click" ToolTip="Rensa kundvagn">
             <Button.Background>

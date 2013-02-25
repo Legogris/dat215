@@ -94,10 +94,10 @@
 94;FLOUR_SUGAR_SALT;Salt;5.4;kr/förp;product_94.jpg;end
 95;FLOUR_SUGAR_SALT;Socker;15.95;kr/förp;product_95.jpg;end
 96;FLOUR_SUGAR_SALT;Vetemjöl;18.0;kr/förp;product_96.jpg;end
-97;NUTS_AND_SEEDS;Cashewnöt;39.95;kr/kg;product_97.jpg;end
+97;NUTS_AND_SEEDS,SWEET;Cashewnöt;39.95;kr/kg;product_97.jpg;end
 98;NUTS_AND_SEEDS;Hasselnöt;80.0;kr/kg;product_98.jpg;end
-99;NUTS_AND_SEEDS;Jordnöt;79.0;kr/kg;product_99.jpg;end
-100;NUTS_AND_SEEDS;Kokosnöt;14.0;kr/kg;product_100.jpg;end
+99;NUTS_AND_SEEDS,SWEET;Jordnöt;79.0;kr/kg;product_99.jpg;end
+100;NUTS_AND_SEEDS,EXOTIC_FRUIT;Kokosnöt;14.0;kr/kg;product_100.jpg;end
 101;NUTS_AND_SEEDS;Mandel;53.0;kr/kg;product_101.jpg;end
 102;NUTS_AND_SEEDS;Pistagenöt;72.0;kr/kg;product_102.jpg;end
 103;NUTS_AND_SEEDS;Valnöt;69.0;kr/kg;product_103.jpg;end
@@ -113,10 +113,10 @@
 113;RICE;Basmati-ris;24.0;kr/kg;product_113.jpg;end
 114;RICE;Fullkornsris;28.0;kr/kg;product_114.jpg;end
 115;RICE;Jasmin-ris;25.0;kr/kg;product_115.jpg;end
-116;RICE;Potatis;7.0;kr/kg;product_116.jpg;end
-117;RICE;Potatis röd;6.0;kr/kg;product_117.jpg;end
-118;RICE;Potatis söt;26.0;kr/kg;product_118.jpg;end
-119;RICE;Potatispuré;9.9;kr/förp;product_119.jpg;end
+116;ROOT_VEGETABLE;Potatis;7.0;kr/kg;product_116.jpg;end
+117;ROOT_VEGETABLE;Potatis röd;6.0;kr/kg;product_117.jpg;end
+118;ROOT_VEGETABLE;Potatis söt;26.0;kr/kg;product_118.jpg;end
+119;ROOT_VEGETABLE;Potatispuré;9.9;kr/förp;product_119.jpg;end
 120;RICE;Råris;24.0;kr/kg;product_120.jpg;end
 121;ROOT_VEGETABLE;Kålrot;9.95;kr/kg;product_121.jpg;end
 122;ROOT_VEGETABLE;Majrova;10.0;kr/kg;product_122.jpg;end
