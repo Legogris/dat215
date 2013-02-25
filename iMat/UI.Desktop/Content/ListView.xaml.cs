@@ -21,6 +21,8 @@ namespace UI.Desktop
     /// </summary>
     public partial class ListView : UserControl
     {
+        Dictionary<Product, ListViewItem> listItems = new Dictionary<Product, ListViewItem>();
+
         public ListView()
         {
             InitializeComponent();
@@ -37,9 +39,20 @@ namespace UI.Desktop
                 {
                     foreach (Product product in pc.GetProducts())
                     {
-                        ListViewItem li = new ListViewItem(product);
-                        stackPanel.Children.Add(li);
-                        li.ItemAdded += li_ItemAdded;
+                        try
+                        {
+                            ListViewItem li;
+                            if (listItems.ContainsKey(product))
+                            {
+                                li = listItems[product];
+                            } else {
+                                li = new ListViewItem(product);
+                                listItems[product] = li;
+                            }
+                            stackPanel.Children.Add(li);
+                            li.ItemAdded += li_ItemAdded;
+                        }
+                        catch {}
                     }
                 }
             }

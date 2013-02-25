@@ -112,7 +112,7 @@ namespace Data.Desktop
                     }
                 }
             }
-            catch (Exception e) {
+            catch (Exception e)  {
             }
             finally { sr.Close(); }
 

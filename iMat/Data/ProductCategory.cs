@@ -63,14 +63,14 @@ namespace Data
             return null;
         }
 
-        public List<Product> GetProducts()
+        public IEnumerable<Product> GetProducts()
         {
             List<Product> ps = products.ToList<Product>();
             foreach (ProductCategory subCat in SubCategories)
             {
                 ps.AddRange(subCat.GetProducts());
             }
-            return ps;
+            return ps.Distinct();
         }
 
         public ProductCategory GetCategoryByID(string id)
