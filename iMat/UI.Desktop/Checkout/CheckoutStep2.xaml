@@ -30,7 +30,7 @@
             <Label x:Name="PostcodeLabel" Content="Postkod:" HorizontalAlignment="Left" Height="28" Margin="8,135,0,0" VerticalAlignment="Top" Width="70"/>
             <TextBox x:Name="PostcodeTextBox" HorizontalAlignment="Left" Height="28" Margin="83,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
             <Label x:Name="PostAddressLabel" Content="Post Adress:" HorizontalAlignment="Left" Height="28" Margin="173,135,0,0" VerticalAlignment="Top" Width="80"/>
-            <TextBox x:Name="PostAddressTextBox" HorizontalAlignment="Left" Height="28" Margin="253,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137"/>
+            <TextBox x:Name="PostAddressTextBox" HorizontalAlignment="Left" Height="28" Margin="253,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" IsReadOnly="True"/>
         </Grid>
         <Grid x:Name="PaymentGrid" HorizontalAlignment="Left" Height="62" Margin="0,297,0,0" VerticalAlignment="Top" Width="400" Visibility="Collapsed">
             <Label x:Name="CardTypeLabel" Content="Korttyp:" HorizontalAlignment="Left" Height="26" Margin="10,0,0,0" VerticalAlignment="Top" Width="55"/>
@@ -66,7 +66,7 @@
                 <ComboBoxItem Content="17"/>
             </ComboBox>
             <Label x:Name="VerificationCodeLabel" Content="CVC:" HorizontalAlignment="Left" Height="26" Margin="300,31,0,0" VerticalAlignment="Top" Width="40"/>
-            <TextBox x:Name="VerificationCodeTextBox" HorizontalAlignment="Left" Height="26" Margin="345,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45"/>
+            <TextBox x:Name="VerificationCodeTextBox" HorizontalAlignment="Left" Height="26" Margin="340,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" MaxLength="3" IsUndoEnabled="False"/>
         </Grid>
         <Label x:Name="PaymentLabel" Content="Välj Betalningssätt:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,245,0,0"/>
         <Button x:Name="BackButtonStep2" Content="&lt;-- Tillbaka" HorizontalAlignment="Left" Height="26" Margin="215,364,0,0" VerticalAlignment="Top" Width="85" Click="BackButtonStep2_Click"/>
