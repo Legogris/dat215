@@ -22,7 +22,7 @@ namespace UI.Desktop
     public partial class MainWindow : Window
     {
         public static readonly String PRODUCTS = "Resources/products.txt";
-        public static readonly String DATABASE = "Resources/favs.txt";
+        public static readonly String DATABASE = "Resources/favs.db";
         private DataHandler dataHandler;
         
         public MainWindow()
