@@ -27,22 +27,30 @@ namespace UI.Desktop.Content
         public ShoppingCart ShoppingCart
         {
             get { return shoppingCart; }
-            set { shoppingCart = value; updateAccordinglyNinetyNineBitchesEtcetera(); }
+            set { shoppingCart = value; updateShoppingCartItems(); }
+        }
+
+        public void SetListContextMenu(ContextMenu menu)
+        {
+            addShoppingCartToListButton.ContextMenu = menu;
         }
 
         public ShoppingCartView()
         {
             InitializeComponent();
-            var pMenu = (ContextMenu)this.Resources["TestContextMenu"];
-            addShoppingCartToListButton.ContextMenu = pMenu;         
         }
 
-        private void updateAccordinglyNinetyNineBitchesEtcetera()
+        private void updateShoppingCartItems()
         {
+            stackPanel.Children.Clear();
             foreach (ShoppingItem cartItem in this.ShoppingCart.GetItems())
             {
                 addShoppingCartItem(cartItem);
             }
+
+            // TODO: modeless feedback som berättar att saker har lagts till om ShoppingCart.GetItems() != empty?
+
+            updateTotalLabels();
         }
 
         // absolut största clusterfucket i mänsklighetens historia. men jag bryr mig inte.
@@ -114,6 +122,12 @@ namespace UI.Desktop.Content
         {
             addShoppingCartToListButton.ContextMenu.IsOpen = true;
             e.Handled = true;
+        }
+
+        private void checkoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            Checkout.CheckoutWindow wizard = new Checkout.CheckoutWindow();
+            wizard.Show();
         }
     }
 }

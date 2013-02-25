@@ -1,4 +1,5 @@
-﻿using Data.Desktop;
+﻿using Data;
+using Data.Desktop;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,8 @@ namespace UI.Desktop
         public static readonly String PRODUCTS = "Resources/products.txt";
         public static readonly String DATABASE = "Resources/favs.db";
         private DataHandler dataHandler;
-        
+        private ContextMenu shoppingListContextMenu;
+
         public MainWindow()
         {
             try
@@ -33,15 +35,37 @@ namespace UI.Desktop
             }
             catch (Exception ex) {
             }
+            dataHandler = DataHandler.ReadFromFile(DATABASE, PRODUCTS);
+            makeContext();
             initDataBinding();
         }
-        
+
+        private void makeContext()
+        {
+            shoppingListContextMenu = new ContextMenu();
+            foreach (FavoriteList list in dataHandler.GetFavorites()) {
+                MenuItem item = new MenuItem();
+                item.Header = list.Name;
+                //item.Click += new RoutedEventHandler(item_Click);
+                shoppingListContextMenu.Items.Add(item);
+            }
+            MenuItem addNew = new MenuItem();
+            addNew.Header = "ny för fan";
+            shoppingListContextMenu.Items.Add(addNew);
+            addNew.Click += addNewShoppingList_Click;
+        }
+
+        void addNewShoppingList_Click(object sender, RoutedEventArgs e)
+        {
+            dataHandler.GetFavorites().Add(new FavoriteList("asdf" + dataHandler.GetFavorites().Count));
+        }
+
         private void initDataBinding() {
-            dataHandler = DataHandler.ReadFromFile(DATABASE, PRODUCTS);
             productBrowser.RootCategory = dataHandler.GetRootCategory();
             productBrowser.ItemAdded += productBrowser_ItemAdded;
             dataHandler.GetCart().Changed += shoppingCart_ItemAdded;
             shoppingCart.ShoppingCart = dataHandler.GetCart();
+            shoppingCart.SetListContextMenu(shoppingListContextMenu);
         }
 
         void shoppingCart_ItemAdded(object sender, Data.CartEventArgs e)
@@ -82,12 +106,6 @@ namespace UI.Desktop
         private void Window_Closing_1(object sender, System.ComponentModel.CancelEventArgs e)
         {
             dataHandler.WriteToFile(DATABASE);
-        }
-
-        private void menuItemCheckout_Click_1(object sender, RoutedEventArgs e)
-        {
-            Checkout.CheckoutWindow temp = new Checkout.CheckoutWindow();
-            temp.Show();
         }
     }
 }

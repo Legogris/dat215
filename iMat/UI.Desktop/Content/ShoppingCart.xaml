@@ -6,11 +6,6 @@
              xmlns:Controls="clr-namespace:UI.Desktop.Content.Controls" x:Class="UI.Desktop.Content.ShoppingCartView" 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="250">
-    <UserControl.Resources>
-        <ContextMenu x:Key="TestContextMenu">
-            <MenuItem Header="asdfasdf" />
-        </ContextMenu>
-    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -25,7 +20,7 @@
 
         <Label x:Name="grandTotalLabel" Content="0,00 kr" HorizontalAlignment="Left" Margin="50,0,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="45" Grid.RowSpan="2"/>
         <Label x:Name="itemsTotalLabel" Content="0 st" HorizontalAlignment="Left" Margin="189,0,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="29" Grid.RowSpan="2"/>
-        <Button HorizontalAlignment="Left" Margin="0,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="245" Height="50" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" ToolTip="Till Kassan" Foreground="{x:Null}">
+        <Button x:Name="checkoutButton" Margin="0,10,5,0" Grid.Row="2" VerticalAlignment="Top" Height="50" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" ToolTip="Till Kassan" Foreground="{x:Null}" Click="checkoutButton_Click">
             <Button.Background>
 
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">

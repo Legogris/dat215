@@ -27,15 +27,49 @@ namespace UI.Desktop.Checkout
 
         private void HomeDelivery_Checked(object sender, RoutedEventArgs e)
         {
-
+            HomedeliveryGrid.Visibility = Visibility.Visible;
+            StoreComboBox.IsEnabled = false;
+            PayOnPickup.IsEnabled = true;
         }
 
         private void PickupInStore_Checked(object sender, RoutedEventArgs e)
         {
             if (StoreComboBox != null)
             {
+                HomedeliveryGrid.Visibility = Visibility.Collapsed;
                 StoreComboBox.IsEnabled = true;
+                PayOnPickup.IsEnabled = true;
             }
         }
+
+        private void BackButtonStep2_Click(object sender, RoutedEventArgs e)
+        {
+            if (BackStep2 != null)
+            {
+                BackStep2.Invoke(this, null);
+            }
+        }
+
+        private void NextStep2Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (NextStep2 != null)
+            {
+                NextStep2.Invoke(this, null);
+            }
+        }
+
+        private void PayWithCard_Checked(object sender, RoutedEventArgs e)
+        {
+            PaymentGrid.Visibility = Visibility.Visible;
+        }
+
+        private void PayOnPickup_Checked(object sender, RoutedEventArgs e)
+        {
+            PaymentGrid.Visibility = Visibility.Collapsed;
+        }
+
+        public event EventHandler NextStep2;
+        public event EventHandler BackStep2;
+
     }
 }
