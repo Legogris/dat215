@@ -8,11 +8,11 @@
              d:DesignHeight="100" d:DesignWidth="600">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="100*"/>
             <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="100*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="productName" Content="produkt" HorizontalAlignment="Left" Margin="44,26,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="productName" Grid.Column="1" Content="produkt" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" />
+        <Image x:Name="productImage" Grid.Column="0" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
 
     </Grid>
 </UserControl>
