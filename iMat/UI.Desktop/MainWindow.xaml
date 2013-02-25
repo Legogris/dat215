@@ -31,37 +31,38 @@
             <ToolBarTray HorizontalAlignment="Left" DockPanel.Dock="Left">
                 <ToolBar >
                     <TextBox x:Name="searchField" Width="100"/>
-                    <Button x:Name="searchButton" Content="" ToolTip="Sök" Width="22">
-                        <Button.Background>
-                            <ImageBrush ImageSource="Resources\Icons\search_256.png" />
-                        </Button.Background>
+                    <Button x:Name="searchButton" ToolTip="Sök" Width="28" Height="26" Margin="0,0,0,-1">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Resources\Icons\search_256.png" Width="19" Height="16" OpacityMask="Black" Stretch="UniformToFill" RenderTransformOrigin="0,0.25"/>
+                        </StackPanel>
                     </Button>
                 </ToolBar>
                 <ToolBar >
                     <ComboBox x:Name="sortCB" Text="Sortera"/>
-                    <Button x:Name="filterButton" Content="" ToolTip="Filter" Width="25">
-                        <Button.Background>
-                            <ImageBrush ImageSource="Resources\Icons\filter.png" Stretch="Uniform"/>
-                        </Button.Background>
+                    <Button x:Name="filterButton" ToolTip="Filter" Width="25">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Resources\Icons\filter.png" Width="21" Height="19" OpacityMask="Black" Stretch="UniformToFill" RenderTransformOrigin="0,0.25"/>
+                        </StackPanel>
+
                     </Button>
                 </ToolBar>
             </ToolBarTray>
             <ToolBarTray HorizontalAlignment="Right" DockPanel.Dock="Right">
                 <ToolBar HorizontalAlignment="Right">
-                    <Button x:Name="listViewButton" Content="" VerticalAlignment="Stretch" Click="listViewButton_Click" ToolTip="List view" Width="25" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}">
-                        <Button.Background>
-                            <ImageBrush Stretch="UniformToFill" ImageSource="Resources\Icons\list_order.png"/>
-                        </Button.Background>
+                    <Button x:Name="listViewButton" VerticalAlignment="Top" Click="listViewButton_Click" ToolTip="List view" Width="25" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" Height="26">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Resources\Icons\list_order.png" Width="21" Height="19" OpacityMask="Black" Stretch="UniformToFill" RenderTransformOrigin="0,0.25"/>
+                        </StackPanel>
                     </Button>
-                    <Button x:Name="gridViewButton" Content="" Click="gridViewButton_Click" Width="25" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}">
-                        <Button.Background>
-                            <ImageBrush ImageSource="Resources\Icons\thumbnail_order.png" Stretch="Uniform"/>
-                        </Button.Background>
+                    <Button x:Name="gridViewButton" Click="gridViewButton_Click" Width="25" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" RenderTransformOrigin="3.12,1.857" Height="26">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Resources\Icons\thumbnail_order.png" Width="17" Height="19" OpacityMask="Black" RenderTransformOrigin="0.46,0.091" Stretch="UniformToFill"/>
+                        </StackPanel>
                     </Button>
-                    <Button x:Name="treeViewButton" Content="" Click="treeViewButton_Click" ToolTip="Tree view" Width="25" Margin="0,0,0,-5" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" HorizontalAlignment="Center" VerticalAlignment="Top">
-                        <Button.Background>
-                            <ImageBrush ImageSource="Resources\Icons\treeView_order.png"/>
-                        </Button.Background>
+                    <Button x:Name="treeViewButton" Click="treeViewButton_Click" ToolTip="Tree view" Width="25" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" HorizontalAlignment="Center" VerticalAlignment="Top" Height="26">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Resources\Icons\treeView_order.png" Width="24" Height="22" OpacityMask="Black" Stretch="UniformToFill"/>
+                        </StackPanel>
                     </Button>
                 </ToolBar>
                 <ToolBar HorizontalAlignment="Right">
