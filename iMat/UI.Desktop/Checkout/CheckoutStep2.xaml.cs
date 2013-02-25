@@ -37,5 +37,15 @@ namespace UI.Desktop.Checkout
                 StoreComboBox.IsEnabled = true;
             }
         }
+
+        private void BackButtonStep2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void NextStep2Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -27,7 +27,13 @@ namespace UI.Desktop.Checkout
 
         private void NextStep1Button_Click(object sender, RoutedEventArgs e)
         {
-
+            if (NextStep != null)
+            {
+                NextStep.Invoke(this, null);
+            }
         }
+
+        public event EventHandler NextStep;
+
     }
 }

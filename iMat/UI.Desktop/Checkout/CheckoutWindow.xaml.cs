@@ -22,18 +22,20 @@ namespace UI.Desktop.Checkout
         private CheckoutStep1 step1;
         private CheckoutStep2 step2;
 
-        public enum CheckoutStepEnum
-        {
-            Step1,
-            Step2,
-            Step3
-        }
 
         public CheckoutWindow()
         {
             InitializeComponent();
             step1 = new CheckoutStep1();
+            step1.NextStep += step1_NextStep;
             step2 = new CheckoutStep2();
+            PageGrid.Children.Add(step1);
+        }
+
+        void step1_NextStep(object sender, EventArgs e)
+        {
+            PageGrid.Children.Clear();
+            PageGrid.Children.Add(step2);
         }
 
     }
