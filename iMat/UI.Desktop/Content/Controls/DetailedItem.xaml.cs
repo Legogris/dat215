@@ -25,6 +25,8 @@ namespace UI.Desktop
         private Product product;
         private AbstractSelector sel;
 
+        public Product Product { get { return product; } }
+
         public DetailedItem(Product p)
         {
             InitializeComponent();

@@ -25,6 +25,8 @@ namespace UI.Desktop
         private Product product;
         private AbstractSelector sel;
 
+        public Product Product { get { return product; } }
+
         public ListViewItem(Product p)
         {
             InitializeComponent();
@@ -43,7 +45,6 @@ namespace UI.Desktop
             }
             sel.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
             sel.VerticalAlignment = System.Windows.VerticalAlignment.Top;
-            selectorContainer.Children.Add(sel);
         }
 
         private void addToShoppingCartButton_Click(object sender, RoutedEventArgs e)
