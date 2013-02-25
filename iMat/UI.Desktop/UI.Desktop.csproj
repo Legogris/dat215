@@ -53,6 +53,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Checkout\CheckoutStep1.xaml.cs">
+      <DependentUpon>CheckoutStep1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Checkout\CheckoutStep2.xaml.cs">
+      <DependentUpon>CheckoutStep2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Checkout\CheckoutWindow.xaml.cs">
+      <DependentUpon>CheckoutWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Content\Controls\AbstractTreeViewItem.cs" />
     <Compile Include="Content\Controls\CategoryControl.xaml.cs">
       <DependentUpon>CategoryControl.xaml</DependentUpon>
@@ -103,6 +112,18 @@
     <Compile Include="Controls\Spinner.xaml.cs">
       <DependentUpon>Spinner.xaml</DependentUpon>
     </Compile>
+    <Page Include="Checkout\CheckoutStep1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Checkout\CheckoutStep2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Checkout\CheckoutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Content\Controls\CategoryControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
