@@ -26,7 +26,7 @@ namespace UI.Desktop
         public static readonly String PRODUCTS = "Resources/products.txt";
         public static readonly String DATABASE = "Resources/favs.db";
         private DataHandler dataHandler;
-        private ContextMenu shoppingListContextMenu;
+        private ListContextMenuManager listContextMenu;
 
         public MainWindow()
         {
@@ -37,43 +37,8 @@ namespace UI.Desktop
             catch (Exception ex) {
             }
             dataHandler = DataHandler.ReadFromFile(DATABASE, PRODUCTS);
-            makeContext();
+            listContextMenu = new ListContextMenuManager(this, dataHandler);
             initDataBinding();
-        }
-
-        private void makeContext()
-        {
-            shoppingListContextMenu = new ContextMenu();
-            foreach (FavoriteList list in dataHandler.GetFavorites()) {
-                MenuItem item = new MenuItem();
-                item.Header = list.Name;
-                //item.Click += new RoutedEventHandler(item_Click);
-                shoppingListContextMenu.Items.Add(item);
-            }
-            MenuItem addNew = new MenuItem();
-            addNew.Header = "Lägg till ny grej";
-            shoppingListContextMenu.Items.Add(addNew);
-            addNew.Click += addNewShoppingList_Click;
-        }
-
-        private void addNewItemToContextMenu(FavoriteList list)
-        {
-            shoppingListContextMenu.Items.Insert(shoppingListContextMenu.Items.Count-1, list.Name);
-        }
-
-        void addNewShoppingList_Click(object sender, RoutedEventArgs e)
-        {
-            TextBoxPopup tbp = new TextBoxPopup();
-            tbp.Owner = this;
-            tbp.ShowDialog();
-            if (tbp.DialogResult == true)
-            {
-                string s = tbp.TextBoxText;
-                FavoriteList list = new FavoriteList(s);
-                dataHandler.GetFavorites().Add(list);
-                addNewItemToContextMenu(list);
-                // TODO: lägg till sakerna i kundvagnen till den nya listan
-            }
         }
 
         private void initDataBinding() {
@@ -81,7 +46,7 @@ namespace UI.Desktop
             productBrowser.ItemAdded += productBrowser_ItemAdded;
             dataHandler.GetCart().Changed += shoppingCart_ItemAdded;
             shoppingCart.ShoppingCart = dataHandler.GetCart();
-            shoppingCart.SetListContextMenu(shoppingListContextMenu);
+            shoppingCart.SetListContextMenu(listContextMenu.ShoppingListContextMenu);
         }
 
         void shoppingCart_ItemAdded(object sender, Data.CartEventArgs e)
@@ -126,12 +91,57 @@ namespace UI.Desktop
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Preferences pref = new Preferences();
-            
-            
-            
-            
+            Preferences pref = new Preferences();            
             pref.Show();
+        }
+    }
+
+    public class ListContextMenuManager {
+        public ContextMenu ShoppingListContextMenu { get; set; } // A real gangsta ass nigga makes his fields public.
+        private DataHandler dataHandler;
+        private MainWindow mainWindow;
+
+        public ListContextMenuManager(MainWindow window, DataHandler dh)
+        {
+            dataHandler = dh;
+            mainWindow = window;
+            createContextMenu();
+        }
+
+        private void createContextMenu()
+        {
+            ShoppingListContextMenu = new ContextMenu();
+            foreach (FavoriteList list in dataHandler.GetFavorites())
+            {
+                MenuItem item = new MenuItem();
+                item.Header = list.Name;
+                //item.Click += new RoutedEventHandler(item_Click);
+                ShoppingListContextMenu.Items.Add(item);
+            }
+            MenuItem addNew = new MenuItem();
+            addNew.Header = "Lägg till ny grej";
+            ShoppingListContextMenu.Items.Add(addNew);
+            addNew.Click += addNewShoppingList_Click;
+        }
+
+        private void addNewItemToContextMenu(FavoriteList list)
+        {
+            ShoppingListContextMenu.Items.Insert(ShoppingListContextMenu.Items.Count - 1, list.Name);
+        }
+
+        void addNewShoppingList_Click(object sender, RoutedEventArgs e)
+        {
+            TextBoxPopup tbp = new TextBoxPopup();
+            tbp.Owner = mainWindow;
+            tbp.ShowDialog();
+            if (tbp.DialogResult == true)
+            {
+                string s = tbp.TextBoxText;
+                FavoriteList list = new FavoriteList(s);
+                dataHandler.GetFavorites().Add(list);
+                addNewItemToContextMenu(list);
+                // TODO: lägg till sakerna i kundvagnen till den nya listan
+            }
         }
     }
 }

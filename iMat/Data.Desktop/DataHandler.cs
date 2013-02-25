@@ -14,7 +14,7 @@ namespace Data.Desktop
     [Serializable()]
     public class DataHandler
     {
-        private List<FavoriteList> favorites;
+        private ShoppingListHandler favorites;
         private List<ShippingAddress> shippingAddresses;
         private List<CreditCard> creditCards;
         private List<Order> orders;
@@ -28,7 +28,7 @@ namespace Data.Desktop
 
         public DataHandler(string productsPath)
         {
-            favorites = new List<FavoriteList>();
+            favorites = new ShoppingListHandler();
             shippingAddresses = new List<ShippingAddress>();
             creditCards = new List<CreditCard>();
             orders = new List<Order>();
@@ -124,17 +124,17 @@ namespace Data.Desktop
             }
             cart = newCart;
             
-            List<FavoriteList> newFavs = new List<FavoriteList>();
-            foreach (FavoriteList list in favorites)
-            {
-                FavoriteList newList = new FavoriteList(list.Name);
-                foreach (ShoppingItem si in list)
-                {
-                    newList.Add(new ShoppingItem(GetProduct(si.Product.ProductID), si.Amount));
-                }
-                newFavs.Add(newList);
-            }
-            favorites = newFavs;
+            //List<FavoriteList> newFavs = new List<FavoriteList>();
+            //foreach (FavoriteList list in favorites.GetItems())
+            //{
+            //    FavoriteList newList = new FavoriteList(list.Name);
+            //    foreach (ShoppingItem si in list)
+            //    {
+            //        newList.Add(new ShoppingItem(GetProduct(si.Product.ProductID), si.Amount));
+            //    }
+            //    newFavs.Add(newList);
+            //}
+            //favorites.Add(newFavs);
 
             List<Order> newOrders = new List<Order>();
             foreach (Order o in orders)
@@ -169,7 +169,7 @@ namespace Data.Desktop
 
         public List<FavoriteList> GetFavorites()
         {
-            return favorites;
+            return (List<FavoriteList>) favorites.GetItems();
         }
 
         public List<CreditCard> GetCreditCards()
