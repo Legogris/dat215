@@ -52,7 +52,7 @@
                             <ImageBrush Stretch="UniformToFill" ImageSource="C:\Users\Madäng\dat215\iMat\UI.Desktop\Resources\Icons\list_order.png"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="gridViewButton" Content="" Click="gridViewButton_Click" Cursor="Grid view" Width="25" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}">
+                    <Button x:Name="gridViewButton" Content="" Click="gridViewButton_Click" Width="25" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}">
                         <Button.Background>
                             <ImageBrush ImageSource="C:\Users\Madäng\dat215\iMat\UI.Desktop\Resources\Icons\thumbnail_order.png" Stretch="Uniform"/>
                         </Button.Background>
