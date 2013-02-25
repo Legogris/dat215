@@ -22,11 +22,12 @@ namespace UI.Desktop.Content
     /// </summary>
     public partial class ShoppingCartView : UserControl
     {
+        private ShoppingCart shoppingCart;
 
         public ShoppingCart ShoppingCart
         {
-            get;
-            set;
+            get { return shoppingCart; }
+            set { shoppingCart = value; updateAccordinglyNinetyNineBitchesEtcetera(); }
         }
 
         public ShoppingCartView()
@@ -36,14 +37,19 @@ namespace UI.Desktop.Content
             addShoppingCartToListButton.ContextMenu = pMenu;         
         }
 
+        private void updateAccordinglyNinetyNineBitchesEtcetera()
+        {
+            foreach (ShoppingItem cartItem in this.ShoppingCart.GetItems())
+            {
+                addShoppingCartItem(cartItem);
+            }
+        }
+
         // absolut största clusterfucket i mänsklighetens historia. men jag bryr mig inte.
         public void ShoppingCartChanged(Data.CartEventArgs e) {
             if (e.EventType == CartEventArgs.CartEventType.Add)
             {
-                ShoppingCartItem si = new ShoppingCartItem(e.ShoppingItem);
-                si.RemoveShoppingCartItemPress += ShoppingCartItem_RemoveShoppingCartItemPress;
-                si.ItemAmountChangedFromTextBox += ShoppingCartItem_ItemAmountChangedFromTextBox;
-                stackPanel.Children.Add(si);
+                addShoppingCartItem(e.ShoppingItem);
             }
             else if (e.EventType == CartEventArgs.CartEventType.Change)
             {
@@ -74,6 +80,14 @@ namespace UI.Desktop.Content
                 }
             }
             updateTotalLabels();
+        }
+
+        private void addShoppingCartItem(ShoppingItem item)
+        {
+            ShoppingCartItem si = new ShoppingCartItem(item);
+            si.RemoveShoppingCartItemPress += ShoppingCartItem_RemoveShoppingCartItemPress;
+            si.ItemAmountChangedFromTextBox += ShoppingCartItem_ItemAmountChangedFromTextBox;
+            stackPanel.Children.Add(si);
         }
 
         void ShoppingCartItem_ItemAmountChangedFromTextBox(ShoppingCartItem shoppingCartItem, double d)
