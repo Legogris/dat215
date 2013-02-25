@@ -126,7 +126,7 @@ namespace UI.Desktop.Content
 
         private void checkoutButton_Click(object sender, RoutedEventArgs e)
         {
-            Checkout.CheckoutWindow wizard = new Checkout.CheckoutWindow();
+            Checkout.CheckoutWindow wizard = new Checkout.CheckoutWindow(ShoppingCart);
             wizard.Show();
         }
     }
