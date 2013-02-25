@@ -21,6 +21,9 @@ namespace UI.Desktop
     /// </summary>
     public partial class ListView : UserControl
     {
+        private readonly SolidColorBrush evenColor = new SolidColorBrush(Color.FromRgb(250, 255, 250));
+        private readonly SolidColorBrush oddColor = new SolidColorBrush(Color.FromRgb(220, 255, 190));
+
         Dictionary<Product, ListViewItem> listItems = new Dictionary<Product, ListViewItem>();
         Dictionary<Product, DetailedItem> detailedItems = new Dictionary<Product, DetailedItem>();
 
@@ -38,7 +41,8 @@ namespace UI.Desktop
                 ProductCategory pc = e.NewValue as ProductCategory;
                 if (pc != null)
                 {
-                    foreach (Product product in pc.GetProducts())
+                    int i = 0;
+                    foreach(Product product in pc.GetProducts())
                     {
                         try
                         {
@@ -64,10 +68,12 @@ namespace UI.Desktop
                             }
                             li.Visibility = System.Windows.Visibility.Visible;
                             dli.Visibility = System.Windows.Visibility.Collapsed;
+                            li.Background = i % 2 == 0 ? oddColor : evenColor;
                             stackPanel.Children.Add(li);
                             stackPanel.Children.Add(dli);
                         }
                         catch {}
+                        i++;
                     }
                 }
             }
