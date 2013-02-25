@@ -66,9 +66,6 @@
     <Compile Include="Content\Controls\CategoryControl.xaml.cs">
       <DependentUpon>CategoryControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Content\Controls\DetailedItem.xaml.cs">
-      <DependentUpon>DetailedItem.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Content\Controls\GridViewItem.xaml.cs">
       <DependentUpon>GridViewItem.xaml</DependentUpon>
     </Compile>
@@ -125,10 +122,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Content\Controls\CategoryControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Content\Controls\DetailedItem.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

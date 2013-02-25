@@ -9,6 +9,7 @@ namespace Data
     [Serializable()]
     public class ShoppingCart : IShoppingCartNotifier
     {
+        [field:NonSerialized()]
         public event ShoppingCartChangedHandler Changed;
 
         private IList<ShoppingItem> items;

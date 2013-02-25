@@ -47,7 +47,7 @@ namespace Data
 
         public Product GetProduct(int id)
         {
-            Product p = products.Single(x => x.ProductID == id);
+            Product p = products.SingleOrDefault(x => x.ProductID == id);
             if (p != null)
             {
                 return p;

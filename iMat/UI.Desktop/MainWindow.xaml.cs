@@ -21,7 +21,10 @@ namespace UI.Desktop
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static readonly String PRODUCTS = "Resources/products.txt";
+        public static readonly String DATABASE = "Resources/favs.txt";
         private DataHandler dataHandler;
+        
         public MainWindow()
         {
             try
@@ -34,7 +37,7 @@ namespace UI.Desktop
         }
         
         private void initDataBinding() {
-            dataHandler = DataHandler.ReadFromFile("asdf", "Resources/products.txt");
+            dataHandler = DataHandler.ReadFromFile(DATABASE, PRODUCTS);
             productBrowser.RootCategory = dataHandler.GetRootCategory();
             productBrowser.ItemAdded += productBrowser_ItemAdded;
             dataHandler.GetCart().Changed += shoppingCart_ItemAdded;
@@ -74,6 +77,11 @@ namespace UI.Desktop
         private void shoppingCart_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Window_Closing_1(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            dataHandler.WriteToFile(DATABASE);
         }
     }
 }
