@@ -7,20 +7,20 @@
              d:DesignHeight="400" d:DesignWidth="400">
     <Grid>
         <Label x:Name="DeliveryLabel" Content="Välj leveranssätt:" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" VerticalAlignment="Top" Width="103"/>
-        <RadioButton x:Name="PickupInStore" Content="Plocka up i affär:" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Height="20" GroupName="DeliveryGroup" IsThreeState="True" IsChecked="True" Checked="PickupInStore_Checked"/>
+        <RadioButton x:Name="PickupInStore" Content="Plocka up i affär:" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Height="20" GroupName="DeliveryGroup" IsThreeState="True" Checked="PickupInStore_Checked"/>
         <ComboBox x:Name="StoreComboBox" HorizontalAlignment="Left" Height="30" Margin="190,30,0,0" VerticalAlignment="Top" Width="100" IsEnabled="False">
             <ComboBoxItem Content="iMat Storgatan"/>
             <ComboBoxItem Content="iMat Tvärgatan"/>
         </ComboBox>
         <RadioButton x:Name="HomeDelivery" Content="Hemleverans:" HorizontalAlignment="Left" Height="20" Margin="10,65,0,0" VerticalAlignment="Top" Width="103" GroupName="DeliveryGroup" IsThreeState="True" Checked="HomeDelivery_Checked"/>
-        <Button x:Name="NextStep2Button" Content="Vidare --&gt;" HorizontalAlignment="Left" Height="26" Margin="255,364,0,0" VerticalAlignment="Top" Width="85"/>
-        <RadioButton x:Name="PayWithCard" Content="Kortbetalning:" HorizontalAlignment="Left" Margin="10,255,0,0" VerticalAlignment="Top" GroupName="PaymentGroup" IsThreeState="True" IsChecked="True"/>
-        <RadioButton x:Name="PayOnPickup" Content="Betala i affär" HorizontalAlignment="Left" Margin="10,343,0,0" VerticalAlignment="Top" GroupName="PaymentGroup" IsThreeState="True" IsEnabled="False"/>
-        <Grid HorizontalAlignment="Left" Height="170" Margin="0,85,0,0" VerticalAlignment="Top" Width="350">
+        <Button x:Name="NextStep2Button" Content="Vidare --&gt;" HorizontalAlignment="Left" Height="26" Margin="305,364,0,0" VerticalAlignment="Top" Width="85" Click="NextStep2Button_Click"/>
+        <RadioButton x:Name="PayWithCard" Content="Kortbetalning:" HorizontalAlignment="Left" Margin="10,276,0,0" VerticalAlignment="Top" GroupName="PaymentGroup" IsThreeState="True"/>
+        <RadioButton x:Name="PayOnPickup" Content="Betala i affär" HorizontalAlignment="Left" Margin="10,364,0,0" VerticalAlignment="Top" GroupName="PaymentGroup" IsThreeState="True" IsEnabled="False"/>
+        <Grid x:Name="HomedeliveryGrid" HorizontalAlignment="Left" Height="170" Margin="0,80,0,0" VerticalAlignment="Top" Width="400" Visibility="Collapsed">
             <Label x:Name="FirstNameLabel" Content="Förnamn:" HorizontalAlignment="Left" Height="28" Margin="8,3,0,0" VerticalAlignment="Top" Width="70"/>
             <TextBox x:Name="FirstNameTextBox" HorizontalAlignment="Left" Height="28" Margin="83,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
             <Label x:Name="LastNameLabel" Content="Efternamn:" HorizontalAlignment="Left" Height="28" Margin="168,3,0,0" VerticalAlignment="Top" Width="80"/>
-            <TextBox x:Name="LastNameTextBox" HorizontalAlignment="Left" Height="28" Margin="253,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
+            <TextBox x:Name="LastNameTextBox" HorizontalAlignment="Left" Height="28" Margin="253,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137"/>
             <Label x:Name="EmailLabel" Content="Email:" HorizontalAlignment="Left" Height="28" Margin="8,36,0,0" VerticalAlignment="Top" Width="70"/>
             <TextBox x:Name="EmailTextBox" HorizontalAlignment="Left" Height="28" Margin="83,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
             <Label x:Name="AddressLabel" Content="Adress:" HorizontalAlignment="Left" Height="28" Margin="8,69,0,0" VerticalAlignment="Top" Width="70"/>
@@ -30,42 +30,46 @@
             <Label x:Name="PostcodeLabel" Content="Postkod:" HorizontalAlignment="Left" Height="28" Margin="8,135,0,0" VerticalAlignment="Top" Width="70"/>
             <TextBox x:Name="PostcodeTextBox" HorizontalAlignment="Left" Height="28" Margin="83,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
             <Label x:Name="PostAddressLabel" Content="Post Adress:" HorizontalAlignment="Left" Height="28" Margin="173,135,0,0" VerticalAlignment="Top" Width="80"/>
-            <TextBox x:Name="PostAddressTextBox" HorizontalAlignment="Left" Height="28" Margin="253,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
+            <TextBox x:Name="PostAddressTextBox" HorizontalAlignment="Left" Height="28" Margin="253,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137"/>
         </Grid>
-        <Label x:Name="CardTypeLabel" Content="Korttyp:" HorizontalAlignment="Left" Height="26" Margin="10,276,0,0" VerticalAlignment="Top" Width="55"/>
-        <ComboBox x:Name="CardTypeComboBox" HorizontalAlignment="Left" Height="26" Margin="70,276,0,0" VerticalAlignment="Top" Width="85">
-            <ComboBoxItem Content="Visa"/>
-            <ComboBoxItem Content="MasterCard"/>
-            <ComboBoxItem Content="Amex"/>
-        </ComboBox>
-        <Label x:Name="CardHolderNameLabel" Content="Namn:" HorizontalAlignment="Left" Height="26" Margin="160,276,0,0" VerticalAlignment="Top" Width="45"/>
-        <TextBox x:Name="CardHolderNameTextBox" HorizontalAlignment="Left" Height="26" Margin="210,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130"/>
-        <Label x:Name="CardNumberLabel" Content="KortNr:" HorizontalAlignment="Left" Height="26" Margin="10,307,0,0" VerticalAlignment="Top" Width="55"/>
-        <TextBox x:Name="CardNumberTextBox" HorizontalAlignment="Left" Height="26" Margin="70,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
-        <Label x:Name="ValidMoYeLabel" Content="M/Å" HorizontalAlignment="Left" Height="26" Margin="160,307,0,0" VerticalAlignment="Top" Width="35"/>
-        <ComboBox x:Name="MonthComboBox" HorizontalAlignment="Left" Height="26" Margin="200,307,0,0" VerticalAlignment="Top" Width="45">
-            <ComboBoxItem Content="01"/>
-            <ComboBoxItem Content="02"/>
-            <ComboBoxItem Content="03"/>
-            <ComboBoxItem Content="04"/>
-            <ComboBoxItem Content="05"/>
-            <ComboBoxItem Content="06"/>
-            <ComboBoxItem Content="07"/>
-            <ComboBoxItem Content="08"/>
-            <ComboBoxItem Content="09"/>
-            <ComboBoxItem Content="10"/>
-            <ComboBoxItem Content="11"/>
-            <ComboBoxItem Content="12"/>
-        </ComboBox>
-        <ComboBox x:Name="YearComboBox" HorizontalAlignment="Left" Height="26" Margin="250,307,0,0" VerticalAlignment="Top" Width="45">
-            <ComboBoxItem Content="13"/>
-            <ComboBoxItem Content="14"/>
-            <ComboBoxItem Content="15"/>
-            <ComboBoxItem Content="16"/>
-            <ComboBoxItem Content="17"/>
-        </ComboBox>
-        <Label x:Name="VerificationCodeLabel" Content="CVC:" HorizontalAlignment="Left" Height="26" Margin="300,307,0,0" VerticalAlignment="Top" Width="40"/>
-        <TextBox x:Name="VerificationCodeTextBox" HorizontalAlignment="Left" Height="26" Margin="345,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45"/>
+        <Grid x:Name="PaymentGrid" HorizontalAlignment="Left" Height="62" Margin="0,297,0,0" VerticalAlignment="Top" Width="400" Visibility="Collapsed">
+            <Label x:Name="CardTypeLabel" Content="Korttyp:" HorizontalAlignment="Left" Height="26" Margin="10,0,0,0" VerticalAlignment="Top" Width="55"/>
+            <ComboBox x:Name="CardTypeComboBox" HorizontalAlignment="Left" Height="26" Margin="70,0,0,0" VerticalAlignment="Top" Width="85">
+                <ComboBoxItem Content="Visa"/>
+                <ComboBoxItem Content="MasterCard"/>
+                <ComboBoxItem Content="Amex"/>
+            </ComboBox>
+            <Label x:Name="CardHolderNameLabel" Content="Namn:" HorizontalAlignment="Left" Height="26" Margin="160,0,0,0" VerticalAlignment="Top" Width="45"/>
+            <TextBox x:Name="CardHolderNameTextBox" HorizontalAlignment="Left" Height="26" Margin="210,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130"/>
+            <Label x:Name="CardNumberLabel" Content="KortNr:" HorizontalAlignment="Left" Height="26" Margin="10,31,0,0" VerticalAlignment="Top" Width="55"/>
+            <TextBox x:Name="CardNumberTextBox" HorizontalAlignment="Left" Height="26" Margin="70,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
+            <Label x:Name="ValidMoYeLabel" Content="M/Å" HorizontalAlignment="Left" Height="26" Margin="160,31,0,0" VerticalAlignment="Top" Width="35"/>
+            <ComboBox x:Name="MonthComboBox" HorizontalAlignment="Left" Height="26" Margin="200,31,0,0" VerticalAlignment="Top" Width="45">
+                <ComboBoxItem Content="01"/>
+                <ComboBoxItem Content="02"/>
+                <ComboBoxItem Content="03"/>
+                <ComboBoxItem Content="04"/>
+                <ComboBoxItem Content="05"/>
+                <ComboBoxItem Content="06"/>
+                <ComboBoxItem Content="07"/>
+                <ComboBoxItem Content="08"/>
+                <ComboBoxItem Content="09"/>
+                <ComboBoxItem Content="10"/>
+                <ComboBoxItem Content="11"/>
+                <ComboBoxItem Content="12"/>
+            </ComboBox>
+            <ComboBox x:Name="YearComboBox" HorizontalAlignment="Left" Height="26" Margin="250,31,0,0" VerticalAlignment="Top" Width="45">
+                <ComboBoxItem Content="13"/>
+                <ComboBoxItem Content="14"/>
+                <ComboBoxItem Content="15"/>
+                <ComboBoxItem Content="16"/>
+                <ComboBoxItem Content="17"/>
+            </ComboBox>
+            <Label x:Name="VerificationCodeLabel" Content="CVC:" HorizontalAlignment="Left" Height="26" Margin="300,31,0,0" VerticalAlignment="Top" Width="40"/>
+            <TextBox x:Name="VerificationCodeTextBox" HorizontalAlignment="Left" Height="26" Margin="345,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45"/>
+        </Grid>
+        <Label x:Name="PaymentLabel" Content="Välj Betalningssätt:" HorizontalAlignment="Left" Height="26" Margin="10,250,0,0" VerticalAlignment="Top" Width="380"/>
+        <Button x:Name="BackButtonStep2" Content="&lt;-- Tillbaka" HorizontalAlignment="Left" Height="26" Margin="215,364,0,0" VerticalAlignment="Top" Width="85" Click="BackButtonStep2_Click"/>
 
     </Grid>
 </UserControl>

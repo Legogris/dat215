@@ -115,5 +115,11 @@ namespace UI.Desktop.Content
             addShoppingCartToListButton.ContextMenu.IsOpen = true;
             e.Handled = true;
         }
+
+        private void checkoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            Checkout.CheckoutWindow wizard = new Checkout.CheckoutWindow();
+            wizard.Show();
+        }
     }
 }
