@@ -6,11 +6,6 @@
              xmlns:Controls="clr-namespace:UI.Desktop.Content.Controls" x:Class="UI.Desktop.Content.ShoppingCartView" 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="250">
-    <UserControl.Resources>
-        <ContextMenu x:Key="TestContextMenu">
-            <MenuItem Header="asdfasdf" />
-        </ContextMenu>
-    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
