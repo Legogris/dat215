@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UI.Desktop.Content;
 using UI.Desktop.Controls;
 
 namespace UI.Desktop
@@ -27,14 +28,12 @@ namespace UI.Desktop
         public static readonly String DATABASE = "Resources/favs.db";
         private DataHandler dataHandler;
         private ListContextMenuManager listContextMenu;
-
-        public IList<FavoriteList> ShoppingListsCollection { get { return listContextMenu.listHandler.GetFavLists(); } }
-        public FavoriteList ShoppingListDummy { get; set; }
-
+        
         public MainWindow()
         {
             dataHandler = DataHandler.ReadFromFile(DATABASE, PRODUCTS);
             listContextMenu = new ListContextMenuManager(this, dataHandler);
+            DataContext = listContextMenu;
             InitializeComponent();
             initDataBinding();
         }
@@ -87,18 +86,30 @@ namespace UI.Desktop
             dataHandler.WriteToFile(DATABASE);
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void shoppingListPrefsClick(object sender, RoutedEventArgs e)
         {
-            Preferences pref = new Preferences(dataHandler);
+            openPreferences(new ListControl(dataHandler));
+        }
+
+        private void openPreferences(UserControl prefs)
+        {
+            Preferences pref = new Preferences(dataHandler, prefs);
             pref.Owner = this;
             pref.ShowDialog();
+        }
+
+        private void menuItemPropertiesClick(object sender, RoutedEventArgs e)
+        {
+            //openPreferences(new AccountControl(dataHandler));
         }
     }
 
     public class ListContextMenuManager {
         public ContextMenu ShoppingListContextMenu { get; private set; }
         private DataHandler dataHandler;
-        public ShoppingListHandler listHandler { get; private set; }
+        private ShoppingListHandler listHandler { get; set; }
+        public IList<FavoriteList> ShoppingListsCollection { get { return listHandler.GetFavLists(); } }
+        public FavoriteList ShoppingListDummy { get; set; } // TODO: selected hook för dropdown
         private MainWindow mainWindow;
 
         public ListContextMenuManager(MainWindow window, DataHandler dh)
@@ -171,7 +182,8 @@ namespace UI.Desktop
                     ShoppingListContextMenu.Items.Remove(removeIT);
                 }
             }
-            
+            mainWindow.shoppingListSelectComboBox.ItemsSource = null;
+            mainWindow.shoppingListSelectComboBox.ItemsSource = ShoppingListsCollection;
         }
         
         void addNewShoppingList_Click(object sender, RoutedEventArgs e)

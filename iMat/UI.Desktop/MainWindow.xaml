@@ -2,7 +2,6 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:UI.Desktop" xmlns:Content="clr-namespace:UI.Desktop.Content" x:Class="UI.Desktop.MainWindow"
-        DataContext="{Binding RelativeSource={RelativeSource Self}}"
         Title="iMat" Height="450" Width="970" Closing="Window_Closing">
     <Grid>
         <Grid.RowDefinitions>
@@ -16,8 +15,8 @@
                 <MenuItem x:Name="menuItemQuit" Header="Avsluta" Click="menuItemQuitClick" InputGestureText="Ctrl+Q"/>
             </MenuItem>
             <MenuItem Header="Hantera">
-                <MenuItem x:Name="menuItemLists" Header="Listor"/>
-                <MenuItem x:Name="menuItemAccount" Header="Konto"/>
+                <MenuItem x:Name="menuItemLists" Click="shoppingListPrefsClick" Header="Listor"/>
+                <MenuItem x:Name="menuItemAccount" Header="Konto" Click="menuItemPropertiesClick"/>
             </MenuItem>
             <MenuItem Header="Hjälp">
                 <MenuItem x:Name="menuItemAbout" Header="Om iMat"/>
@@ -66,12 +65,12 @@
                     </Button>
                 </ToolBar>
                 <ToolBar HorizontalAlignment="Right">
-                    <Button Content="" Height="26" VerticalAlignment="Top" Width="28" BorderBrush="{x:Null}" ToolTip="Listor" Click="Button_Click_1">
+                    <Button Content="" Height="26" VerticalAlignment="Top" Width="28" BorderBrush="{x:Null}" ToolTip="Listor" Click="shoppingListPrefsClick">
                         <Button.Background>
                             <ImageBrush ImageSource="Resources\Icons\copyList_2.png" Stretch="Uniform"/>
                         </Button.Background>
                     </Button>
-                    <ComboBox Height="22" ItemsSource="{Binding ShoppingListsCollection}" DisplayMemberPath="Name" SelectedValue="{Binding ShoppingListDummy}"  Margin="0" VerticalAlignment="Top" Width="100"/>
+                    <ComboBox x:Name="shoppingListSelectComboBox" Height="22" ItemsSource="{Binding ShoppingListsCollection}" DisplayMemberPath="Name" SelectedValue="{Binding ShoppingListDummy}"  Margin="0" VerticalAlignment="Top" Width="100"/>
                 </ToolBar>
             </ToolBarTray>
         </DockPanel>

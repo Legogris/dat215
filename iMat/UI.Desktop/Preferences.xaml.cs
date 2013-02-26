@@ -21,10 +21,13 @@ namespace UI.Desktop
     /// </summary>
     public partial class Preferences : Window
     {
-        public Preferences(DataHandler dh)
+        private DataHandler dataHandler;
+
+        public Preferences(DataHandler dh, UserControl open)
         {
             InitializeComponent();
-            content.Children.Add(new ListControl(dh));
+            dataHandler = dh;
+            content.Children.Add(open);
         }
 
         private void okClick(object sender, RoutedEventArgs e)
