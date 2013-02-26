@@ -31,6 +31,16 @@ namespace UI.Desktop.Content
         {
             listHandler = dh.GetFavorites();
             InitializeComponent();       
+        }
+
+        private void overview_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
+        {
+            var item = ((FrameworkElement)e.OriginalSource).DataContext as FavoriteList;
+            if (item != null)
+            {
+                test.Content = item.Name;
+                detail.ItemsSource = item.GetItems();
+            }
         }        
     }
 }

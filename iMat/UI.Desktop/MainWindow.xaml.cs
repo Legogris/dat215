@@ -94,12 +94,14 @@ namespace UI.Desktop
 
     public class ListContextMenuManager {
         public ContextMenu ShoppingListContextMenu { get; private set; }
+        private DataHandler dataHandler;
         private ShoppingListHandler listHandler;
         private MainWindow mainWindow;
 
         public ListContextMenuManager(MainWindow window, DataHandler dh)
         {
             listHandler = dh.GetFavorites();
+            dataHandler = dh;
             mainWindow = window;
             createContextMenu();
         }
@@ -156,7 +158,8 @@ namespace UI.Desktop
                 string s = tbp.TextBoxText;
                 FavoriteList list = new FavoriteList(s);
                 listHandler.Add(list);
-                // TODO: lägg till sakerna i kundvagnen till den nya listan
+
+                list.Add(dataHandler.GetCart().GetItems());
             }
         }
     }

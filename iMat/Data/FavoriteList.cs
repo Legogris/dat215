@@ -18,17 +18,39 @@ namespace Data
         {
             items = new List<ShoppingItem>();
             Name = name;
-            NumberOfItems = 1337;
-            TotalCost = 42;
+            updateStats();
         }
+
+        private void updateStats()
+        {
+            NumberOfItems = items.Count;
+            TotalCost = items.Sum(x => x.Total);
+        }
+
         public void Add(ShoppingItem item)
         {
             items.Add(item);
+            updateStats();
         }
+
+        public void Add(IList<ShoppingItem> items)
+        {
+            foreach (ShoppingItem si in items)
+            {
+                Add(si);
+            }
+        }
+
+        public IList<ShoppingItem> GetItems()
+        {
+            return items;
+        }
+
         public void Remove(ShoppingItem item)
         {
             items.Remove(item);
         }
+
         public IEnumerator<ShoppingItem> GetEnumerator()
         {
             return items.GetEnumerator();
