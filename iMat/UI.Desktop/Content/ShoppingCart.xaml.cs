@@ -48,8 +48,10 @@ namespace UI.Desktop.Content
                 addShoppingCartItem(cartItem);
             }
 
-            // TODO: modeless feedback som berättar att saker har lagts till om ShoppingCart.GetItems() != empty?
-
+            if (shoppingCart.GetItems().Count != 0)
+            {
+                notifyLabel.Opacity = 100;
+            }
             updateTotalLabels();
         }
 
