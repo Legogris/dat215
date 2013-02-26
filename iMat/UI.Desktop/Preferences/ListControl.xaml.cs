@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UI.Desktop.Controls;
 
 namespace UI.Desktop.Content
 {
@@ -88,6 +89,24 @@ namespace UI.Desktop.Content
         {
             overview.ItemsSource = null;
             overview.ItemsSource = ShoppingListsCollection;
+        }
+
+        private void copyClick(object sender, RoutedEventArgs e)
+        {
+            if (current == null) return;
+            FavoriteList copyList = new FavoriteList(current.Name);
+            copyList.Add(current.GetItems());
+            listHandler.Add(copyList);
+            reloadOverview();
+        }
+
+        private void newShoppingList(object sender, RoutedEventArgs e)
+        {
+            FavoriteList list = new FavoriteList("Ny lista");
+            current = list;
+            listHandler.Add(list);
+            reloadOverview();
+            updateDetail(list);
         }
     }
 }

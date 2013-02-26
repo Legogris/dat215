@@ -23,12 +23,12 @@
         <Label Content="Dina Listor" HorizontalAlignment="Left" Height="28" Margin="1,0,0,0" VerticalAlignment="Top" Width="71" Grid.Row="1" Grid.Column="1"/>
         <Label Content="Innehåll" HorizontalAlignment="Left" Height="28" Margin="10,0,0,0" VerticalAlignment="Top" Width="68" Grid.Row="1" Grid.Column="2"/>
         <Label Content="Listor" HorizontalAlignment="Left" Height="42" Margin="0,10,0,0" VerticalAlignment="Top" Width="126" FontSize="24" Grid.Column="1" Grid.RowSpan="2"/>
-        <Button Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="6,7,0,0" Grid.Row="2" VerticalAlignment="Top" Width="45">
+        <Button x:Name="newShoppingListButton" Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="6,7,0,0" Grid.Row="2" VerticalAlignment="Top" Width="45" Click="newShoppingList">
             <StackPanel Orientation="Horizontal">
                 <Image Source="..\Resources\Icons\newList.png" Width="41" Height="33"/>
             </StackPanel>
         </Button>
-        <Button Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="56,7,0,0" Grid.Row="2" VerticalAlignment="Top" Width="45">
+        <Button x:Name="copyShoppingListButton" Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="56,7,0,0" Grid.Row="2" VerticalAlignment="Top" Width="45" Click="copyClick">
             <StackPanel Orientation="Horizontal">
                 <Image Source="..\Resources\Icons\copyList.png" Width="41" Height="33"/>
             </StackPanel>

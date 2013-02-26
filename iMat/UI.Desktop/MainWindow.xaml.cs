@@ -28,11 +28,14 @@ namespace UI.Desktop
         private DataHandler dataHandler;
         private ListContextMenuManager listContextMenu;
 
+        public IList<FavoriteList> ShoppingListsCollection { get { return listContextMenu.listHandler.GetFavLists(); } }
+        public FavoriteList ShoppingListDummy { get; set; }
+
         public MainWindow()
         {
-            InitializeComponent();
             dataHandler = DataHandler.ReadFromFile(DATABASE, PRODUCTS);
             listContextMenu = new ListContextMenuManager(this, dataHandler);
+            InitializeComponent();
             initDataBinding();
         }
 
@@ -95,7 +98,7 @@ namespace UI.Desktop
     public class ListContextMenuManager {
         public ContextMenu ShoppingListContextMenu { get; private set; }
         private DataHandler dataHandler;
-        private ShoppingListHandler listHandler;
+        public ShoppingListHandler listHandler { get; private set; }
         private MainWindow mainWindow;
 
         public ListContextMenuManager(MainWindow window, DataHandler dh)
@@ -115,6 +118,7 @@ namespace UI.Desktop
                 MenuItem item = menuItemFactory(list);
                 ShoppingListContextMenu.Items.Add(item);
             }
+            ShoppingListContextMenu.Items.Add(new Separator());
             MenuItem addNew = new MenuItem();
             addNew.Header = "Lägg till ny grej";
             ShoppingListContextMenu.Items.Add(addNew);
@@ -149,7 +153,7 @@ namespace UI.Desktop
             if (e.Type == ShoppingListsChangedEventArgs.ListEventType.Add)
             {
                 MenuItem item = menuItemFactory(e.List);
-                ShoppingListContextMenu.Items.Insert(ShoppingListContextMenu.Items.Count - 1, item);
+                ShoppingListContextMenu.Items.Insert(ShoppingListContextMenu.Items.Count - 2, item);
             }
             else if (e.Type == ShoppingListsChangedEventArgs.ListEventType.Change)
             {
@@ -180,8 +184,7 @@ namespace UI.Desktop
                 string s = tbp.TextBoxText;
                 FavoriteList list = new FavoriteList(s);
                 listHandler.Add(list);
-
-                list.Add(dataHandler.GetCart().GetItems());
+                list.Add(dataHandler.GetCart().GetItems()); // lägg till kundvagnen i ShoppingListan
             }
         }
     }
