@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Data;
+using Data.Desktop;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,15 @@ namespace UI.Desktop.Content
     /// </summary>
     public partial class ListControl : UserControl
     {
-        public ListControl()
+        private ShoppingListHandler listHandler;
+        
+        public IList<FavoriteList> ShoppingListsCollection
+        { get { return listHandler.GetItems(); } }
+
+        public ListControl(DataHandler dh)
         {
-            InitializeComponent();
-        }
+            listHandler = dh.GetFavorites();
+            InitializeComponent();       
+        }        
     }
 }

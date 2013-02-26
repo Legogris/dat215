@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data.Desktop;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,10 +21,10 @@ namespace UI.Desktop
     /// </summary>
     public partial class Preferences : Window
     {
-        public Preferences()
+        public Preferences(DataHandler dh)
         {
             InitializeComponent();
-            content.Children.Add(new ListControl());
+            content.Children.Add(new ListControl(dh));
         }
     }
 }

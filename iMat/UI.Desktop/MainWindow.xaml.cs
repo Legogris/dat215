@@ -79,15 +79,16 @@ namespace UI.Desktop
 
         }
 
-        private void Window_Closing_1(object sender, System.ComponentModel.CancelEventArgs e)
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             dataHandler.WriteToFile(DATABASE);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Preferences pref = new Preferences();            
-            pref.Show();
+            Preferences pref = new Preferences(dataHandler);
+            pref.Owner = this;
+            pref.ShowDialog();
         }
     }
 

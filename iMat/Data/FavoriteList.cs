@@ -11,10 +11,15 @@ namespace Data
     {
         private readonly List<ShoppingItem> items;
         public string Name { get; private set; }
+        public int NumberOfItems { get; private set; }
+        public double TotalCost { get; private set; }
+
         public FavoriteList(string name)
         {
             items = new List<ShoppingItem>();
             Name = name;
+            NumberOfItems = 1337;
+            TotalCost = 42;
         }
         public void Add(ShoppingItem item)
         {
