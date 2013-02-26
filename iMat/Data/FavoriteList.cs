@@ -10,7 +10,7 @@ namespace Data
     public class FavoriteList 
     {
         private readonly List<ShoppingItem> items;
-        public string Name { get; private set; }
+        public string Name { get; set; }
         public int NumberOfItems { get; private set; }
         public double TotalCost { get; private set; }
 

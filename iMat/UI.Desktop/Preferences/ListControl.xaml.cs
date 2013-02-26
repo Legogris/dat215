@@ -23,7 +23,13 @@ namespace UI.Desktop.Content
     public partial class ListControl : UserControl
     {
         private ShoppingListHandler listHandler;
-        
+        private IList<ShoppingItem> detailList
+        {
+            get { return (IList<ShoppingItem>) detail.ItemsSource; }
+            set { detail.ItemsSource = value; }
+        }
+        private FavoriteList current = null;
+
         public IList<FavoriteList> ShoppingListsCollection
         { get { return listHandler.GetItems(); } }
 
@@ -38,9 +44,20 @@ namespace UI.Desktop.Content
             var item = ((FrameworkElement)e.OriginalSource).DataContext as FavoriteList;
             if (item != null)
             {
-                test.Content = item.Name;
-                detail.ItemsSource = item.GetItems();
+                current = item;
+                detailList = item.GetItems();
+                listTotalPriceLabel.Content = item.TotalCost + " kr";
+                listNameTextBox.Text = item.Name;
             }
-        }        
+        }
+
+        private void listNameTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter && current != null)
+            {
+                current.Name = listNameTextBox.Text;
+                // TODO: invoka nån sorts change event så att dropdowns och listan laddar om
+            }
+        }
     }
 }
