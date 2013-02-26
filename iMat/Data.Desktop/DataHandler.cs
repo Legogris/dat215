@@ -167,9 +167,9 @@ namespace Data.Desktop
             }
         }
 
-        public List<FavoriteList> GetFavorites()
+        public ShoppingListHandler GetFavorites()
         {
-            return (List<FavoriteList>) favorites.GetItems();
+            return favorites;
         }
 
         public List<CreditCard> GetCreditCards()
