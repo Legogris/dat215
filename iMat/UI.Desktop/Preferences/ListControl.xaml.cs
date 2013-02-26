@@ -31,7 +31,7 @@ namespace UI.Desktop.Content
         private FavoriteList current = null;
 
         public IList<FavoriteList> ShoppingListsCollection
-        { get { return listHandler.GetItems(); } }
+        { get { return listHandler.GetFavLists(); } }
 
         public ListControl(DataHandler dh)
         {
@@ -42,7 +42,40 @@ namespace UI.Desktop.Content
         private void overview_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
         {
             var item = ((FrameworkElement)e.OriginalSource).DataContext as FavoriteList;
-            if (item != null)
+            if (item != null) updateDetail(item);
+        }
+
+        private void listNameTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter && current != null)
+            {
+                current.Name = listNameTextBox.Text;
+                listHandler.Change(current);
+                reloadOverview();
+            }
+        }
+
+        private void deleteShoppingListClick(object sender, RoutedEventArgs e)
+        {
+            if (current != null)
+            {
+                listHandler.Remove(current);
+                reloadOverview();
+                updateDetail(null);
+                current = null;
+            }
+        }
+
+        private void updateDetail(FavoriteList item)
+        {
+            if (item == null)
+            {
+                current = null;
+                detailList = null;
+                listTotalPriceLabel.Content = "";
+                listNameTextBox.Text = "";
+            }
+            else
             {
                 current = item;
                 detailList = item.GetItems();
@@ -51,13 +84,10 @@ namespace UI.Desktop.Content
             }
         }
 
-        private void listNameTextBox_KeyDown(object sender, KeyEventArgs e)
+        private void reloadOverview()
         {
-            if (e.Key == Key.Enter && current != null)
-            {
-                current.Name = listNameTextBox.Text;
-                // TODO: invoka nån sorts change event så att dropdowns och listan laddar om
-            }
+            overview.ItemsSource = null;
+            overview.ItemsSource = ShoppingListsCollection;
         }
     }
 }

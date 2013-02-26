@@ -20,7 +20,7 @@ namespace Data
             favLists = new List<FavoriteList>();
         }
 
-        public IList<FavoriteList> GetItems()
+        public IList<FavoriteList> GetFavLists()
         {
             return favLists;
         }
@@ -52,6 +52,7 @@ namespace Data
 
         public void Remove(FavoriteList l)
         {
+            favLists.Remove(l);
             Changed.Invoke(new ShoppingListsChangedEventArgs(ShoppingListsChangedEventArgs.ListEventType.Remove, l));
         }
 

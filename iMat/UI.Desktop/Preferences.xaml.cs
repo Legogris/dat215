@@ -26,5 +26,10 @@ namespace UI.Desktop
             InitializeComponent();
             content.Children.Add(new ListControl(dh));
         }
+
+        private void okClick(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+        }
     }
 }

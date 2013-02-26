@@ -110,7 +110,7 @@ namespace UI.Desktop
         {
             listHandler.Changed += listHandler_Changed;
             ShoppingListContextMenu = new ContextMenu();
-            foreach (FavoriteList list in listHandler.GetItems())
+            foreach (FavoriteList list in listHandler.GetFavLists())
             {
                 MenuItem item = menuItemFactory(list);
                 ShoppingListContextMenu.Items.Add(item);
@@ -130,6 +130,20 @@ namespace UI.Desktop
             return newList;
         }
 
+        private MenuItem findMenuItemByList(FavoriteList list)
+        {
+            MenuItem menuItem = null;
+            foreach (MenuItem item in ShoppingListContextMenu.Items)
+            {
+                if (list == item.DataContext)
+                {
+                    menuItem = item;
+                    break;
+                }
+            }
+            return menuItem;
+        }
+
         void listHandler_Changed(ShoppingListsChangedEventArgs e)
         {
             if (e.Type == ShoppingListsChangedEventArgs.ListEventType.Add)
@@ -139,11 +153,19 @@ namespace UI.Desktop
             }
             else if (e.Type == ShoppingListsChangedEventArgs.ListEventType.Change)
             {
-                // do stuff
+                MenuItem changeIT = findMenuItemByList(e.List);
+                if (changeIT != null)
+                {
+                    changeIT.Header = e.List.Name;
+                }
             }
             else if (e.Type == ShoppingListsChangedEventArgs.ListEventType.Remove)
             {
-                // do stuff
+                MenuItem removeIT = findMenuItemByList(e.List);
+                if (removeIT != null)
+                {
+                    ShoppingListContextMenu.Items.Remove(removeIT);
+                }
             }
             
         }
