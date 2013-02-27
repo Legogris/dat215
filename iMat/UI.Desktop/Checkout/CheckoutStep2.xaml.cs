@@ -20,6 +20,8 @@ namespace UI.Desktop.Checkout
     /// </summary>
     public partial class CheckoutStep2 : UserControl
     {
+        public event EventHandler NextStep2;
+        public event EventHandler BackStep2;
         public CheckoutStep2()
         {
             InitializeComponent();
@@ -73,9 +75,5 @@ namespace UI.Desktop.Checkout
                 PaymentGrid.Visibility = Visibility.Collapsed;
             }
         }
-
-        public event EventHandler NextStep2;
-        public event EventHandler BackStep2;
-
     }
 }

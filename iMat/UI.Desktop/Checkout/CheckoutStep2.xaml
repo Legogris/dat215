@@ -8,7 +8,7 @@
     <Grid>
         <Label x:Name="DeliveryLabel" Content="Välj leveranssätt:" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" VerticalAlignment="Top" Width="125" FontWeight="Bold" FontSize="14"/>
         <RadioButton x:Name="PickupInStore" Content="Plocka up i affär:" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Height="20" GroupName="DeliveryGroup" Checked="PickupInStore_Checked" IsChecked="True"/>
-        <ComboBox x:Name="StoreComboBox" HorizontalAlignment="Left" Height="30" Margin="290,30,0,0" VerticalAlignment="Top" Width="100">
+        <ComboBox x:Name="StoreComboBox" HorizontalAlignment="Left" Height="30" Margin="290,30,0,0" VerticalAlignment="Top" Width="100" SelectedIndex="0">
             <ComboBoxItem Content="iMat Storgatan"/>
             <ComboBoxItem Content="iMat Tvärgatan"/>
         </ComboBox>

@@ -110,6 +110,24 @@ namespace UI.Desktop.Checkout
             step3Border.Background = Brushes.LightGreen;
             step2Border.Background = Brushes.Transparent;
             step3.displayContent();
+            if (step2.PayOnPickup.IsChecked == true)
+            {
+                step3.chosenPaymentOption.Content = "Du betalar dina varor vid upphämtning.";
+            }
+            else
+            {
+                step3.chosenPaymentOption.Content = "Du betalar med kort med nr: " + step2.CardNumberTextBox.Text;
+            }
+            if (step2.HomeDelivery.IsChecked == true)
+            {
+                step3.chosenDeliveryOption.Content = "Dina varor kommer levereras hem till: " + step2.AddressTextBox.Text;
+            }
+            else
+            {
+                ComboBoxItem ci = (ComboBoxItem)step2.StoreComboBox.SelectedItem;
+                string temp = ci.Content.ToString();
+                step3.chosenDeliveryOption.Content = "Dina varor kommer levereras till: " + temp;
+            }
         }
     }
 }

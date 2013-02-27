@@ -18,6 +18,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Label x:Name="chosenPaymentOption" Content="Label" HorizontalAlignment="Left" Height="26" Margin="10,307,0,0" VerticalAlignment="Top" Width="380"/>
+        <Label x:Name="chosenDeliveryOption" Content="Label" HorizontalAlignment="Left" Height="26" Margin="10,333,0,0" VerticalAlignment="Top" Width="380"/>
 
     </Grid>
 </UserControl>

@@ -38,5 +38,22 @@ namespace UI.Desktop.Checkout
         {
             BackStep.Invoke(this, null);
         }
+
+        private void logInEmailTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            checkIfReadyToContinue();
+        }
+
+        private void logInPasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            checkIfReadyToContinue();
+        }
+        private void checkIfReadyToContinue()
+        {
+            if (!(string.IsNullOrEmpty(logInEmailTextBox.Text) || string.IsNullOrEmpty(logInPasswordBox.Password)))
+            {
+                logInNextButton.IsEnabled = true;
+            }
+        }
     }
 }
