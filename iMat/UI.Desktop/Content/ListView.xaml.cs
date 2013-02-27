@@ -31,6 +31,13 @@ namespace UI.Desktop
         {
             InitializeComponent();
             this.DataContextChanged += ListView_DataContextChanged;
+            this.MouseUp += ListView_MouseUp;
+        }
+
+        void ListView_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            object o = e.OriginalSource;
+
         }
 
         void ListView_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
