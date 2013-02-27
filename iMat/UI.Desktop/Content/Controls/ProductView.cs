@@ -13,7 +13,7 @@ namespace UI.Desktop
     public abstract class ProductView : UserControl
     {
         public Product Product { get { return Item.Product; } }
-        protected ShoppingItem Item { get; private set; }
+        public ShoppingItem Item { get; private set; }
 
         public ProductView(ShoppingItem item)
         {

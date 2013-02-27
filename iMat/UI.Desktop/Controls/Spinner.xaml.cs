@@ -29,7 +29,7 @@ namespace UI.Desktop
 
         public double Value {
             get { return value; }
-            set { this.value = value; }
+            set { this.value = value; UpdateTextField(); }
         }
         public double Step {
             get { return step; }

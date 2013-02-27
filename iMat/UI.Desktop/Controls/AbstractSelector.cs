@@ -17,10 +17,13 @@ namespace UI.Desktop
         protected abstract Label PieceLabel { get; }
         protected abstract Label JmfLabel { get; }
         protected abstract Spinner AmountSpinner { get; }
+        private double numberOfItems;
         public double NumberOfItems
         {
-            get;
-            protected set;
+            get { return numberOfItems; }
+            protected set { numberOfItems = value;
+            if (AmountSpinner != null) { AmountSpinner.Value = value; }
+            }
         }
 
         public AbstractSelector(ShoppingItem item) {
@@ -47,8 +50,11 @@ namespace UI.Desktop
         }
 
         protected void spinner_AmountChanged(Spinner spinner) {
-            updatePrice(spinner.Value);
-            NumberOfItems = spinner.Value;
+            if (spinner.Value > 0)
+            {
+                updatePrice(spinner.Value);
+                NumberOfItems = spinner.Value;
+            }
         }
     }
 }
