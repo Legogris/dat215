@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,10 +21,18 @@ namespace UI.Desktop
     /// </summary>
     public partial class BreadCrumbs : UserControl
     {
+        FavoriteList list;
         public BreadCrumbs()
         {
             InitializeComponent();
             breadCrumb.ProductCategorySelected += breadCrumb_ProductCategorySelected;
+            this.DataContextChanged += BreadCrumbs_DataContextChanged;
+        }
+
+        void BreadCrumbs_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            list = e.NewValue as FavoriteList;
+            addListToCartButton.Visibility = list == null ? System.Windows.Visibility.Hidden : System.Windows.Visibility.Visible;
         }
 
         void breadCrumb_ProductCategorySelected(UserControl sender, ProductCategoryChangedEventArgs e)
@@ -35,5 +44,19 @@ namespace UI.Desktop
         }
 
         public event ProductCategoryChangedHandler ProductCategorySelected;
+        public event ShoppingCartChangedHandler ItemAdded;
+
+        private void addListToCartButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (list != null)
+            {
+                foreach (ShoppingItem item in list)
+                {
+                    if(ItemAdded != null) {
+                        ItemAdded.Invoke(this, new CartEventArgs(CartEventArgs.CartEventType.Add, item));
+                    }
+                }
+            }
+        }
     }
 }

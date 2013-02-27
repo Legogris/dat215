@@ -35,8 +35,9 @@ namespace UI.Desktop
                 ProductCategory pc = e.NewValue as ProductCategory;
                 if (pc != null)
                 {
-                    foreach (Product product in pc.GetProducts())
+                    foreach (ShoppingItem item in pc.GetItems())
                     {
+                        Product product = item.Product;
                         GridViewItem li;
                         if(gridItems.ContainsKey(product)) {
                             li = gridItems[product];

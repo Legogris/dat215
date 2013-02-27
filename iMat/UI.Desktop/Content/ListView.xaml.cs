@@ -52,10 +52,12 @@ namespace UI.Desktop
                 if (pc != null)
                 {
                     int i = 0;
-                    foreach(Product product in pc.GetProducts())
+                    foreach(ShoppingItem item in pc.GetItems())
                     {
                         try
                         {
+                            Product product = item.Product;
+
                             ListViewItem li;
                             DetailedItem dli;
                             if (listItems.ContainsKey(product))

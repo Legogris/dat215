@@ -24,7 +24,7 @@ namespace UI.Desktop.Content
     public partial class ListControl : UserControl
     {
         private ShoppingListHandler listHandler;
-        private IList<ShoppingItem> detailList
+        private IEnumerable<ShoppingItem> detailList
         {
             get { return (IList<ShoppingItem>) detail.ItemsSource; }
             set { detail.ItemsSource = value; }

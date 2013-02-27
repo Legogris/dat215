@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Data
 {
     [Serializable()]
-    public class ProductCategory
+    public class ConcreteProductCategory : ProductCategory
     {
         public string Name { get; private set; }
         public string ID { get; private set; }
@@ -26,7 +26,7 @@ namespace Data
             }
         }
 
-        public ProductCategory(string id, string name, ProductCategory parent)
+        public ConcreteProductCategory(string id, string name, ProductCategory parent)
         {
             this.ID = id;
             this.Name = name;
@@ -45,7 +45,7 @@ namespace Data
             p.Categories.Add(this);
         }
 
-        public Product GetProduct(int id)
+       /* public Product GetProduct(int id)
         {
             Product p = products.SingleOrDefault(x => x.ProductID == id);
             if (p != null)
@@ -61,14 +61,14 @@ namespace Data
                 }
             }
             return null;
-        }
+        }*/
 
-        public IEnumerable<Product> GetProducts()
+        public IEnumerable<ShoppingItem> GetItems()
         {
-            List<Product> ps = products.ToList<Product>();
+            List<ShoppingItem> ps = products.Select(p => new ShoppingItem(p, 1)).ToList();
             foreach (ProductCategory subCat in SubCategories)
             {
-                ps.AddRange(subCat.GetProducts());
+                ps.AddRange(subCat.GetItems());
             }
             return ps.Distinct();
         }

@@ -7,11 +7,14 @@ using System.Threading.Tasks;
 namespace Data
 {
     [Serializable()]
-    public class ShoppingListHandler
+    public class ShoppingListHandler : ProductCategory
     {
         public delegate void ShoppingListsChanged(ShoppingListsChangedEventArgs e);
         [field:NonSerialized()]
         public event ShoppingListsChanged Changed;
+        public ProductCategory Parent { get; set; }
+        public string ID { get { return "Favoritlistor*"; } }
+        public string Name { get { return "Favoritlistor"; } }
 
         private IList<FavoriteList> favLists;
 
@@ -20,6 +23,23 @@ namespace Data
             favLists = new List<FavoriteList>();
         }
 
+        public IEnumerable<ShoppingItem> GetItems()
+        {
+            return new List<ShoppingItem>();
+        }
+
+        public IList<ProductCategory> SubCategories
+        {
+            get
+            {
+                return new List<ProductCategory>(favLists);
+            }
+        }
+
+        public ProductCategory GetCategoryByID(string id)
+        {
+            return favLists.FirstOrDefault(f => f.ID == id);
+        }
         public IList<FavoriteList> GetFavLists()
         {
             return favLists;
