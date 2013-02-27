@@ -49,6 +49,13 @@ namespace Data
         public void Remove(ShoppingItem item)
         {
             items.Remove(item);
+            updateStats();
+        }
+
+        public void Remove(int i)
+        {
+            items.RemoveAt(i);
+            updateStats();
         }
 
         public IEnumerator<ShoppingItem> GetEnumerator()

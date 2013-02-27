@@ -79,6 +79,7 @@ namespace UI.Desktop.Content
             else
             {
                 current = item;
+                detail.ItemsSource = null;
                 detailList = item.GetItems();
                 listTotalPriceLabel.Content = item.TotalCost + " kr";
                 listNameTextBox.Text = item.Name;
@@ -107,6 +108,14 @@ namespace UI.Desktop.Content
             listHandler.Add(list);
             reloadOverview();
             updateDetail(list);
+        }
+
+        private void removeItemButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (current == null || detail.SelectedIndex == -1) return;
+            current.Remove(detail.SelectedIndex);
+            updateDetail(current);
+            reloadOverview();
         }
     }
 }
