@@ -19,21 +19,23 @@ namespace UI.Desktop
     /// <summary>
     /// Interaction logic for CategoryControl.xaml
     /// </summary>
+    public delegate void ProductCategoryChangedHandler(UserControl sender, ProductCategoryChangedEventArgs e);
+
+    public class ProductCategoryChangedEventArgs
+    {
+        public ProductCategory Category { get; private set; }
+        public ProductCategoryChangedEventArgs(ProductCategory pc)
+        {
+            Category = pc;
+        }
+    }
+
     public partial class CategoryControl : UserControl
     {
         private ProductCategory productCategory;
         private bool expanded = false;
-        public delegate void ProductCategoryChangedHandler(UserControl sender, ProductCategoryChangedEventArgs e);
         public event ProductCategoryChangedHandler ProductCategorySelectionChanged;
 
-        public class ProductCategoryChangedEventArgs
-        {
-            public ProductCategory Category { get; private set; }
-            public ProductCategoryChangedEventArgs(ProductCategory pc)
-            {
-                Category = pc;
-            }
-        }
 
         public CategoryControl(ProductCategory pc)
         {
@@ -65,7 +67,7 @@ namespace UI.Desktop
             }
         }
 
-        void childProductCategorySelectionChanged(UserControl sender, CategoryControl.ProductCategoryChangedEventArgs e)
+        void childProductCategorySelectionChanged(UserControl sender, ProductCategoryChangedEventArgs e)
         {
             ProductCategorySelectionChanged.Invoke(sender, e);
         }

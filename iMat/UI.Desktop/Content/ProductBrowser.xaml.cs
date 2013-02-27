@@ -101,16 +101,18 @@ namespace UI.Desktop
             Thickness margin = root.stackPanel.Margin;
             margin.Left = 0;
             root.stackPanel.Margin = margin;
+            breadCrumbs.DataContext = rootCategory;
             listView.DataContext = rootCategory;
             gridView.DataContext = rootCategory;
             treeView.DataContext = rootCategory;
 
             root.ProductCategorySelectionChanged += root_ProductCategorySelectionChanged;
+            breadCrumbs.ProductCategorySelected += root_ProductCategorySelectionChanged;
         }
 
-        void root_ProductCategorySelectionChanged(UserControl sender, CategoryControl.ProductCategoryChangedEventArgs e)
+        void root_ProductCategorySelectionChanged(UserControl sender, ProductCategoryChangedEventArgs e)
         {
-            listView.DataContext = gridView.DataContext = e.Category;
+            listView.DataContext = gridView.DataContext = breadCrumbs.DataContext = e.Category;
         }
 
         void itemAdded(object sender, CartEventArgs e)
