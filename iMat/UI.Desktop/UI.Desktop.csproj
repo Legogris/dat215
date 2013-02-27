@@ -111,6 +111,9 @@
     <Compile Include="Content\Controls\ShoppingCartItem.xaml.cs">
       <DependentUpon>ShoppingCartItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Content\Controls\SpecialOfferCarousel.xaml.cs">
+      <DependentUpon>SpecialOfferCarousel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Content\Controls\TreeViewCategoryItem.xaml.cs">
       <DependentUpon>TreeViewCategoryItem.xaml</DependentUpon>
     </Compile>
@@ -122,6 +125,9 @@
     </Compile>
     <Compile Include="Content\GridView.xaml.cs">
       <DependentUpon>GridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\StartPage.xaml.cs">
+      <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Preferences.xaml.cs">
       <DependentUpon>Preferences.xaml</DependentUpon>
@@ -199,6 +205,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Content\Controls\SpecialOfferCarousel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Content\Controls\TreeViewCategoryItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -212,6 +222,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Content\GridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Content\StartPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -501,6 +515,8 @@
     <Resource Include="Resources\ProductImages\product_98.jpg" />
     <Resource Include="Resources\ProductImages\product_99.jpg" />
     <Resource Include="Resources\Icons\toList.png" />
+    <Resource Include="Resources\imatSplash.png" />
+    <Resource Include="Resources\imatIcon.ico" />
     <Content Include="Resources\products.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

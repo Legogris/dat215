@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Data;
+using UI.Desktop.Content;
 
 namespace UI.Desktop
 {
@@ -25,7 +26,8 @@ namespace UI.Desktop
         {
             List,
             Grid,
-            Tree
+            Tree,
+            Start
         }
 
         private ProductCategory rootCategory;
@@ -33,6 +35,7 @@ namespace UI.Desktop
         private ListView listView;
         private GridView gridView;
         private TreeView treeView;
+        
 
         public ProductCategory RootCategory
         {
@@ -59,6 +62,10 @@ namespace UI.Desktop
                         itemFrame.Content = treeView;
                         hideCategories();
                         break;
+                    case ProductsViewMode.Start:
+                        itemFrame.Content = new StartPage();
+                        showCategories();
+                        break;
                     default:
                         throw new NotImplementedException();
                 }
@@ -74,6 +81,7 @@ namespace UI.Desktop
             treeView = new TreeView();
             treeView.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
             treeView.Width = 500;
+            //ViewMode = ProductsViewMode.Start;
             ViewMode = ProductsViewMode.List;
 
             listView.ItemAdded += itemAdded;
