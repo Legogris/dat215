@@ -33,7 +33,7 @@ namespace UI.Desktop
         protected override Spinner AmountSpinner
         { get { return amountSpinner; } }
 
-        public ItemSelector(Product p) : base(p)
+        public ItemSelector(ShoppingItem item) : base(item)
         {
             InitializeComponent();
             base.init();

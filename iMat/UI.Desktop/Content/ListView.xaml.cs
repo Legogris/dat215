@@ -64,7 +64,7 @@ namespace UI.Desktop
                             {
                                 li = listItems[product];
                             } else {
-                                li = new ListViewItem(product);
+                                li = new ListViewItem(item);
                                 listItems[product] = li;
                                 li.ItemAdded += li_ItemAdded;
                                 li.MouseDown += li_MouseDown;
@@ -73,7 +73,7 @@ namespace UI.Desktop
                             {
                                 dli = detailedItems[product];
                             } else {
-                                dli = new DetailedItem(product);
+                                dli = new DetailedItem(item);
                                 detailedItems[product] = dli;
                                 dli.ItemAdded += li_ItemAdded;
                                 dli.MouseDown += dli_MouseDown;

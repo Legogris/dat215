@@ -42,7 +42,7 @@ namespace UI.Desktop
                         if(gridItems.ContainsKey(product)) {
                             li = gridItems[product];
                         } else {
-                            li = new GridViewItem(product);
+                            li = new GridViewItem(item);
                             gridItems[product] = li;
                             li.ItemAdded += li_ItemAdded;
                         }

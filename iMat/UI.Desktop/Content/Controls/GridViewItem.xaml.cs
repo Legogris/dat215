@@ -19,36 +19,31 @@ namespace UI.Desktop
     /// <summary>
     /// Interaction logic for GridViewItem.xaml
     /// </summary>
-    public partial class GridViewItem : UserControl
+    public partial class GridViewItem : ProductView
     {
-        private Product product;
         private AbstractSelector sel;
 
-        public Product Product { get { return product; } }
+        override protected double NumberOfItems
+        {
+            get
+            {
+                return Item.Amount;
+            }
+        }
 
-        public GridViewItem(Product p)
+        public GridViewItem(ShoppingItem item) : base(item)
         {
             InitializeComponent();
-            product = p;
             initContent();
         }
 
         private void initContent() {
-            productName.Content = product.Name;
-            sel = Product.BoughtInBulk ? (AbstractSelector)new BulkSelector(Product) : new ItemSelector(Product);
+            productName.Content = Product.Name;
+            sel = Product.BoughtInBulk ? (AbstractSelector)new BulkSelector(Item) : new ItemSelector(Item);
             sel.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
             sel.VerticalAlignment = System.Windows.VerticalAlignment.Top;
             selectorContainer.Children.Add(sel);
         }
 
-        private void addToShoppingCartButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (ItemAdded != null)
-            {
-                ItemAdded.Invoke(this, new CartEventArgs(CartEventArgs.CartEventType.Add, new ShoppingItem(product, sel.NumberOfItems)));
-            }
-        }
-
-        public event Data.ShoppingCartChangedHandler ItemAdded;
     }
 }

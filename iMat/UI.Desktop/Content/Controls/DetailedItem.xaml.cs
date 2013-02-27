@@ -33,7 +33,7 @@ namespace UI.Desktop
             }
         }
 
-        public DetailedItem(Product p) :  base(p)
+        public DetailedItem(ShoppingItem i) :  base(i)
         {
             InitializeComponent();
             addToListButton.ContextMenu = MainWindow.ListContextMenu;
@@ -42,7 +42,7 @@ namespace UI.Desktop
 
         private void initContent() {
             productName.Content = Product.Name;
-            sel = Product.BoughtInBulk ? (AbstractSelector)new BulkSelector(Product) : new ItemSelector(Product);
+            sel = Product.BoughtInBulk ? (AbstractSelector)new BulkSelector(Item) : new ItemSelector(Item);
             sel.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
             sel.VerticalAlignment = System.Windows.VerticalAlignment.Top;
             selectorContainer.Children.Add(sel);

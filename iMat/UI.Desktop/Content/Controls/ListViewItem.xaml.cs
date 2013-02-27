@@ -22,7 +22,7 @@ namespace UI.Desktop
     /// </summary>
     public partial class ListViewItem : ProductView
     {
-        public ListViewItem(Product p) : base(p)
+        public ListViewItem(ShoppingItem i) : base(i)
         {
             InitializeComponent();
             initContent();
@@ -30,7 +30,7 @@ namespace UI.Desktop
         {
             get
             {
-                return 0;
+                return Item.Amount;
             }
         }
 

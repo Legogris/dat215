@@ -23,15 +23,16 @@ namespace UI.Desktop
             protected set;
         }
 
-        public AbstractSelector(Product p) {
-            product = p;
+        public AbstractSelector(ShoppingItem item) {
+            product = item.Product;
+            NumberOfItems = item.Amount;
         }
 
         protected void init() {
             updatePrice(1);
             updateJmf();
             AmountSpinner.Step = 1;
-            NumberOfItems = AmountSpinner.Step;
+            AmountSpinner.Value = NumberOfItems;
             AmountSpinner.ValueChanged += spinner_AmountChanged;
         }
 

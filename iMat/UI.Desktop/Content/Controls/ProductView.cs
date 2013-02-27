@@ -12,11 +12,12 @@ namespace UI.Desktop
 {
     public abstract class ProductView : UserControl
     {
-        public Product Product { get; private set; }
+        public Product Product { get { return Item.Product; } }
+        protected ShoppingItem Item { get; private set; }
 
-        public ProductView(Product product)
+        public ProductView(ShoppingItem item)
         {
-            Product = product;
+            Item = item;
         }
 
         public event Data.ShoppingCartChangedHandler ItemAdded;

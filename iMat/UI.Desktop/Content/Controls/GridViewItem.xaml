@@ -1,4 +1,4 @@
-﻿<UserControl
+﻿<local:ProductView
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -14,7 +14,6 @@
         <Grid x:Name="selectorContainer" Grid.Column="1" Margin="0,10,0,0">
             
         </Grid>
-        <Button x:Name="addToShoppingCartButton" Content="Lägg till i kundvagn" HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top" Width="137" Height="19" Click="addToShoppingCartButton_Click"/>
 
     </Grid>
-</UserControl>
+</local:ProductView>

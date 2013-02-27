@@ -80,6 +80,7 @@ namespace UI.Desktop
             //TODO: Implement for grid view and tree view
             gridView.ItemAdded += itemAdded;
             treeView.ItemAdded += itemAdded;
+            breadCrumbs.ItemAdded += itemAdded;
         }
 
         private void showCategories()
