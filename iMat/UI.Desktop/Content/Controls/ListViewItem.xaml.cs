@@ -36,8 +36,16 @@ namespace UI.Desktop
 
         private void initContent() {
             productName.Content = Product.Name;
-            productPriceLabel.Content = Product.Price + " kr/st";
-            productJmfLabel.Content = Product.Price + string.Format(" {0}", Product.Unit);
+            if (Product.BoughtInBulk)
+            {
+                productPriceLabel.Content = Product.Price + " kr/st";
+                productJmfLabel.Content = Product.Price + string.Format(" {0}", Product.Unit);
+            }
+            else
+            {
+                productPriceLabel.Content = Product.Price + string.Format(" {0}", Product.Unit);
+                productJmfLabel.Content = Product.ComparePrice + string.Format(" kr/l");
+            }
             productImage.Source = ImageManager.GetImageForProduct(Product);
         }
     }

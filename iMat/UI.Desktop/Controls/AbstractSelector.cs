@@ -41,8 +41,8 @@ namespace UI.Desktop
         }
 
         private void updateJmf() {
-            JmfLabel.Content = product.Price + " " + product.Unit;
-            PieceLabel.Content = product.Price + CURRENCY + "/st";
+            JmfLabel.Content = product.ComparePrice + CURRENCY + "/" + product.BulkUnit;
+            PieceLabel.Content = product.Price + CURRENCY + "/" + product.PieceUnit;
         }
 
         protected void spinner_AmountChanged(Spinner spinner) {

@@ -42,13 +42,7 @@ namespace UI.Desktop
 
         private void initContent() {
             productName.Content = Product.Name;
-            if (Product.UnitSuffix == "kg")
-            {
-                sel = new BulkSelector(Product);
-            }
-            else {
-                sel = new ItemSelector(Product);
-            }
+            sel = Product.BoughtInBulk ? (AbstractSelector)new BulkSelector(Product) : new ItemSelector(Product);
             sel.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
             sel.VerticalAlignment = System.Windows.VerticalAlignment.Top;
             selectorContainer.Children.Add(sel);
