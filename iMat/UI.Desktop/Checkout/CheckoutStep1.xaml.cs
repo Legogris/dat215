@@ -89,25 +89,44 @@ namespace UI.Desktop.Checkout
         private void repeatPasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
             checkAndEnable();
-            if (mainPasswordBox.Password != repeatPasswordBox.Password)
-            {
-                passwordsNotEqualLabel.Content = "Lösenorden matchar inte!";
-            }
-            else
-            {
-                passwordsNotEqualLabel.Content = null;
-            }
         }
 
         private void checkAndEnable()
         {
             if (mainPasswordBox.Password == repeatPasswordBox.Password && !(string.IsNullOrEmpty(emailTextBox.Text) || string.IsNullOrEmpty(mainPasswordBox.Password) || string.IsNullOrEmpty(repeatPasswordBox.Password)))
             {
-                NextStep1Button.IsEnabled = true;
+                if (user.passwordExists() == true)
+                {
+                    if (user.isPassword(mainPasswordBox.Password) == true)
+                    {
+                        NextStep1Button.IsEnabled = true;
+                    }
+                    else
+                    {
+                        NextStep1Button.IsEnabled = false;
+                    }
+                }
+                else
+                {
+                    NextStep1Button.IsEnabled = true;
+                }
+
             }
             else
             {
                 NextStep1Button.IsEnabled = false;
+            }
+            if (mainPasswordBox.Password != repeatPasswordBox.Password)
+            {
+                passwordsNotEqualLabel.Content = "Lösenorden matchar inte!";
+            }
+            else if (user.passwordExists() == true && user.isPassword(mainPasswordBox.Password) == false && user.isPassword(repeatPasswordBox.Password) == false)
+            {
+                passwordsNotEqualLabel.Content = "Lösenordet stämmer inte med ditt användarnamn!";
+            }
+            else
+            {
+                passwordsNotEqualLabel.Content = null;
             }
         }
 

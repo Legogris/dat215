@@ -36,7 +36,7 @@ namespace UI.Desktop.Checkout
             step1 = new CheckoutStep1(data);
             step1.NextStep += step1_NextStep;
             step1.LogIn += step1_LogIn;
-            step2 = new CheckoutStep2();
+            step2 = new CheckoutStep2(data);
             step2.NextStep2 += step2_NextStep2;
             step2.BackStep2 += step2_BackStep2;
             step3 = new CheckoutStep3();

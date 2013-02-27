@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Data;
+using Data.Desktop;
 
 namespace UI.Desktop.Checkout
 {
@@ -20,11 +22,15 @@ namespace UI.Desktop.Checkout
     /// </summary>
     public partial class CheckoutStep2 : UserControl
     {
+        private DataHandler dataHandler;
         public event EventHandler NextStep2;
         public event EventHandler BackStep2;
-        public CheckoutStep2()
+        private List<ShippingAddress> sa;
+        private List<CreditCard> cc;
+        public CheckoutStep2(DataHandler data)
         {
             InitializeComponent();
+            dataHandler = data;
         }
 
         private void HomeDelivery_Checked(object sender, RoutedEventArgs e)
@@ -33,6 +39,38 @@ namespace UI.Desktop.Checkout
             StoreComboBox.IsEnabled = false;
             PayWithCard.IsChecked = true;
             PayOnPickup.IsEnabled = false;
+            sa = dataHandler.GetShippingAddresses();
+            cc = dataHandler.GetCreditCards();
+            if (sa != null && sa.Count > 0 )
+            {
+                FirstNameTextBox.Text = sa.First().FirstName;
+                LastNameTextBox.Text = sa.First().LastName;
+                AddressTextBox.Text = sa.First().Address;
+                PostAddressTextBox.Text = sa.First().PostAddress;
+                PostcodeTextBox.Text = sa.First().PostCode;
+                PhoneNumberTextBox.Text = sa.First().PhoneNumber;
+                EmailTextBox.Text = sa.First().Email;
+            }
+            if (cc != null && cc.Count > 0)
+            {
+                CardHolderNameTextBox.Text = cc.First().HoldersName;
+                switch (cc.First().CardType) {
+                    case CardType.Visa:
+                        CardTypeComboBox.SelectedIndex = 0;
+                        break;
+                    case CardType.MasterCard:
+                        CardTypeComboBox.SelectedIndex = 1;
+                        break;
+                    case CardType.Amex:
+                        CardTypeComboBox.SelectedIndex = 2;
+                        break;
+                    default: throw new NotImplementedException();
+                }
+                CardNumberTextBox.Text = cc.First().CardNumber;
+                MonthComboBox.SelectedValue = cc.First().ValidMonth - 1;
+                YearComboBox.SelectedValue = cc.First().ValidYear - 13;
+                VerificationCodeTextBox.Text = "" + cc.First().VerificationCode;
+            }
         }
 
         private void PickupInStore_Checked(object sender, RoutedEventArgs e)
@@ -58,6 +96,43 @@ namespace UI.Desktop.Checkout
             if (NextStep2 != null)
             {
                 NextStep2.Invoke(this, null);
+            }
+            if (rememberDetailsStep2 != null && rememberDetailsStep2.IsChecked == true)
+            {
+                if (sa.Count == 0)
+                {
+                    sa.Add(new ShippingAddress());
+                }
+                sa.First().Address = AddressTextBox.Text;
+                sa.First().Email = EmailTextBox.Text;
+                sa.First().FirstName = FirstNameTextBox.Text;
+                sa.First().LastName = LastNameTextBox.Text;
+                sa.First().PhoneNumber = PhoneNumberTextBox.Text;
+                sa.First().PostAddress = PostAddressTextBox.Text;
+                sa.First().PostCode = PostcodeTextBox.Text;
+                if (cc.Count == 0)
+                {
+                    cc.Add(new CreditCard());
+                }
+                cc.First().VerificationCode = int.Parse(VerificationCodeTextBox.Text);
+                cc.First().ValidYear = (int)MonthComboBox.SelectedIndex + 1;
+                cc.First().ValidMonth = (int)YearComboBox.SelectedIndex + 13;
+                cc.First().HoldersName = CardHolderNameTextBox.Text;
+                switch (CardTypeComboBox.SelectedIndex) 
+                {
+                    case 0:
+                        cc.First().CardType = CardType.Visa;
+                        break;
+                    case 1:
+                        cc.First().CardType = CardType.MasterCard;
+                        break;
+                    case 2:
+                        cc.First().CardType = CardType.Amex;
+                        break;
+                    default: throw new NotImplementedException();
+                }
+                cc.First().CardNumber = CardNumberTextBox.Text;
+
             }
         }
 

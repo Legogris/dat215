@@ -16,7 +16,7 @@
         <Button x:Name="BackButtonStep2" Content="&lt;-- Tillbaka" HorizontalAlignment="Left" Height="26" Margin="215,384,0,0" VerticalAlignment="Top" Width="85" Click="BackButtonStep2_Click" Cursor="Hand"/>
         <StackPanel x:Name="paymentStackPanel" HorizontalAlignment="Left" Height="101" Margin="19,274,0,0" VerticalAlignment="Top" Width="381">
             <RadioButton x:Name="PayWithCard" Content="Kortbetalning:" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="PaymentGroup" Checked="PayWithCard_Checked"/>
-            <Grid x:Name="PaymentGrid" HorizontalAlignment="Left" Height="62" VerticalAlignment="Top" Width="381">
+            <Grid x:Name="PaymentGrid" HorizontalAlignment="Left" Height="62" VerticalAlignment="Top" Width="381" Visibility="Collapsed">
                 <Label x:Name="CardTypeLabel" Content="Korttyp:" HorizontalAlignment="Left" Height="26" Margin="10,0,0,0" VerticalAlignment="Top" Width="55"/>
                 <ComboBox x:Name="CardTypeComboBox" HorizontalAlignment="Left" Height="26" Margin="70,0,0,0" VerticalAlignment="Top" Width="85">
                     <ComboBoxItem Content="Visa"/>
