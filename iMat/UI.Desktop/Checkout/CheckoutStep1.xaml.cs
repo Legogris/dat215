@@ -54,5 +54,48 @@ namespace UI.Desktop.Checkout
             }
         }
 
+        private void EmailTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            checkAndEnable();
+        }
+
+        private void mainPasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            checkAndEnable();
+            if (mainPasswordBox.Password != repeatPasswordBox.Password)
+            {
+                passwordsNotEqualLabel.Content = "Lösenorden matchar inte!";
+            }
+            else
+            {
+                passwordsNotEqualLabel.Content = null;
+            }
+        }
+
+        private void repeatPasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            checkAndEnable();
+            if (mainPasswordBox.Password != repeatPasswordBox.Password)
+            {
+                passwordsNotEqualLabel.Content = "Lösenorden matchar inte!";
+            }
+            else
+            {
+                passwordsNotEqualLabel.Content = null;
+            }
+        }
+
+        private void checkAndEnable()
+        {
+            if (!(string.IsNullOrEmpty(emailTextBox.Text) || string.IsNullOrEmpty(mainPasswordBox.Password) || string.IsNullOrEmpty(repeatPasswordBox.Password)))
+            {
+                NextStep1Button.IsEnabled = true;
+            }
+            else
+            {
+                NextStep1Button.IsEnabled = false;
+            }
+        }
+
     }
 }

@@ -20,6 +20,8 @@ namespace UI.Desktop.Checkout
     /// </summary>
     public partial class CheckoutStep2 : UserControl
     {
+        public event EventHandler NextStep2;
+        public event EventHandler BackStep2;
         public CheckoutStep2()
         {
             InitializeComponent();
@@ -29,12 +31,13 @@ namespace UI.Desktop.Checkout
         {
             HomedeliveryGrid.Visibility = Visibility.Visible;
             StoreComboBox.IsEnabled = false;
-            PayOnPickup.IsEnabled = true;
+            PayWithCard.IsChecked = true;
+            PayOnPickup.IsEnabled = false;
         }
 
         private void PickupInStore_Checked(object sender, RoutedEventArgs e)
         {
-            if (StoreComboBox != null)
+            if (StoreComboBox != null && HomedeliveryGrid != null)
             {
                 HomedeliveryGrid.Visibility = Visibility.Collapsed;
                 StoreComboBox.IsEnabled = true;
@@ -60,16 +63,34 @@ namespace UI.Desktop.Checkout
 
         private void PayWithCard_Checked(object sender, RoutedEventArgs e)
         {
-            PaymentGrid.Visibility = Visibility.Visible;
+            if (PaymentGrid != null)
+            {
+                PaymentGrid.Visibility = Visibility.Visible;
+            }
         }
 
         private void PayOnPickup_Checked(object sender, RoutedEventArgs e)
         {
-            PaymentGrid.Visibility = Visibility.Collapsed;
+            if (PaymentGrid != null)
+            {
+                PaymentGrid.Visibility = Visibility.Collapsed;
+            }
         }
 
-        public event EventHandler NextStep2;
-        public event EventHandler BackStep2;
+        private void agreeCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            if (NextStep2Button != null)
+            {
+                NextStep2Button.IsEnabled = true;
+            }
+        }
 
+        private void agreeCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (NextStep2Button != null)
+            {
+                NextStep2Button.IsEnabled = false;
+            }
+        }
     }
 }

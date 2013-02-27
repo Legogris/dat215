@@ -133,8 +133,9 @@ namespace UI.Desktop
             ShoppingListContextMenu.Items.Add(new Separator());
             MenuItem addNew = new MenuItem();
             addNew.Header = "Lägg till i ny lista...";
+            addNew.DataContext = null;
             ShoppingListContextMenu.Items.Add(addNew);
-            addNew.Click += addNewShoppingList_Click;
+            addNew.Click += shoppingList_Click;
         }
 
         private MenuItem menuItemFactory(FavoriteList list)
@@ -161,12 +162,15 @@ namespace UI.Desktop
                 FavoriteList listToAddTo = item.DataContext as FavoriteList;
                 if (itemToAdd is IList<ShoppingItem>)
                 {
-                    MessageBox.Show("Add: ShoppingCart into " + listToAddTo.Name);
-                }
-                else if (itemToAdd is Product)
-                {
-                    Product shoppingItem = itemToAdd as Product;
-                    MessageBox.Show("Add: " + shoppingItem.Name + " into " + listToAddTo.Name);
+                    IList<ShoppingItem> shoppingItems = itemToAdd as IList<ShoppingItem>; 
+                    if (listToAddTo == null)
+                    {
+                        openDialog(shoppingItems);
+                    }
+                    else
+                    {                        
+                        listToAddTo.Add(shoppingItems);
+                    }
                 }
             }
             
@@ -213,7 +217,7 @@ namespace UI.Desktop
             mainWindow.shoppingListSelectComboBox.ItemsSource = ShoppingListsCollection;
         }
         
-        void addNewShoppingList_Click(object sender, RoutedEventArgs e)
+        void openDialog(IList<ShoppingItem> items)
         {
             TextBoxPopup tbp = new TextBoxPopup();
             tbp.Owner = mainWindow;
@@ -223,7 +227,7 @@ namespace UI.Desktop
                 string s = tbp.TextBoxText;
                 FavoriteList list = new FavoriteList(s);
                 listHandler.Add(list);
-                list.Add(dataHandler.GetCart().GetItems()); // TODO: ska inte var en egen click handler, utan ligga precis som alla andra med DataContext
+                list.Add(items);
             }
         }
     }
