@@ -23,6 +23,7 @@ namespace UI.Desktop.Checkout
         private CheckoutStep1 step1;
         private CheckoutStep2 step2;
         private CheckoutStep3 step3;
+        private LogInPage logIn;
         private ShoppingCart shoppingCart;
 
 
@@ -38,13 +39,32 @@ namespace UI.Desktop.Checkout
             step3 = new CheckoutStep3();
             step3.ExitCheckout += step3_ExitCheckout;
             step3.BackStep3 += step3_BackStep3;
+            logIn = new LogInPage();
+            logIn.NextStep += logIn_NextStep;
+            logIn.BackStep += logIn_BackStep;
             PageGrid.Children.Add(step1);
+        }
+
+        void logIn_BackStep(object sender, EventArgs e)
+        {
+            PageGrid.Children.Clear();
+            PageGrid.Children.Add(step1);
+        }
+
+        void logIn_NextStep(object sender, EventArgs e)
+        {
+            PageGrid.Children.Clear();
+            PageGrid.Children.Add(step2);
+            Step1Indicator.BorderBrush = Brushes.Transparent;
+            Step2Indicator.BorderBrush = Brushes.Black;
         }
 
         void step3_BackStep3(object sender, EventArgs e)
         {
             PageGrid.Children.Clear();
             PageGrid.Children.Add(step2);
+            Step2Indicator.BorderBrush = Brushes.Black;
+            Step3Indicator.BorderBrush = Brushes.Transparent;
         }
 
         void step3_ExitCheckout(object sender, EventArgs e)
@@ -57,13 +77,15 @@ namespace UI.Desktop.Checkout
             PageGrid.Children.Clear();
             PageGrid.Children.Add(step1);
             Step1Indicator.BorderBrush = Brushes.Black;
-            Step2Indicator.BorderBrush = Brushes.Transparent;
+            //Step2Indicator.BorderBrush = Brushes.Transparent;
         }
 
         void step2_NextStep2(object sender, EventArgs e)
         {
             PageGrid.Children.Clear();
             PageGrid.Children.Add(step3);
+            Step3Indicator.BorderBrush = Brushes.Black;
+            Step2Indicator.BorderBrush = Brushes.Transparent;
         }
 
         void step1_NextStep(object sender, EventArgs e)
@@ -71,7 +93,7 @@ namespace UI.Desktop.Checkout
             PageGrid.Children.Clear();
             PageGrid.Children.Add(step2);
             Step1Indicator.BorderBrush = Brushes.Transparent;
-            Step2Indicator.BorderBrush = Brushes.Black;
+            //Step2Indicator.BorderBrush = Brushes.Black;
         }
 
     }
