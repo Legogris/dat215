@@ -23,7 +23,7 @@ namespace UI.Desktop.Content
     public partial class ShoppingCartView : UserControl
     {
         private ShoppingCart shoppingCart;
-
+        private Label notificationOldShoppingCart;
         public ShoppingCart ShoppingCart
         {
             get { return shoppingCart; }
@@ -43,20 +43,28 @@ namespace UI.Desktop.Content
         private void updateShoppingCartItems()
         {
             stackPanel.Children.Clear();
+            if (shoppingCart.GetItems().Count != 0)
+            {
+                notificationOldShoppingCart = new Label();
+                notificationOldShoppingCart.Content = "Din kundvagn från förra sessionen:";
+                notificationOldShoppingCart.FontWeight = FontWeights.Bold;
+                stackPanel.Children.Add(notificationOldShoppingCart);
+            }
             foreach (ShoppingItem cartItem in this.ShoppingCart.GetItems())
             {
                 addShoppingCartItem(cartItem);
             }
 
-            if (shoppingCart.GetItems().Count != 0)
-            {
-                notifyLabel.Opacity = 100;
-            }
+            
             updateTotalLabels();
         }
 
         // absolut största clusterfucket i mänsklighetens historia. men jag bryr mig inte.
         public void ShoppingCartChanged(Data.CartEventArgs e) {
+            if (stackPanel.Children.Count != 0 && stackPanel.Children[0] == notificationOldShoppingCart)
+            {
+                stackPanel.Children.RemoveAt(0);
+            }
             if (e.EventType == CartEventArgs.CartEventType.Add)
             {
                 addShoppingCartItem(e.ShoppingItem);
