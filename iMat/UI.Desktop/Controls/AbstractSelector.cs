@@ -32,7 +32,7 @@ namespace UI.Desktop
         }
 
         protected void init() {
-            updatePrice(1);
+            updatePrice(NumberOfItems);
             updateJmf();
             AmountSpinner.Step = 1;
             AmountSpinner.Value = NumberOfItems;
