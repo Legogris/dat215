@@ -131,6 +131,8 @@ namespace UI.Desktop.Content
         private void addShoppingCartToListButton_Click(object sender, RoutedEventArgs e)
         {
             addShoppingCartToListButton.ContextMenu.IsOpen = true;
+            addShoppingCartToListButton.ContextMenu.PlacementTarget = addShoppingCartToListButton;
+            addShoppingCartToListButton.DataContext = shoppingCart.GetItems();
             e.Handled = true;
         }
 

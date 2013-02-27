@@ -58,6 +58,8 @@ namespace UI.Desktop
         private void addToListButton_Click(object sender, RoutedEventArgs e)
         {
             addToListButton.ContextMenu.IsOpen = true;
+            addToListButton.ContextMenu.PlacementTarget = addToListButton;
+            addToListButton.DataContext = Product;
             e.Handled = true;
         }
     }

@@ -110,7 +110,7 @@ namespace UI.Desktop
         private DataHandler dataHandler;
         private ShoppingListHandler listHandler { get; set; }
         public IList<FavoriteList> ShoppingListsCollection { get { return listHandler.GetFavLists(); } }
-        public FavoriteList ShoppingListDummy { get; set; } // TODO: selected hook för dropdown
+        public FavoriteList ShoppingListDummy { get; set; } // TODO: selected-hook för dropdown
         private MainWindow mainWindow;
 
         public ListContextMenuManager(MainWindow window, DataHandler dh)
@@ -132,7 +132,7 @@ namespace UI.Desktop
             }
             ShoppingListContextMenu.Items.Add(new Separator());
             MenuItem addNew = new MenuItem();
-            addNew.Header = "Lägg till ny grej";
+            addNew.Header = "Lägg till i ny lista...";
             ShoppingListContextMenu.Items.Add(addNew);
             addNew.Click += addNewShoppingList_Click;
         }
@@ -142,8 +142,34 @@ namespace UI.Desktop
             MenuItem newList = new MenuItem();
             newList.DataContext = list;
             newList.Header = list.Name;
-            //item.Click += new RoutedEventHandler(item_Click);
+            newList.Click += shoppingList_Click;
             return newList;
+        }
+
+        void shoppingList_Click(object sender, RoutedEventArgs e)
+        {
+            var item = sender as MenuItem;
+            while (item.Parent is MenuItem)
+            {
+                item = (MenuItem)item.Parent;
+            }
+            var menu = item.Parent as ContextMenu;
+            if (menu != null)
+            {
+                var droidsYouAreLookingFor = menu.PlacementTarget as Button;
+                var itemToAdd = droidsYouAreLookingFor.DataContext;
+                FavoriteList listToAddTo = item.DataContext as FavoriteList;
+                if (itemToAdd is IList<ShoppingItem>)
+                {
+                    MessageBox.Show("Add: ShoppingCart into " + listToAddTo.Name);
+                }
+                else if (itemToAdd is Product)
+                {
+                    Product shoppingItem = itemToAdd as Product;
+                    MessageBox.Show("Add: " + shoppingItem.Name + " into " + listToAddTo.Name);
+                }
+            }
+            
         }
 
         private MenuItem findMenuItemByList(FavoriteList list)
@@ -197,7 +223,7 @@ namespace UI.Desktop
                 string s = tbp.TextBoxText;
                 FavoriteList list = new FavoriteList(s);
                 listHandler.Add(list);
-                list.Add(dataHandler.GetCart().GetItems()); // lägg till kundvagnen i ShoppingListan
+                list.Add(dataHandler.GetCart().GetItems()); // TODO: ska inte var en egen click handler, utan ligga precis som alla andra med DataContext
             }
         }
     }

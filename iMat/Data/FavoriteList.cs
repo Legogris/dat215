@@ -43,6 +43,7 @@ namespace Data
 
         public void Change(int index, double newValue)
         {
+            if (index == -1 || index > items.Count) return;
             items[index].Amount = newValue;
             updateStats();
         }
