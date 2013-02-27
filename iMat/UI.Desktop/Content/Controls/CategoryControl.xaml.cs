@@ -41,8 +41,15 @@ namespace UI.Desktop
         {
             InitializeComponent();
             productCategory = pc;
-            categoryLabel.Content = pc.Name;
-            categoryLabel.MouseUp += categoryLabel_MouseUp;
+            if (pc != null)
+            {
+                categoryLabel.Content = pc.Name;
+                categoryLabel.MouseUp += categoryLabel_MouseUp;
+            }
+            else
+            {
+                categoryLabel.Content = "DUMMY";
+            }
         }
 
         void categoryLabel_MouseUp(object sender, MouseButtonEventArgs e)
@@ -59,11 +66,14 @@ namespace UI.Desktop
         public void Expand()
         {
             expanded = true;
-            foreach (ProductCategory pc in productCategory.SubCategories)
+            if (productCategory != null)
             {
-                CategoryControl c = new CategoryControl(pc);
-                stackPanel.Children.Add(c);
-                c.ProductCategorySelectionChanged += childProductCategorySelectionChanged;
+                foreach (ProductCategory pc in productCategory.SubCategories)
+                {
+                    CategoryControl c = new CategoryControl(pc);
+                    stackPanel.Children.Add(c);
+                    c.ProductCategorySelectionChanged += childProductCategorySelectionChanged;
+                }
             }
         }
 

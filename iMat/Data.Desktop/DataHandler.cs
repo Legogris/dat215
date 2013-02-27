@@ -62,6 +62,7 @@ namespace Data.Desktop
         private void LoadProducts(string productsPath)
         {
             rootCategory = new ConcreteProductCategory(string.Empty, "Alla", null);
+            favorites.Parent = rootCategory;
             ProductCategory greens = new ConcreteProductCategory("GREENS", "Frukt & Grönt", rootCategory);
             ProductCategory drinks = new ConcreteProductCategory("DRINKS", "Drycker", rootCategory);
             ProductCategory pantry = new ConcreteProductCategory("PANTRY", "Skafferi", rootCategory);
@@ -87,6 +88,7 @@ namespace Data.Desktop
             ProductCategory roots = new ConcreteProductCategory("ROOT_VEGETABLE", "Rotfrukter", greens);
             ProductCategory sweet = new ConcreteProductCategory("SWEET", "Sött & snacks", rootCategory);
             ProductCategory veggieFruit = new ConcreteProductCategory("VEGETABLE_FRUIT", "Grönsaksfrukter", greens);
+            rootCategory.SubCategories.Add(favorites);
 
             StreamReader sr = File.OpenText(productsPath);
             try
