@@ -38,7 +38,7 @@ namespace UI.Desktop.Checkout
             }
         }
 
-        private void LogInLabel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void LogInLabel_MouseUp(object sender, MouseButtonEventArgs e)
         {
             if (LogIn != null)
             {

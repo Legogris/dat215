@@ -13,7 +13,7 @@
         <TextBox x:Name="PasswordTextBox" HorizontalAlignment="Left" Height="30" Margin="100,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290"/>
         <Label x:Name="RepeatPasswordLabel" Content="Rep. Lösen:" HorizontalAlignment="Left" Height="30" Margin="10,115,0,0" VerticalAlignment="Top" Width="85"/>
         <TextBox x:Name="RepeatPasswordTextBox" HorizontalAlignment="Left" Height="30" Margin="100,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290"/>
-        <Label x:Name="LogInLabel" Content="Logga in med ett iMat-konto --&gt;" HorizontalAlignment="Left" Height="30" Margin="10,295,0,0" VerticalAlignment="Top" Width="280" MouseLeftButtonDown="LogInLabel_MouseLeftButtonDown" Foreground="#FF0B49A4" BorderBrush="Black" BorderThickness="1">
+        <Label x:Name="LogInLabel" Content="Logga in med ett iMat-konto --&gt;" HorizontalAlignment="Left" Height="30" Margin="10,295,0,0" VerticalAlignment="Top" Width="280" Foreground="#FF0B49A4" BorderBrush="Black" BorderThickness="1" MouseUp="LogInLabel_MouseUp">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFFFF4F4" Offset="0"/>
