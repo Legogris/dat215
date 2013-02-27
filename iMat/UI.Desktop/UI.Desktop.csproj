@@ -485,6 +485,7 @@
     <Resource Include="Resources\ProductImages\product_97.jpg" />
     <Resource Include="Resources\ProductImages\product_98.jpg" />
     <Resource Include="Resources\ProductImages\product_99.jpg" />
+    <Resource Include="Resources\Icons\toList.png" />
     <Content Include="Resources\products.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
