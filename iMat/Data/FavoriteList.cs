@@ -27,10 +27,17 @@ namespace Data
             TotalCost = items.Sum(x => x.Total);
         }
 
-        public void Add(ShoppingItem item)
+        private void Add(ShoppingItem item)
         {
+            foreach (ShoppingItem si in items)
+            {
+                if (si.Product == item.Product)
+                {
+                    si.Amount += item.Amount;
+                    return;
+                }
+            }
             items.Add(item);
-            updateStats();
         }
 
         public void Add(IList<ShoppingItem> items)
@@ -39,6 +46,7 @@ namespace Data
             {
                 Add(si);
             }
+            updateStats();
         }
 
         public void Change(int index, double newValue)

@@ -53,7 +53,9 @@ namespace UI.Desktop
         {
             addToListButton.ContextMenu.IsOpen = true;
             addToListButton.ContextMenu.PlacementTarget = addToListButton;
-            addToListButton.DataContext = Product;
+            IList<ShoppingItem> addIT = new List<ShoppingItem>();
+            addIT.Add(new ShoppingItem(Product, NumberOfItems));
+            addToListButton.DataContext = addIT;
             e.Handled = true;
         }
     }
