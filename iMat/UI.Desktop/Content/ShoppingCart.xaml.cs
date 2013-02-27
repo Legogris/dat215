@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UI.Desktop.Content.Controls;
+using Data.Desktop;
 
 namespace UI.Desktop.Content
 {
@@ -22,12 +23,16 @@ namespace UI.Desktop.Content
     /// </summary>
     public partial class ShoppingCartView : UserControl
     {
-        private ShoppingCart shoppingCart;
+        private DataHandler dataHandler;
         private Label notificationOldShoppingCart;
         public ShoppingCart ShoppingCart
         {
-            get { return shoppingCart; }
-            set { shoppingCart = value; updateShoppingCartItems(); }
+            get { return dataHandler.GetCart(); }
+        }
+        public DataHandler DataHandler
+        {
+            get { return dataHandler; }
+            set { dataHandler = value; updateShoppingCartItems(); }
         }
 
         public void SetListContextMenu(ContextMenu menu)
@@ -43,7 +48,7 @@ namespace UI.Desktop.Content
         private void updateShoppingCartItems()
         {
             stackPanel.Children.Clear();
-            if (shoppingCart.GetItems().Count != 0)
+            if (ShoppingCart.GetItems().Count != 0)
             {
                 notificationOldShoppingCart = new Label();
                 notificationOldShoppingCart.Content = "Din kundvagn från förra sessionen:";
@@ -132,13 +137,13 @@ namespace UI.Desktop.Content
         {
             addShoppingCartToListButton.ContextMenu.IsOpen = true;
             addShoppingCartToListButton.ContextMenu.PlacementTarget = addShoppingCartToListButton;
-            addShoppingCartToListButton.DataContext = shoppingCart.GetItems();
+            addShoppingCartToListButton.DataContext = ShoppingCart.GetItems();
             e.Handled = true;
         }
 
         private void checkoutButton_Click(object sender, RoutedEventArgs e)
         {
-            Checkout.CheckoutWindow wizard = new Checkout.CheckoutWindow(ShoppingCart);
+            Checkout.CheckoutWindow wizard = new Checkout.CheckoutWindow(DataHandler);
             wizard.Show();
         }
     }

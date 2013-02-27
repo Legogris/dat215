@@ -206,5 +206,9 @@ namespace Data.Desktop
         {
             return cart;
         }
+        public void setUser(string email, string password)
+        {
+            user = new User(email, password);
+        }
     }
 }
