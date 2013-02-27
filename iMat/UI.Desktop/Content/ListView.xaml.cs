@@ -31,13 +31,6 @@ namespace UI.Desktop
         {
             InitializeComponent();
             this.DataContextChanged += ListView_DataContextChanged;
-            this.MouseUp += ListView_MouseUp;
-        }
-
-        void ListView_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            object o = e.OriginalSource;
-
         }
 
         void ListView_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -93,7 +86,7 @@ namespace UI.Desktop
             li.Visibility = System.Windows.Visibility.Collapsed;
             dli.Visibility = System.Windows.Visibility.Visible;
         }
-
+        
         void dli_MouseDown(object sender, MouseButtonEventArgs e)
         {
             DetailedItem dli = (DetailedItem)sender;

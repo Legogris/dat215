@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:UI.Desktop" x:Class="UI.Desktop.DetailedItem" 
              mc:Ignorable="d" 
              d:DesignHeight="150" d:DesignWidth="600">
-    <Grid>
+    <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="350"/>

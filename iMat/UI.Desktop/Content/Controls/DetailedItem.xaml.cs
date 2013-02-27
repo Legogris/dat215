@@ -36,13 +36,8 @@ namespace UI.Desktop
         public DetailedItem(Product p) :  base(p)
         {
             InitializeComponent();
-            selectorContainer.MouseUp += bubbleClick;
             addToListButton.ContextMenu = MainWindow.ListContextMenu;
             initContent();
-        }
-
-        void bubbleClick(object sender, MouseButtonEventArgs e)
-        {
         }
 
         private void initContent() {
@@ -54,7 +49,6 @@ namespace UI.Desktop
             else {
                 sel = new ItemSelector(Product);
             }
-            sel.MouseUp += bubbleClick;
             sel.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
             sel.VerticalAlignment = System.Windows.VerticalAlignment.Top;
             selectorContainer.Children.Add(sel);
