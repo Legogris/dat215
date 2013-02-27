@@ -27,6 +27,9 @@ namespace UI.Desktop
         protected override Label JmfLabel
         { get { return jmfLabel; } }
 
+        protected override Label PieceLabel
+        { get { return pieceLabel; } }
+
         protected override Spinner AmountSpinner
         { get { return amountSpinner; } }
 

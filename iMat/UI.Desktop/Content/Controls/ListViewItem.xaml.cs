@@ -36,8 +36,8 @@ namespace UI.Desktop
 
         private void initContent() {
             productName.Content = Product.Name;
-            productPriceLabel.Content = string.Format("{0:0.00} kr", Product.Price);
-            productJmfLabel.Content = string.Format("{0:0.00} {1}", Product.Price, Product.Unit);
+            productPriceLabel.Content = Product.Price + " kr/st";
+            productJmfLabel.Content = Product.Price + string.Format(" {0}", Product.Unit);
             productImage.Source = ImageManager.GetImageForProduct(Product);
         }
     }

@@ -16,35 +16,27 @@ using System.Windows.Shapes;
 namespace UI.Desktop.Checkout
 {
     /// <summary>
-    /// Interaction logic for CheckoutStep1.xaml
+    /// Interaction logic for LogInPage.xaml
     /// </summary>
-    public partial class CheckoutStep1 : UserControl
+    public partial class LogInPage : UserControl
     {
 
         public event EventHandler NextStep;
-        public event EventHandler LogIn;
+        public event EventHandler BackStep;
 
-
-        public CheckoutStep1()
+        public LogInPage()
         {
             InitializeComponent();
         }
 
-        private void NextStep1Button_Click(object sender, RoutedEventArgs e)
+        private void LogInNextButton_Click(object sender, RoutedEventArgs e)
         {
-            if (NextStep != null)
-            {
-                NextStep.Invoke(this, null);
-            }
+            NextStep.Invoke(this, null);
         }
 
-        private void LogInLabel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void backToCreateButton_Click(object sender, RoutedEventArgs e)
         {
-            if (LogIn != null)
-            {
-                LogIn.Invoke(this, null);
-            }
+            BackStep.Invoke(this, null);
         }
-
     }
 }

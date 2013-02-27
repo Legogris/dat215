@@ -14,8 +14,8 @@
         </Grid.ColumnDefinitions>
         <Image x:Name="productImage" Grid.Column="0" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
         <Label x:Name="productName" Grid.Column="1" Content="produkt" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" />
-        <Label x:Name="productPriceLabel" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" Content="kr"/>
-        <Label x:Name="productJmfLabel" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" Content="kr / " Margin="0,26,0,0" />
+        <Label x:Name="productPriceLabel" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="kr"  Margin="0,0,0,34" />
+        <Label x:Name="productJmfLabel" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="kr / " />
 
     </Grid>
 </local:ProductView>

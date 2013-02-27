@@ -27,7 +27,8 @@ namespace UI.Desktop
         public static readonly String PRODUCTS = "Resources/products.txt";
         public static readonly String DATABASE = "Resources/favs.db";
         private DataHandler dataHandler;
-        private ListContextMenuManager listContextMenu;
+        private static ListContextMenuManager listContextMenu;
+        public static ContextMenu ListContextMenu { get { return listContextMenu.ShoppingListContextMenu; } }
         
         public MainWindow()
         {

@@ -14,10 +14,15 @@
         </Grid.ColumnDefinitions>
         <Image x:Name="productImage" Grid.Column="0" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
         <Label x:Name="productName" Content="produkt" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.Column="1" FontWeight="Bold"/>
-        <Grid x:Name="selectorContainer" Grid.Column="1" Margin="0,36,0,0.4">
+        <Grid x:Name="selectorContainer" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right">
             
         </Grid>
-        <Button x:Name="addToShoppingCartButton" Content="Lägg till i&#xD;&#xA;kundvagn" Grid.Column="2" HorizontalAlignment="Left" Margin="5,12,0,0" VerticalAlignment="Top" Width="62" Height="55" Click="bubbleItemAddedEvent"/>
+        <Button x:Name="addToShoppingCartButton" ToolTip="Lägg till i kundvagn" Grid.Column="2" HorizontalAlignment="Left" Margin="5,12,0,0" VerticalAlignment="Top" Width="62" Height="55" Click="bubbleItemAddedEvent">
+            <Image Source="..\..\Resources\Icons\shoppingcart_add.png" Width="61" Height="46" OpacityMask="Black"/>
+        </Button>
+        <Button x:Name="addToListButton" ToolTip="Lägg till i lista" Grid.Column="2" HorizontalAlignment="Left" Margin="5,71,0,0" VerticalAlignment="Top" Width="62" Height="25" Click="addToListButton_Click">
+            <Image Source="..\..\Resources\Icons\toList.png" Width="61" Height="20" OpacityMask="Black"/>
+        </Button>
 
     </Grid>
 </local:ProductView>
