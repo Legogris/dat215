@@ -4,19 +4,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="400">
+             d:DesignHeight="420" d:DesignWidth="400">
     <Grid>
         <Label x:Name="DeliveryLabel" Content="Välj leveranssätt:" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" VerticalAlignment="Top" Width="125" FontWeight="Bold" FontSize="14"/>
         <ComboBox x:Name="StoreComboBox" HorizontalAlignment="Left" Height="30" Margin="290,30,0,0" VerticalAlignment="Top" Width="100" SelectedIndex="0">
             <ComboBoxItem Content="iMat Storgatan"/>
             <ComboBoxItem Content="iMat Tvärgatan"/>
         </ComboBox>
-        <Button x:Name="NextStep2Button" Content="Vidare --&gt;" HorizontalAlignment="Left" Height="26" Margin="305,364,0,0" VerticalAlignment="Top" Width="85" Click="NextStep2Button_Click" Cursor="Hand" IsEnabled="False"/>
+        <Button x:Name="NextStep2Button" Content="Vidare --&gt;" HorizontalAlignment="Left" Height="26" Margin="305,384,0,0" VerticalAlignment="Top" Width="85" Click="NextStep2Button_Click" Cursor="Hand" IsEnabled="False"/>
         <Label x:Name="PaymentLabel" Content="Välj Betalningssätt:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,245,0,0" FontWeight="Bold" FontSize="14" Width="142"/>
-        <Button x:Name="BackButtonStep2" Content="&lt;-- Tillbaka" HorizontalAlignment="Left" Height="26" Margin="215,364,0,0" VerticalAlignment="Top" Width="85" Click="BackButtonStep2_Click" Cursor="Hand"/>
+        <Button x:Name="BackButtonStep2" Content="&lt;-- Tillbaka" HorizontalAlignment="Left" Height="26" Margin="215,384,0,0" VerticalAlignment="Top" Width="85" Click="BackButtonStep2_Click" Cursor="Hand"/>
         <StackPanel x:Name="paymentStackPanel" HorizontalAlignment="Left" Height="101" Margin="19,274,0,0" VerticalAlignment="Top" Width="381">
             <RadioButton x:Name="PayWithCard" Content="Kortbetalning:" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="PaymentGroup" Checked="PayWithCard_Checked"/>
-            <Grid x:Name="PaymentGrid" HorizontalAlignment="Left" Height="62" VerticalAlignment="Top" Width="381" Visibility="Collapsed">
+            <Grid x:Name="PaymentGrid" HorizontalAlignment="Left" Height="62" VerticalAlignment="Top" Width="381">
                 <Label x:Name="CardTypeLabel" Content="Korttyp:" HorizontalAlignment="Left" Height="26" Margin="10,0,0,0" VerticalAlignment="Top" Width="55"/>
                 <ComboBox x:Name="CardTypeComboBox" HorizontalAlignment="Left" Height="26" Margin="70,0,0,0" VerticalAlignment="Top" Width="85">
                     <ComboBoxItem Content="Visa"/>
@@ -54,7 +54,7 @@
             </Grid>
             <RadioButton x:Name="PayOnPickup" Content="Betala i affär" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="PaymentGroup" Checked="PayOnPickup_Checked" IsChecked="True"/>
         </StackPanel>
-        <CheckBox x:Name="agreeCheckBox" Content="Jag accepterar betalningsvillkåren" HorizontalAlignment="Left" Height="17" Margin="10,373,0,0" VerticalAlignment="Top" Width="200" Checked="agreeCheckBox_Checked" Unchecked="agreeCheckBox_Unchecked"/>
+        <CheckBox x:Name="agreeCheckBox" Content="Jag accepterar betalningsvillkåren" HorizontalAlignment="Left" Height="17" Margin="10,393,0,0" VerticalAlignment="Top" Width="200" Checked="agreeCheckBox_Checked" Unchecked="agreeCheckBox_Unchecked"/>
         <StackPanel HorizontalAlignment="Left" Height="205" Margin="19,40,0,0" VerticalAlignment="Top" Width="381">
             <RadioButton x:Name="PickupInStore" Content="Plocka up i affär:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" GroupName="DeliveryGroup" Checked="PickupInStore_Checked" IsChecked="True"/>
             <RadioButton x:Name="HomeDelivery" Content="Hemleverans:" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="103" GroupName="DeliveryGroup" Checked="HomeDelivery_Checked"/>
@@ -75,6 +75,7 @@
                 <TextBox x:Name="PostAddressTextBox" HorizontalAlignment="Left" Height="28" Margin="253,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="127" IsReadOnly="True"/>
             </Grid>
         </StackPanel>
+        <CheckBox x:Name="rememberDetailsStep2" Content="Komihåg mina uppgifter" HorizontalAlignment="Left" Margin="10,375,0,0" VerticalAlignment="Top" Width="200"/>
 
     </Grid>
 </UserControl>

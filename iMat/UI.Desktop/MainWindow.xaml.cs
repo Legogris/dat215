@@ -43,7 +43,7 @@ namespace UI.Desktop
             productBrowser.RootCategory = dataHandler.GetRootCategory();
             productBrowser.ItemAdded += productBrowser_ItemAdded;
             dataHandler.GetCart().Changed += shoppingCart_ItemAdded;
-            shoppingCart.ShoppingCart = dataHandler.GetCart();
+            shoppingCart.DataHandler = dataHandler;
             shoppingCart.SetListContextMenu(listContextMenu.ShoppingListContextMenu);
         }
 

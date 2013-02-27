@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="400">
+             d:DesignHeight="420" d:DesignWidth="400">
     <Grid>
         <Label x:Name="Step1Titel" Content="Skapa nytt iMat-konto:" HorizontalAlignment="Left" Height="35" Margin="10,10,0,0" VerticalAlignment="Top" Width="280" FontSize="18" FontWeight="Bold"/>
         <Label x:Name="emailLabel" Content="E-Mail:" HorizontalAlignment="Left" Height="30" Margin="10,45,0,0" VerticalAlignment="Top" Width="85"/>
@@ -20,20 +20,21 @@
             </Label.RenderTransform>
         </Label>
         <Label x:Name="repeatPasswordLabel" Content="Rep. Lösen:" HorizontalAlignment="Left" Height="30" Margin="10,115,0,0" VerticalAlignment="Top" Width="85"/>
-        <TextBlock x:Name="LogInLabel" HorizontalAlignment="Left" Height="30" Margin="10,300,0,0" VerticalAlignment="Top" Width="280" Foreground="#FF0B49A4" MouseUp="LogInLabel_MouseUp" Cursor="Hand" FontWeight="Bold">
+        <TextBlock x:Name="LogInLabel" HorizontalAlignment="Left" Height="30" Margin="10,315,0,0" VerticalAlignment="Top" Width="280" Foreground="#FF0B49A4" MouseUp="LogInLabel_MouseUp" Cursor="Hand" FontWeight="Bold">
             <Underline>
                 Logga in med ett iMat-konto --&gt;
             </Underline>
         </TextBlock>
-        <TextBlock x:Name="CheckoutWithoutRegisterLabel" HorizontalAlignment="Left" Height="30" Margin="10,330,0,0" VerticalAlignment="Top" Width="280" MouseUp="CheckoutWithoutRegisterLabel_MouseUp" FontWeight="Bold" Cursor="Hand" Foreground="#FF0B49A4">
+        <TextBlock x:Name="CheckoutWithoutRegisterLabel" HorizontalAlignment="Left" Height="30" Margin="10,350,0,0" VerticalAlignment="Top" Width="280" MouseUp="CheckoutWithoutRegisterLabel_MouseUp" FontWeight="Bold" Cursor="Hand" Foreground="#FF0B49A4">
             <Underline>
                 Jag vill handla utan att registrera mig --&gt;
             </Underline>
         </TextBlock>
-            <Button x:Name="NextStep1Button" Content="Vidare --&gt;" HorizontalAlignment="Left" Height="25" Margin="305,365,0,0" VerticalAlignment="Top" Width="85" Click="NextStep1Button_Click" Cursor="Hand" IsEnabled="False"/>
+            <Button x:Name="NextStep1Button" Content="Vidare --&gt;" HorizontalAlignment="Left" Height="25" Margin="305,385,0,0" VerticalAlignment="Top" Width="85" Click="NextStep1Button_Click" Cursor="Hand" IsEnabled="False"/>
         <PasswordBox x:Name="mainPasswordBox" HorizontalAlignment="Left" Height="30" Margin="100,80,0,0" VerticalAlignment="Top" Width="290" Cursor="" PasswordChanged="mainPasswordBox_PasswordChanged"/>
         <PasswordBox x:Name="repeatPasswordBox" HorizontalAlignment="Left" Height="30" Margin="100,115,0,0" VerticalAlignment="Top" Width="290" PasswordChanged="repeatPasswordBox_PasswordChanged"/>
         <Label x:Name="passwordsNotEqualLabel" Content="" HorizontalAlignment="Left" Height="26" Margin="100,150,0,0" VerticalAlignment="Top" Width="290" Background="{x:Null}" Foreground="#FFFF6565"/>
+        <CheckBox x:Name="rememberDetailsStep1" Content="Komihåg mina uppgifter" HorizontalAlignment="Left" Margin="10,176,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </UserControl>

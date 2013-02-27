@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Data.Desktop;
 
 namespace UI.Desktop.Checkout
 {
@@ -24,14 +25,15 @@ namespace UI.Desktop.Checkout
         private CheckoutStep2 step2;
         private CheckoutStep3 step3;
         private LogInPage logIn;
+        private DataHandler dataHandler;
         private ShoppingCart shoppingCart;
 
 
-        public CheckoutWindow(ShoppingCart cart)
+        public CheckoutWindow(DataHandler data)
         {
-            shoppingCart = cart; 
+            shoppingCart = data.GetCart(); 
             InitializeComponent();
-            step1 = new CheckoutStep1();
+            step1 = new CheckoutStep1(data);
             step1.NextStep += step1_NextStep;
             step1.LogIn += step1_LogIn;
             step2 = new CheckoutStep2();
@@ -40,7 +42,7 @@ namespace UI.Desktop.Checkout
             step3 = new CheckoutStep3();
             step3.ExitCheckout += step3_ExitCheckout;
             step3.BackStep3 += step3_BackStep3;
-            step3.DataContext = cart;
+            step3.DataContext = data.GetCart();
             logIn = new LogInPage();
             logIn.NextStep += logIn_NextStep;
             logIn.BackStep += logIn_BackStep;

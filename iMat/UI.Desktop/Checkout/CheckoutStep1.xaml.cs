@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Data.Desktop;
+using Data;
 
 namespace UI.Desktop.Checkout
 {
@@ -23,11 +25,19 @@ namespace UI.Desktop.Checkout
 
         public event EventHandler NextStep;
         public event EventHandler LogIn;
+        public DataHandler dataHandler;
+        private User user;
 
 
-        public CheckoutStep1()
+        public CheckoutStep1(DataHandler data)
         {
             InitializeComponent();
+            dataHandler = data;
+            if (dataHandler.GetUser() != null)
+            {
+                user = dataHandler.GetUser();
+                emailTextBox.Text = user.Email;
+            }
         }
 
         private void NextStep1Button_Click(object sender, RoutedEventArgs e)
@@ -35,6 +45,10 @@ namespace UI.Desktop.Checkout
             if (NextStep != null)
             {
                 NextStep.Invoke(this, null);
+            }
+            if (rememberDetailsStep1 != null && rememberDetailsStep1.IsChecked == true)
+            {
+                dataHandler.setUser(emailTextBox.Text, mainPasswordBox.Password);
             }
         }
 
@@ -87,7 +101,7 @@ namespace UI.Desktop.Checkout
 
         private void checkAndEnable()
         {
-            if (!(string.IsNullOrEmpty(emailTextBox.Text) || string.IsNullOrEmpty(mainPasswordBox.Password) || string.IsNullOrEmpty(repeatPasswordBox.Password)))
+            if (mainPasswordBox.Password == repeatPasswordBox.Password && !(string.IsNullOrEmpty(emailTextBox.Text) || string.IsNullOrEmpty(mainPasswordBox.Password) || string.IsNullOrEmpty(repeatPasswordBox.Password)))
             {
                 NextStep1Button.IsEnabled = true;
             }
