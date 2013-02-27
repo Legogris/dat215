@@ -20,7 +20,7 @@
         <Button x:Name="addToShoppingCartButton" ToolTip="Lägg till i kundvagn" Grid.Column="2" HorizontalAlignment="Left" Margin="5,12,0,0" VerticalAlignment="Top" Width="62" Height="55" Click="bubbleItemAddedEvent">
             <Image Source="..\..\Resources\Icons\shoppingcart_add.png" Width="61" Height="46" OpacityMask="Black"/>
         </Button>
-        <Button x:Name="addToListButton" ToolTip="Lägg till i lista" Grid.Column="2" HorizontalAlignment="Left" Margin="5,71,0,0" VerticalAlignment="Top" Width="62" Height="25" Click="bubbleItemAddedEvent">
+        <Button x:Name="addToListButton" ToolTip="Lägg till i lista" Grid.Column="2" HorizontalAlignment="Left" Margin="5,71,0,0" VerticalAlignment="Top" Width="62" Height="25" Click="addToListButton_Click">
             <Image Source="..\..\Resources\Icons\toList.png" Width="61" Height="20" OpacityMask="Black"/>
         </Button>
 

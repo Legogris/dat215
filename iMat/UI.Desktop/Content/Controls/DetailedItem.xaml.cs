@@ -36,6 +36,7 @@ namespace UI.Desktop
         public DetailedItem(Product p) :  base(p)
         {
             InitializeComponent();
+            addToListButton.ContextMenu = MainWindow.ListContextMenu;
             initContent();
         }
 
@@ -52,6 +53,12 @@ namespace UI.Desktop
             sel.VerticalAlignment = System.Windows.VerticalAlignment.Top;
             selectorContainer.Children.Add(sel);
             productImage.Source = ImageManager.GetImageForProduct(Product);
+        }
+
+        private void addToListButton_Click(object sender, RoutedEventArgs e)
+        {
+            addToListButton.ContextMenu.IsOpen = true;
+            e.Handled = true;
         }
     }
 }
