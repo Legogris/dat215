@@ -46,5 +46,13 @@ namespace UI.Desktop.Checkout
             }
         }
 
+        private void CheckoutWithoutRegisterLabel_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (NextStep != null)
+            {
+                NextStep.Invoke(this, null);
+            }
+        }
+
     }
 }

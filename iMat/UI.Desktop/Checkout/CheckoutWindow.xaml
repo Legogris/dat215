@@ -8,10 +8,16 @@
             <ColumnDefinition Width="450*"/>
         </Grid.ColumnDefinitions>
 
-        <Label x:Name="Step1Indicator" Content="Konto" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="26,45,0,0" VerticalAlignment="Top" Width="68" Height="30" FontSize="10"/>
-        <Label x:Name="Step3Indicator" Content="Bekräfta" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="26,165,0,0" VerticalAlignment="Top" Width="68" Height="24" IsManipulationEnabled="True" FontSize="10"/>
+        <Border x:Name="step2Border" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="42" Margin="10,105,0,0" VerticalAlignment="Top" Width="142" Visibility="Hidden"/>
+
+        <Border x:Name="step3Border" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="42" Margin="10,165,0,0" VerticalAlignment="Top" Width="141" Visibility="Hidden"/>
+
+        <Border x:Name="step1Border" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="42" Margin="10,45,0,0" VerticalAlignment="Top" Width="141" Background="LightBlue"/>
+
+        <Label x:Name="Step1Indicator" Content="Konto" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="26,45,0,0" VerticalAlignment="Top" Width="68" Height="30" Background="{x:Null}"/>
+        <Label x:Name="Step3Indicator" Content="Bekräfta" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="26,165,0,0" VerticalAlignment="Top" Width="68" Height="24" IsManipulationEnabled="True"/>
         <Grid x:Name="PageGrid" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,10,0"/>
-        
+
         <Label x:Name="Step1Icon" Content="" HorizontalAlignment="Left" Height="30" Margin="94,45,0,0" VerticalAlignment="Top" Width="42" BorderThickness="2">
             <Label.Background>
                 <ImageBrush ImageSource="..\Resources\Icons\user.png" Stretch="Uniform"/>
@@ -27,6 +33,6 @@
                 <ImageBrush ImageSource="..\Resources\Icons\confirm-png.png" Stretch="Uniform"/>
             </Label.Background>
         </Label>
-        <TextBlock x:Name="Step2Indicator" HorizontalAlignment="Left" Height="30" Margin="6,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" FontSize="10" Padding="5,0" FlowDirection="RightToLeft"><Run Language="sv-se" Text="&amp; Leverans"/><LineBreak/><Run Language="sv-se" Text="Betalningssätt"/></TextBlock>
+        <TextBlock x:Name="Step2Indicator" HorizontalAlignment="Left" Height="30" Margin="6,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Padding="5,0" FlowDirection="RightToLeft" FontSize="11"><Run Language="sv-se" Text="&amp; Leverans"/><LineBreak/><Run Language="sv-se" Text="Betalningssätt"/></TextBlock>
     </Grid>
 </Window>

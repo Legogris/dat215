@@ -13,7 +13,7 @@
             <ComboBoxItem Content="iMat Tvärgatan"/>
         </ComboBox>
         <RadioButton x:Name="HomeDelivery" Content="Hemleverans:" HorizontalAlignment="Left" Height="20" Margin="10,65,0,0" VerticalAlignment="Top" Width="103" GroupName="DeliveryGroup" IsThreeState="True" Checked="HomeDelivery_Checked"/>
-        <Button x:Name="NextStep2Button" Content="Vidare --&gt;" HorizontalAlignment="Left" Height="26" Margin="305,364,0,0" VerticalAlignment="Top" Width="85" Click="NextStep2Button_Click"/>
+        <Button x:Name="NextStep2Button" Content="Vidare --&gt;" HorizontalAlignment="Left" Height="26" Margin="305,364,0,0" VerticalAlignment="Top" Width="85" Click="NextStep2Button_Click" Cursor="Hand"/>
         <RadioButton x:Name="PayWithCard" Content="Kortbetalning:" HorizontalAlignment="Left" Margin="10,276,0,0" VerticalAlignment="Top" GroupName="PaymentGroup" IsThreeState="True" Checked="PayWithCard_Checked"/>
         <RadioButton x:Name="PayOnPickup" Content="Betala i affär" HorizontalAlignment="Left" Margin="10,364,0,0" VerticalAlignment="Top" GroupName="PaymentGroup" IsThreeState="True" IsEnabled="False" Checked="PayOnPickup_Checked"/>
         <Grid x:Name="HomedeliveryGrid" HorizontalAlignment="Left" Height="170" Margin="0,80,0,0" VerticalAlignment="Top" Width="400" Visibility="Collapsed">
@@ -69,7 +69,7 @@
             <TextBox x:Name="VerificationCodeTextBox" HorizontalAlignment="Left" Height="26" Margin="340,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" MaxLength="3" IsUndoEnabled="False"/>
         </Grid>
         <Label x:Name="PaymentLabel" Content="Välj Betalningssätt:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,245,0,0"/>
-        <Button x:Name="BackButtonStep2" Content="&lt;-- Tillbaka" HorizontalAlignment="Left" Height="26" Margin="215,364,0,0" VerticalAlignment="Top" Width="85" Click="BackButtonStep2_Click"/>
+        <Button x:Name="BackButtonStep2" Content="&lt;-- Tillbaka" HorizontalAlignment="Left" Height="26" Margin="215,364,0,0" VerticalAlignment="Top" Width="85" Click="BackButtonStep2_Click" Cursor="Hand"/>
 
     </Grid>
 </UserControl>

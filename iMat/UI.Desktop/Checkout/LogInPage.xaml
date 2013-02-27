@@ -11,8 +11,8 @@
         <TextBox x:Name="logInEmailTextBox" HorizontalAlignment="Left" Height="26" Margin="10,85,0,0" TextWrapping="Wrap" Text="example@mail.com" VerticalAlignment="Top" Width="171"/>
         <Label x:Name="logInPasswordLabel" Content="Password:" HorizontalAlignment="Left" Height="30" Margin="10,116,0,0" VerticalAlignment="Top" Width="171" FontWeight="Bold"/>
         <PasswordBox x:Name="logInPasswordBox" HorizontalAlignment="Left" Height="26" Margin="10,151,0,0" VerticalAlignment="Top" Width="171"/>
-        <Button x:Name="logInNextButton" Content="Vidare --&gt;" HorizontalAlignment="Left" Height="30" Margin="305,360,0,0" VerticalAlignment="Top" Width="85" Click="LogInNextButton_Click"/>
-        <Button x:Name="backToCreateButton" Content="&lt;--  Tillbaka" HorizontalAlignment="Left" Height="30" Margin="215,360,0,0" VerticalAlignment="Top" Width="85" Click="backToCreateButton_Click"/>
+        <Button x:Name="logInNextButton" Content="Vidare --&gt;" HorizontalAlignment="Left" Height="30" Margin="305,360,0,0" VerticalAlignment="Top" Width="85" Click="LogInNextButton_Click" Cursor="Hand"/>
+        <Button x:Name="backToCreateButton" Content="&lt;--  Tillbaka" HorizontalAlignment="Left" Height="30" Margin="215,360,0,0" VerticalAlignment="Top" Width="85" Click="backToCreateButton_Click" Cursor="Hand"/>
         <CheckBox Content="Komihåg mina uppgifter" HorizontalAlignment="Left" Margin="10,182,0,0" VerticalAlignment="Top" Height="17" Width="171"/>
 
     </Grid>

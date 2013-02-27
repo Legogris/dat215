@@ -20,8 +20,8 @@
             </DataGrid.AlternatingRowBackground>
         </DataGrid>
         <Label x:Name="step3TitelLabel" Content="Bekräfta köp:" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" VerticalAlignment="Top" Width="380"/>
-        <Button x:Name="exitCheckoutButton" Content="Woopdidoop" HorizontalAlignment="Left" Height="35" Margin="303,355,0,0" VerticalAlignment="Top" Width="87" Click="exitCheckoutButton_Click"/>
-        <Button x:Name="backStep3Button" Content="&lt;-- Tillbaka" HorizontalAlignment="Left" Height="35" Margin="203,355,0,0" VerticalAlignment="Top" Width="95" Click="backStep3Button_Click"/>
+        <Button x:Name="exitCheckoutButton" Content="Woopdidoop" HorizontalAlignment="Left" Height="35" Margin="303,355,0,0" VerticalAlignment="Top" Width="87" Click="exitCheckoutButton_Click" Cursor="Hand"/>
+        <Button x:Name="backStep3Button" Content="&lt;-- Tillbaka" HorizontalAlignment="Left" Height="35" Margin="203,355,0,0" VerticalAlignment="Top" Width="95" Click="backStep3Button_Click" Cursor="Hand"/>
 
     </Grid>
 </UserControl>

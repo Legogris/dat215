@@ -10,10 +10,8 @@
         <Label x:Name="EmailLabel" Content="E-Mail:" HorizontalAlignment="Left" Height="30" Margin="10,45,0,0" VerticalAlignment="Top" Width="85"/>
         <TextBox x:Name="EmailTextBox" HorizontalAlignment="Left" Height="30" Margin="100,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290"/>
         <Label x:Name="PasswordLabel" Content="Lösenord:" HorizontalAlignment="Left" Height="30" Margin="10,80,0,0" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="PasswordTextBox" HorizontalAlignment="Left" Height="30" Margin="100,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290"/>
         <Label x:Name="RepeatPasswordLabel" Content="Rep. Lösen:" HorizontalAlignment="Left" Height="30" Margin="10,115,0,0" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="RepeatPasswordTextBox" HorizontalAlignment="Left" Height="30" Margin="100,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290"/>
-        <Label x:Name="LogInLabel" Content="Logga in med ett iMat-konto --&gt;" HorizontalAlignment="Left" Height="30" Margin="10,295,0,0" VerticalAlignment="Top" Width="280" Foreground="#FF0B49A4" BorderBrush="Black" BorderThickness="1" MouseUp="LogInLabel_MouseUp">
+        <Label x:Name="LogInLabel" Content="Logga in med ett iMat-konto --&gt;" HorizontalAlignment="Left" Height="30" Margin="10,295,0,0" VerticalAlignment="Top" Width="280" Foreground="#FF0B49A4" BorderBrush="Black" BorderThickness="1" MouseUp="LogInLabel_MouseUp" Cursor="Hand" FontWeight="Bold">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFFFF4F4" Offset="0"/>
@@ -21,8 +19,10 @@
                 </LinearGradientBrush>
             </Label.Background>
         </Label>
-        <Label x:Name="CheckoutWithoutRegisterLabel" Content="Jag vill handla utan att registrera mig --&gt;" HorizontalAlignment="Left" Height="30" Margin="10,330,0,0" VerticalAlignment="Top" Width="280"/>
-        <Button x:Name="NextStep1Button" Content="Vidare --&gt;" HorizontalAlignment="Left" Height="25" Margin="305,365,0,0" VerticalAlignment="Top" Width="85" Click="NextStep1Button_Click"/>
+        <Label x:Name="CheckoutWithoutRegisterLabel" Content="Jag vill handla utan att registrera mig --&gt;" HorizontalAlignment="Left" Height="30" Margin="10,330,0,0" VerticalAlignment="Top" Width="280" MouseUp="CheckoutWithoutRegisterLabel_MouseUp" BorderBrush="Black" BorderThickness="1" FontWeight="Bold" Cursor="Hand" Foreground="#FF0B49A4"/>
+        <Button x:Name="NextStep1Button" Content="Vidare --&gt;" HorizontalAlignment="Left" Height="25" Margin="305,365,0,0" VerticalAlignment="Top" Width="85" Click="NextStep1Button_Click" Cursor="Hand"/>
+        <PasswordBox x:Name="mainPasswordBox" HorizontalAlignment="Left" Height="30" Margin="100,80,0,0" VerticalAlignment="Top" Width="290" Cursor=""/>
+        <PasswordBox x:Name="repeatPasswordBox" HorizontalAlignment="Left" Height="30" Margin="100,115,0,0" VerticalAlignment="Top" Width="290"/>
 
     </Grid>
 </UserControl>
