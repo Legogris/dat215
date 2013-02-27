@@ -62,11 +62,27 @@ namespace UI.Desktop.Checkout
         private void mainPasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
             checkAndEnable();
+            if (mainPasswordBox.Password != repeatPasswordBox.Password)
+            {
+                passwordsNotEqualLabel.Content = "Lösenorden matchar inte!";
+            }
+            else
+            {
+                passwordsNotEqualLabel.Content = null;
+            }
         }
 
         private void repeatPasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
             checkAndEnable();
+            if (mainPasswordBox.Password != repeatPasswordBox.Password)
+            {
+                passwordsNotEqualLabel.Content = "Lösenorden matchar inte!";
+            }
+            else
+            {
+                passwordsNotEqualLabel.Content = null;
+            }
         }
 
         private void checkAndEnable()

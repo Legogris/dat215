@@ -54,6 +54,10 @@ namespace UI.Desktop.Checkout
             {
                 logInNextButton.IsEnabled = true;
             }
+            else
+            {
+                logInNextButton.IsEnabled = false;
+            }
         }
     }
 }
