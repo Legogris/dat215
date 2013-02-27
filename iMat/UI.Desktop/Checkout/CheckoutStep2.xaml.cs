@@ -60,12 +60,18 @@ namespace UI.Desktop.Checkout
 
         private void PayWithCard_Checked(object sender, RoutedEventArgs e)
         {
-            PaymentGrid.Visibility = Visibility.Visible;
+            if (PaymentGrid != null)
+            {
+                PaymentGrid.Visibility = Visibility.Visible;
+            }
         }
 
         private void PayOnPickup_Checked(object sender, RoutedEventArgs e)
         {
-            PaymentGrid.Visibility = Visibility.Collapsed;
+            if (PaymentGrid != null)
+            {
+                PaymentGrid.Visibility = Visibility.Collapsed;
+            }
         }
 
         public event EventHandler NextStep2;

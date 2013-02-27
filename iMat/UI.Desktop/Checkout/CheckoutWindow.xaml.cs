@@ -92,19 +92,14 @@ namespace UI.Desktop.Checkout
         {
             PageGrid.Children.Clear();
             PageGrid.Children.Add(step1);
-            step1Border.Visibility = Visibility.Visible;
-            step2Border.Visibility = Visibility.Hidden;
-            step1Border.Background = Brushes.LightBlue;
+            step1Border.Background = Brushes.LightGreen;
             step2Border.Background = Brushes.Transparent;
         }
         public void ActivateStep2()
         {
             PageGrid.Children.Clear();
             PageGrid.Children.Add(step2);
-            step2Border.Visibility = Visibility.Visible;
-            step1Border.Visibility = Visibility.Hidden;
-            step3Border.Visibility = Visibility.Hidden;
-            step2Border.Background = Brushes.LightBlue;
+            step2Border.Background = Brushes.LightGreen;
             step1Border.Background = Brushes.Transparent;
             step3Border.Background = Brushes.Transparent;
         }
@@ -112,9 +107,7 @@ namespace UI.Desktop.Checkout
         {
             PageGrid.Children.Clear();
             PageGrid.Children.Add(step3);
-            step3Border.Visibility = Visibility.Visible;
-            step2Border.Visibility = Visibility.Hidden;
-            step3Border.Background = Brushes.LightBlue;
+            step3Border.Background = Brushes.LightGreen;
             step2Border.Background = Brushes.Transparent;
             step3.displayContent();
         }
