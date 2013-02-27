@@ -14,6 +14,7 @@ namespace UI.Desktop
         protected Product product;
 
         protected abstract Label PriceLabel { get; }
+        protected abstract Label PieceLabel { get; }
         protected abstract Label JmfLabel { get; }
         protected abstract Spinner AmountSpinner { get; }
         public double NumberOfItems
@@ -41,6 +42,7 @@ namespace UI.Desktop
 
         private void updateJmf() {
             JmfLabel.Content = product.Price + " " + product.Unit;
+            PieceLabel.Content = product.Price + CURRENCY + "/st";
         }
 
         protected void spinner_AmountChanged(Spinner spinner) {

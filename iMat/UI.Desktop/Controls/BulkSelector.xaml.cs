@@ -24,6 +24,9 @@ namespace UI.Desktop
         protected override Label PriceLabel
         { get { return priceLabel; } }
 
+        protected override Label PieceLabel
+        { get { return pieceLabel; } }
+
         protected override Label JmfLabel
         { get { return jmfLabel; } }
 
