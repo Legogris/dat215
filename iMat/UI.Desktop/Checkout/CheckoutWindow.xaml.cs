@@ -56,14 +56,14 @@ namespace UI.Desktop.Checkout
             PageGrid.Children.Clear();
             PageGrid.Children.Add(step2);
             Step1Indicator.BorderBrush = Brushes.Transparent;
-            Step2Indicator.BorderBrush = Brushes.Black;
+            //Step2Indicator.BorderBrush = Brushes.Black;
         }
 
         void step3_BackStep3(object sender, EventArgs e)
         {
             PageGrid.Children.Clear();
             PageGrid.Children.Add(step2);
-            Step2Indicator.BorderBrush = Brushes.Black;
+            //Step2Indicator.BorderBrush = Brushes.Black;
             Step3Indicator.BorderBrush = Brushes.Transparent;
         }
 
@@ -85,7 +85,7 @@ namespace UI.Desktop.Checkout
             PageGrid.Children.Clear();
             PageGrid.Children.Add(step3);
             Step3Indicator.BorderBrush = Brushes.Black;
-            Step2Indicator.BorderBrush = Brushes.Transparent;
+            //Step2Indicator.BorderBrush = Brushes.Transparent;
         }
 
         void step1_NextStep(object sender, EventArgs e)
