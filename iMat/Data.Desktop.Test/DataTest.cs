@@ -28,8 +28,6 @@ namespace Data.Desktop.Test
             dh.GetFavorites().Add(fl);
             dh.WriteToFile(dbPath);
             dh = DataHandler.ReadFromFile(dbPath, productsPath);
-            
-            Console.WriteLine(dh.GetFavorites().ElementAt(0).Name);
         }
     }
 }
