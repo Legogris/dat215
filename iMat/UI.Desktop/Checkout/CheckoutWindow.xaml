@@ -7,9 +7,26 @@
             <ColumnDefinition Width="51*"/>
             <ColumnDefinition Width="200*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="Step1Indicator" Content="Steg 1" HorizontalAlignment="Left" Height="30" Margin="0,20,0,0" VerticalAlignment="Top" Width="100" BorderThickness="2" BorderBrush="Black"/>
-        <Label x:Name="Step2Indicator" Content="Steg 2" HorizontalAlignment="Left" Height="30" Margin="0,70,0,0" VerticalAlignment="Top" Width="100" BorderThickness="2"/>
-        <Label x:Name="Step3Indicator" Content="Steg 3" HorizontalAlignment="Left" Height="30" Margin="0,120,0,0" VerticalAlignment="Top" Width="100" BorderThickness="2"/>
+
+        <Label x:Name="Step1Indicator" Content="Konto" HorizontalAlignment="Left" Margin="26,10,0,0" VerticalAlignment="Top" Width="46" Height="24" FontSize="10"/>
+        <Label x:Name="Step2Indicator" Content="Leverans &amp; Betalmedel" HorizontalAlignment="Left" Margin="0,74,0,0" VerticalAlignment="Top" Width="102" Height="20" FontSize="8"/>
+        <Label x:Name="Step3Indicator" Content="Bekräfta" HorizontalAlignment="Left" Margin="26,134,0,0" VerticalAlignment="Top" Width="46" Height="24" IsManipulationEnabled="True" FontSize="10"/>
         <Grid x:Name="PageGrid" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        
+        <Label x:Name="Step1Icon" Content="" HorizontalAlignment="Left" Height="30" Margin="26,34,0,0" VerticalAlignment="Top" Width="46" BorderThickness="2">
+            <Label.Background>
+                <ImageBrush ImageSource="..\Resources\Icons\user.png" Stretch="Uniform"/>
+            </Label.Background>
+        </Label>
+        <Label x:Name="Step2Icon" Content="" Margin="26,94,0,0" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Width="42">
+            <Label.Background>
+                <ImageBrush ImageSource="..\Resources\Icons\shippingandpayment.png" Stretch="Uniform"/>
+            </Label.Background>
+        </Label>
+        <Label x:Name="Step3Icon" Content="" HorizontalAlignment="Left" Margin="26,158,0,0" VerticalAlignment="Top" Height="30" Width="42">
+            <Label.Background>
+                <ImageBrush ImageSource="..\Resources\Icons\confirm-png.png" Stretch="Uniform"/>
+            </Label.Background>
+        </Label>
     </Grid>
 </Window>
