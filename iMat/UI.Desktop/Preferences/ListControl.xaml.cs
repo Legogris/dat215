@@ -129,10 +129,12 @@ namespace UI.Desktop.Content
 
         private void amountTextBox_KeyDown_1(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter && current != null)
+            if (e.Key == Key.Enter && current != null && detail.SelectedIndex != -1)
             {
                 double d = Convert.ToDouble(amountTextBox.Text);
                 current.Change(detail.SelectedIndex, d);
+                updateDetail(current); // TODO: nån jävla bug med selectedindex HELVETETASDFGSADGFD
+                reloadOverview();
             }
         }
     }

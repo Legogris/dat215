@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Data;
 
 namespace UI.Desktop.Checkout
 {
@@ -20,9 +21,27 @@ namespace UI.Desktop.Checkout
     /// </summary>
     public partial class CheckoutStep3 : UserControl
     {
+
+        public event EventHandler ExitCheckout;
+        public event EventHandler BackStep3;
+
+        public IList<ShoppingItem> ShoppingItemsCollection
+        {
+            get { 
+                ShoppingCart cart = DataContext as ShoppingCart;
+                return cart.GetItems();
+            }
+        }
+
         public CheckoutStep3()
         {
             InitializeComponent();
+            
+        }
+
+        public void displayContent()
+        {
+            checkoutListView.ItemsSource = ShoppingItemsCollection;
         }
 
         private void exitCheckoutButton_Click(object sender, RoutedEventArgs e)
@@ -39,9 +58,5 @@ namespace UI.Desktop.Checkout
                 BackStep3.Invoke(this, null);
             }
         }
-
-        public event EventHandler ExitCheckout;
-        public event EventHandler BackStep3;
-
     }
 }

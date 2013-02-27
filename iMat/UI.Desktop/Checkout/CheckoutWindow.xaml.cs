@@ -40,6 +40,7 @@ namespace UI.Desktop.Checkout
             step3 = new CheckoutStep3();
             step3.ExitCheckout += step3_ExitCheckout;
             step3.BackStep3 += step3_BackStep3;
+            step3.DataContext = cart;
             logIn = new LogInPage();
             logIn.NextStep += logIn_NextStep;
             logIn.BackStep += logIn_BackStep;
@@ -115,6 +116,7 @@ namespace UI.Desktop.Checkout
             step2Border.Visibility = Visibility.Hidden;
             step3Border.Background = Brushes.LightBlue;
             step2Border.Background = Brushes.Transparent;
+            step3.displayContent();
         }
     }
 }
