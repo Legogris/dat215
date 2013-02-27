@@ -41,6 +41,12 @@ namespace Data
             }
         }
 
+        public void Change(int index, double newValue)
+        {
+            items[index].Amount = newValue;
+            updateStats();
+        }
+
         public IList<ShoppingItem> GetItems()
         {
             return items;

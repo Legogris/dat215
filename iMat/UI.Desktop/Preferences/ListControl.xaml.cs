@@ -37,7 +37,7 @@ namespace UI.Desktop.Content
         public ListControl(DataHandler dh)
         {
             listHandler = dh.GetFavorites();
-            InitializeComponent();       
+            InitializeComponent();
         }
 
         private void overview_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
@@ -116,6 +116,24 @@ namespace UI.Desktop.Content
             current.Remove(detail.SelectedIndex);
             updateDetail(current);
             reloadOverview();
+        }
+
+        private void detail_MouseDown_1(object sender, MouseButtonEventArgs e)
+        {
+            var item = ((FrameworkElement)e.OriginalSource).DataContext as ShoppingItem;
+            if (item != null)
+            {
+                amountTextBox.Text = item.Amount.ToString();
+            }
+        }
+
+        private void amountTextBox_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter && current != null)
+            {
+                double d = Convert.ToDouble(amountTextBox.Text);
+                current.Change(detail.SelectedIndex, d);
+            }
         }
     }
 }
