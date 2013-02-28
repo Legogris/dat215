@@ -126,9 +126,15 @@ namespace UI.Desktop.Content
 
         private void saveNameChanges()
         {
-            current.Name = listNameTextBox.Text;
-            listHandler.Change(current);
-            //reloadOverview(); TODO
+            if (listNameTextBox.Text.Length != 0)
+            {
+                current.Name = listNameTextBox.Text;
+                listHandler.Change(current);
+                
+                updateDetail(current);
+                reloadOverview();
+            }
+            
         }
 
         private void saveAmountChanges()
@@ -161,7 +167,15 @@ namespace UI.Desktop.Content
 
         private void listNameTextLostFocus(object sender, RoutedEventArgs e)
         {
-            // TODO: save that shit
+            saveNameChanges();
+        }
+
+        private void listNameTextKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                saveNameChanges();
+            }
         }
 
     }
