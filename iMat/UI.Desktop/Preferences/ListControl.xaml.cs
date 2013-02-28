@@ -43,19 +43,15 @@ namespace UI.Desktop.Content
         private void overview_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
         {
             var item = ((FrameworkElement)e.OriginalSource).DataContext as FavoriteList;
-            if (item != null) updateDetail(item);
-        }
-
-        private void listNameTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter && current != null)
+            if (item != null)
             {
-                current.Name = listNameTextBox.Text;
-                listHandler.Change(current);
-                reloadOverview();
+                //updateDetail(item);
+                current = item;
+                saveAmountChanges();
+                amountTextBox.Clear();
             }
         }
-
+        
         private void deleteShoppingListClick(object sender, RoutedEventArgs e)
         {
             if (current != null)
@@ -92,7 +88,7 @@ namespace UI.Desktop.Content
             overview.ItemsSource = ShoppingListsCollection;
         }
 
-        private void copyClick(object sender, RoutedEventArgs e)
+        private void copyClick(object sender, RoutedEventArgs e) // TODO: referenser till fel objekt. fakken hell.
         {
             if (current == null) return;
             FavoriteList copyList = new FavoriteList(current.Name);
@@ -116,6 +112,7 @@ namespace UI.Desktop.Content
             current.Remove(detail.SelectedIndex);
             updateDetail(current);
             reloadOverview();
+            amountTextBox.Clear();
         }
 
         private void detail_MouseDown_1(object sender, MouseButtonEventArgs e)
@@ -127,15 +124,45 @@ namespace UI.Desktop.Content
             }
         }
 
-        private void amountTextBox_KeyDown_1(object sender, KeyEventArgs e)
+        private void saveNameChanges()
         {
-            if (e.Key == Key.Enter && current != null && detail.SelectedIndex != -1)
+            current.Name = listNameTextBox.Text;
+            listHandler.Change(current);
+            //reloadOverview(); TODO
+        }
+
+        private void saveAmountChanges()
+        {
+            if (amountTextBox.Text.Length != 0)
             {
+                int i = detail.SelectedIndex;
+                detail.ItemsSource = null;
                 double d = Convert.ToDouble(amountTextBox.Text);
-                current.Change(detail.SelectedIndex, d);
-                updateDetail(current); // TODO: nån jävla bug med selectedindex HELVETETASDFGSADGFD
-                reloadOverview();
+                current.Change(i, d);
+            }
+            
+            updateDetail(current);
+            reloadOverview();
+            amountTextBox.Clear();
+        }
+
+        private void amountTextLostFocus(object sender, RoutedEventArgs e)
+        {
+            saveAmountChanges();
+        }
+
+        private void amountTextKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                saveAmountChanges();
             }
         }
+
+        private void listNameTextLostFocus(object sender, RoutedEventArgs e)
+        {
+            // TODO: save that shit
+        }
+
     }
 }
