@@ -14,16 +14,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using UI.Desktop.Content;
 
-namespace UI.Desktop
+namespace UI.Desktop.Preferences
 {
     /// <summary>
     /// Interaction logic for Preferences.xaml
     /// </summary>
-    public partial class Preferences : Window
+    public partial class PreferencesWindow : Window
     {
         private DataHandler dataHandler;
 
-        public Preferences(DataHandler dh, UserControl open)
+        public PreferencesWindow(DataHandler dh, UserControl open)
         {
             InitializeComponent();
             dataHandler = dh;

@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UI.Desktop.Content;
 using UI.Desktop.Controls;
+using UI.Desktop.Preferences;
 
 namespace UI.Desktop
 {
@@ -94,14 +95,20 @@ namespace UI.Desktop
 
         private void openPreferences(UserControl prefs)
         {
-            Preferences pref = new Preferences(dataHandler, prefs);
+            PreferencesWindow pref = new PreferencesWindow(dataHandler, prefs);
             pref.Owner = this;
             pref.ShowDialog();
         }
 
         private void menuItemPropertiesClick(object sender, RoutedEventArgs e)
         {
-            //openPreferences(new AccountControl(dataHandler));
+            openPreferences(new AccountControl(dataHandler));
+        }
+
+        private void shoppingListComboBoxSelectedChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //MessageBox.Show(listContextMenu.ShoppingListDummy.Name);
+            //TODO: koppla till product browser
         }
     }
 

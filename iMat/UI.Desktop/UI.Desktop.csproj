@@ -129,8 +129,11 @@
     <Compile Include="Content\StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Preferences.xaml.cs">
+    <Compile Include="Preferences\Preferences.xaml.cs">
       <DependentUpon>Preferences.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Preferences\AccountControl.xaml.cs">
+      <DependentUpon>AccountControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Preferences\ListControl.xaml.cs">
       <DependentUpon>ListControl.xaml</DependentUpon>
@@ -229,7 +232,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Preferences.xaml">
+    <Page Include="Preferences\Preferences.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Preferences\AccountControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
