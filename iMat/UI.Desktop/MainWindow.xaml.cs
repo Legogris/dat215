@@ -4,13 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -110,6 +110,19 @@ namespace UI.Desktop
             //MessageBox.Show(listContextMenu.ShoppingListDummy.Name);
             //TODO: koppla till product browser
         }
+
+        public void screenFlash()
+        {
+            comboBoxBrush.Color = Colors.Black;
+            ColorAnimation color = new ColorAnimation();
+            color.To = Colors.White;
+            color.Duration = TimeSpan.FromSeconds(2);
+            Storyboard.SetTargetName(color, "comboBoxBrush");
+            Storyboard.SetTargetProperty(color, new PropertyPath(SolidColorBrush.ColorProperty));
+            Storyboard story = new Storyboard();
+            story.Children.Add(color);
+            story.Begin(this);
+        }
     }
 
     public class ListContextMenuManager {
@@ -180,7 +193,7 @@ namespace UI.Desktop
                     }
                 }
             }
-            
+            mainWindow.screenFlash();
         }
 
         private MenuItem findMenuItemByList(FavoriteList list)
