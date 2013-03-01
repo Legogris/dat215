@@ -10,7 +10,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="110"/>
             <ColumnDefinition Width="374"/>
-            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="80*"/>
         </Grid.ColumnDefinitions>
         <Image x:Name="productImage" Grid.Column="0" HorizontalAlignment="Left" Height="100" Margin="10,0,0,0" VerticalAlignment="Center" Width="100"/>
         <Label x:Name="productName" Grid.Column="1" Content="produkt" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>

@@ -30,11 +30,11 @@
                 Jag vill handla utan att registrera mig --&gt;
             </Underline>
         </TextBlock>
-            <Button x:Name="NextStep1Button" Content="Vidare --&gt;" HorizontalAlignment="Left" Height="25" Margin="305,385,0,0" VerticalAlignment="Top" Width="85" Click="NextStep1Button_Click" Cursor="Hand" IsEnabled="False"/>
+            <Button x:Name="NextStep1Button" Content="Vidare &gt;" HorizontalAlignment="Left" Height="25" Margin="305,385,0,0" VerticalAlignment="Top" Width="85" Click="NextStep1Button_Click" Cursor="Hand" IsEnabled="False"/>
         <PasswordBox x:Name="mainPasswordBox" HorizontalAlignment="Left" Height="30" Margin="100,80,0,0" VerticalAlignment="Top" Width="290" Cursor="" PasswordChanged="mainPasswordBox_PasswordChanged"/>
         <PasswordBox x:Name="repeatPasswordBox" HorizontalAlignment="Left" Height="30" Margin="100,115,0,0" VerticalAlignment="Top" Width="290" PasswordChanged="repeatPasswordBox_PasswordChanged"/>
         <Label x:Name="passwordsNotEqualLabel" Content="" HorizontalAlignment="Left" Height="26" Margin="100,150,0,0" VerticalAlignment="Top" Width="290" Background="{x:Null}" Foreground="#FFFF6565"/>
-        <CheckBox x:Name="rememberDetailsStep1" Content="Komihåg mina uppgifter" HorizontalAlignment="Left" Margin="10,176,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="rememberDetailsStep1" Content="Kom ihåg mina uppgifter" HorizontalAlignment="Left" Margin="10,176,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </UserControl>

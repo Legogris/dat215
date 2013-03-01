@@ -86,7 +86,7 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <local:ProductBrowser x:Name="productBrowser" HorizontalAlignment="Left" VerticalAlignment="Stretch" Background="#FF799E5A"/>
+            <local:ProductBrowser x:Name="productBrowser" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FF799E5A"/>
             <Content:ShoppingCartView x:Name="shoppingCart" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Stretch" Loaded="shoppingCart_Loaded"/>
         </Grid>
     </Grid>
