@@ -21,7 +21,6 @@ namespace UI.Desktop
     /// </summary>
     public partial class ListView : UserControl
     {
-
         Dictionary<ShoppingItem, ListViewItem> listItems = new Dictionary<ShoppingItem, ListViewItem>();
         Dictionary<ShoppingItem, DetailedItem> detailedItems = new Dictionary<ShoppingItem, DetailedItem>();
 

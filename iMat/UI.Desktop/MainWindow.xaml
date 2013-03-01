@@ -15,7 +15,7 @@
                 <MenuItem x:Name="menuItemQuit" Header="Avsluta" Click="menuItemQuitClick" InputGestureText="Ctrl+Q"/>
             </MenuItem>
             <MenuItem Header="Hantera">
-                <MenuItem x:Name="menuItemLists" Click="shoppingListPrefsClick" Header="Listor..."/>
+                <MenuItem x:Name="menuItemLists" Click="shoppingListPrefsClick" Header="Shoppingistor..."/>
                 <MenuItem x:Name="menuItemAccount" Header="Konto..." Click="menuItemPropertiesClick"/>
             </MenuItem>
             <MenuItem Header="Hjälp">
@@ -65,12 +65,12 @@
                     </Button>
                 </ToolBar>
                 <ToolBar HorizontalAlignment="Right">
-                    <Button Content="" Height="26" VerticalAlignment="Top" Width="28" BorderBrush="{x:Null}" ToolTip="Listor" Click="shoppingListPrefsClick">
+                    <Button Content="" Height="26" VerticalAlignment="Top" Width="28" BorderBrush="{x:Null}" ToolTip="Shoppinglistor" Click="shoppingListPrefsClick">
                         <Button.Background>
                             <ImageBrush ImageSource="Resources\Icons\copyList_2.png" Stretch="Uniform"/>
                         </Button.Background>
                     </Button>
-                    <ComboBox x:Name="shoppingListSelectComboBox" Height="22" ItemsSource="{Binding ShoppingListsCollection}" DisplayMemberPath="Name" SelectedValue="{Binding ShoppingListDummy}"  Margin="0" VerticalAlignment="Top" Width="100" SelectionChanged="shoppingListComboBoxSelectedChanged"/>
+                    <ComboBox x:Name="shoppingListSelectComboBox" Text="Shoppinglistor" IsEditable="True" ItemsSource="{Binding ShoppingListsCollection}" DisplayMemberPath="Name" SelectedValue="{Binding ShoppingListDummy}"  Margin="0" VerticalAlignment="Stretch" Width="100" SelectionChanged="shoppingListComboBoxSelectedChanged"/>
                 </ToolBar>
             </ToolBarTray>
         </DockPanel>
@@ -82,7 +82,7 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <local:ProductBrowser x:Name="productBrowser" HorizontalAlignment="Left" VerticalAlignment="Stretch" Background="#FFDCFFBE"/>
+            <local:ProductBrowser x:Name="productBrowser" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FF799E5A"/>
             <Content:ShoppingCartView x:Name="shoppingCart" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Stretch" Loaded="shoppingCart_Loaded"/>
         </Grid>
     </Grid>

@@ -8,7 +8,7 @@
     <Grid Margin="0,-1,0,1">
             
         <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <WrapPanel x:Name="stackPanel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal"/>
+            <WrapPanel x:Name="stackPanel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
         </ScrollViewer>
     </Grid>
 </UserControl>
