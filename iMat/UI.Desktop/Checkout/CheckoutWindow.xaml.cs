@@ -43,10 +43,17 @@ namespace UI.Desktop.Checkout
             step3.ExitCheckout += step3_ExitCheckout;
             step3.BackStep3 += step3_BackStep3;
             step3.DataContext = data.GetCart();
-            logIn = new LogInPage();
+            logIn = new LogInPage(data);
             logIn.NextStep += logIn_NextStep;
             logIn.BackStep += logIn_BackStep;
-            PageGrid.Children.Add(step1);
+            if (data.GetUser() != null)
+            {
+                PageGrid.Children.Add(logIn);
+            }
+            else
+            {
+                PageGrid.Children.Add(step1);
+            }
         }
 
         void step1_LogIn(object sender, EventArgs e)

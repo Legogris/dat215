@@ -14,6 +14,7 @@
         <Button x:Name="logInNextButton" Content="Vidare --&gt;" HorizontalAlignment="Left" Height="30" Margin="305,360,0,0" VerticalAlignment="Top" Width="85" Click="LogInNextButton_Click" Cursor="Hand" IsEnabled="False"/>
         <Button x:Name="backToCreateButton" Content="&lt;--  Tillbaka" HorizontalAlignment="Left" Height="30" Margin="215,360,0,0" VerticalAlignment="Top" Width="85" Click="backToCreateButton_Click" Cursor="Hand"/>
         <CheckBox Content="Komihåg mina uppgifter" HorizontalAlignment="Left" Margin="10,182,0,0" VerticalAlignment="Top" Height="17" Width="171"/>
+        <Label x:Name="passwordWarningLabel" Content="" HorizontalAlignment="Left" Height="26" Margin="186,151,0,0" VerticalAlignment="Top" Width="204" Foreground="#FFFD3131"/>
 
     </Grid>
 </UserControl>

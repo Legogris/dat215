@@ -95,16 +95,9 @@ namespace UI.Desktop.Checkout
         {
             if (mainPasswordBox.Password == repeatPasswordBox.Password && !(string.IsNullOrEmpty(emailTextBox.Text) || string.IsNullOrEmpty(mainPasswordBox.Password) || string.IsNullOrEmpty(repeatPasswordBox.Password)))
             {
-                if (user.passwordExists() == true)
+                if (user != null)
                 {
-                    if (user.isPassword(mainPasswordBox.Password) == true)
-                    {
-                        NextStep1Button.IsEnabled = true;
-                    }
-                    else
-                    {
-                        NextStep1Button.IsEnabled = false;
-                    }
+                    NextStep1Button.IsEnabled = true;
                 }
                 else
                 {
@@ -119,10 +112,6 @@ namespace UI.Desktop.Checkout
             if (mainPasswordBox.Password != repeatPasswordBox.Password)
             {
                 passwordsNotEqualLabel.Content = "Lösenorden matchar inte!";
-            }
-            else if (user.passwordExists() == true && user.isPassword(mainPasswordBox.Password) == false && user.isPassword(repeatPasswordBox.Password) == false)
-            {
-                passwordsNotEqualLabel.Content = "Lösenordet stämmer inte med ditt användarnamn!";
             }
             else
             {

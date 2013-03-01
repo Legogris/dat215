@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Data.Desktop;
+using Data;
 
 namespace UI.Desktop.Checkout
 {
@@ -23,10 +25,16 @@ namespace UI.Desktop.Checkout
 
         public event EventHandler NextStep;
         public event EventHandler BackStep;
+        private User user;
 
-        public LogInPage()
+        public LogInPage(DataHandler data)
         {
             InitializeComponent();
+            if (data.GetUser() != null)
+            {
+                user = data.GetUser();
+                logInEmailTextBox.Text = user.Email;
+            }
         }
 
         private void LogInNextButton_Click(object sender, RoutedEventArgs e)
@@ -50,13 +58,15 @@ namespace UI.Desktop.Checkout
         }
         private void checkIfReadyToContinue()
         {
-            if (!(string.IsNullOrEmpty(logInEmailTextBox.Text) || string.IsNullOrEmpty(logInPasswordBox.Password)))
+            if (user != null && user.isPassword(logInPasswordBox.Password) && !(string.IsNullOrEmpty(logInEmailTextBox.Text) || string.IsNullOrEmpty(logInPasswordBox.Password)))
             {
                 logInNextButton.IsEnabled = true;
+                passwordWarningLabel.Content = null;
             }
             else
             {
                 logInNextButton.IsEnabled = false;
+                passwordWarningLabel.Content = "Lösenordet matchar inte din email";
             }
         }
     }
