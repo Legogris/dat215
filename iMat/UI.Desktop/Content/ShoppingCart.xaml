@@ -6,7 +6,7 @@
              xmlns:Controls="clr-namespace:UI.Desktop.Content.Controls" x:Class="UI.Desktop.Content.ShoppingCartView" 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="250">
-    <Grid>
+    <Grid Background="#FFCDCDCD">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="24"/>
@@ -24,9 +24,9 @@
             <Button.Background>
 
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                    <GradientStop Color="#FFE4FFC9"/>
-                    <GradientStop Color="#FFB9FF73" Offset="1"/>
-                    <GradientStop Color="#FFCCFF9B" Offset="0.509"/>
+                    <GradientStop Color="#FF95BF6B"/>
+                    <GradientStop Color="#FF799E5A" Offset="1"/>
+                    <GradientStop Color="#FF81B64E" Offset="0.509"/>
                 </LinearGradientBrush>
 
             </Button.Background>
@@ -49,7 +49,7 @@
                 <Image Source="..\Resources\Icons\ShoppingCart_Show.png" Width="61" Height="46" OpacityMask="Black"/>
             </StackPanel>
         </Button>
-        <Button x:Name="addShoppingCartToListButton" HorizontalAlignment="Left" Margin="0,65,0,0" Grid.Row="2" VerticalAlignment="Top" Width="105" Height="50" ToolTip="Lägg till i lista" Click="addShoppingCartToListButton_Click">
+        <Button x:Name="addShoppingCartToListButton" HorizontalAlignment="Left" Margin="0,65,0,0" Grid.Row="2" VerticalAlignment="Top" Width="105" Height="50" ToolTip="Lägg till i shoppinglista" Click="addShoppingCartToListButton_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFF3F3F3" Offset="0"/>

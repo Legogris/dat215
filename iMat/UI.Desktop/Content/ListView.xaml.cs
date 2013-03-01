@@ -21,24 +21,16 @@ namespace UI.Desktop
     /// </summary>
     public partial class ListView : UserControl
     {
-        //private LinearGradientBrush evenColor = new LinearGradientBrush();
-        //private LinearGradientBrush oddColor = new LinearGradientBrush();
-        private readonly SolidColorBrush evenColor = new SolidColorBrush(Color.FromRgb(220, 255, 190));
-        private readonly SolidColorBrush oddColor = new SolidColorBrush(Color.FromRgb(250, 255, 250));
+        //private readonly SolidColorBrush evenColor = new SolidColorBrush(Color.FromRgb(220, 255, 190));
+        //private readonly SolidColorBrush oddColor = new SolidColorBrush(Color.FromRgb(250, 255, 250));
+        private readonly SolidColorBrush evenColor = new SolidColorBrush(Color.FromRgb(121, 158, 90));
+        private readonly SolidColorBrush oddColor = new SolidColorBrush(Color.FromRgb(149, 191, 107));
 
         Dictionary<ShoppingItem, ListViewItem> listItems = new Dictionary<ShoppingItem, ListViewItem>();
         Dictionary<ShoppingItem, DetailedItem> detailedItems = new Dictionary<ShoppingItem, DetailedItem>();
 
         public ListView()
         {
-            //evenColor.StartPoint = new Point(0, 0);
-            //evenColor.EndPoint = new Point(0, 1);
-            //evenColor.GradientStops.Add(new GradientStop(Color.FromRgb(206, 253, 138), 0));
-            //evenColor.GradientStops.Add(new GradientStop(Color.FromRgb(151, 255, 0), 1));
-            //oddColor.StartPoint = new Point(0, 0);
-            //oddColor.EndPoint = new Point(0, 1);
-            //oddColor.GradientStops.Add(new GradientStop(Color.FromRgb(151, 255, 0), 0));
-            //oddColor.GradientStops.Add(new GradientStop(Color.FromRgb(206, 253, 138), 1));
             InitializeComponent();
             this.DataContextChanged += ListView_DataContextChanged;
         }
