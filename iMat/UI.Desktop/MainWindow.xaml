@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:UI.Desktop" xmlns:Content="clr-namespace:UI.Desktop.Content" x:Class="UI.Desktop.MainWindow"
         Title="iMat" Height="550" Width="970" Closing="Window_Closing">
-    <Grid>
+    <Grid Background="#FFD8D8D8">
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
             <RowDefinition Height="32"/>
@@ -26,7 +26,7 @@
         </Menu>
 
 
-        <DockPanel Grid.Row="1" Background="#FFEEF5FD">
+        <DockPanel Grid.Row="1" Background="#FFD8D8D8">
             <ToolBarTray HorizontalAlignment="Left" DockPanel.Dock="Left">
                 <ToolBar >
                     <TextBox x:Name="searchField" Width="100"/>
@@ -70,11 +70,15 @@
                             <ImageBrush ImageSource="Resources\Icons\copyList_2.png" Stretch="Uniform"/>
                         </Button.Background>
                     </Button>
-                    <ComboBox x:Name="shoppingListSelectComboBox" Text="Shoppinglistor" IsEditable="True" ItemsSource="{Binding ShoppingListsCollection}" DisplayMemberPath="Name" SelectedValue="{Binding ShoppingListDummy}"  Margin="0" VerticalAlignment="Stretch" Width="100" SelectionChanged="shoppingListComboBoxSelectedChanged"/>
+                    <ComboBox x:Name="shoppingListSelectComboBox" Text="Shoppinglistor" IsEditable="True" ItemsSource="{Binding ShoppingListsCollection}" DisplayMemberPath="Name" SelectedValue="{Binding ShoppingListDummy}"  Margin="0" VerticalAlignment="Stretch" Width="100" SelectionChanged="shoppingListComboBoxSelectedChanged">
+                        <ComboBox.Background>
+                            <SolidColorBrush x:Name="comboBoxBrush" Color="White"/>
+                        </ComboBox.Background>
+                    </ComboBox>
                 </ToolBar>
             </ToolBarTray>
         </DockPanel>
-        <Grid Margin="0,0,0,0" Grid.Row="2">
+        <Grid Margin="0,5,0,0" Grid.Row="2">
             <Grid.Background>
                 <ImageBrush/>
             </Grid.Background>

@@ -8,7 +8,7 @@
     <Grid>
         <Label x:Name="step3TitelLabel" Content="Bekräfta köp:" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" VerticalAlignment="Top" Width="380"/>
         <Button x:Name="exitCheckoutButton" Content="Woopdidoop" HorizontalAlignment="Left" Height="26" Margin="305,384,0,0" VerticalAlignment="Top" Width="85" Click="exitCheckoutButton_Click" Cursor="Hand"/>
-        <Button x:Name="backStep3Button" Content="&lt;-- Tillbaka" HorizontalAlignment="Left" Height="26" Margin="215,384,0,0" VerticalAlignment="Top" Width="85" Click="backStep3Button_Click" Cursor="Hand"/>
+        <Button x:Name="backStep3Button" Content="&lt; Tillbaka" HorizontalAlignment="Left" Height="26" Margin="215,384,0,0" VerticalAlignment="Top" Width="85" Click="backStep3Button_Click" Cursor="Hand"/>
         <ListView x:Name="checkoutListView" HorizontalAlignment="Left" Height="257" Margin="10,45,0,0" VerticalAlignment="Top" Width="380">
             <ListView.View>
                 <GridView>
