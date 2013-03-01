@@ -39,11 +39,13 @@ namespace UI.Desktop
             if (Product.BoughtInBulk)
             {
                 productPriceLabel.Content = Product.Price + " kr/st";
+                productPriceLabel.Visibility = System.Windows.Visibility.Hidden;
                 productJmfLabel.Content = Product.Price + string.Format(" {0}", Product.Unit);
             }
             else
             {
                 productPriceLabel.Content = Product.Price + string.Format(" {0}", Product.Unit);
+                productPriceLabel.Visibility = System.Windows.Visibility.Visible;
                 productJmfLabel.Content = Product.ComparePrice + string.Format(" kr/l");
             }
             productImage.Source = ImageManager.GetImageForProduct(Product);

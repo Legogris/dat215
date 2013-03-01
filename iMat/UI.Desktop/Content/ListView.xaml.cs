@@ -67,7 +67,7 @@ namespace UI.Desktop
                                 li = new ListViewItem(item);
                                 listItems[item] = li;
                                 li.ItemAdded += li_ItemAdded;
-                                li.MouseDown += li_MouseDown;
+                                li.MouseEnter += li_MouseDown;
                             }
                             if (detailedItems.ContainsKey(item))
                             {
@@ -76,7 +76,7 @@ namespace UI.Desktop
                                 dli = new DetailedItem(item);
                                 detailedItems[item] = dli;
                                 dli.ItemAdded += li_ItemAdded;
-                                dli.MouseDown += dli_MouseDown;
+                                dli.MouseLeave += dli_MouseDown;
                             }
                             li.Visibility = System.Windows.Visibility.Visible;
                             dli.Visibility = System.Windows.Visibility.Collapsed;
@@ -91,7 +91,7 @@ namespace UI.Desktop
             }
         }
 
-        void li_MouseDown(object sender, MouseButtonEventArgs e)
+        void li_MouseDown(object sender, MouseEventArgs e)
         {
             ListViewItem li = (ListViewItem)sender;
             DetailedItem dli = detailedItems[li.Item];
@@ -99,7 +99,7 @@ namespace UI.Desktop
             dli.Visibility = System.Windows.Visibility.Visible;
         }
         
-        void dli_MouseDown(object sender, MouseButtonEventArgs e)
+        void dli_MouseDown(object sender, MouseEventArgs e)
         {
             DetailedItem dli = (DetailedItem)sender;
             ListViewItem li = listItems[dli.Item];

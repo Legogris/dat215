@@ -1,4 +1,5 @@
 ﻿using Data;
+using Data.Desktop;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,10 +40,19 @@ namespace UI.Desktop
 
         private void initContent() {
             productName.Content = Product.Name;
-            sel = Product.BoughtInBulk ? (AbstractSelector)new BulkSelector(Item) : new ItemSelector(Item);
-            sel.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
-            sel.VerticalAlignment = System.Windows.VerticalAlignment.Top;
-            selectorContainer.Children.Add(sel);
+            if (Product.BoughtInBulk)
+            {
+                productPriceLabel.Content = Product.Price + " kr/st";
+                productPriceLabel.Visibility = System.Windows.Visibility.Hidden;
+                productJmfLabel.Content = Product.Price + string.Format(" {0}", Product.Unit);
+            }
+            else
+            {
+                productPriceLabel.Content = Product.Price + string.Format(" {0}", Product.Unit);
+                productPriceLabel.Visibility = System.Windows.Visibility.Visible;
+                productJmfLabel.Content = Product.ComparePrice + string.Format(" kr/l");
+            }
+            productImage.Source = ImageManager.GetImageForProduct(Product);
         }
 
     }
