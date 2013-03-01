@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:UI.Desktop" xmlns:Content="clr-namespace:UI.Desktop.Content" x:Class="UI.Desktop.MainWindow"
         Title="iMat" Height="550" Width="970" Closing="Window_Closing">
-    <Grid>
+    <Grid Background="#FFD8D8D8">
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
             <RowDefinition Height="32"/>
@@ -26,7 +26,7 @@
         </Menu>
 
 
-        <DockPanel Grid.Row="1" Background="#FFEEF5FD">
+        <DockPanel Grid.Row="1" Background="#FFD8D8D8">
             <ToolBarTray HorizontalAlignment="Left" DockPanel.Dock="Left">
                 <ToolBar >
                     <TextBox x:Name="searchField" Width="100"/>
@@ -74,7 +74,7 @@
                 </ToolBar>
             </ToolBarTray>
         </DockPanel>
-        <Grid Margin="0,0,0,0" Grid.Row="2">
+        <Grid Margin="0,5,0,0" Grid.Row="2">
             <Grid.Background>
                 <ImageBrush/>
             </Grid.Background>
