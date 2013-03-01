@@ -21,24 +21,12 @@ namespace UI.Desktop
     /// </summary>
     public partial class ListView : UserControl
     {
-        //private LinearGradientBrush evenColor = new LinearGradientBrush();
-        //private LinearGradientBrush oddColor = new LinearGradientBrush();
-        private readonly SolidColorBrush evenColor = new SolidColorBrush(Color.FromRgb(220, 255, 190));
-        private readonly SolidColorBrush oddColor = new SolidColorBrush(Color.FromRgb(250, 255, 250));
 
         Dictionary<ShoppingItem, ListViewItem> listItems = new Dictionary<ShoppingItem, ListViewItem>();
         Dictionary<ShoppingItem, DetailedItem> detailedItems = new Dictionary<ShoppingItem, DetailedItem>();
 
         public ListView()
         {
-            //evenColor.StartPoint = new Point(0, 0);
-            //evenColor.EndPoint = new Point(0, 1);
-            //evenColor.GradientStops.Add(new GradientStop(Color.FromRgb(206, 253, 138), 0));
-            //evenColor.GradientStops.Add(new GradientStop(Color.FromRgb(151, 255, 0), 1));
-            //oddColor.StartPoint = new Point(0, 0);
-            //oddColor.EndPoint = new Point(0, 1);
-            //oddColor.GradientStops.Add(new GradientStop(Color.FromRgb(151, 255, 0), 0));
-            //oddColor.GradientStops.Add(new GradientStop(Color.FromRgb(206, 253, 138), 1));
             InitializeComponent();
             this.DataContextChanged += ListView_DataContextChanged;
         }
@@ -80,7 +68,7 @@ namespace UI.Desktop
                             }
                             li.Visibility = System.Windows.Visibility.Visible;
                             dli.Visibility = System.Windows.Visibility.Collapsed;
-                            li.Background = i % 2 == 0 ? oddColor : evenColor;
+                            li.Background = new SolidColorBrush((Color)(i % 2 == 0 ? App.Current.Resources["ItemOddBack"] : App.Current.Resources["ItemEvenBack"]));
                             stackPanel.Children.Add(li);
                             stackPanel.Children.Add(dli);
                         }

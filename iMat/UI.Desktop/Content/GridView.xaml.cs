@@ -35,6 +35,7 @@ namespace UI.Desktop
                 ProductCategory pc = e.NewValue as ProductCategory;
                 if (pc != null)
                 {
+                    int i = 0;
                     foreach (ShoppingItem item in pc.GetItems())
                     {
                         Product product = item.Product;
@@ -46,7 +47,10 @@ namespace UI.Desktop
                             gridItems[product] = li;
                             li.ItemAdded += li_ItemAdded;
                         }
+                        
+                        li.Background = new SolidColorBrush((Color)(i % 2 == 0 ? App.Current.Resources["ItemOddBack"] : App.Current.Resources["ItemEvenBack"]));
                         stackPanel.Children.Add(li);
+                        i++;
                     }
                 }
             }

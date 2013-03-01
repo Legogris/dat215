@@ -7,10 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="160" d:DesignWidth="160">
     <Grid Margin="0,0,0,0" Width="160" Height="160">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="120"/>
-        </Grid.ColumnDefinitions>
-        <Image x:Name="productImage" Grid.Column="0" HorizontalAlignment="Center" Height="80" VerticalAlignment="Top" Width="100"/>
+        <Image x:Name="productImage" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="80" />
         <Label x:Name="productName" Grid.Column="0" Content="produkt" HorizontalAlignment="Center" Margin="0,80,0,0" VerticalAlignment="Top" FontWeight="Bold" />
         <Label x:Name="productPriceLabel" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="kr"  Margin="0,100,0,0" />
         <Label x:Name="productJmfLabel" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="kr / " Margin="0,120,0,0"  />
