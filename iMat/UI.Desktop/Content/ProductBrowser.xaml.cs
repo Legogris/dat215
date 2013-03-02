@@ -104,23 +104,40 @@ namespace UI.Desktop
         private void categorySourceUpdated()
         {
             container.Children.Clear();
+            
+            Label homeLabel = new Label();
+            homeLabel.Content = "Hem/Start whatever";
+            container.Children.Add(homeLabel);
+
             CategoryControl root = new CategoryControl(rootCategory);
             container.Children.Add(root);
             root.Expand();
             Thickness margin = root.stackPanel.Margin;
             margin.Left = 0;
             root.stackPanel.Margin = margin;
+            
             breadCrumbs.DataContext = rootCategory;
             listView.DataContext = rootCategory;
             gridView.DataContext = rootCategory;
             treeView.DataContext = rootCategory;
 
+            homeLabel.MouseUp += homeLabel_MouseUp;
             root.ProductCategorySelectionChanged += root_ProductCategorySelectionChanged;
             breadCrumbs.ProductCategorySelected += root_ProductCategorySelectionChanged;
         }
 
+        void homeLabel_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            ViewMode = ProductsViewMode.Start;
+        }
+
         void root_ProductCategorySelectionChanged(UserControl sender, ProductCategoryChangedEventArgs e)
         {
+            if (viewMode == ProductsViewMode.Start)
+            {
+                // TODO: gör så att den sätts till default-ViewModen
+                ViewMode = ProductBrowser.ProductsViewMode.List;
+            }
             listView.DataContext = gridView.DataContext = breadCrumbs.DataContext = e.Category;
         }
 
