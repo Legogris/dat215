@@ -12,11 +12,11 @@
             <ColumnDefinition Width="40"/>
         </Grid.ColumnDefinitions>
         <Grid x:Name="content" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3">
-            <Image HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="640" Source="/UI.Desktop;component/Resources/imatSplash.png"/>
+            <Image x:Name="image_one" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="640" Source="/UI.Desktop;component/Resources/imatSplash.png"/>
+            <Image x:Name="image_two" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="640" Source="/UI.Desktop;component/Resources/Icons/search_256.png"/>
         </Grid>
-        <Button Content="pil" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{x:Null}" BorderBrush="{x:Null}"/>
-        <Button Content="pil" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{x:Null}" BorderBrush="{x:Null}" Grid.Column="2"/>
-        
+        <Image x:Name="leftButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/UI.Desktop;component/Resources/Icons/previous-item-black.png" MouseUp="leftButton_Click" Cursor="Hand"/>
+        <Image x:Name="rightButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/UI.Desktop;component/Resources/Icons/next-item-black.png" MouseUp="leftButton_Click" Grid.Column="2" Cursor="Hand"/>
 
 
     </Grid>

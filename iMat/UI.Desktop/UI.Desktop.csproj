@@ -528,6 +528,10 @@
     <Resource Include="Resources\Icons\toList.png" />
     <Resource Include="Resources\imatSplash.png" />
     <Resource Include="Resources\imatIcon.ico" />
+    <Resource Include="Resources\Icons\next-item.png" />
+    <Resource Include="Resources\Icons\previous-item.png" />
+    <Resource Include="Resources\Icons\next-item-black.png" />
+    <Resource Include="Resources\Icons\previous-item-black.png" />
     <Content Include="Resources\products.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -7,13 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="251*"/>
-        </Grid.RowDefinitions>
-        <Label Content="Välkommen till iMat!" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-
         <Controls:SpecialOfferCarousel HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top"/>
-
     </Grid>
 </UserControl>
