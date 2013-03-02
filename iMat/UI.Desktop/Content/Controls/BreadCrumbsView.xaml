@@ -8,7 +8,7 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Height="40">
         <local:BreadCrumb x:Name="breadCrumb" VerticalAlignment="Center"/>
-        <Button x:Name="addListToCartButton" HorizontalAlignment="Right" VerticalAlignment="Top" Width="70" Margin="0,0,0,0" ToolTip="Lägg hela listan till kundkorg" Click="addListToCartButton_Click_1">
+        <Button x:Name="addListToCartButton" HorizontalAlignment="Right" VerticalAlignment="Center" Width="70" Margin="0,0,5,0" ToolTip="Lägg hela listan till kundkorg" Click="addListToCartButton_Click_1">
             <Image Source="..\..\Resources\Icons\listtocart.png" Width="64" Height="32" OpacityMask="Black"/>
         </Button>
     </Grid>

@@ -8,13 +8,13 @@
              HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" MinWidth="500">
     <Grid Background="White" HorizontalAlignment="Stretch">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="110"/>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="80"/>
         </Grid.ColumnDefinitions>
-        <Image x:Name="productImage" Grid.Column="0" HorizontalAlignment="Left" Height="100" VerticalAlignment="Center" Width="100"/>
+        <Image x:Name="productImage" Grid.Column="0" Margin="10,0,0,0" HorizontalAlignment="Left" Height="100" VerticalAlignment="Center" Width="100"/>
         <Label x:Name="productName" Content="produkt" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.Column="1" FontWeight="Bold"/>
-        <Grid x:Name="selectorContainer" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="300">
+        <Grid x:Name="selectorContainer" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right">
             
         </Grid>
         <Button x:Name="addToShoppingCartButton" ToolTip="Lägg till i kundvagn" Grid.Column="2" HorizontalAlignment="Left" Margin="5,12,0,0" VerticalAlignment="Top" Width="62" Height="55" Click="bubbleItemAddedEvent">

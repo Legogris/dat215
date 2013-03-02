@@ -30,9 +30,11 @@ namespace UI.Desktop
         private DataHandler dataHandler;
         private static ListContextMenuManager listContextMenu;
         public static ContextMenu ListContextMenu { get { return listContextMenu.ShoppingListContextMenu; } }
-        
+        public static Window WindowContainer { get; set; }
+
         public MainWindow()
         {
+            WindowContainer = this;
             dataHandler = DataHandler.ReadFromFile(DATABASE, PRODUCTS);
             listContextMenu = new ListContextMenuManager(this, dataHandler);
             DataContext = listContextMenu;

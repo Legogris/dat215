@@ -144,7 +144,8 @@ namespace UI.Desktop.Content
         private void checkoutButton_Click(object sender, RoutedEventArgs e)
         {
             Checkout.CheckoutWindow wizard = new Checkout.CheckoutWindow(DataHandler);
-            wizard.Show();
+            wizard.Owner = MainWindow.WindowContainer;
+            wizard.ShowDialog();
         }
     }
 }
