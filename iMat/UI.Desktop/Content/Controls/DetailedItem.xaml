@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:UI.Desktop" x:Class="UI.Desktop.DetailedItem" 
              mc:Ignorable="d" 
              HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" MinWidth="500">
-    <Grid Background="White" HorizontalAlignment="Stretch">
+    <Grid Background="#DAEACC" HorizontalAlignment="Stretch">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="110"/>
             <ColumnDefinition Width="*" />
