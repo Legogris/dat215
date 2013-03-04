@@ -86,7 +86,6 @@ namespace UI.Desktop
             treeView.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
             treeView.Width = 500;
             ViewMode = ProductsViewMode.Start;
-            //ViewMode = ProductsViewMode.List;
 
             listView.ItemAdded += itemAdded;
             //TODO: Implement for grid view and tree view
