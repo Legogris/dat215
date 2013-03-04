@@ -1,10 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <SolidColorBrush x:Key="ItemEvenBack">#799E5A</SolidColorBrush>
-    <SolidColorBrush x:Key="ItemOddBack">#b4ea86</SolidColorBrush>
-    <SolidColorBrush x:Key="ItemHighlight">#daeacc</SolidColorBrush>
-    <SolidColorBrush x:Key="DarkComplement">#526b3d</SolidColorBrush>
-    <SolidColorBrush x:Key="PanelBackground">#A2AE97</SolidColorBrush>
+    <SolidColorBrush x:Key="ItemEvenBack">#E7F7CF</SolidColorBrush>
+    <SolidColorBrush x:Key="ItemOddBack">#DAEFBC</SolidColorBrush>
+    <SolidColorBrush x:Key="ItemHighlight">#EBF7DA</SolidColorBrush>
+    <SolidColorBrush x:Key="DarkComplement">#759B3D</SolidColorBrush>
+    <SolidColorBrush x:Key="PanelBackground">#e8e8e8</SolidColorBrush>
     <BitmapImage x:Key="UserImage" UriSource="/UI.Desktop;component/Resources/Icons/user.png"/>
     <BitmapImage x:Key="UserImageBW" UriSource="/UI.Desktop;component/Resources/Icons/user_BW.png"/>
     <BitmapImage x:Key="ConfirmImage" UriSource="/UI.Desktop;component/Resources/Icons/confirm.png"/>

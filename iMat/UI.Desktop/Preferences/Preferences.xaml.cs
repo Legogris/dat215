@@ -56,10 +56,14 @@ namespace UI.Desktop.Preferences
         void tab_MouseUp(object sender, MouseButtonEventArgs e)
         {
             content.Children.Clear();
+            foreach (PreferenceTab tabx in prefTabs) {
+                tabx.Selected = false;
+            }
             PreferenceTab tab = sender as PreferenceTab;
             if (tab!= null)
             {
                 content.Children.Add(tab.DataContext as UserControl);
+                tab.Selected = true;
             }
         }
 

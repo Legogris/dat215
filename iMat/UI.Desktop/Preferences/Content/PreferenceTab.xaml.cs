@@ -45,6 +45,7 @@ namespace UI.Desktop.Preferences.Content
 
         private void BGMouseEnter(object sender, MouseEventArgs e)
         {
+            if (selected) return;
             background.Background = HOVER;
         }
 
