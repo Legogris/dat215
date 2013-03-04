@@ -24,6 +24,7 @@ namespace UI.Desktop.Checkout
         private CheckoutStep1 step1;
         private CheckoutStep2 step2;
         private CheckoutStep3 step3;
+        private CheckoutStep4 step4;
         private LogInPage logIn;
         private DataHandler dataHandler;
         private ShoppingCart shoppingCart;
@@ -40,10 +41,13 @@ namespace UI.Desktop.Checkout
             step2 = new CheckoutStep2(data);
             step2.NextStep2 += step2_NextStep2;
             step2.BackStep2 += step2_BackStep2;
-            step3 = new CheckoutStep3();
-            step3.ExitCheckout += step3_ExitCheckout;
+            step3 = new CheckoutStep3(data);
+            step3.NextStep3 += step3_NextStep3;
             step3.BackStep3 += step3_BackStep3;
-            step3.DataContext = data.GetCart();
+            step4 = new CheckoutStep4();
+            step4.ExitCheckout += step4_ExitCheckout;
+            step4.BackStep4 += step4_BackStep4;
+            step4.DataContext = data.GetCart();
             logIn = new LogInPage(data);
             logIn.NextStep += logIn_NextStep;
             logIn.BackStep += logIn_BackStep;
@@ -57,6 +61,7 @@ namespace UI.Desktop.Checkout
             }
         }
 
+        
         void step1_LogIn(object sender, EventArgs e)
         {
             PageGrid.Children.Clear();
@@ -74,12 +79,22 @@ namespace UI.Desktop.Checkout
             ActivateStep2();
         }
 
+        void step4_BackStep4(object sender, EventArgs e)
+        {
+            ActivateStep2();
+        }
+
+        void step3_NextStep3(object sender, EventArgs e)
+        {
+            ActivateStep4();
+        }
+
         void step3_BackStep3(object sender, EventArgs e)
         {
             ActivateStep2();
         }
 
-        void step3_ExitCheckout(object sender, EventArgs e)
+        void step4_ExitCheckout(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -98,38 +113,47 @@ namespace UI.Desktop.Checkout
         {
             ActivateStep2();
         }
+        
         public void ActivateStep1()
         {
             PageGrid.Children.Clear();
             PageGrid.Children.Add(step1);
         }
+        
         public void ActivateStep2()
         {
             PageGrid.Children.Clear();
             PageGrid.Children.Add(step2);
         }
-        public void ActivateStep3()
+
+        private void ActivateStep3()
         {
             PageGrid.Children.Clear();
             PageGrid.Children.Add(step3);
-            step3.displayContent();
-            if (step2.PayOnPickup.IsChecked == true)
-            {
-                step3.chosenPaymentOption.Content = "Du betalar dina varor vid upphämtning.";
-            }
-            else
-            {
-                step3.chosenPaymentOption.Content = "Du betalar med kort med nr: " + step2.CardNumberTextBox.Text;
-            }
+        }
+
+        public void ActivateStep4()
+        {
+            PageGrid.Children.Clear();
+            PageGrid.Children.Add(step4);
+            step4.displayContent();
+            //if (step2.PayOnPickup.IsChecked == true)
+            //{
+            //    step3.chosenPaymentOption.Content = "Du betalar dina varor vid upphämtning.";
+            //}
+            //else
+            //{
+            //    step3.chosenPaymentOption.Content = "Du betalar med kort med nr: " + step2.CardNumberTextBox.Text;
+            //}
             if (step2.HomeDelivery.IsChecked == true)
             {
-                step3.chosenDeliveryOption.Content = "Dina varor kommer levereras hem till: " + step2.AddressTextBox.Text;
+                step4.chosenDeliveryOption.Content = "Dina varor kommer levereras hem till: " + step2.AddressTextBox.Text;
             }
             else
             {
                 ComboBoxItem ci = (ComboBoxItem)step2.StoreComboBox.SelectedItem;
                 string temp = ci.Content.ToString();
-                step3.chosenDeliveryOption.Content = "Dina varor kommer levereras till: " + temp;
+                step4.chosenDeliveryOption.Content = "Dina varor kommer levereras till: " + temp;
             }
         }
     }

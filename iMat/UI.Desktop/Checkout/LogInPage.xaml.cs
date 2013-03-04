@@ -39,6 +39,8 @@ namespace UI.Desktop.Checkout
 
         private void LogInNextButton_Click(object sender, RoutedEventArgs e)
         {
+            checkIfReadyToContinue();
+            if (passwordWarningLabel.Content != null) return;
             NextStep.Invoke(this, null);
         }
 
@@ -49,24 +51,24 @@ namespace UI.Desktop.Checkout
 
         private void logInEmailTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            checkIfReadyToContinue();
+            //checkIfReadyToContinue();
         }
 
         private void logInPasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            checkIfReadyToContinue();
+            //checkIfReadyToContinue();
         }
         private void checkIfReadyToContinue()
         {
             if (user != null && user.isPassword(logInPasswordBox.Password) && !(string.IsNullOrEmpty(logInEmailTextBox.Text) || string.IsNullOrEmpty(logInPasswordBox.Password)))
             {
-                logInNextButton.IsEnabled = true;
+                //logInNextButton.IsEnabled = true;
                 passwordWarningLabel.Content = null;
             }
             else
             {
-                logInNextButton.IsEnabled = false;
-                passwordWarningLabel.Content = "Lösenordet matchar inte din email";
+                //logInNextButton.IsEnabled = false;
+                passwordWarningLabel.Content = "Fel lösenord eller e-mail.";
             }
         }
     }
