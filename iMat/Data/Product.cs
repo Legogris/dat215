@@ -28,7 +28,7 @@ namespace Data
         private static readonly string[] descriptions = {
             "Köp vår{0} smarriga {1} - vi lovar att du inte kommer att bli besviken!\r\n",
             "Varje dag som går utan att du provat vår{0} {1} är en dag som inte är värd att leva - nystarta ditt liv idag!\r\n",
-            "Vi vet att du vill ha {2} - stå inte utan {0} när det gäller!\r\n",
+            "Vi vet att du vill ha {2} - stå inte utan {1} när det gäller!\r\n",
             "Köp, köp, köp! Köp {1}! Vad väntar du på? Bunkra upp med {1} innan det är för sent!\r\n"
         };
 
