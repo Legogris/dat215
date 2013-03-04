@@ -40,6 +40,7 @@ namespace UI.Desktop
             if (isCurrent)
             {
                 //titleLabel.TextDecorations = TextDecorations.Underline;
+                titleLabel.FontWeight = FontWeights.Bold;
             } else {
                 titleLabel.Cursor = Cursors.Hand;
                 titleLabel.MouseEnter += titleLabel_MouseEnter;
@@ -51,11 +52,13 @@ namespace UI.Desktop
         void titleLabel_MouseLeave(object sender, MouseEventArgs e)
         {
             titleLabel.TextDecorations = null;
+            //titleLabel.FontWeight = FontWeights.Normal;
         }
 
         void titleLabel_MouseEnter(object sender, MouseEventArgs e)
         {
             titleLabel.TextDecorations = TextDecorations.Underline;
+            //titleLabel.FontWeight = FontWeights.Bold;
         }
 
         void BreadCrumb_MouseUp(object sender, MouseButtonEventArgs e)

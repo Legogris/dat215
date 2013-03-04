@@ -26,11 +26,9 @@
                 <MenuItem Header="Användarguide"/>
             </MenuItem>
         </Menu>
-
-
-        <DockPanel Grid.Row="1" Background="#A2AE97">
+        <DockPanel Grid.Row="1">
             <ToolBarTray HorizontalAlignment="Left" DockPanel.Dock="Left">
-                <ToolBar >
+                <ToolBar ToolBarTray.IsLocked="True">
                     <TextBox x:Name="searchField" Width="100"/>
                     <Button x:Name="searchButton" ToolTip="Sök" Width="29" Height="30" Margin="0,0,0,-5">
                         <StackPanel Orientation="Horizontal">
@@ -38,9 +36,27 @@
                         </StackPanel>
                     </Button>
                 </ToolBar>
-                <ToolBar >
-                    <ComboBox x:Name="sortCB" Text="Sortera"/>
-                    <Button x:Name="filterButton" ToolTip="Filter" Width="25">
+                <ToolBar  ToolBarTray.IsLocked="True">
+                    <ComboBox x:Name="sortCB" Text="Sortera" IsReadOnly="True" IsEditable="True">
+                        <MenuItem Header="Alfabetisk (A-Ö)"/>
+                        <MenuItem Header="Alfabetisk (Ö-A)"/>
+                        <MenuItem Header="Pris (Dyrast först)"/>
+                        <MenuItem Header="Pris (Billigast först)"/>
+                        <MenuItem Header="Jämförpris (Dyrast först)"/>
+                        <MenuItem Header="Jämförpris (Billigast först)"/>
+                    </ComboBox>
+                    <Button x:Name="filterButton" ToolTip="Filter" Width="25" Margin="0,2,0,0" VerticalAlignment="Top">
+                        <Button.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="KRAV-märkt" IsCheckable="True" Click="MenuItem_Click_1" />
+                                <MenuItem Header="Fairtrade" IsCheckable="True" />
+                                <MenuItem Header="Vegetariskt" IsCheckable="True" />
+                                <MenuItem Header="Närproducerat" IsCheckable="True" />
+                                <MenuItem Header="På erbjudande" IsCheckable="True" />
+                                <MenuItem Header="Glutenfritt" IsCheckable="True" />
+                                <MenuItem Header="Laktosfritt" IsCheckable="True" />
+                            </ContextMenu>
+                        </Button.ContextMenu>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Resources\Icons\filter_new.png" Width="17" Height="16" OpacityMask="Black" Stretch="UniformToFill" RenderTransformOrigin="0,0.25"/>
                         </StackPanel>
@@ -49,7 +65,7 @@
                 </ToolBar>
             </ToolBarTray>
             <ToolBarTray HorizontalAlignment="Right" DockPanel.Dock="Right">
-                <ToolBar HorizontalAlignment="Right">
+                <ToolBar HorizontalAlignment="Right" ToolBarTray.IsLocked="True">
                     <Button x:Name="listViewButton" VerticalAlignment="Top" Click="listViewButton_Click" ToolTip="List view" Width="25" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" Height="26">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Resources\Icons\list_order.png" Width="21" Height="19" OpacityMask="Black" Stretch="UniformToFill" RenderTransformOrigin="0,0.25"/>
@@ -66,7 +82,7 @@
                         </StackPanel>
                     </Button>
                 </ToolBar>
-                <ToolBar HorizontalAlignment="Right">
+                <ToolBar HorizontalAlignment="Right" ToolBarTray.IsLocked="True">
                     <Button Height="26" VerticalAlignment="Top" Width="28" BorderBrush="{x:Null}" ToolTip="Shoppinglistor" Click="shoppingListPrefsClick">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Resources\Icons\copylist_2.png" Stretch="UniformToFill" Width="20" Height="20" OpacityMask="Black"/>

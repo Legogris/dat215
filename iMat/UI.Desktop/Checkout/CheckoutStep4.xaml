@@ -4,11 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="420" d:DesignWidth="400">
+             d:DesignHeight="450" d:DesignWidth="400">
     <Grid>
         <Label x:Name="step3TitelLabel" Content="Din beställning:" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" VerticalAlignment="Top" Width="380"/>
-        <Button x:Name="exitCheckoutButton" Content="Slutför" HorizontalAlignment="Left" Height="26" Margin="305,384,0,0" VerticalAlignment="Top" Width="85" Click="exitCheckoutButton_Click" Cursor="Hand"/>
-        <Button x:Name="backStep3Button" Content="Tillbaka" HorizontalAlignment="Left" Height="26" Margin="215,384,0,0" VerticalAlignment="Top" Width="85" Click="backStep3Button_Click" Cursor="Hand"/>
+        <Button x:Name="exitCheckoutButton" Content="Slutför" HorizontalAlignment="Left" Height="26" Margin="305,414,0,0" VerticalAlignment="Top" Width="85" Click="exitCheckoutButton_Click" Cursor="Hand"/>
+        <Button x:Name="backStep3Button" Content="Tillbaka" HorizontalAlignment="Left" Height="26" Margin="215,414,0,0" VerticalAlignment="Top" Width="85" Click="backStep3Button_Click" Cursor="Hand"/>
         <ListView x:Name="checkoutListView" HorizontalAlignment="Left" Height="257" Margin="10,45,0,0" VerticalAlignment="Top" Width="380">
             <ListView.View>
                 <GridView>
@@ -18,8 +18,10 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Label x:Name="chosenPaymentOption" Content="Label" HorizontalAlignment="Left" Height="26" Margin="10,307,0,0" VerticalAlignment="Top" Width="380"/>
-        <Label x:Name="chosenDeliveryOption" Content="Label" HorizontalAlignment="Left" Height="26" Margin="10,333,0,0" VerticalAlignment="Top" Width="380"/>
+        <TextBlock x:Name="chosenPaymentOption" HorizontalAlignment="Left" Height="26" Margin="10,307,0,0" VerticalAlignment="Top" Width="236"/>
+        <TextBlock x:Name="chosenDeliveryOption" HorizontalAlignment="Left" Height="26" Margin="10,333,0,0" VerticalAlignment="Top" Width="236"/>
+        <TextBlock x:Name="chosenPaymentAnswer" HorizontalAlignment="Left" Margin="251,307,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="26" Width="139" FontWeight="Bold"/>
+        <TextBlock x:Name="chosenDeliveryAnswer" HorizontalAlignment="Left" Margin="251,333,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="26" Width="139" FontWeight="Bold"/>
 
     </Grid>
 </UserControl>
