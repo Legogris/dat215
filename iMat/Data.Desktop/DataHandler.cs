@@ -23,8 +23,6 @@ namespace Data.Desktop
 
         [NonSerialized()]
         private ProductCategory rootCategory;
-        [NonSerialized()]
-        private ISet<Product> products;
 
         public DataHandler(string productsPath)
         {

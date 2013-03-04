@@ -47,6 +47,7 @@ namespace UI.Desktop
             sel.VerticalAlignment = System.Windows.VerticalAlignment.Top;
             selectorContainer.Children.Add(sel);
             productImage.Source = ImageManager.GetImageForProduct(Product);
+            productIcons.DataContext = Product;
         }
 
         private void addToListButton_Click(object sender, RoutedEventArgs e)
