@@ -91,6 +91,9 @@
     <Compile Include="Checkout\LogInPage.xaml.cs">
       <DependentUpon>LogInPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Checkout\WizardSteps.xaml.cs">
+      <DependentUpon>WizardSteps.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Content\Controls\AbstractTreeViewItem.cs" />
     <Compile Include="Content\Controls\BreadCrumb.xaml.cs">
       <DependentUpon>BreadCrumb.xaml</DependentUpon>
@@ -190,6 +193,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Checkout\LogInPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Checkout\WizardSteps.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
