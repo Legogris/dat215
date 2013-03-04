@@ -65,7 +65,10 @@ namespace UI.Desktop
                     Expand();
                 }
             }
-            ProductCategorySelectionChanged.Invoke(this, new ProductCategoryChangedEventArgs(productCategory));
+            if (productCategory as ShoppingListHandler == null) // Don't replace content just for displaying list of favorite lists
+            {
+                ProductCategorySelectionChanged.Invoke(this, new ProductCategoryChangedEventArgs(productCategory));
+            }
         }
 
         public void Expand()
