@@ -22,24 +22,24 @@
         </Grid.ColumnDefinitions>
         <Label Content="Dina Shoppingistor" HorizontalAlignment="Left" Height="28" Margin="1,0,0,0" VerticalAlignment="Top" Grid.Column="1" Width="112"/>
         <Label Content="Innehåll" HorizontalAlignment="Left" Height="28" Margin="10,0,0,0" VerticalAlignment="Top" Width="68" Grid.Column="2"/>
-        <Button x:Name="newShoppingListButton" Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="6,7,0,0" Grid.Row="1" VerticalAlignment="Top" Width="45" Click="newShoppingList">
+        <Button x:Name="newShoppingListButton" Grid.Column="1" ToolTip="Ny shoppinglista" HorizontalAlignment="Left" Height="40" Margin="6,7,0,0" Grid.Row="1" VerticalAlignment="Top" Width="45" Click="newShoppingList">
             <StackPanel Orientation="Horizontal">
                 <Image Source="..\Resources\Icons\newList.png" Width="41" Height="33"/>
             </StackPanel>
         </Button>
-        <Button x:Name="copyShoppingListButton" Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="56,7,0,0" Grid.Row="1" VerticalAlignment="Top" Width="45" Click="copyClick">
+        <Button x:Name="copyShoppingListButton" Grid.Column="1" ToolTip="Kopiera shoppinglista" HorizontalAlignment="Left" Height="40" Margin="56,7,0,0" Grid.Row="1" VerticalAlignment="Top" Width="45" Click="copyClick">
             <StackPanel Orientation="Horizontal">
                 <Image Source="..\Resources\Icons\copyList.png" Width="41" Height="33"/>
             </StackPanel>
         </Button>
 
-        <Button x:Name="deleteShoppingListButton" Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="106,7,0,0" Grid.Row="1" VerticalAlignment="Top" Width="45" Click="deleteShoppingListClick">
+        <Button x:Name="deleteShoppingListButton" Grid.Column="1" ToolTip="Ta bort shoppinglista" HorizontalAlignment="Left" Height="40" Margin="106,7,0,0" Grid.Row="1" VerticalAlignment="Top" Width="45" Click="deleteShoppingListClick">
             <StackPanel Orientation="Horizontal">
                 <Image Source="..\Resources\Icons\deleteList.png" Width="41" Height="33"/>
             </StackPanel>
         </Button>
 
-        <Button Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="156,7,0,0" Grid.Row="1" VerticalAlignment="Top" Width="45">
+        <Button Grid.Column="1" HorizontalAlignment="Left" ToolTip="Importera lista" Height="40" Margin="156,7,0,0" Grid.Row="1" VerticalAlignment="Top" Width="45">
             <StackPanel Orientation="Horizontal">
                 <Image Source="..\Resources\Icons\importList.png" Width="41" Height="33"/>
             </StackPanel>
@@ -63,10 +63,14 @@
             </ListView.View>
         </ListView>
         <TextBox x:Name="listNameTextBox" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198" LostFocus="listNameTextLostFocus" KeyDown="listNameTextKeyDown"/>
-        <Label x:Name="listTotalPriceLabel" Content=" " Grid.Column="2" HorizontalAlignment="Left" Margin="214,26,0,0" VerticalAlignment="Top" Height="26" Width="13"/>
+        <Label x:Name="listTotalPriceLabel" Content=" " Grid.Column="2" HorizontalAlignment="Left" Margin="214,26,0,0" VerticalAlignment="Top"/>
         <Label Content="Länk:" Grid.Column="1" HorizontalAlignment="Left" Margin="6,52,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="37"/>
         <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="56,55,0,0" Grid.Row="1" TextWrapping="Wrap" Text="http://imat.se/l/asdfasdf" VerticalAlignment="Top" Width="145"/>
-        <Button x:Name="removeItemButton" Content="ta bort" Grid.Column="2" HorizontalAlignment="Left" Margin="64.6,12.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="removeItemButton_Click" Height="22"/>
+        <Button x:Name="removeItemButton" Grid.Column="2" ToolTip="Ta bort varan ur listan" HorizontalAlignment="Left" Margin="71,13,0,0" VerticalAlignment="Top" Width="38" Click="removeItemButton_Click" Height="38" Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="..\Resources\Icons\remove.png" Width="32" Height="32"/>
+            </StackPanel>
+        </Button>
         <TextBox x:Name="amountTextBox" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,13,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" LostFocus="amountTextLostFocus" KeyDown="amountTextKeyDown"/>
 
     </Grid>
