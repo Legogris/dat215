@@ -42,7 +42,7 @@
                     <ComboBox x:Name="sortCB" Text="Sortera"/>
                     <Button x:Name="filterButton" ToolTip="Filter" Width="25">
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="Resources\Icons\filter_new.png" Width="21" Height="19" OpacityMask="Black" Stretch="UniformToFill" RenderTransformOrigin="0,0.25"/>
+                            <Image Source="Resources\Icons\filter_new.png" Width="17" Height="16" OpacityMask="Black" Stretch="UniformToFill" RenderTransformOrigin="0,0.25"/>
                         </StackPanel>
 
                     </Button>
