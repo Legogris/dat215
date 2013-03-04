@@ -8,14 +8,15 @@
              d:DesignHeight="100" d:DesignWidth="600">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="350"/>
+            <ColumnDefinition Width="110"/>
+            <ColumnDefinition Width="374*"/>
             <ColumnDefinition Width="80"/>
         </Grid.ColumnDefinitions>
-        <Image x:Name="productImage" Grid.Column="0" HorizontalAlignment="Left" Height="100" VerticalAlignment="Center" Width="100"/>
-        <Label x:Name="productName" Grid.Column="1" Content="produkt" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" />
-        <Label x:Name="productPriceLabel" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="kr"  Margin="0,0,0,34" />
-        <Label x:Name="productJmfLabel" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="kr / " />
+        <Image x:Name="productImage" Grid.Column="0" HorizontalAlignment="Left" Height="100" Margin="10,0,0,0" VerticalAlignment="Center" Width="100"/>
+        <Label x:Name="productName" Grid.Column="1" Content="produkt" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="productPriceLabel" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="kr"  Margin="0,0,0,34"/>
+        <Label x:Name="productJmfLabel" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="kr / "/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Stretch" Height="1" Stroke="Black" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
 
     </Grid>
 </local:ProductView>

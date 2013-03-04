@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="UI.Desktop.Content.Controls.SpecialOfferCarousel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="640">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="40"/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="content" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3">
+            <Image x:Name="image_one" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="640" Source="/UI.Desktop;component/Resources/imatSplash.png"/>
+            <Image x:Name="image_two" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="640" Source="/UI.Desktop;component/Resources/Icons/search_256.png"/>
+        </Grid>
+        <Image x:Name="leftButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/UI.Desktop;component/Resources/Icons/previous-item-black.png" MouseUp="leftButton_Click" Cursor="Hand"/>
+        <Image x:Name="rightButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/UI.Desktop;component/Resources/Icons/next-item-black.png" MouseUp="leftButton_Click" Grid.Column="2" Cursor="Hand"/>
+
+
+    </Grid>
+</UserControl>

@@ -19,53 +19,73 @@ namespace UI.Desktop
     /// <summary>
     /// Interaction logic for CategoryControl.xaml
     /// </summary>
+    public delegate void ProductCategoryChangedHandler(UserControl sender, ProductCategoryChangedEventArgs e);
+
+    public class ProductCategoryChangedEventArgs
+    {
+        public ProductCategory Category { get; private set; }
+        public ProductCategoryChangedEventArgs(ProductCategory pc)
+        {
+            Category = pc;
+        }
+    }
+
     public partial class CategoryControl : UserControl
     {
         private ProductCategory productCategory;
         private bool expanded = false;
-        public delegate void ProductCategoryChangedHandler(UserControl sender, ProductCategoryChangedEventArgs e);
         public event ProductCategoryChangedHandler ProductCategorySelectionChanged;
 
-        public class ProductCategoryChangedEventArgs
-        {
-            public ProductCategory Category { get; private set; }
-            public ProductCategoryChangedEventArgs(ProductCategory pc)
-            {
-                Category = pc;
-            }
-        }
 
         public CategoryControl(ProductCategory pc)
         {
             InitializeComponent();
             productCategory = pc;
-            categoryLabel.Content = pc.Name;
-            categoryLabel.MouseUp += categoryLabel_MouseUp;
+            if (pc != null)
+            {
+                categoryLabel.Content = pc.Name;
+                categoryLabel.MouseUp += categoryLabel_MouseUp;
+            }
+            else
+            {
+                categoryLabel.Content = "DUMMY";
+            }
         }
 
         void categoryLabel_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (expanded) {
-                Retract();
+            if (productCategory.Parent != null) //Can't expand/contract root category
+            {
+                if (expanded)
+                {
+                    Retract();
+                }
+                else
+                {
+                    Expand();
+                }
             }
-            else {
-                Expand();
+            if (productCategory as ShoppingListHandler == null) // Don't replace content just for displaying list of favorite lists
+            {
+                ProductCategorySelectionChanged.Invoke(this, new ProductCategoryChangedEventArgs(productCategory));
             }
-            ProductCategorySelectionChanged.Invoke(this, new ProductCategoryChangedEventArgs(productCategory));
         }
 
         public void Expand()
         {
             expanded = true;
-            foreach (ProductCategory pc in productCategory.SubCategories)
+            if (productCategory != null)
             {
-                CategoryControl c = new CategoryControl(pc);
-                stackPanel.Children.Add(c);
-                c.ProductCategorySelectionChanged += childProductCategorySelectionChanged;
+                foreach (ProductCategory pc in productCategory.SubCategories)
+                {
+                    CategoryControl c = new CategoryControl(pc);
+                    stackPanel.Children.Add(c);
+                    c.ProductCategorySelectionChanged += childProductCategorySelectionChanged;
+                }
             }
         }
 
-        void childProductCategorySelectionChanged(UserControl sender, CategoryControl.ProductCategoryChangedEventArgs e)
+        void childProductCategorySelectionChanged(UserControl sender, ProductCategoryChangedEventArgs e)
         {
             ProductCategorySelectionChanged.Invoke(sender, e);
         }

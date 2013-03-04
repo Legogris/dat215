@@ -23,8 +23,6 @@ namespace Data.Desktop
 
         [NonSerialized()]
         private ProductCategory rootCategory;
-        [NonSerialized()]
-        private ISet<Product> products;
 
         public DataHandler(string productsPath)
         {
@@ -61,32 +59,34 @@ namespace Data.Desktop
 
         private void LoadProducts(string productsPath)
         {
-            rootCategory = new ProductCategory(string.Empty, "Alla", null);
-            ProductCategory greens = new ProductCategory("GREENS", "Frukt & Grönt", rootCategory);
-            ProductCategory drinks = new ProductCategory("DRINKS", "Drycker", rootCategory);
-            ProductCategory pantry = new ProductCategory("PANTRY", "Skafferi", rootCategory);
+            rootCategory = new ConcreteProductCategory(string.Empty, "Alla", null);
+            favorites.Parent = rootCategory;
+            ProductCategory greens = new ConcreteProductCategory("GREENS", "Frukt & Grönt", rootCategory);
+            ProductCategory drinks = new ConcreteProductCategory("DRINKS", "Drycker", rootCategory);
+            ProductCategory pantry = new ConcreteProductCategory("PANTRY", "Skafferi", rootCategory);
 
-            ProductCategory berry = new ProductCategory("BERRY", "Bär", greens);
-            ProductCategory bread = new ProductCategory("BREAD", "Bröd", rootCategory);
-            ProductCategory cabbage = new ProductCategory("CABBAGE", "Kål", greens);
-            ProductCategory citrus = new ProductCategory("CITRUS_FRUIT", "Citrusfrukter", greens);
-            ProductCategory coldDrinks = new ProductCategory("COLD_DRINKS", "Kalla drycker", drinks);
-            ProductCategory dairies = new ProductCategory("DAIRIES", "Mejeriprodukter", rootCategory);
-            ProductCategory exoticFruit = new ProductCategory("EXOTIC_FRUIT", "Exotiska frukter", greens);
-            ProductCategory fish = new ProductCategory("FISH", "Fisk", rootCategory);
-            ProductCategory dries = new ProductCategory("FLOUR_SUGAR_SALT", "Mjöl, socker & salt", pantry);
-            ProductCategory stoneFruit = new ProductCategory("FRUIT", "Stenfrukter", greens);
-            ProductCategory herb = new ProductCategory("HERB", "Örter", greens);
-            ProductCategory hotDrinks = new ProductCategory("HOT_DRINKS", "Varma drycker", drinks);
-            ProductCategory meat = new ProductCategory("MEAT", "Kött", rootCategory);
-            ProductCategory melons = new ProductCategory("MELONS", "Meloner", greens);
-            ProductCategory nutsSeeds = new ProductCategory("NUTS_AND_SEEDS", "Nötter & frön", pantry);
-            ProductCategory pasta = new ProductCategory("PASTA", "Pasta", pantry);
-            ProductCategory pod = new ProductCategory("POD", "Baljväxter", pantry);
-            ProductCategory rice = new ProductCategory("RICE", "Ris", pantry);
-            ProductCategory roots = new ProductCategory("ROOT_VEGETABLE", "Rotfrukter", greens);
-            ProductCategory sweet = new ProductCategory("SWEET", "Sött & snacks", rootCategory);
-            ProductCategory veggieFruit = new ProductCategory("VEGETABLE_FRUIT", "Grönsaksfrukter", greens);
+            ProductCategory berry = new ConcreteProductCategory("BERRY", "Bär", greens);
+            ProductCategory bread = new ConcreteProductCategory("BREAD", "Bröd", rootCategory);
+            ProductCategory cabbage = new ConcreteProductCategory("CABBAGE", "Kål", greens);
+            ProductCategory citrus = new ConcreteProductCategory("CITRUS_FRUIT", "Citrusfrukter", greens);
+            ProductCategory coldDrinks = new ConcreteProductCategory("COLD_DRINKS", "Kalla drycker", drinks);
+            ProductCategory dairies = new ConcreteProductCategory("DAIRIES", "Mejeriprodukter", rootCategory);
+            ProductCategory exoticFruit = new ConcreteProductCategory("EXOTIC_FRUIT", "Exotiska frukter", greens);
+            ProductCategory fish = new ConcreteProductCategory("FISH", "Fisk", rootCategory);
+            ProductCategory dries = new ConcreteProductCategory("FLOUR_SUGAR_SALT", "Mjöl, socker & salt", pantry);
+            ProductCategory stoneFruit = new ConcreteProductCategory("FRUIT", "Stenfrukter", greens);
+            ProductCategory herb = new ConcreteProductCategory("HERB", "Örter", greens);
+            ProductCategory hotDrinks = new ConcreteProductCategory("HOT_DRINKS", "Varma drycker", drinks);
+            ProductCategory meat = new ConcreteProductCategory("MEAT", "Kött", rootCategory);
+            ProductCategory melons = new ConcreteProductCategory("MELONS", "Meloner", greens);
+            ProductCategory nutsSeeds = new ConcreteProductCategory("NUTS_AND_SEEDS", "Nötter & frön", pantry);
+            ProductCategory pasta = new ConcreteProductCategory("PASTA", "Pasta", pantry);
+            ProductCategory pod = new ConcreteProductCategory("POD", "Baljväxter", pantry);
+            ProductCategory rice = new ConcreteProductCategory("RICE", "Ris", pantry);
+            ProductCategory roots = new ConcreteProductCategory("ROOT_VEGETABLE", "Rotfrukter", greens);
+            ProductCategory sweet = new ConcreteProductCategory("SWEET", "Sött & snacks", rootCategory);
+            ProductCategory veggieFruit = new ConcreteProductCategory("VEGETABLE_FRUIT", "Grönsaksfrukter", greens);
+            rootCategory.SubCategories.Add(favorites);
 
             StreamReader sr = File.OpenText(productsPath);
             try
@@ -107,7 +107,7 @@ namespace Data.Desktop
                     string[] products = ds[1].Split(',');
                     foreach (string ps in products)
                     {
-                        ProductCategory cat = rootCategory.GetCategoryByID(ps);
+                        ConcreteProductCategory cat = (ConcreteProductCategory)rootCategory.GetCategoryByID(ps);
                         cat.AddProduct(p);
                     }
                 }
@@ -115,39 +115,6 @@ namespace Data.Desktop
             catch (Exception e)  {
             }
             finally { sr.Close(); }
-
-            //Proper products for shoppingitems
-            ShoppingCart newCart = new ShoppingCart();
-            foreach (ShoppingItem si in cart.GetItems())
-            {
-                newCart.Add(new ShoppingItem(GetProduct(si.Product.ProductID), si.Amount));
-            }
-            cart = newCart;
-            
-            //List<FavoriteList> newFavs = new List<FavoriteList>();
-            //foreach (FavoriteList list in favorites.GetItems())
-            //{
-            //    FavoriteList newList = new FavoriteList(list.Name);
-            //    foreach (ShoppingItem si in list)
-            //    {
-            //        newList.Add(new ShoppingItem(GetProduct(si.Product.ProductID), si.Amount));
-            //    }
-            //    newFavs.Add(newList);
-            //}
-            //favorites.Add(newFavs);
-
-            List<Order> newOrders = new List<Order>();
-            foreach (Order o in orders)
-            {
-                List<ShoppingItem> newItems = new List<ShoppingItem>();
-                foreach (ShoppingItem si in o.Items)
-                {
-                    newItems.Add(new ShoppingItem(GetProduct(si.Product.ProductID), si.Amount));
-                }
-                newOrders.Add(new Order(newItems, o.Date, o.OrderNumber));
-            }
-            orders = newOrders;
-                
         }
 
         public void WriteToFile(string path)
@@ -177,11 +144,6 @@ namespace Data.Desktop
             return creditCards;
         }
 
-        public Product GetProduct(int id)
-        {
-            return rootCategory.GetProduct(id);
-        }
-
         public List<ShippingAddress> GetShippingAddresses() 
         {
             return shippingAddresses; 
@@ -205,6 +167,10 @@ namespace Data.Desktop
         public ShoppingCart GetCart()
         {
             return cart;
+        }
+        public void setUser(string email, string password)
+        {
+            user = new User(email, password);
         }
     }
 }

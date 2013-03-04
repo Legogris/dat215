@@ -4,16 +4,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="400">
+             d:DesignHeight="420" d:DesignWidth="400">
     <Grid>
-        <Label x:Name="logInTitleLabel" Content="Logga in:" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="380" FontSize="18" FontWeight="Bold"/>
-        <Label x:Name="logInEmailLabel" Content="Email:" HorizontalAlignment="Left" Height="30" Margin="10,55,0,0" VerticalAlignment="Top" Width="171" FontWeight="Bold"/>
-        <TextBox x:Name="logInEmailTextBox" HorizontalAlignment="Left" Height="26" Margin="10,85,0,0" TextWrapping="Wrap" Text="example@mail.com" VerticalAlignment="Top" Width="171"/>
-        <Label x:Name="logInPasswordLabel" Content="Password:" HorizontalAlignment="Left" Height="30" Margin="10,116,0,0" VerticalAlignment="Top" Width="171" FontWeight="Bold"/>
-        <PasswordBox x:Name="logInPasswordBox" HorizontalAlignment="Left" Height="26" Margin="10,151,0,0" VerticalAlignment="Top" Width="171"/>
-        <Button x:Name="logInNextButton" Content="Vidare --&gt;" HorizontalAlignment="Left" Height="30" Margin="305,360,0,0" VerticalAlignment="Top" Width="85" Click="LogInNextButton_Click"/>
-        <Button x:Name="backToCreateButton" Content="&lt;--  Tillbaka" HorizontalAlignment="Left" Height="30" Margin="215,360,0,0" VerticalAlignment="Top" Width="85" Click="backToCreateButton_Click"/>
-        <CheckBox Content="Komihåg mina uppgifter" HorizontalAlignment="Left" Margin="10,182,0,0" VerticalAlignment="Top" Height="17" Width="171"/>
+        <Label x:Name="logInTitleLabel" Content="Logga in med ditt iMat-konto" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label x:Name="logInEmailLabel" Content="Email:" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="logInEmailTextBox" HorizontalAlignment="Left" Margin="15,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" TextChanged="logInEmailTextBox_TextChanged" SpellCheck.IsEnabled="True"/>
+        <Label x:Name="logInPasswordLabel" Content="Lösenord:" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top"/>
+        <PasswordBox x:Name="logInPasswordBox" HorizontalAlignment="Left" Margin="15,151,0,0" VerticalAlignment="Top" Width="170" PasswordChanged="logInPasswordBox_PasswordChanged"/>
+        <Button x:Name="logInNextButton" Content="Fortsätt" Height="25" HorizontalAlignment="Left" Margin="305,385,0,0" VerticalAlignment="Top" Width="85" Click="LogInNextButton_Click"/>
+        <Button x:Name="backToCreateButton" Content="Skapa nytt" Height="25" HorizontalAlignment="Left" Margin="215,385,0,0" VerticalAlignment="Top" Width="85" Click="backToCreateButton_Click"/>
+        <CheckBox Content="Kom ihåg mitt lösenord" HorizontalAlignment="Left" Margin="15,182,0,0" VerticalAlignment="Top" Height="17" Width="171" IsChecked="True"/>
+        <Label x:Name="passwordWarningLabel" Content="" HorizontalAlignment="Left" Margin="186,148,0,0" VerticalAlignment="Top" Foreground="#FFFD3131"/>
 
     </Grid>
 </UserControl>

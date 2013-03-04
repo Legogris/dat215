@@ -33,37 +33,30 @@ namespace UI.Desktop
             }
         }
 
-        public DetailedItem(Product p) :  base(p)
+        public DetailedItem(ShoppingItem i) :  base(i)
         {
             InitializeComponent();
-            selectorContainer.MouseUp += bubbleClick;
             addToListButton.ContextMenu = MainWindow.ListContextMenu;
             initContent();
         }
 
-        void bubbleClick(object sender, MouseButtonEventArgs e)
-        {
-        }
-
         private void initContent() {
             productName.Content = Product.Name;
-            if (Product.UnitSuffix == "kg")
-            {
-                sel = new BulkSelector(Product);
-            }
-            else {
-                sel = new ItemSelector(Product);
-            }
-            sel.MouseUp += bubbleClick;
+            sel = Product.BoughtInBulk ? (AbstractSelector)new BulkSelector(Item) : new ItemSelector(Item);
             sel.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
             sel.VerticalAlignment = System.Windows.VerticalAlignment.Top;
             selectorContainer.Children.Add(sel);
             productImage.Source = ImageManager.GetImageForProduct(Product);
+            productIcons.DataContext = Product;
         }
 
         private void addToListButton_Click(object sender, RoutedEventArgs e)
         {
             addToListButton.ContextMenu.IsOpen = true;
+            addToListButton.ContextMenu.PlacementTarget = addToListButton;
+            IList<ShoppingItem> addIT = new List<ShoppingItem>();
+            addIT.Add(new ShoppingItem(Product, NumberOfItems));
+            addToListButton.DataContext = addIT;
             e.Handled = true;
         }
     }

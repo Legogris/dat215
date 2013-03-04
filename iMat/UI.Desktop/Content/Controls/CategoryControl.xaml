@@ -6,8 +6,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="70" d:DesignWidth="100">
     <Grid>
-        <Label x:Name="categoryLabel" Content="Label" HorizontalAlignment="Stretch" VerticalAlignment="Top" Cursor="Hand" Margin="0,-2,0,0"/>
-        <StackPanel x:Name="stackPanel"  HorizontalAlignment="Stretch" Margin="10,23,0,0" VerticalAlignment="Stretch"/>
+        <Label x:Name="categoryLabel" Content="Label" HorizontalAlignment="Stretch" VerticalAlignment="Top" Cursor="Hand" Margin="0,-2,0,0" FontSize="14" Foreground="Black"/>
+        <StackPanel x:Name="stackPanel"  HorizontalAlignment="Stretch" Margin="10,27,0,0" VerticalAlignment="Stretch"/>
 
     </Grid>
 </UserControl>

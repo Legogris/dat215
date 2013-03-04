@@ -21,23 +21,13 @@ namespace UI.Desktop
     /// </summary>
     public partial class ListView : UserControl
     {
-        private readonly SolidColorBrush evenColor = new SolidColorBrush(Color.FromRgb(250, 255, 250));
-        private readonly SolidColorBrush oddColor = new SolidColorBrush(Color.FromRgb(220, 255, 190));
-
-        Dictionary<Product, ListViewItem> listItems = new Dictionary<Product, ListViewItem>();
-        Dictionary<Product, DetailedItem> detailedItems = new Dictionary<Product, DetailedItem>();
+        Dictionary<ShoppingItem, ListViewItem> listItems = new Dictionary<ShoppingItem, ListViewItem>();
+        Dictionary<ShoppingItem, DetailedItem> detailedItems = new Dictionary<ShoppingItem, DetailedItem>();
 
         public ListView()
         {
             InitializeComponent();
             this.DataContextChanged += ListView_DataContextChanged;
-            this.MouseUp += ListView_MouseUp;
-        }
-
-        void ListView_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            object o = e.OriginalSource;
-
         }
 
         void ListView_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -49,33 +39,35 @@ namespace UI.Desktop
                 if (pc != null)
                 {
                     int i = 0;
-                    foreach(Product product in pc.GetProducts())
+                    foreach(ShoppingItem item in pc.GetItems())
                     {
                         try
                         {
+                            Product product = item.Product;
+
                             ListViewItem li;
                             DetailedItem dli;
-                            if (listItems.ContainsKey(product))
+                            if (listItems.ContainsKey(item))
                             {
-                                li = listItems[product];
+                                li = listItems[item];
                             } else {
-                                li = new ListViewItem(product);
-                                listItems[product] = li;
+                                li = new ListViewItem(item);
+                                listItems[item] = li;
                                 li.ItemAdded += li_ItemAdded;
-                                li.MouseDown += li_MouseDown;
+                                li.MouseEnter += li_MouseDown;
                             }
-                            if (detailedItems.ContainsKey(product))
+                            if (detailedItems.ContainsKey(item))
                             {
-                                dli = detailedItems[product];
+                                dli = detailedItems[item];
                             } else {
-                                dli = new DetailedItem(product);
-                                detailedItems[product] = dli;
+                                dli = new DetailedItem(item);
+                                detailedItems[item] = dli;
                                 dli.ItemAdded += li_ItemAdded;
-                                dli.MouseDown += dli_MouseDown;
+                                dli.MouseLeave += dli_MouseDown;
                             }
                             li.Visibility = System.Windows.Visibility.Visible;
                             dli.Visibility = System.Windows.Visibility.Collapsed;
-                            li.Background = i % 2 == 0 ? oddColor : evenColor;
+                            li.Background = new SolidColorBrush((Color)(i % 2 == 0 ? App.Current.Resources["ItemOddBack"] : App.Current.Resources["ItemEvenBack"]));
                             stackPanel.Children.Add(li);
                             stackPanel.Children.Add(dli);
                         }
@@ -86,18 +78,18 @@ namespace UI.Desktop
             }
         }
 
-        void li_MouseDown(object sender, MouseButtonEventArgs e)
+        void li_MouseDown(object sender, MouseEventArgs e)
         {
             ListViewItem li = (ListViewItem)sender;
-            DetailedItem dli = detailedItems[li.Product];
+            DetailedItem dli = detailedItems[li.Item];
             li.Visibility = System.Windows.Visibility.Collapsed;
             dli.Visibility = System.Windows.Visibility.Visible;
         }
-
-        void dli_MouseDown(object sender, MouseButtonEventArgs e)
+        
+        void dli_MouseDown(object sender, MouseEventArgs e)
         {
             DetailedItem dli = (DetailedItem)sender;
-            ListViewItem li = listItems[dli.Product];
+            ListViewItem li = listItems[dli.Item];
 
             li.Visibility = System.Windows.Visibility.Visible;
             dli.Visibility = System.Windows.Visibility.Collapsed;

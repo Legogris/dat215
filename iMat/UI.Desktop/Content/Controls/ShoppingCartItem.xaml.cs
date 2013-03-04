@@ -64,8 +64,19 @@ namespace UI.Desktop.Content.Controls
         {
             if (e.Key == Key.Enter)
             {
-                ItemAmountChangedFromTextBox.Invoke(this, Convert.ToDouble(amountTextBox.Text));
+                changeAmount();
             }
+        }
+
+        private void amountText_LostFocus(object sender, RoutedEventArgs e)
+        {
+            changeAmount();
+        }
+
+        private void changeAmount()
+        {
+            if (amountTextBox.Text.Length == 0) return;
+            ItemAmountChangedFromTextBox.Invoke(this, Convert.ToDouble(amountTextBox.Text));
         }
     }
 }

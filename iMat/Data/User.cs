@@ -22,5 +22,16 @@ namespace Data
         {
             return Password == password;
         }
+        public bool passwordExists()
+        {
+            if (Password != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

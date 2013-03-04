@@ -12,41 +12,39 @@
             <ImageBrush/>
         </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="228"/>
-            <RowDefinition Height="161"/>
+            <RowDefinition Height="231"/>
+            <RowDefinition Height="209"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="53*"/>
             <ColumnDefinition Width="73*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Dina Listor" HorizontalAlignment="Left" Height="28" Margin="1,0,0,0" VerticalAlignment="Top" Width="71" Grid.Row="1" Grid.Column="1"/>
-        <Label Content="Innehåll" HorizontalAlignment="Left" Height="28" Margin="10,0,0,0" VerticalAlignment="Top" Width="68" Grid.Row="1" Grid.Column="2"/>
-        <Label Content="Listor" HorizontalAlignment="Left" Height="42" Margin="0,10,0,0" VerticalAlignment="Top" Width="126" FontSize="24" Grid.Column="1" Grid.RowSpan="2"/>
-        <Button x:Name="newShoppingListButton" Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="6,7,0,0" Grid.Row="2" VerticalAlignment="Top" Width="45" Click="newShoppingList">
+        <Label Content="Dina Shoppingistor" HorizontalAlignment="Left" Height="28" Margin="1,0,0,0" VerticalAlignment="Top" Grid.Column="1" Width="112"/>
+        <Label Content="Innehåll" HorizontalAlignment="Left" Height="28" Margin="10,0,0,0" VerticalAlignment="Top" Width="68" Grid.Column="2"/>
+        <Button x:Name="newShoppingListButton" Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="6,7,0,0" Grid.Row="1" VerticalAlignment="Top" Width="45" Click="newShoppingList">
             <StackPanel Orientation="Horizontal">
                 <Image Source="..\Resources\Icons\newList.png" Width="41" Height="33"/>
             </StackPanel>
         </Button>
-        <Button x:Name="copyShoppingListButton" Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="56,7,0,0" Grid.Row="2" VerticalAlignment="Top" Width="45" Click="copyClick">
+        <Button x:Name="copyShoppingListButton" Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="56,7,0,0" Grid.Row="1" VerticalAlignment="Top" Width="45" Click="copyClick">
             <StackPanel Orientation="Horizontal">
                 <Image Source="..\Resources\Icons\copyList.png" Width="41" Height="33"/>
             </StackPanel>
         </Button>
 
-        <Button x:Name="deleteShoppingListButton" Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="106,7,0,0" Grid.Row="2" VerticalAlignment="Top" Width="45" Click="deleteShoppingListClick">
+        <Button x:Name="deleteShoppingListButton" Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="106,7,0,0" Grid.Row="1" VerticalAlignment="Top" Width="45" Click="deleteShoppingListClick">
             <StackPanel Orientation="Horizontal">
                 <Image Source="..\Resources\Icons\deleteList.png" Width="41" Height="33"/>
             </StackPanel>
         </Button>
 
-        <Button Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="156,7,0,0" Grid.Row="2" VerticalAlignment="Top" Width="45">
+        <Button Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="156,7,0,0" Grid.Row="1" VerticalAlignment="Top" Width="45">
             <StackPanel Orientation="Horizontal">
                 <Image Source="..\Resources\Icons\importList.png" Width="41" Height="33"/>
             </StackPanel>
         </Button>
-        <ListView x:Name="overview" ItemsSource="{Binding ShoppingListsCollection}" MouseUp="overview_MouseLeftButtonDown_1" Grid.Column="1" HorizontalAlignment="Left" Height="199" Margin="0,29,0,0" Grid.Row="1" VerticalAlignment="Top" Width="254">
+        <ListView x:Name="overview" ItemsSource="{Binding ShoppingListsCollection}" MouseUp="overview_MouseLeftButtonDown_1" Grid.Column="1" HorizontalAlignment="Left" Height="199" Margin="0,29,0,0" VerticalAlignment="Top" Width="254">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="100" Header="Namn" DisplayMemberBinding="{Binding Name}"/>
@@ -55,7 +53,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView x:Name="detail" Grid.Column="2" HorizontalAlignment="Left" Height="170" Margin="10,58,0,0" Grid.Row="1" VerticalAlignment="Top" Width="265">
+        <ListView x:Name="detail" Grid.Column="2" MouseUp="detail_MouseDown_1" HorizontalAlignment="Left" Height="170" Margin="10,58,0,0" VerticalAlignment="Top" Width="265">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="90" Header="Vara" DisplayMemberBinding="{Binding Product.Name}"/>
@@ -64,10 +62,12 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox x:Name="listNameTextBox" KeyDown="listNameTextBox_KeyDown" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,29,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="198"/>
-        <Label x:Name="listTotalPriceLabel" Content="asdf" Grid.Column="2" HorizontalAlignment="Left" Margin="214,26,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26"/>
-        <Label Content="Länk:" Grid.Column="1" HorizontalAlignment="Left" Margin="6,52,0,0" Grid.Row="2" VerticalAlignment="Top"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="56,55,0,0" Grid.Row="2" TextWrapping="Wrap" Text="http://imat.se/l/asdfasdf" VerticalAlignment="Top" Width="145"/>
-        <Button x:Name="removeItemButton" Content="x" Grid.Column="2" HorizontalAlignment="Left" Margin="200,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" Click="removeItemButton_Click"/>
+        <TextBox x:Name="listNameTextBox" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198" LostFocus="listNameTextLostFocus" KeyDown="listNameTextKeyDown"/>
+        <Label x:Name="listTotalPriceLabel" Content=" " Grid.Column="2" HorizontalAlignment="Left" Margin="214,26,0,0" VerticalAlignment="Top" Height="26" Width="13"/>
+        <Label Content="Länk:" Grid.Column="1" HorizontalAlignment="Left" Margin="6,52,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="37"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="56,55,0,0" Grid.Row="1" TextWrapping="Wrap" Text="http://imat.se/l/asdfasdf" VerticalAlignment="Top" Width="145"/>
+        <Button x:Name="removeItemButton" Content="ta bort" Grid.Column="2" HorizontalAlignment="Left" Margin="95,13,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="removeItemButton_Click" Height="22"/>
+        <TextBox x:Name="amountTextBox" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,13,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="68" LostFocus="amountTextLostFocus" KeyDown="amountTextKeyDown"/>
+
     </Grid>
 </UserControl>

@@ -6,9 +6,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Margin="0,-1,0,1">
-            
         <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <WrapPanel x:Name="stackPanel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal"/>
+            <Grid>
+                <Rectangle HorizontalAlignment="Stretch" Stroke="White" Fill="White" VerticalAlignment="Top" Height="5"/>
+                <WrapPanel x:Name="stackPanel" Margin="0,5,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+            </Grid>
         </ScrollViewer>
     </Grid>
 </UserControl>

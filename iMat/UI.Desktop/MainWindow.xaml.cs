@@ -4,18 +4,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UI.Desktop.Content;
 using UI.Desktop.Controls;
+using UI.Desktop.Preferences;
 
 namespace UI.Desktop
 {
@@ -29,9 +30,11 @@ namespace UI.Desktop
         private DataHandler dataHandler;
         private static ListContextMenuManager listContextMenu;
         public static ContextMenu ListContextMenu { get { return listContextMenu.ShoppingListContextMenu; } }
-        
+        public static Window WindowContainer { get; set; }
+
         public MainWindow()
         {
+            WindowContainer = this;
             dataHandler = DataHandler.ReadFromFile(DATABASE, PRODUCTS);
             listContextMenu = new ListContextMenuManager(this, dataHandler);
             DataContext = listContextMenu;
@@ -43,7 +46,7 @@ namespace UI.Desktop
             productBrowser.RootCategory = dataHandler.GetRootCategory();
             productBrowser.ItemAdded += productBrowser_ItemAdded;
             dataHandler.GetCart().Changed += shoppingCart_ItemAdded;
-            shoppingCart.ShoppingCart = dataHandler.GetCart();
+            shoppingCart.DataHandler = dataHandler;
             shoppingCart.SetListContextMenu(listContextMenu.ShoppingListContextMenu);
         }
 
@@ -94,14 +97,33 @@ namespace UI.Desktop
 
         private void openPreferences(UserControl prefs)
         {
-            Preferences pref = new Preferences(dataHandler, prefs);
+            PreferencesWindow pref = new PreferencesWindow(dataHandler, prefs);
             pref.Owner = this;
             pref.ShowDialog();
         }
 
         private void menuItemPropertiesClick(object sender, RoutedEventArgs e)
         {
-            //openPreferences(new AccountControl(dataHandler));
+            openPreferences(new AccountControl(dataHandler));
+        }
+
+        private void shoppingListComboBoxSelectedChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //MessageBox.Show(listContextMenu.ShoppingListDummy.Name);
+            //TODO: koppla till product browser
+        }
+
+        public void screenFlash()
+        {
+            comboBoxBrush.Color = Colors.Black;
+            ColorAnimation color = new ColorAnimation();
+            color.To = Colors.White;
+            color.Duration = TimeSpan.FromSeconds(2);
+            Storyboard.SetTargetName(color, "comboBoxBrush");
+            Storyboard.SetTargetProperty(color, new PropertyPath(SolidColorBrush.ColorProperty));
+            Storyboard story = new Storyboard();
+            story.Children.Add(color);
+            story.Begin(this);
         }
     }
 
@@ -110,7 +132,7 @@ namespace UI.Desktop
         private DataHandler dataHandler;
         private ShoppingListHandler listHandler { get; set; }
         public IList<FavoriteList> ShoppingListsCollection { get { return listHandler.GetFavLists(); } }
-        public FavoriteList ShoppingListDummy { get; set; } // TODO: selected hook för dropdown
+        public FavoriteList ShoppingListDummy { get; set; } // TODO: selected-hook för dropdown
         private MainWindow mainWindow;
 
         public ListContextMenuManager(MainWindow window, DataHandler dh)
@@ -132,9 +154,10 @@ namespace UI.Desktop
             }
             ShoppingListContextMenu.Items.Add(new Separator());
             MenuItem addNew = new MenuItem();
-            addNew.Header = "Lägg till ny grej";
+            addNew.Header = "Lägg till i ny lista...";
+            addNew.DataContext = null;
             ShoppingListContextMenu.Items.Add(addNew);
-            addNew.Click += addNewShoppingList_Click;
+            addNew.Click += shoppingList_Click;
         }
 
         private MenuItem menuItemFactory(FavoriteList list)
@@ -142,8 +165,37 @@ namespace UI.Desktop
             MenuItem newList = new MenuItem();
             newList.DataContext = list;
             newList.Header = list.Name;
-            //item.Click += new RoutedEventHandler(item_Click);
+            newList.Click += shoppingList_Click;
             return newList;
+        }
+
+        void shoppingList_Click(object sender, RoutedEventArgs e)
+        {
+            var item = sender as MenuItem;
+            while (item.Parent is MenuItem)
+            {
+                item = (MenuItem)item.Parent;
+            }
+            var menu = item.Parent as ContextMenu;
+            if (menu != null)
+            {
+                var droidsYouAreLookingFor = menu.PlacementTarget as Button;
+                var itemToAdd = droidsYouAreLookingFor.DataContext;
+                FavoriteList listToAddTo = item.DataContext as FavoriteList;
+                if (itemToAdd is IList<ShoppingItem>)
+                {
+                    IList<ShoppingItem> shoppingItems = itemToAdd as IList<ShoppingItem>; 
+                    if (listToAddTo == null)
+                    {
+                        openDialog(shoppingItems);
+                    }
+                    else
+                    {                        
+                        listToAddTo.Add(shoppingItems);
+                    }
+                }
+            }
+            mainWindow.screenFlash();
         }
 
         private MenuItem findMenuItemByList(FavoriteList list)
@@ -187,7 +239,7 @@ namespace UI.Desktop
             mainWindow.shoppingListSelectComboBox.ItemsSource = ShoppingListsCollection;
         }
         
-        void addNewShoppingList_Click(object sender, RoutedEventArgs e)
+        void openDialog(IList<ShoppingItem> items)
         {
             TextBoxPopup tbp = new TextBoxPopup();
             tbp.Owner = mainWindow;
@@ -197,7 +249,7 @@ namespace UI.Desktop
                 string s = tbp.TextBoxText;
                 FavoriteList list = new FavoriteList(s);
                 listHandler.Add(list);
-                list.Add(dataHandler.GetCart().GetItems()); // lägg till kundvagnen i ShoppingListan
+                list.Add(items);
             }
         }
     }

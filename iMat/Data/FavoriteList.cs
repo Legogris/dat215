@@ -7,12 +7,15 @@ using System.Threading.Tasks;
 namespace Data
 {
     [Serializable()]
-    public class FavoriteList 
+    public class FavoriteList : ProductCategory
     {
         private readonly List<ShoppingItem> items;
         public string Name { get; set; }
+        public string ID { get; set; }
         public int NumberOfItems { get; private set; }
         public double TotalCost { get; private set; }
+        public ProductCategory Parent { get; set; }
+        public IList<ProductCategory> SubCategories { get { return new List<ProductCategory>(); } }
 
         public FavoriteList(string name)
         {
@@ -27,21 +30,41 @@ namespace Data
             TotalCost = items.Sum(x => x.Total);
         }
 
-        public void Add(ShoppingItem item)
+        public ProductCategory GetCategoryByID(string id)
         {
-            items.Add(item);
-            updateStats();
+            return ID == id ? this : null;
         }
 
-        public void Add(IList<ShoppingItem> items)
+        private void Add(ShoppingItem item)
+        {
+            foreach (ShoppingItem si in items)
+            {
+                if (si.Product == item.Product)
+                {
+                    si.Amount += item.Amount;
+                    return;
+                }
+            }
+            items.Add(item);
+        }
+
+        public void Add(IEnumerable<ShoppingItem> items)
         {
             foreach (ShoppingItem si in items)
             {
                 Add(si);
             }
+            updateStats();
         }
 
-        public IList<ShoppingItem> GetItems()
+        public void Change(int index, double newValue)
+        {
+            if (index == -1 || index > items.Count) return;
+            items[index].Amount = newValue;
+            updateStats();
+        }
+
+        public IEnumerable<ShoppingItem> GetItems()
         {
             return items;
         }

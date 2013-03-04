@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Data;
+using Data.Desktop;
 
 namespace UI.Desktop.Checkout
 {
@@ -20,25 +22,43 @@ namespace UI.Desktop.Checkout
     /// </summary>
     public partial class CheckoutStep2 : UserControl
     {
-        public CheckoutStep2()
+        private DataHandler dataHandler;
+        public event EventHandler NextStep2;
+        public event EventHandler BackStep2;
+        private List<ShippingAddress> sa;
+        private List<CreditCard> cc;
+        public CheckoutStep2(DataHandler data)
         {
             InitializeComponent();
+            dataHandler = data;
         }
 
         private void HomeDelivery_Checked(object sender, RoutedEventArgs e)
         {
             HomedeliveryGrid.Visibility = Visibility.Visible;
             StoreComboBox.IsEnabled = false;
-            PayOnPickup.IsEnabled = true;
+            
+            sa = dataHandler.GetShippingAddresses();
+            cc = dataHandler.GetCreditCards();
+            if (sa != null && sa.Count > 0 )
+            {
+                FirstNameTextBox.Text = sa.First().FirstName;
+                LastNameTextBox.Text = sa.First().LastName;
+                AddressTextBox.Text = sa.First().Address;
+                PostAddressTextBox.Text = sa.First().PostAddress;
+                PostcodeTextBox.Text = sa.First().PostCode;
+                PhoneNumberTextBox.Text = sa.First().PhoneNumber;
+                EmailTextBox.Text = sa.First().Email;
+            }
+            
         }
 
         private void PickupInStore_Checked(object sender, RoutedEventArgs e)
         {
-            if (StoreComboBox != null)
+            if (StoreComboBox != null && HomedeliveryGrid != null)
             {
                 HomedeliveryGrid.Visibility = Visibility.Collapsed;
                 StoreComboBox.IsEnabled = true;
-                PayOnPickup.IsEnabled = true;
             }
         }
 
@@ -57,19 +77,6 @@ namespace UI.Desktop.Checkout
                 NextStep2.Invoke(this, null);
             }
         }
-
-        private void PayWithCard_Checked(object sender, RoutedEventArgs e)
-        {
-            PaymentGrid.Visibility = Visibility.Visible;
-        }
-
-        private void PayOnPickup_Checked(object sender, RoutedEventArgs e)
-        {
-            PaymentGrid.Visibility = Visibility.Collapsed;
-        }
-
-        public event EventHandler NextStep2;
-        public event EventHandler BackStep2;
 
     }
 }

@@ -82,6 +82,9 @@
     <Compile Include="Checkout\CheckoutStep3.xaml.cs">
       <DependentUpon>CheckoutStep3.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Checkout\CheckoutStep4.xaml.cs">
+      <DependentUpon>CheckoutStep4.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Checkout\CheckoutWindow.xaml.cs">
       <DependentUpon>CheckoutWindow.xaml</DependentUpon>
     </Compile>
@@ -89,6 +92,12 @@
       <DependentUpon>LogInPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Content\Controls\AbstractTreeViewItem.cs" />
+    <Compile Include="Content\Controls\BreadCrumb.xaml.cs">
+      <DependentUpon>BreadCrumb.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Controls\BreadCrumbsView.xaml.cs">
+      <DependentUpon>BreadCrumbsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Content\Controls\CategoryControl.xaml.cs">
       <DependentUpon>CategoryControl.xaml</DependentUpon>
     </Compile>
@@ -101,9 +110,15 @@
     <Compile Include="Content\Controls\ListViewItem.xaml.cs">
       <DependentUpon>ListViewItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Content\Controls\ProductIcons.xaml.cs">
+      <DependentUpon>ProductIcons.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Content\Controls\ProductView.cs" />
     <Compile Include="Content\Controls\ShoppingCartItem.xaml.cs">
       <DependentUpon>ShoppingCartItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Controls\SpecialOfferCarousel.xaml.cs">
+      <DependentUpon>SpecialOfferCarousel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Content\Controls\TreeViewCategoryItem.xaml.cs">
       <DependentUpon>TreeViewCategoryItem.xaml</DependentUpon>
@@ -117,8 +132,17 @@
     <Compile Include="Content\GridView.xaml.cs">
       <DependentUpon>GridView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Preferences.xaml.cs">
+    <Compile Include="Content\StartPage.xaml.cs">
+      <DependentUpon>StartPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Preferences\Content\PreferenceTab.xaml.cs">
+      <DependentUpon>PreferenceTab.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Preferences\Preferences.xaml.cs">
       <DependentUpon>Preferences.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Preferences\AccountControl.xaml.cs">
+      <DependentUpon>AccountControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Preferences\ListControl.xaml.cs">
       <DependentUpon>ListControl.xaml</DependentUpon>
@@ -157,11 +181,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Checkout\CheckoutStep4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Checkout\CheckoutWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Checkout\LogInPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Content\Controls\BreadCrumb.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Content\Controls\BreadCrumbsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -181,7 +217,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Content\Controls\ProductIcons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Content\Controls\ShoppingCartItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Content\Controls\SpecialOfferCarousel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -201,7 +245,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Preferences.xaml">
+    <Page Include="Content\StartPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Preferences\Content\PreferenceTab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Preferences\Preferences.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Preferences\AccountControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -256,8 +312,13 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Resources\Colors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ProductCategoryEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -486,6 +547,14 @@
     <Resource Include="Resources\ProductImages\product_98.jpg" />
     <Resource Include="Resources\ProductImages\product_99.jpg" />
     <Resource Include="Resources\Icons\toList.png" />
+    <Resource Include="Resources\imatSplash.png" />
+    <Resource Include="Resources\imatIcon.ico" />
+    <Resource Include="Resources\Icons\next-item.png" />
+    <Resource Include="Resources\Icons\previous-item.png" />
+    <Resource Include="Resources\Icons\next-item-black.png" />
+    <Resource Include="Resources\Icons\previous-item-black.png" />
+    <Resource Include="Resources\Icons\krav.png" />
+    <Resource Include="Resources\Icons\fairtrade.png" />
     <Content Include="Resources\products.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

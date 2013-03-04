@@ -40,12 +40,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CreditCard.cs" />
+    <Compile Include="IProductCategory.cs" />
     <Compile Include="IShoppingCart.cs" />
     <Compile Include="ShippingAddress.cs" />
     <Compile Include="FavoriteList.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Product.cs" />
-    <Compile Include="ProductCategory.cs" />
+    <Compile Include="ConcreteProductCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShoppingCart.cs" />
     <Compile Include="ShoppingItem.cs" />

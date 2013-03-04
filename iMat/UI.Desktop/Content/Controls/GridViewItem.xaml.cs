@@ -1,4 +1,5 @@
 ﻿using Data;
+using Data.Desktop;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,42 +20,40 @@ namespace UI.Desktop
     /// <summary>
     /// Interaction logic for GridViewItem.xaml
     /// </summary>
-    public partial class GridViewItem : UserControl
+    public partial class GridViewItem : ProductView
     {
-        private Product product;
         private AbstractSelector sel;
 
-        public Product Product { get { return product; } }
+        override protected double NumberOfItems
+        {
+            get
+            {
+                return Item.Amount;
+            }
+        }
 
-        public GridViewItem(Product p)
+        public GridViewItem(ShoppingItem item) : base(item)
         {
             InitializeComponent();
-            product = p;
             initContent();
         }
 
         private void initContent() {
-            productName.Content = product.Name;
-            if (product.UnitSuffix == "kg")
+            productName.Content = Product.Name;
+            if (Product.BoughtInBulk)
             {
-                sel = new BulkSelector(product);
+                productPriceLabel.Content = Product.Price + " kr/st";
+                productPriceLabel.Visibility = System.Windows.Visibility.Hidden;
+                productJmfLabel.Content = Product.Price + string.Format(" {0}", Product.Unit);
             }
-            else {
-                sel = new ItemSelector(product);
+            else
+            {
+                productPriceLabel.Content = Product.Price + string.Format(" {0}", Product.Unit);
+                productPriceLabel.Visibility = System.Windows.Visibility.Visible;
+                productJmfLabel.Content = Product.ComparePrice + string.Format(" kr/l");
             }
-            sel.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
-            sel.VerticalAlignment = System.Windows.VerticalAlignment.Top;
-            selectorContainer.Children.Add(sel);
+            productImage.Source = ImageManager.GetImageForProduct(Product);
         }
 
-        private void addToShoppingCartButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (ItemAdded != null)
-            {
-                ItemAdded.Invoke(this, new CartEventArgs(CartEventArgs.CartEventType.Add, new ShoppingItem(product, sel.NumberOfItems)));
-            }
-        }
-
-        public event Data.ShoppingCartChangedHandler ItemAdded;
     }
 }

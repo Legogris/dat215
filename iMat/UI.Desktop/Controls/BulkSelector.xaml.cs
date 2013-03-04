@@ -33,7 +33,7 @@ namespace UI.Desktop
         protected override Spinner AmountSpinner
         { get { return amountSpinner; } }
         
-        public BulkSelector(Product p) : base(p)
+        public BulkSelector(ShoppingItem item) : base(item)
         {
             InitializeComponent();
             bulkSpinner.Step = 0.2;

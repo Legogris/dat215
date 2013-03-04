@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Data;
+using UI.Desktop.Content;
 
 namespace UI.Desktop
 {
@@ -25,7 +26,8 @@ namespace UI.Desktop
         {
             List,
             Grid,
-            Tree
+            Tree,
+            Start
         }
 
         private ProductCategory rootCategory;
@@ -33,6 +35,7 @@ namespace UI.Desktop
         private ListView listView;
         private GridView gridView;
         private TreeView treeView;
+        
 
         public ProductCategory RootCategory
         {
@@ -59,6 +62,10 @@ namespace UI.Desktop
                         itemFrame.Content = treeView;
                         hideCategories();
                         break;
+                    case ProductsViewMode.Start:
+                        itemFrame.Content = new StartPage();
+                        showCategories();
+                        break;
                     default:
                         throw new NotImplementedException();
                 }
@@ -74,12 +81,14 @@ namespace UI.Desktop
             treeView = new TreeView();
             treeView.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
             treeView.Width = 500;
-            ViewMode = ProductsViewMode.List;
+            ViewMode = ProductsViewMode.Start;
+            //ViewMode = ProductsViewMode.List;
 
             listView.ItemAdded += itemAdded;
             //TODO: Implement for grid view and tree view
             gridView.ItemAdded += itemAdded;
             treeView.ItemAdded += itemAdded;
+            breadCrumbs.ItemAdded += itemAdded;
         }
 
         private void showCategories()
@@ -95,22 +104,41 @@ namespace UI.Desktop
         private void categorySourceUpdated()
         {
             container.Children.Clear();
+            
+            Label homeLabel = new Label();
+            homeLabel.Content = "Hem/Start whatever";
+            container.Children.Add(homeLabel);
+
             CategoryControl root = new CategoryControl(rootCategory);
             container.Children.Add(root);
             root.Expand();
             Thickness margin = root.stackPanel.Margin;
             margin.Left = 0;
             root.stackPanel.Margin = margin;
+            
+            breadCrumbs.DataContext = rootCategory;
             listView.DataContext = rootCategory;
             gridView.DataContext = rootCategory;
             treeView.DataContext = rootCategory;
 
+            homeLabel.MouseUp += homeLabel_MouseUp;
             root.ProductCategorySelectionChanged += root_ProductCategorySelectionChanged;
+            breadCrumbs.ProductCategorySelected += root_ProductCategorySelectionChanged;
         }
 
-        void root_ProductCategorySelectionChanged(UserControl sender, CategoryControl.ProductCategoryChangedEventArgs e)
+        void homeLabel_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            listView.DataContext = gridView.DataContext = e.Category;
+            ViewMode = ProductsViewMode.Start;
+        }
+
+        void root_ProductCategorySelectionChanged(UserControl sender, ProductCategoryChangedEventArgs e)
+        {
+            if (viewMode == ProductsViewMode.Start)
+            {
+                // TODO: gör så att den sätts till default-ViewModen
+                ViewMode = ProductBrowser.ProductsViewMode.List;
+            }
+            listView.DataContext = gridView.DataContext = breadCrumbs.DataContext = e.Category;
         }
 
         void itemAdded(object sender, CartEventArgs e)

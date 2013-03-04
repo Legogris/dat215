@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="UI.Desktop.BreadCrumb"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI.Desktop" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <StackPanel x:Name="contentPanel" Orientation="Horizontal" >
+        <StackPanel x:Name="parentPanel" Visibility="Collapsed" Orientation="Horizontal">
+        </StackPanel>
+        <Label x:Name="arrowLabel" Content="»" />
+        <Label x:Name="titleLabel" Content="Label" Cursor="Hand" />
+    </StackPanel>
+</UserControl>

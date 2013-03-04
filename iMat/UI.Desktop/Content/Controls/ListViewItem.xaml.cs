@@ -22,7 +22,7 @@ namespace UI.Desktop
     /// </summary>
     public partial class ListViewItem : ProductView
     {
-        public ListViewItem(Product p) : base(p)
+        public ListViewItem(ShoppingItem i) : base(i)
         {
             InitializeComponent();
             initContent();
@@ -30,14 +30,24 @@ namespace UI.Desktop
         {
             get
             {
-                return 0;
+                return Item.Amount;
             }
         }
 
         private void initContent() {
             productName.Content = Product.Name;
-            productPriceLabel.Content = Product.Price + " kr/st";
-            productJmfLabel.Content = Product.Price + string.Format(" {0}", Product.Unit);
+            if (Product.BoughtInBulk)
+            {
+                productPriceLabel.Content = Product.Price + " kr/st";
+                productPriceLabel.Visibility = System.Windows.Visibility.Hidden;
+                productJmfLabel.Content = Product.Price + string.Format(" {0}", Product.Unit);
+            }
+            else
+            {
+                productPriceLabel.Content = Product.Price + string.Format(" {0}", Product.Unit);
+                productPriceLabel.Visibility = System.Windows.Visibility.Visible;
+                productJmfLabel.Content = Product.ComparePrice + string.Format(" kr/l");
+            }
             productImage.Source = ImageManager.GetImageForProduct(Product);
         }
     }

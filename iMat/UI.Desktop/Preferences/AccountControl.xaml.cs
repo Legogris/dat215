@@ -11,28 +11,22 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using UI.Desktop.Content;
 
-namespace UI.Desktop
+namespace UI.Desktop.Preferences
 {
     /// <summary>
-    /// Interaction logic for Preferences.xaml
+    /// Interaction logic for AccountControl.xaml
     /// </summary>
-    public partial class Preferences : Window
+    public partial class AccountControl : UserControl
     {
         private DataHandler dataHandler;
 
-        public Preferences(DataHandler dh, UserControl open)
+        public AccountControl(DataHandler dh)
         {
             InitializeComponent();
             dataHandler = dh;
-            content.Children.Add(open);
-        }
-
-        private void okClick(object sender, RoutedEventArgs e)
-        {
-            DialogResult = true;
         }
     }
 }
