@@ -53,18 +53,22 @@ namespace UI.Desktop
                     case ProductsViewMode.Grid:
                         itemFrame.Content = gridView;
                         showCategories();
+                        breadCrumbs.Visibility = System.Windows.Visibility.Visible;
                         break;
                     case ProductsViewMode.List:
                         itemFrame.Content = listView;
                         showCategories();
+                        breadCrumbs.Visibility = System.Windows.Visibility.Visible;
                         break;
                     case ProductsViewMode.Tree:
                         itemFrame.Content = treeView;
                         hideCategories();
+                        breadCrumbs.Visibility = System.Windows.Visibility.Visible;
                         break;
                     case ProductsViewMode.Start:
                         itemFrame.Content = new StartPage();
                         showCategories();
+                        breadCrumbs.Visibility = System.Windows.Visibility.Collapsed;
                         break;
                     default:
                         throw new NotImplementedException();
