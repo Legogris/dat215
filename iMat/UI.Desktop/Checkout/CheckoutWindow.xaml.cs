@@ -29,7 +29,6 @@ namespace UI.Desktop.Checkout
         private DataHandler dataHandler;
         private ShoppingCart shoppingCart;
 
-
         public CheckoutWindow(DataHandler data)
         {
             shoppingCart = data.GetCart(); 
@@ -59,8 +58,10 @@ namespace UI.Desktop.Checkout
             {
                 PageGrid.Children.Add(step1);
             }
+            wStep1.Title = "TEST";
+            wStep1.ImgSource = "ShoppingListImage";
+            wStep1.StepActive = true;
         }
-
         
         void step1_LogIn(object sender, EventArgs e)
         {
