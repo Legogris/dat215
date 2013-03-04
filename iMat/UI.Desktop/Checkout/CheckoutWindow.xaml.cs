@@ -33,6 +33,7 @@ namespace UI.Desktop.Checkout
         {
             shoppingCart = data.GetCart(); 
             InitializeComponent();
+            wizardSteps.Background = new SolidColorBrush((Color)App.Current.Resources["DarkComplement"]);
             step1 = new CheckoutStep1(data);
             step1.NextStep += step1_NextStep;
             step1.LogIn += step1_LogIn;
@@ -101,23 +102,16 @@ namespace UI.Desktop.Checkout
         {
             PageGrid.Children.Clear();
             PageGrid.Children.Add(step1);
-            step1Border.Background = Brushes.LightGreen;
-            step2Border.Background = Brushes.Transparent;
         }
         public void ActivateStep2()
         {
             PageGrid.Children.Clear();
             PageGrid.Children.Add(step2);
-            step2Border.Background = Brushes.LightGreen;
-            step1Border.Background = Brushes.Transparent;
-            step3Border.Background = Brushes.Transparent;
         }
         public void ActivateStep3()
         {
             PageGrid.Children.Clear();
             PageGrid.Children.Add(step3);
-            step3Border.Background = Brushes.LightGreen;
-            step2Border.Background = Brushes.Transparent;
             step3.displayContent();
             if (step2.PayOnPickup.IsChecked == true)
             {

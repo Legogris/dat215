@@ -1,35 +1,17 @@
 ﻿<Window x:Class="UI.Desktop.Checkout.CheckoutWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="CheckoutWindow" Height="470" Width="611" ResizeMode="NoResize"
+        Title="Kassan" Height="470" Width="611" ResizeMode="NoResize"
         ShowInTaskbar="False"
         WindowStartupLocation="CenterOwner">
-    <Grid Margin="0,0,425,0" Background="LightSeaGreen">
-
-        <Border x:Name="step2Border" HorizontalAlignment="Left" Height="42" Margin="0,105,0,0" VerticalAlignment="Top" Width="180"/>
-
-        <Border x:Name="step3Border" HorizontalAlignment="Left" Height="42" Margin="0,165,0,0" VerticalAlignment="Top" Width="180"/>
-
-        <Border x:Name="step1Border" HorizontalAlignment="Left" Height="42" Margin="0,45,0,0" VerticalAlignment="Top" Width="180" Background="LightGreen"/>
-
-        <Label x:Name="Step1Indicator" Content="Konto" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="26,45,0,0" VerticalAlignment="Top" Width="68" Height="30" Background="{x:Null}"/>
-        <Label x:Name="Step3Indicator" Content="Bekräfta" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="26,165,0,0" VerticalAlignment="Top" Width="68" Height="24" IsManipulationEnabled="True"/>
-        <Grid x:Name="PageGrid" VerticalAlignment="Stretch" Margin="183,0,-433,0"/>
-        <Label x:Name="Step1Icon" Content="" HorizontalAlignment="Left" Height="30" Margin="94,45,0,0" VerticalAlignment="Top" Width="42" BorderThickness="2">
-            <Label.Background>
-                <ImageBrush ImageSource="..\Resources\Icons\user.png" Stretch="Uniform"/>
-            </Label.Background>
-        </Label>
-        <Label x:Name="Step2Icon" Content="" Margin="94,105,0,0" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Width="42">
-            <Label.Background>
-                <ImageBrush ImageSource="..\Resources\Icons\shippingandpayment.png" Stretch="Uniform"/>
-            </Label.Background>
-        </Label>
-        <Label x:Name="Step3Icon" Content="" HorizontalAlignment="Left" Margin="94,165,0,0" VerticalAlignment="Top" Height="30" Width="42">
-            <Label.Background>
-                <ImageBrush ImageSource="..\Resources\Icons\confirm-png.png" Stretch="Uniform"/>
-            </Label.Background>
-        </Label>
-        <TextBlock x:Name="Step2Indicator" HorizontalAlignment="Left" Height="30" Margin="6,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Padding="5,0" FlowDirection="RightToLeft" FontSize="11"><Run Language="sv-se" Text="&amp; Leverans"/><LineBreak/><Run Language="sv-se" Text="Betalningssätt"/></TextBlock>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="PageGrid" VerticalAlignment="Stretch" Margin="0,0,0,0" Grid.Column="1"/>
+        <Grid x:Name="wizardSteps">            
+                        
+        </Grid>
     </Grid>
 </Window>
