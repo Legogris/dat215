@@ -32,9 +32,9 @@
             <ToolBarTray HorizontalAlignment="Left" DockPanel.Dock="Left">
                 <ToolBar >
                     <TextBox x:Name="searchField" Width="100"/>
-                    <Button x:Name="searchButton" ToolTip="Sök" Width="28" Height="26" Margin="0,0,0,-1">
+                    <Button x:Name="searchButton" ToolTip="Sök" Width="29" Height="30" Margin="0,0,0,-5">
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="Resources\Icons\search_256.png" Width="19" Height="16" OpacityMask="Black" Stretch="UniformToFill" RenderTransformOrigin="0,0.25"/>
+                            <Image Source="Resources\Icons\search_256.png" Width="18" Height="18" OpacityMask="Black" Stretch="UniformToFill" RenderTransformOrigin="0,0.25"/>
                         </StackPanel>
                     </Button>
                 </ToolBar>
@@ -42,7 +42,7 @@
                     <ComboBox x:Name="sortCB" Text="Sortera"/>
                     <Button x:Name="filterButton" ToolTip="Filter" Width="25">
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="Resources\Icons\filter.png" Width="21" Height="19" OpacityMask="Black" Stretch="UniformToFill" RenderTransformOrigin="0,0.25"/>
+                            <Image Source="Resources\Icons\filter_new.png" Width="21" Height="19" OpacityMask="Black" Stretch="UniformToFill" RenderTransformOrigin="0,0.25"/>
                         </StackPanel>
 
                     </Button>
@@ -67,10 +67,10 @@
                     </Button>
                 </ToolBar>
                 <ToolBar HorizontalAlignment="Right">
-                    <Button Content="" Height="26" VerticalAlignment="Top" Width="28" BorderBrush="{x:Null}" ToolTip="Shoppinglistor" Click="shoppingListPrefsClick">
-                        <Button.Background>
-                            <ImageBrush ImageSource="Resources\Icons\copyList_2.png" Stretch="Uniform"/>
-                        </Button.Background>
+                    <Button Height="26" VerticalAlignment="Top" Width="28" BorderBrush="{x:Null}" ToolTip="Shoppinglistor" Click="shoppingListPrefsClick">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Resources\Icons\copylist_2.png" Stretch="UniformToFill" Width="20" Height="20" OpacityMask="Black"/>
+                        </StackPanel>
                     </Button>
                     <ComboBox x:Name="shoppingListSelectComboBox" Text="Shoppinglistor" IsEditable="True" ItemsSource="{Binding ShoppingListsCollection}" DisplayMemberPath="Name" SelectedValue="{Binding ShoppingListDummy}"  Margin="0" VerticalAlignment="Stretch" Width="100" SelectionChanged="shoppingListComboBoxSelectedChanged">
                         <ComboBox.Background>
