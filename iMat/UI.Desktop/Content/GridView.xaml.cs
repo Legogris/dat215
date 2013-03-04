@@ -68,7 +68,6 @@ namespace UI.Desktop
                             dli = new DetailedItem(item);
                             detailedItems[item] = dli;
                             dli.ItemAdded += li_ItemAdded;
-                            //dli.MouseLeave += dli_MouseUp;
                             dli.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
                             dli.Width = stackPanel.ActualWidth;
                         }
@@ -95,7 +94,6 @@ namespace UI.Desktop
             int index = stackPanel.Children.IndexOf(li);
             int newIndex = (int)Math.Min(1+ index + gridItemWidth - (index % gridItemWidth), stackPanel.Children.Count -1);
             if(newIndex >= currentIndex && index < currentIndex) {
-                //dli.Background = new SolidColorBrush(Color.FromRgb(0xFF, 0, 0));
                 newIndex -= gridItemWidth+1;
             }
             stackPanel.Children.Insert(newIndex, dli);
