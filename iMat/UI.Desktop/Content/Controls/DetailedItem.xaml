@@ -14,7 +14,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="100" />
-            <RowDefinition Height="40" />
+            <RowDefinition Height="70" />
         </Grid.RowDefinitions>
         <Image x:Name="productImage" Grid.Column="0" Margin="10,0,0,0" HorizontalAlignment="Left" Height="100" VerticalAlignment="Center" Width="100"/>
         <Label x:Name="productName" Content="produkt" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.Column="1" FontWeight="Bold"/>
