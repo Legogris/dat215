@@ -76,7 +76,11 @@ namespace UI.Desktop
             expanded = true;
             if (productCategory != null)
             {
-                foreach (ProductCategory pc in productCategory.SubCategories)
+                List<ProductCategory> pcs = new List<ProductCategory>();
+                pcs.AddRange(productCategory.SubCategories.OfType<ShoppingListHandler>());
+                pcs.AddRange(productCategory.SubCategories.OfType<FavoriteList>());
+                pcs.AddRange(productCategory.SubCategories.OfType<ConcreteProductCategory>());
+                foreach (ProductCategory pc in pcs)
                 {
                     CategoryControl c = new CategoryControl(pc);
                     stackPanel.Children.Add(c);
