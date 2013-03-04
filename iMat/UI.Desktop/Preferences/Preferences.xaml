@@ -10,8 +10,8 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="66"/>
-            <RowDefinition Height="334"/>
-            <RowDefinition Height="72"/>
+            <RowDefinition Height="363"/>
+            <RowDefinition Height="43"/>
         </Grid.RowDefinitions>
         <StackPanel x:Name="navigation" Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         <Grid x:Name="content" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="1"/>

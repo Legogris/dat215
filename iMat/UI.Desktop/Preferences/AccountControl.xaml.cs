@@ -1,4 +1,5 @@
-﻿using Data.Desktop;
+﻿using Data;
+using Data.Desktop;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,24 @@ namespace UI.Desktop.Preferences
         {
             InitializeComponent();
             dataHandler = dh;
+            labels();
+        }
+
+        private void labels()
+        {
+            accountname.Content = dataHandler.GetUser().Email;
+            ShippingAddress sa = dataHandler.GetShippingAddresses().First();
+            forename.Text = sa.FirstName;
+            lastname.Text = sa.LastName;
+            email.Text = sa.Email;
+            street.Text = sa.Address;
+            postcode.Text = sa.PostCode;
+            phone.Text = sa.PhoneNumber;
+        }
+
+        public void save()
+        {
+            // TODO: save that shit
         }
     }
 }
