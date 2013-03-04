@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
         <Menu HorizontalAlignment="Stretch" Height="22" VerticalAlignment="Top" Grid.Row="0">
             <MenuItem Header="Arkiv">
-                <MenuItem x:Name="menuItemLogOut" Header="Logga ut"/>
+                <MenuItem x:Name="menuItemLogOut" Header="Logga ut" Click="menuItemLogOut_Click"/>
                 <MenuItem x:Name="menuItemQuit" Header="Avsluta" Click="menuItemQuitClick" InputGestureText="Ctrl+Q"/>
             </MenuItem>
             <MenuItem Header="Hantera">

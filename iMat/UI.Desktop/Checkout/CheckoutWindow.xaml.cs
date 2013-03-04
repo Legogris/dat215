@@ -33,6 +33,10 @@ namespace UI.Desktop.Checkout
             shoppingCart = data.GetCart(); 
             InitializeComponent();
             wizardSteps.Background = (Brush)App.Current.Resources["DarkComplement"];
+            initWizSteps(wStep1, "Konto", "UserImage");
+            initWizSteps(wStep2, "Frakt", "ShipmentImage");
+            initWizSteps(wStep3, "Betalning", "PaymentImage");
+            initWizSteps(wStep4, "Bekräfta", "ConfirmImage");
             step1 = new CheckoutStep1(data);
             step1.NextStep += step1_NextStep;
             step1.LogIn += step1_LogIn;
@@ -54,18 +58,16 @@ namespace UI.Desktop.Checkout
                 PageGrid.Children.Add(step2);
                 logInUser.Content = data.GetUser().Email;
                 logInStatus.Content = "Inloggad som: ";
+                wStep2.StepActive = true;
             }
             else
             {
                 PageGrid.Children.Add(step1);
                 logInStatus.Content = "Inte inloggad!";
+                wStep1.StepActive = true;
             }
             
-            initWizSteps(wStep1, "Konto", "UserImage");
-            wStep1.StepActive = true;
-            initWizSteps(wStep2, "Frakt", "ShipmentImage");
-            initWizSteps(wStep3, "Betalning", "PaymentImage");
-            initWizSteps(wStep4, "Bekräfta", "ConfirmImage");
+
         }
 
         private void initWizSteps(WizardSteps wStep, String title, String img)
