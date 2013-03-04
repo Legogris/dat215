@@ -21,7 +21,7 @@
                 <MenuItem x:Name="menuItemAccount" Header="Konto..." Click="menuItemPropertiesClick"/>
             </MenuItem>
             <MenuItem Header="Hjälp">
-                <MenuItem x:Name="menuItemAbout" Header="Om iMat"/>
+                <MenuItem x:Name="menuItemAbout" Header="Om iMat" Click="menuItemAbout_Click_1"/>
                 <MenuItem Header="Besök iMats hemsida"/>
                 <MenuItem Header="Användarguide"/>
             </MenuItem>

@@ -73,6 +73,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Checkout\CheckoutStep1.xaml.cs">
       <DependentUpon>CheckoutStep1.xaml</DependentUpon>
     </Compile>
@@ -172,6 +175,10 @@
     <Compile Include="Controls\Spinner.xaml.cs">
       <DependentUpon>Spinner.xaml</DependentUpon>
     </Compile>
+    <Page Include="About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Checkout\CheckoutStep1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -349,13 +356,18 @@
     </None>
     <AppDesigner Include="Properties\" />
     <None Include="Resources\Icons\CartToList.xcf" />
+    <None Include="Resources\Icons\checkoutButton.xcf" />
     <None Include="Resources\Icons\copyList.xcf" />
     <None Include="Resources\Icons\importList.xcf" />
     <None Include="Resources\Icons\ListToCart.xcf" />
+    <None Include="Resources\Icons\list_order.xcf" />
     <None Include="Resources\Icons\searchButton1.xcf" />
     <None Include="Resources\Icons\searchButtonBackgroundRaw.xcf" />
+    <None Include="Resources\Icons\search_button_lightBlue.xcf" />
     <None Include="Resources\Icons\shippingAndPayment.xcf" />
     <None Include="Resources\Icons\testknapp.xcf" />
+    <None Include="Resources\Icons\thumbnail_order.xcf" />
+    <None Include="Resources\Icons\treeView_order.xcf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -562,6 +574,13 @@
     <Resource Include="Resources\Icons\previous-item-black.png" />
     <Resource Include="Resources\Icons\krav.png" />
     <Resource Include="Resources\Icons\fairtrade.png" />
+    <Resource Include="Resources\Icons\confirm_BW.png" />
+    <Resource Include="Resources\Icons\filter_new.png" />
+    <Resource Include="Resources\Icons\payment_BW.png" />
+    <Resource Include="Resources\Icons\remove.png" />
+    <Resource Include="Resources\Icons\remove_16.png" />
+    <Resource Include="Resources\Icons\shippment_BW.png" />
+    <Resource Include="Resources\Icons\user_BW.png" />
     <Content Include="Resources\products.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

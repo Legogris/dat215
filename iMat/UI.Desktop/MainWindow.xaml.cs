@@ -125,6 +125,12 @@ namespace UI.Desktop
             story.Children.Add(color);
             story.Begin(this);
         }
+
+        private void menuItemAbout_Click_1(object sender, RoutedEventArgs e)
+        {
+            Window about = new About();
+            about.Show();
+        }
     }
 
     public class ListContextMenuManager {
