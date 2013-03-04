@@ -68,7 +68,7 @@ namespace UI.Desktop
                             dli = new DetailedItem(item);
                             detailedItems[item] = dli;
                             dli.ItemAdded += li_ItemAdded;
-                            dli.MouseLeave += dli_MouseUp;
+                            //dli.MouseLeave += dli_MouseUp;
                             dli.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
                             dli.Width = stackPanel.ActualWidth;
                         }
@@ -84,17 +84,23 @@ namespace UI.Desktop
 
         void li_MouseUp(object sender, MouseEventArgs e)
         {
-            if (currentDLI != null)
-            {
-                dli_MouseUp(currentDLI, null);
+            int currentIndex = -1;
+            foreach(DetailedItem ddli in stackPanel.Children.OfType<DetailedItem>().ToList<DetailedItem>()) {
+                currentIndex = stackPanel.Children.IndexOf(ddli);
+                dli_MouseUp(ddli, null);
             }
             GridViewItem li = (GridViewItem)sender;
             DetailedItem dli = detailedItems[li.Item];
             int gridItemWidth = (int)Math.Max(1, Math.Floor(stackPanel.ActualWidth / li.ActualWidth));
-            li.Visibility = System.Windows.Visibility.Collapsed;
             int index = stackPanel.Children.IndexOf(li);
-            stackPanel.Children.Insert(index - (index % gridItemWidth), dli);
+            int newIndex = (int)Math.Min(1+ index + gridItemWidth - (index % gridItemWidth), stackPanel.Children.Count -1);
+            if(newIndex >= currentIndex && index < currentIndex) {
+                //dli.Background = new SolidColorBrush(Color.FromRgb(0xFF, 0, 0));
+                newIndex -= gridItemWidth+1;
+            }
+            stackPanel.Children.Insert(newIndex, dli);
             dli.Visibility = System.Windows.Visibility.Visible;
+            li.Visibility = System.Windows.Visibility.Collapsed;
             currentDLI = dli;
         }
         
@@ -105,11 +111,11 @@ namespace UI.Desktop
 
             if (dli.Visibility == System.Windows.Visibility.Visible)
             {
-                li.Visibility = System.Windows.Visibility.Visible;
                 dli.Visibility = System.Windows.Visibility.Collapsed;
-                stackPanel.Children.Remove(dli);
+                li.Visibility = System.Windows.Visibility.Visible;
                 currentDLI = null;
             }
+            stackPanel.Children.Remove(dli);
         }
 
         void li_ItemAdded(object sender, CartEventArgs e)
