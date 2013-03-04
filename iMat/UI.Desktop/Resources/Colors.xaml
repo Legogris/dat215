@@ -7,8 +7,8 @@
     <SolidColorBrush x:Key="PanelBackground">#e8e8e8</SolidColorBrush>
     <SolidColorBrush x:Key="BrowserBackground">#e8e8e8</SolidColorBrush>
     <SolidColorBrush x:Key="CategoryLevel1Background">#e8e8e8</SolidColorBrush>
-    <SolidColorBrush x:Key="CategoryLevel2Background">#759B3D</SolidColorBrush>
-    <SolidColorBrush x:Key="CategoryLevel3Background">#EBF7DA</SolidColorBrush>
+    <SolidColorBrush x:Key="CategoryLevel2Background">#efefef</SolidColorBrush>
+    <SolidColorBrush x:Key="CategoryLevel3Background">#e1e1e1</SolidColorBrush>
     <BitmapImage x:Key="UserImage" UriSource="/UI.Desktop;component/Resources/Icons/user.png"/>
     <BitmapImage x:Key="UserImageBW" UriSource="/UI.Desktop;component/Resources/Icons/user_BW.png"/>
     <BitmapImage x:Key="ConfirmImage" UriSource="/UI.Desktop;component/Resources/Icons/confirm.png"/>
