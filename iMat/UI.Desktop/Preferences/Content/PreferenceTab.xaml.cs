@@ -20,6 +20,17 @@ namespace UI.Desktop.Preferences.Content
     /// </summary>
     public partial class PreferenceTab : UserControl
     {
+        private bool selected;
+        public bool Selected
+        {
+            get { return selected; }
+            set { selected = value; toggleSelected(); }
+        }
+
+        public static readonly Brush WHITE = new SolidColorBrush(Colors.White);
+        public static readonly Brush HOVER = (Brush)App.Current.Resources["ItemHighlight"];
+        public static readonly Brush SELECTED = (Brush)App.Current.Resources["PanelBackground"];
+        
         public PreferenceTab(String name, BitmapImage image)
         {
             InitializeComponent();
@@ -27,14 +38,19 @@ namespace UI.Desktop.Preferences.Content
             imageLabel.Source = image;
         }
 
+        private void toggleSelected()
+        {
+            background.Background = selected ? SELECTED : WHITE;
+        }
+
         private void BGMouseEnter(object sender, MouseEventArgs e)
         {
-            background.Background = new SolidColorBrush((Color)App.Current.Resources["ItemHighlight"]);
+            background.Background = HOVER;
         }
 
         private void BGMouseLeave(object sender, MouseEventArgs e)
         {
-            background.Background = new SolidColorBrush(Colors.White);
+            toggleSelected();
         }
     }
 }
