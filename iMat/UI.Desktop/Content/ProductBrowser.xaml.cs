@@ -109,6 +109,8 @@ namespace UI.Desktop
             container.Children.Clear();
             Image image = new Image();
             image.Source = (ImageSource)App.Current.Resources["FeatureImage"];
+            image.Width = 24;
+            image.Height = 24;
             StackPanel sp = new StackPanel();
             sp.Orientation = Orientation.Horizontal;
             sp.Children.Add(image);

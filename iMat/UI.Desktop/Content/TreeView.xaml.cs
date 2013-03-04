@@ -31,6 +31,7 @@ namespace UI.Desktop
         {
             ProductCategory pc = e.NewValue as ProductCategory;
             treeView.ItemsSource = pc.SubCategories;
+            ItemAdded = null;
         }
 
         public event Data.ShoppingCartChangedHandler ItemAdded;
