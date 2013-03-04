@@ -386,7 +386,6 @@
     <Folder Include="Toolbar\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\imatIcon.png" />
     <Resource Include="Resources\iMatStart.png" />
     <Resource Include="Resources\tacoMello.png" />
     <Resource Include="Resources\Icons\arrow.png" />
