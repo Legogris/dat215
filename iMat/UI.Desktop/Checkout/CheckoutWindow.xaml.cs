@@ -52,15 +52,25 @@ namespace UI.Desktop.Checkout
             logIn.BackStep += logIn_BackStep;
             if (data.GetUser() != null)
             {
-                PageGrid.Children.Add(logIn);
+                PageGrid.Children.Add(step2);
             }
             else
             {
                 PageGrid.Children.Add(step1);
             }
-            wStep1.Title = "TEST";
-            wStep1.ImgSource = "ShoppingListImage";
+            
+            initWizSteps(wStep1, "Konto", "UserImage");
             wStep1.StepActive = true;
+            initWizSteps(wStep2, "asdf", "ShipmentImage");
+            initWizSteps(wStep3, "asdf", "PaymentImage");
+            initWizSteps(wStep4, "asdf", "ConfirmImage");
+        }
+
+        private void initWizSteps(WizardSteps wStep, String title, String img)
+        {
+            wStep.Title = title;
+            wStep.ImgSource = img;
+            wStep.StepActive = false;
         }
         
         void step1_LogIn(object sender, EventArgs e)
@@ -143,23 +153,27 @@ namespace UI.Desktop.Checkout
             PageGrid.Children.Clear();
             PageGrid.Children.Add(step4);
             step4.displayContent();
-            //if (step2.PayOnPickup.IsChecked == true)
-            //{
-            //    step3.chosenPaymentOption.Content = "Du betalar dina varor vid upphämtning.";
-            //}
-            //else
-            //{
-            //    step3.chosenPaymentOption.Content = "Du betalar med kort med nr: " + step2.CardNumberTextBox.Text;
-            //}
+            if (step3.PayOnPickup.IsChecked == true)
+            {
+                step4.chosenPaymentOption.Text = "Du betalar dina varor vid upphämtning.";
+                step4.chosenPaymentAnswer.Text = null;
+            }
+            else
+            {
+                step4.chosenPaymentOption.Text = "Du betalar med kort med nr: ";
+                step4.chosenPaymentAnswer.Text = step3.CardNumberTextBox.Text;
+            }
             if (step2.HomeDelivery.IsChecked == true)
             {
-                step4.chosenDeliveryOption.Content = "Dina varor kommer levereras hem till: " + step2.AddressTextBox.Text;
+                step4.chosenDeliveryOption.Text = "Dina varor kommer levereras hem till: ";
+                step4.chosenDeliveryAnswer.Text = step2.AddressTextBox.Text;
             }
             else
             {
                 ComboBoxItem ci = (ComboBoxItem)step2.StoreComboBox.SelectedItem;
                 string temp = ci.Content.ToString();
-                step4.chosenDeliveryOption.Content = "Dina varor kommer levereras till: " + temp;
+                step4.chosenDeliveryOption.Text = "Dina varor kommer levereras till: ";
+                step4.chosenDeliveryAnswer.Text = temp;
             }
         }
     }

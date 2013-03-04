@@ -26,9 +26,7 @@
                 <MenuItem Header="Användarguide"/>
             </MenuItem>
         </Menu>
-
-
-        <DockPanel Grid.Row="1" Background="#A2AE97">
+        <DockPanel Grid.Row="1">
             <ToolBarTray HorizontalAlignment="Left" DockPanel.Dock="Left">
                 <ToolBar ToolBarTray.IsLocked="True">
                     <TextBox x:Name="searchField" Width="100"/>

@@ -389,7 +389,7 @@
     <Resource Include="Resources\Icons\arrow.png" />
     <Resource Include="Resources\Icons\CartToList.png" />
     <Resource Include="Resources\Icons\checkout.png" />
-    <Resource Include="Resources\Icons\confirm-png.png" />
+    <Resource Include="Resources\Icons\confirm.png" />
     <Resource Include="Resources\Icons\copyList.png" />
     <Resource Include="Resources\Icons\copyList_1.png" />
     <Resource Include="Resources\Icons\copyList_2.png" />
@@ -581,6 +581,10 @@
     <Resource Include="Resources\Icons\remove_16.png" />
     <Resource Include="Resources\Icons\shippment_BW.png" />
     <Resource Include="Resources\Icons\user_BW.png" />
+    <Resource Include="Resources\Icons\user_BW.png" />
+    <Resource Include="Resources\Icons\shippment_BW.png" />
+    <Resource Include="Resources\Icons\payment_BW.png" />
+    <Resource Include="Resources\Icons\confirm_BW.png" />
     <Content Include="Resources\products.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

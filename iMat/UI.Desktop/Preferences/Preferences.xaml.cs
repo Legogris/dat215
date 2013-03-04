@@ -23,6 +23,7 @@ namespace UI.Desktop.Preferences
     public partial class PreferencesWindow : Window
     {
         private DataHandler dataHandler;
+        private List<PreferenceTab> prefTabs = new List<PreferenceTab>();
 
         public PreferencesWindow(DataHandler dh, UserControl open)
         {
@@ -32,6 +33,15 @@ namespace UI.Desktop.Preferences
 
             addNav(new AccountControl(dataHandler), "Konto", (BitmapImage)App.Current.Resources["UserImage"]);
             addNav(new ListControl(dataHandler), "Shoppinglistor", (BitmapImage)App.Current.Resources["ShoppingListImage"]);
+
+            if (open is AccountControl)
+            {
+                prefTabs[0].Selected = true;
+            }
+            else
+            {
+                prefTabs[1].Selected = true;
+            }
         }
 
         private void addNav(UserControl control, String name, BitmapImage image)
@@ -40,6 +50,7 @@ namespace UI.Desktop.Preferences
             tab.DataContext = control;
             navigation.Children.Add(tab);
             tab.MouseUp += tab_MouseUp;
+            prefTabs.Add(tab);
         }
 
         void tab_MouseUp(object sender, MouseButtonEventArgs e)
