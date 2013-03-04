@@ -23,18 +23,20 @@ namespace UI.Desktop.Content.Controls
     public partial class SpecialOfferCarousel : UserControl
     {
         private Storyboard storyboard = new Storyboard();
-        private static TimeSpan duration = TimeSpan.FromMilliseconds(500);
-        private DoubleAnimation fadeInAnimation = new DoubleAnimation() { From = 0.0, To = 1.0, Duration = new Duration(duration) };
-        private DoubleAnimation fadeOutAnimation = new DoubleAnimation() { From = 1.0, To = 0.0, Duration = new Duration(duration) };
+        private static readonly TimeSpan FADE_DURATION = TimeSpan.FromMilliseconds(500);
+        private static readonly TimeSpan INTERVAL_DURATION = TimeSpan.FromSeconds(10);
+        private DoubleAnimation fadeInAnimation = new DoubleAnimation() { From = 0.0, To = 1.0, Duration = new Duration(FADE_DURATION) };
+        private DoubleAnimation fadeOutAnimation = new DoubleAnimation() { From = 1.0, To = 0.0, Duration = new Duration(FADE_DURATION) };
+        private DispatcherTimer dispatcherTimer;
 
         public SpecialOfferCarousel()
         {
             InitializeComponent();
             image_two.Opacity = 0;
-            DispatcherTimer dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer = new DispatcherTimer();
 
             dispatcherTimer.Tick += new EventHandler(timer_tick);
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 10);
+            dispatcherTimer.Interval = INTERVAL_DURATION;
             dispatcherTimer.Start();
         }
 
@@ -45,6 +47,7 @@ namespace UI.Desktop.Content.Controls
 
         private void leftButton_Click(object sender, RoutedEventArgs e)
         {
+            dispatcherTimer.Interval = INTERVAL_DURATION;
             triggerSwitch();
         }
 
