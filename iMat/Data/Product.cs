@@ -25,6 +25,29 @@ namespace Data
         public bool IsFairTrade { get { return GetHashCode() % 4 == 0; } }
         public bool IsKRAV { get { return GetHashCode() % 3 == 0; } }
 
+        private static readonly string[] descriptions = {
+            "Köp vår{0} smarriga {1} - vi lovar att du inte kommer att bli besviken!\r\n",
+            "Varje dag som går utan att du provat vår{0} {1} är en dag som inte är värd att leva - nystarta ditt liv idag!\r\n",
+            "Vi vet att du vill ha {2} - stå inte utan {0} när det gäller!\r\n",
+            "Köp, köp, köp! Köp {1}! Vad väntar du på? Bunkra upp med {1} innan det är för sent!\r\n"
+        };
+
+        public string Description
+        {
+            get
+            {
+                string name = (IsKRAV ? "ekologiska " + Name : Name).ToLower();
+                string desc = descriptions[GetHashCode() % descriptions.Length];
+                if (IsFairTrade) {
+                    desc += GetHashCode() % 2 == 0 ? "Rättvisemärkt produktion så du kan sova gott om natten.\r\n" : ("Att de" + (BoughtInBulk ? "" : "n") + " är Fairtrademärkt" + (BoughtInBulk ? "a" : "") + " gör att du vet att du kan lita på ursprung och kvalitet.\r\n" );
+                }
+                return string.Format(desc,
+                    BoughtInBulk ? "a": "",
+                    name,
+                    BoughtInBulk ? "dem" : "den");
+            }
+        }
+
         public Product()
         {
             Categories = new HashSet<ProductCategory>();
