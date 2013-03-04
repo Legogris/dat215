@@ -34,7 +34,7 @@ namespace UI.Desktop.Checkout
         {
             shoppingCart = data.GetCart(); 
             InitializeComponent();
-            wizardSteps.Background = new SolidColorBrush((Color)App.Current.Resources["DarkComplement"]);
+            wizardSteps.Background = (Brush)App.Current.Resources["DarkComplement"];
             step1 = new CheckoutStep1(data);
             step1.NextStep += step1_NextStep;
             step1.LogIn += step1_LogIn;
@@ -76,6 +76,7 @@ namespace UI.Desktop.Checkout
 
         void logIn_NextStep(object sender, EventArgs e)
         {
+
             ActivateStep2();
         }
 
@@ -91,7 +92,9 @@ namespace UI.Desktop.Checkout
 
         void step3_BackStep3(object sender, EventArgs e)
         {
+
             ActivateStep2();
+
         }
 
         void step4_ExitCheckout(object sender, EventArgs e)
@@ -106,7 +109,9 @@ namespace UI.Desktop.Checkout
 
         void step2_NextStep2(object sender, EventArgs e)
         {
+
             ActivateStep3();
+
         }
 
         void step1_NextStep(object sender, EventArgs e)
