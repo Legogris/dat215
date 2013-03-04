@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using UI.Desktop.Content;
+using UI.Desktop.Preferences.Content;
 
 namespace UI.Desktop.Preferences
 {
@@ -28,6 +29,27 @@ namespace UI.Desktop.Preferences
             InitializeComponent();
             dataHandler = dh;
             content.Children.Add(open);
+
+            addNav(new AccountControl(dataHandler), "Konto", (BitmapImage)App.Current.Resources["UserImage"]);
+            addNav(new ListControl(dataHandler), "Shoppinglistor", (BitmapImage)App.Current.Resources["ShoppingListImage"]);
+        }
+
+        private void addNav(UserControl control, String name, BitmapImage image)
+        {
+            PreferenceTab tab = new PreferenceTab(name, image);
+            tab.DataContext = control;
+            navigation.Children.Add(tab);
+            tab.MouseUp += tab_MouseUp;
+        }
+
+        void tab_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            content.Children.Clear();
+            PreferenceTab tab = sender as PreferenceTab;
+            if (tab!= null)
+            {
+                content.Children.Add(tab.DataContext as UserControl);
+            }
         }
 
         private void okClick(object sender, RoutedEventArgs e)
