@@ -6,20 +6,50 @@
              mc:Ignorable="d" 
              d:DesignHeight="420" d:DesignWidth="400">
     <Grid>
-        <Label x:Name="step3TitelLabel" Content="Bekräfta köp:" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" VerticalAlignment="Top" Width="380"/>
-        <Button x:Name="exitCheckoutButton" Content="Woopdidoop" HorizontalAlignment="Left" Height="26" Margin="305,384,0,0" VerticalAlignment="Top" Width="85" Click="exitCheckoutButton_Click" Cursor="Hand"/>
-        <Button x:Name="backStep3Button" Content="&lt; Tillbaka" HorizontalAlignment="Left" Height="26" Margin="215,384,0,0" VerticalAlignment="Top" Width="85" Click="backStep3Button_Click" Cursor="Hand"/>
-        <ListView x:Name="checkoutListView" HorizontalAlignment="Left" Height="257" Margin="10,45,0,0" VerticalAlignment="Top" Width="380">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Width="200" Header="Vara:" DisplayMemberBinding="{Binding Product.Name}"/>
-                    <GridViewColumn Width="90" Header="Antal" DisplayMemberBinding="{Binding Amount}"/>
-                    <GridViewColumn Width="90" Header="Pris" DisplayMemberBinding="{Binding Total}"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <Label x:Name="chosenPaymentOption" Content="Label" HorizontalAlignment="Left" Height="26" Margin="10,307,0,0" VerticalAlignment="Top" Width="380"/>
-        <Label x:Name="chosenDeliveryOption" Content="Label" HorizontalAlignment="Left" Height="26" Margin="10,333,0,0" VerticalAlignment="Top" Width="380"/>
-
+        <Label x:Name="PaymentLabel" Content="Välj Betalningssätt:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontWeight="Bold" FontSize="14" Width="142"/>
+        <StackPanel x:Name="paymentStackPanel" HorizontalAlignment="Left" Height="101" Margin="15,50,0,0" VerticalAlignment="Top" Width="381">
+            <RadioButton x:Name="PayWithCard" Content="Kortbetalning:" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="PaymentGroup" Checked="PayWithCard_Checked"/>
+            <Grid x:Name="PaymentGrid" HorizontalAlignment="Left" Height="62" VerticalAlignment="Top" Width="381" Visibility="Collapsed">
+                <Label x:Name="CardTypeLabel" Content="Korttyp:" HorizontalAlignment="Left" Height="26" Margin="10,0,0,0" VerticalAlignment="Top" Width="55"/>
+                <ComboBox x:Name="CardTypeComboBox" HorizontalAlignment="Left" Height="26" Margin="70,0,0,0" VerticalAlignment="Top" Width="85">
+                    <ComboBoxItem Content="Visa"/>
+                    <ComboBoxItem Content="MasterCard"/>
+                    <ComboBoxItem Content="Amex"/>
+                </ComboBox>
+                <Label x:Name="CardHolderNameLabel" Content="Namn:" HorizontalAlignment="Left" Height="26" Margin="160,0,0,0" VerticalAlignment="Top" Width="45"/>
+                <TextBox x:Name="CardHolderNameTextBox" HorizontalAlignment="Left" Height="26" Margin="210,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171"/>
+                <Label x:Name="CardNumberLabel" Content="KortNr:" HorizontalAlignment="Left" Height="26" Margin="10,31,0,0" VerticalAlignment="Top" Width="55"/>
+                <TextBox x:Name="CardNumberTextBox" HorizontalAlignment="Left" Height="26" Margin="70,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
+                <Label x:Name="ValidMoYeLabel" Content="M/Å" HorizontalAlignment="Left" Margin="160,31,0,5" Width="35"/>
+                <ComboBox x:Name="MonthComboBox" HorizontalAlignment="Left" Height="26" Margin="200,31,0,0" VerticalAlignment="Top" Width="45">
+                    <ComboBoxItem Content="01"/>
+                    <ComboBoxItem Content="02"/>
+                    <ComboBoxItem Content="03"/>
+                    <ComboBoxItem Content="04"/>
+                    <ComboBoxItem Content="05"/>
+                    <ComboBoxItem Content="06"/>
+                    <ComboBoxItem Content="07"/>
+                    <ComboBoxItem Content="08"/>
+                    <ComboBoxItem Content="09"/>
+                    <ComboBoxItem Content="10"/>
+                    <ComboBoxItem Content="11"/>
+                    <ComboBoxItem Content="12"/>
+                </ComboBox>
+                <ComboBox x:Name="YearComboBox" HorizontalAlignment="Left" Height="26" Margin="250,31,0,0" VerticalAlignment="Top" Width="45">
+                    <ComboBoxItem Content="13"/>
+                    <ComboBoxItem Content="14"/>
+                    <ComboBoxItem Content="15"/>
+                    <ComboBoxItem Content="16"/>
+                    <ComboBoxItem Content="17"/>
+                </ComboBox>
+                <Label x:Name="VerificationCodeLabel" Content="CVC:" HorizontalAlignment="Left" Height="26" Margin="300,31,0,0" VerticalAlignment="Top" Width="40"/>
+                <TextBox x:Name="VerificationCodeTextBox" HorizontalAlignment="Left" Height="26" Margin="340,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="41" MaxLength="3" IsUndoEnabled="False"/>
+            </Grid>
+            <RadioButton x:Name="PayOnPickup" Content="Betala i affär" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="PaymentGroup" Checked="PayOnPickup_Checked" IsChecked="True"/>
+        </StackPanel>
+        <CheckBox x:Name="agreeCheckBox" Content="Jag accepterar betalningsvillkoren" HorizontalAlignment="Left" Height="17" Margin="15,277,0,0" VerticalAlignment="Top" Width="200" Checked="agreeCheckBox_Checked" Unchecked="agreeCheckBox_Unchecked"/>
+        <CheckBox x:Name="rememberDetailsStep2" Content="Kom ihåg mina uppgifter" HorizontalAlignment="Left" Margin="15,259,0,0" VerticalAlignment="Top" Width="200"/>
+        <Button x:Name="NextStep3Button" Content="Fortsätt" HorizontalAlignment="Left" Height="26" Margin="305,384,-90,-110" VerticalAlignment="Top" Width="85" Click="NextStep3Button_Click"/>
+        <Button x:Name="BackButtonStep3" Content="Tillbaka" HorizontalAlignment="Left" Height="26" Margin="215,384,0,-110" VerticalAlignment="Top" Width="85" Click="BackButtonStep3_Click"/>
     </Grid>
 </UserControl>

@@ -5,4 +5,6 @@
     <Color x:Key="ItemHighlight">#daeacc</Color>
     <Color x:Key="PanelBackground">#a2ae97</Color>
     <Color x:Key="DarkComplement">#526b3d</Color>
+    <BitmapImage x:Key="UserImage" UriSource="/UI.Desktop;component/Resources/Icons/user.png"/>
+    <BitmapImage x:Key="ShoppingListImage" UriSource="/UI.Desktop;component/Resources/Icons/copyList_2.png"/>
 </ResourceDictionary>

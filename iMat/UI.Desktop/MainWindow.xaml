@@ -15,7 +15,7 @@
                 <MenuItem x:Name="menuItemQuit" Header="Avsluta" Click="menuItemQuitClick" InputGestureText="Ctrl+Q"/>
             </MenuItem>
             <MenuItem Header="Hantera">
-                <MenuItem x:Name="menuItemLists" Click="shoppingListPrefsClick" Header="Shoppingistor..."/>
+                <MenuItem x:Name="menuItemLists" Click="shoppingListPrefsClick" Header="Shoppinglistor..."/>
                 <MenuItem x:Name="menuItemAccount" Header="Konto..." Click="menuItemPropertiesClick"/>
             </MenuItem>
             <MenuItem Header="Hjälp">
