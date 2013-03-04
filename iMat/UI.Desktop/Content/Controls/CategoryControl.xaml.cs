@@ -54,11 +54,16 @@ namespace UI.Desktop
 
         void categoryLabel_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (expanded) {
-                Retract();
-            }
-            else {
-                Expand();
+            if (productCategory.Parent != null) //Can't expand/contract root category
+            {
+                if (expanded)
+                {
+                    Retract();
+                }
+                else
+                {
+                    Expand();
+                }
             }
             ProductCategorySelectionChanged.Invoke(this, new ProductCategoryChangedEventArgs(productCategory));
         }
