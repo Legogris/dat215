@@ -117,39 +117,6 @@ namespace Data.Desktop
             catch (Exception e)  {
             }
             finally { sr.Close(); }
-
-            //Proper products for shoppingitems
-            /*ShoppingCart newCart = new ShoppingCart();
-            foreach (ShoppingItem si in cart.GetItems())
-            {
-                newCart.Add(new ShoppingItem(GetProduct(si.Product.ProductID), si.Amount));
-            }
-            cart = newCart;
-            */
-            //List<FavoriteList> newFavs = new List<FavoriteList>();
-            //foreach (FavoriteList list in favorites.GetItems())
-            //{
-            //    FavoriteList newList = new FavoriteList(list.Name);
-            //    foreach (ShoppingItem si in list)
-            //    {
-            //        newList.Add(new ShoppingItem(GetProduct(si.Product.ProductID), si.Amount));
-            //    }
-            //    newFavs.Add(newList);
-            //}
-            //favorites.Add(newFavs);
-
-            /*List<Order> newOrders = new List<Order>();
-            foreach (Order o in orders)
-            {
-                List<ShoppingItem> newItems = new List<ShoppingItem>();
-                foreach (ShoppingItem si in o.Items)
-                {
-                    newItems.Add(new ShoppingItem(GetProduct(si.Product.ProductID), si.Amount));
-                }
-                newOrders.Add(new Order(newItems, o.Date, o.OrderNumber));
-            }
-            orders = newOrders;*/
-                
         }
 
         public void WriteToFile(string path)
