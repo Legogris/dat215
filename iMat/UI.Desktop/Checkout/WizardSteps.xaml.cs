@@ -20,9 +20,27 @@ namespace UI.Desktop.Checkout
     /// </summary>
     public partial class WizardSteps : UserControl
     {
+        public String Title {
+            get { return title.Content.ToString(); }
+            set { title.Content = value; }
+        }
+
+        public String ImgSource { get; set; }
+
+        private bool stepactive;
+        public bool StepActive {
+            get { return stepactive; }
+            set { stepactive = value; updateImage(); }
+        }
+
         public WizardSteps()
         {
             InitializeComponent();
+        }
+
+        private void updateImage()
+        {
+            image.Source = (ImageSource) App.Current.Resources[ImgSource];
         }
     }
 }
