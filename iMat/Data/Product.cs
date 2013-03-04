@@ -22,6 +22,9 @@ namespace Data
         public string BulkUnit { get { return BoughtInBulk ? UnitSuffix : "l"; } }
         public string PieceUnit { get { return BoughtInBulk ? "st" : UnitSuffix; } }
 
+        public bool IsFairTrade { get { return GetHashCode() % 4 == 0; } }
+        public bool IsKRAV { get { return GetHashCode() % 3 == 0; } }
+
         public Product()
         {
             Categories = new HashSet<ProductCategory>();
