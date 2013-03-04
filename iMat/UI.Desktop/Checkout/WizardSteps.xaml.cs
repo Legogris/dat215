@@ -40,7 +40,8 @@ namespace UI.Desktop.Checkout
 
         private void updateImage()
         {
-            image.Source = (ImageSource) App.Current.Resources[ImgSource];
+            if (stepactive) image.Source = (ImageSource)App.Current.Resources[ImgSource];
+            else image.Source = (ImageSource)App.Current.Resources[ImgSource + "BW"];
         }
     }
 }

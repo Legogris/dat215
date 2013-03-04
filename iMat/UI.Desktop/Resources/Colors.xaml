@@ -6,5 +6,12 @@
     <SolidColorBrush x:Key="DarkComplement">#526b3d</SolidColorBrush>
     <SolidColorBrush x:Key="PanelBackground">#A2AE97</SolidColorBrush>
     <BitmapImage x:Key="UserImage" UriSource="/UI.Desktop;component/Resources/Icons/user.png"/>
+    <BitmapImage x:Key="UserImageBW" UriSource="/UI.Desktop;component/Resources/Icons/user_BW.png"/>
+    <BitmapImage x:Key="ConfirmImage" UriSource="/UI.Desktop;component/Resources/Icons/confirm.png"/>
+    <BitmapImage x:Key="ConfirmImageBW" UriSource="/UI.Desktop;component/Resources/Icons/confirm_BW.png"/>
+    <BitmapImage x:Key="ShipmentImage" UriSource="/UI.Desktop;component/Resources/Icons/shippment.png"/>
+    <BitmapImage x:Key="ShipmentImageBW" UriSource="/UI.Desktop;component/Resources/Icons/shippment_BW.png"/>
+    <BitmapImage x:Key="PaymentImage" UriSource="/UI.Desktop;component/Resources/Icons/payment.png"/>
+    <BitmapImage x:Key="PaymentImageBW" UriSource="/UI.Desktop;component/Resources/Icons/payment_BW.png"/>
     <BitmapImage x:Key="ShoppingListImage" UriSource="/UI.Desktop;component/Resources/Icons/copyList_2.png"/>
 </ResourceDictionary>

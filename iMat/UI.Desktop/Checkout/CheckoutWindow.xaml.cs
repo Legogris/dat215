@@ -58,9 +58,19 @@ namespace UI.Desktop.Checkout
             {
                 PageGrid.Children.Add(step1);
             }
-            wStep1.Title = "TEST";
-            wStep1.ImgSource = "ShoppingListImage";
+            
+            initWizSteps(wStep1, "Konto", "UserImage");
             wStep1.StepActive = true;
+            initWizSteps(wStep2, "asdf", "ShipmentImage");
+            initWizSteps(wStep3, "asdf", "PaymentImage");
+            initWizSteps(wStep4, "asdf", "ConfirmImage");
+        }
+
+        private void initWizSteps(WizardSteps wStep, String title, String img)
+        {
+            wStep.Title = title;
+            wStep.ImgSource = img;
+            wStep.StepActive = false;
         }
         
         void step1_LogIn(object sender, EventArgs e)
