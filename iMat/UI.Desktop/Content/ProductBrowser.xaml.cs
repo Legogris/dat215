@@ -112,7 +112,7 @@ namespace UI.Desktop
             homeLabel.Content = "Hem/Start whatever";
             container.Children.Add(homeLabel);
 
-            CategoryControl root = new CategoryControl(rootCategory);
+            CategoryControl root = new CategoryControl(rootCategory, 1);
             container.Children.Add(root);
             root.Expand();
             Thickness margin = root.stackPanel.Margin;

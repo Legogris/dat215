@@ -104,7 +104,7 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <local:ProductBrowser x:Name="productBrowser" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{StaticResource ItemEvenBack}"/>
+            <local:ProductBrowser x:Name="productBrowser" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{StaticResource BrowserBackground}"/>
             <Content:ShoppingCartView x:Name="shoppingCart" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Stretch" Loaded="shoppingCart_Loaded"/>
         </Grid>
     </Grid>

@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              Width="180">
-    <Grid HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Top" Height="48">
+    <Grid x:Name="backgroundGrid" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Top" Height="48">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="85"/>

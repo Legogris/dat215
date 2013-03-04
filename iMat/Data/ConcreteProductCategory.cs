@@ -45,24 +45,6 @@ namespace Data
             p.Categories.Add(this);
         }
 
-       /* public Product GetProduct(int id)
-        {
-            Product p = products.SingleOrDefault(x => x.ProductID == id);
-            if (p != null)
-            {
-                return p;
-            }
-            foreach (ProductCategory c in SubCategories)
-            {
-                p = c.GetProduct(id);
-                if (p != null)
-                {
-                    return p;
-                }
-            }
-            return null;
-        }*/
-
         public IEnumerable<ShoppingItem> GetItems()
         {
             List<ShoppingItem> ps = products.Select(p => new ShoppingItem(p, 1)).ToList();

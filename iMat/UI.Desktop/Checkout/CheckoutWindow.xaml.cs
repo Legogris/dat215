@@ -61,9 +61,9 @@ namespace UI.Desktop.Checkout
             
             initWizSteps(wStep1, "Konto", "UserImage");
             wStep1.StepActive = true;
-            initWizSteps(wStep2, "asdf", "ShipmentImage");
-            initWizSteps(wStep3, "asdf", "PaymentImage");
-            initWizSteps(wStep4, "asdf", "ConfirmImage");
+            initWizSteps(wStep2, "Frakt", "ShipmentImage");
+            initWizSteps(wStep3, "Betalning", "PaymentImage");
+            initWizSteps(wStep4, "Bekräfta", "ConfirmImage");
         }
 
         private void initWizSteps(WizardSteps wStep, String title, String img)
@@ -87,25 +87,30 @@ namespace UI.Desktop.Checkout
 
         void logIn_NextStep(object sender, EventArgs e)
         {
-
             ActivateStep2();
+            wStep2.StepActive = true;
+            wStep1.StepActive = false;
         }
 
         void step4_BackStep4(object sender, EventArgs e)
         {
-            ActivateStep2();
+            ActivateStep3();
+            wStep3.StepActive = true;
+            wStep4.StepActive = false;
         }
 
         void step3_NextStep3(object sender, EventArgs e)
         {
             ActivateStep4();
+            wStep4.StepActive = true;
+            wStep3.StepActive = false;
         }
 
         void step3_BackStep3(object sender, EventArgs e)
         {
-
             ActivateStep2();
-
+            wStep2.StepActive = true;
+            wStep3.StepActive = false;
         }
 
         void step4_ExitCheckout(object sender, EventArgs e)
@@ -116,18 +121,22 @@ namespace UI.Desktop.Checkout
         void step2_BackStep2(object sender, EventArgs e)
         {
             ActivateStep1();
+            wStep1.StepActive = true;
+            wStep2.StepActive = false;
         }
 
         void step2_NextStep2(object sender, EventArgs e)
         {
-
             ActivateStep3();
-
+            wStep3.StepActive = true;
+            wStep2.StepActive = false;
         }
 
         void step1_NextStep(object sender, EventArgs e)
         {
             ActivateStep2();
+            wStep2.StepActive = true;
+            wStep1.StepActive = false;
         }
         
         public void ActivateStep1()

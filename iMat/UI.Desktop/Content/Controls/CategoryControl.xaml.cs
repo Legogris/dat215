@@ -35,12 +35,14 @@ namespace UI.Desktop
         private ProductCategory productCategory;
         private bool expanded = false;
         public event ProductCategoryChangedHandler ProductCategorySelectionChanged;
+        private int level;
 
-
-        public CategoryControl(ProductCategory pc)
+        public CategoryControl(ProductCategory pc, int level)
         {
             InitializeComponent();
             productCategory = pc;
+            this.level = level;
+            
             if (pc != null)
             {
                 categoryLabel.Content = pc.Name;
@@ -50,6 +52,7 @@ namespace UI.Desktop
             {
                 categoryLabel.Content = "DUMMY";
             }
+            this.Background = (Brush)App.Current.Resources[string.Format("CategoryLevel{0}Background", level)];
         }
 
         void categoryLabel_MouseUp(object sender, MouseButtonEventArgs e)
@@ -76,9 +79,13 @@ namespace UI.Desktop
             expanded = true;
             if (productCategory != null)
             {
-                foreach (ProductCategory pc in productCategory.SubCategories)
+                List<ProductCategory> pcs = new List<ProductCategory>();
+                pcs.AddRange(productCategory.SubCategories.OfType<ShoppingListHandler>());
+                pcs.AddRange(productCategory.SubCategories.OfType<FavoriteList>());
+                pcs.AddRange(productCategory.SubCategories.OfType<ConcreteProductCategory>());
+                foreach (ProductCategory pc in pcs)
                 {
-                    CategoryControl c = new CategoryControl(pc);
+                    CategoryControl c = new CategoryControl(pc, level+1);
                     stackPanel.Children.Add(c);
                     c.ProductCategorySelectionChanged += childProductCategorySelectionChanged;
                 }
