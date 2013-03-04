@@ -107,10 +107,18 @@ namespace UI.Desktop
         private void categorySourceUpdated()
         {
             container.Children.Clear();
-            
+            Image image = new Image();
+            image.Source = (ImageSource)App.Current.Resources["FeatureImage"];
+            StackPanel sp = new StackPanel();
+            sp.Orientation = Orientation.Horizontal;
+            sp.Children.Add(image);
             Label homeLabel = new Label();
-            homeLabel.Content = "Hem/Start whatever";
-            container.Children.Add(homeLabel);
+            homeLabel.Content = "Start";
+            homeLabel.FontSize = 14;
+            homeLabel.Cursor = Cursors.Hand;
+            sp.Children.Add(homeLabel);
+            container.Children.Add(sp);
+            //container.Children.Add(homeLabel);
 
             CategoryControl root = new CategoryControl(rootCategory, 1);
             container.Children.Add(root);
