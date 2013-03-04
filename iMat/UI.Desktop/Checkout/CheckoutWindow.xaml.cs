@@ -34,7 +34,7 @@ namespace UI.Desktop.Checkout
         {
             shoppingCart = data.GetCart(); 
             InitializeComponent();
-            wizardSteps.Background = new SolidColorBrush((Color)App.Current.Resources["DarkComplement"]);
+            wizardSteps.Background = (Brush)App.Current.Resources["DarkComplement"];
             step1 = new CheckoutStep1(data);
             step1.NextStep += step1_NextStep;
             step1.LogIn += step1_LogIn;
