@@ -10,8 +10,13 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid x:Name="PageGrid" VerticalAlignment="Stretch" Margin="0,0,0,0" Grid.Column="1"/>
-        <Grid x:Name="wizardSteps">            
-                        
+        <Grid x:Name="wizardSteps">
+            <Grid HorizontalAlignment="Stretch" Margin="0,50,0,0" VerticalAlignment="Top" Height="60">
+                <Label Content="Label" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                <Image HorizontalAlignment="Right" Height="60" Margin="0,0,10,0" VerticalAlignment="Top" Width="60" Source="/UI.Desktop;component/Resources/Icons/user.png"/>
+            </Grid>
+            <Label Content="Inloggningstatus" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+
         </Grid>
     </Grid>
 </Window>

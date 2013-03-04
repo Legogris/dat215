@@ -67,7 +67,7 @@ namespace UI.Desktop
                             }
                             li.Visibility = System.Windows.Visibility.Visible;
                             dli.Visibility = System.Windows.Visibility.Collapsed;
-                            li.Background = new SolidColorBrush((Color)(i % 2 == 0 ? App.Current.Resources["ItemOddBack"] : App.Current.Resources["ItemEvenBack"]));
+                            li.Background = (Brush)(i % 2 == 0 ? App.Current.Resources["ItemOddBack"] : App.Current.Resources["ItemEvenBack"]);
                             stackPanel.Children.Add(li);
                             stackPanel.Children.Add(dli);
                         }
