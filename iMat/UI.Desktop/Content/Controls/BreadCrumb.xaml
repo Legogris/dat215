@@ -9,7 +9,7 @@
     <StackPanel x:Name="contentPanel" Orientation="Horizontal" >
         <StackPanel x:Name="parentPanel" Visibility="Collapsed" Orientation="Horizontal">
         </StackPanel>
-        <Label x:Name="arrowLabel" Content="»" />
-        <Label x:Name="titleLabel" Content="Label" Cursor="Hand" />
+        <TextBlock x:Name="arrowLabel" Text="»" Margin="5,0,5,0" />
+        <TextBlock x:Name="titleLabel" Text="Label" />
     </StackPanel>
 </UserControl>

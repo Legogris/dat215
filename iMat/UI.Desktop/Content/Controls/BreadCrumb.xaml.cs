@@ -24,11 +24,38 @@ namespace UI.Desktop
 
         private ProductCategory category;
 
+        private bool isCurrent;
+
         public BreadCrumb()
+            : this(true)
         {
+        }
+        public BreadCrumb(bool isCurrent)
+        {
+            this.isCurrent = isCurrent;
             InitializeComponent();
             DataContextChanged += BreadCrumb_DataContextChanged;
             titleLabel.MouseUp += BreadCrumb_MouseUp;
+
+            if (isCurrent)
+            {
+                //titleLabel.TextDecorations = TextDecorations.Underline;
+            } else {
+                titleLabel.Cursor = Cursors.Hand;
+                titleLabel.MouseEnter += titleLabel_MouseEnter;
+                titleLabel.MouseLeave += titleLabel_MouseLeave;
+            }
+
+        }
+
+        void titleLabel_MouseLeave(object sender, MouseEventArgs e)
+        {
+            titleLabel.TextDecorations = null;
+        }
+
+        void titleLabel_MouseEnter(object sender, MouseEventArgs e)
+        {
+            titleLabel.TextDecorations = TextDecorations.Underline;
         }
 
         void BreadCrumb_MouseUp(object sender, MouseButtonEventArgs e)
@@ -45,11 +72,11 @@ namespace UI.Desktop
             if (pc != null && pc != e.OldValue)
             {
                 category = pc;
-                titleLabel.Content = pc.Name;
+                titleLabel.Text = pc.Name;
                 parentPanel.Visibility = arrowLabel.Visibility = pc.Parent == null ? System.Windows.Visibility.Collapsed : System.Windows.Visibility.Visible;
                 parentPanel.Children.Clear();
                 if(pc.Parent != null) {
-                    BreadCrumb parentCrumb = new BreadCrumb();
+                    BreadCrumb parentCrumb = new BreadCrumb(false);
                     parentCrumb.DataContext = pc.Parent;
                     parentCrumb.ProductCategorySelected += parentCrumb_ProductCategorySelected;
                     parentPanel.Children.Add(parentCrumb);
