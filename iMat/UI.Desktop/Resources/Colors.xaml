@@ -18,4 +18,5 @@
     <BitmapImage x:Key="PaymentImage" UriSource="/UI.Desktop;component/Resources/Icons/payment.png"/>
     <BitmapImage x:Key="PaymentImageBW" UriSource="/UI.Desktop;component/Resources/Icons/payment_BW.png"/>
     <BitmapImage x:Key="ShoppingListImage" UriSource="/UI.Desktop;component/Resources/Icons/copyList_2.png"/>
+    <BitmapImage x:Key="FeatureImage" UriSource="/UI.Desktop;component/Resources/Icons/feature.png"/>
 </ResourceDictionary>
