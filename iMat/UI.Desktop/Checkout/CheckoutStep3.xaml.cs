@@ -77,5 +77,10 @@ namespace UI.Desktop.Checkout
                 NextStep3.Invoke(this, null);
             }
         }
+
+        private void MonthComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

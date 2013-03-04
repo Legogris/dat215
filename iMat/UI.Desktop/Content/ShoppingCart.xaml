@@ -18,7 +18,7 @@
         <Label Content="Totalt:" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Margin="10,0,0,0" Height="26" Width="43" Grid.RowSpan="2"/>
         <Label Content="Antal varor:" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Margin="120,0,0,0" Height="26" Width="71" Grid.RowSpan="2"/>
 
-        <Label x:Name="grandTotalLabel" Content="0,00 kr" HorizontalAlignment="Left" Margin="50,0,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="45" Grid.RowSpan="2"/>
+        <Label x:Name="grandTotalLabel" Content="0,00 kr" HorizontalAlignment="Left" Margin="50,0,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="65" Grid.RowSpan="2"/>
         <Label x:Name="itemsTotalLabel" Content="0 st" HorizontalAlignment="Left" Margin="189,0,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="29" Grid.RowSpan="2"/>
         <Button x:Name="checkoutButton" Margin="5,10,5,0" Grid.Row="2" VerticalAlignment="Top" Height="50" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" ToolTip="Till Kassan" Foreground="{x:Null}" Click="checkoutButton_Click">
             <Button.Background>

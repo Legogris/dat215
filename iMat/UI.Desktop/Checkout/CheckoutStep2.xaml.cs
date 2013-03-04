@@ -78,5 +78,10 @@ namespace UI.Desktop.Checkout
             }
         }
 
+        private void PostcodeTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            PostAddressLabel.Content = "Götefuckingborg";
+        }
+
     }
 }
