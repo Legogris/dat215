@@ -23,6 +23,8 @@ namespace UI.Desktop
     {
         Dictionary<ShoppingItem, GridViewItem> gridItems = new Dictionary<ShoppingItem, GridViewItem>();
         Dictionary<ShoppingItem, DetailedItem> detailedItems = new Dictionary<ShoppingItem, DetailedItem>();
+
+        DetailedItem currentDLI;
         public GridView()
         {
             InitializeComponent();
@@ -34,7 +36,6 @@ namespace UI.Desktop
         {
             foreach (DetailedItem dli in detailedItems.Values)
             {
-                //dli.Width = stackPanel.ActualWidth > dli.Width ? stackPanel.ActualWidth : dli.Width;
                 dli.Width = stackPanel.ActualWidth;
             }
         }
@@ -58,7 +59,7 @@ namespace UI.Desktop
                             li = new GridViewItem(item);
                             gridItems[item] = li;
                             li.ItemAdded += li_ItemAdded;
-                            li.MouseUp += li_MouseUp;
+                            li.MouseEnter += li_MouseUp;
                         }
                         if (detailedItems.ContainsKey(item))
                         {
@@ -67,7 +68,7 @@ namespace UI.Desktop
                             dli = new DetailedItem(item);
                             detailedItems[item] = dli;
                             dli.ItemAdded += li_ItemAdded;
-                            dli.MouseUp += dli_MouseUp;
+                            dli.MouseLeave += dli_MouseUp;
                             dli.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
                             dli.Width = stackPanel.ActualWidth;
                         }
@@ -75,7 +76,6 @@ namespace UI.Desktop
                         dli.Visibility = System.Windows.Visibility.Collapsed;
                         li.Background = new SolidColorBrush((Color)(i % 2 == 0 ? App.Current.Resources["ItemOddBack"] : App.Current.Resources["ItemEvenBack"]));
                         stackPanel.Children.Add(li);
-                        stackPanel.Children.Add(dli);
                         i++;
                     }
                 }
@@ -84,10 +84,18 @@ namespace UI.Desktop
 
         void li_MouseUp(object sender, MouseEventArgs e)
         {
+            if (currentDLI != null)
+            {
+                dli_MouseUp(currentDLI, null);
+            }
             GridViewItem li = (GridViewItem)sender;
             DetailedItem dli = detailedItems[li.Item];
+            int gridItemWidth = (int)Math.Max(1, Math.Floor(stackPanel.ActualWidth / li.ActualWidth));
             li.Visibility = System.Windows.Visibility.Collapsed;
+            int index = stackPanel.Children.IndexOf(li);
+            stackPanel.Children.Insert(index - (index % gridItemWidth), dli);
             dli.Visibility = System.Windows.Visibility.Visible;
+            currentDLI = dli;
         }
         
         void dli_MouseUp(object sender, MouseEventArgs e)
@@ -95,8 +103,13 @@ namespace UI.Desktop
             DetailedItem dli = (DetailedItem)sender;
             GridViewItem li = gridItems[dli.Item];
 
-            li.Visibility = System.Windows.Visibility.Visible;
-            dli.Visibility = System.Windows.Visibility.Collapsed;
+            if (dli.Visibility == System.Windows.Visibility.Visible)
+            {
+                li.Visibility = System.Windows.Visibility.Visible;
+                dli.Visibility = System.Windows.Visibility.Collapsed;
+                stackPanel.Children.Remove(dli);
+                currentDLI = null;
+            }
         }
 
         void li_ItemAdded(object sender, CartEventArgs e)
