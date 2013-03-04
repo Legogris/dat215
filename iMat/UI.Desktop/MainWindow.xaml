@@ -39,8 +39,26 @@
                     </Button>
                 </ToolBar>
                 <ToolBar  ToolBarTray.IsLocked="True">
-                    <ComboBox x:Name="sortCB" Text="Sortera"/>
-                    <Button x:Name="filterButton" ToolTip="Filter" Width="25">
+                    <ComboBox x:Name="sortCB" Text="Sortera" IsReadOnly="True" IsEditable="True">
+                        <MenuItem Header="Alfabetisk (A-Ö)"/>
+                        <MenuItem Header="Alfabetisk (Ö-A)"/>
+                        <MenuItem Header="Pris (Dyrast först)"/>
+                        <MenuItem Header="Pris (Billigast först)"/>
+                        <MenuItem Header="Jämförpris (Dyrast först)"/>
+                        <MenuItem Header="Jämförpris (Billigast först)"/>
+                    </ComboBox>
+                    <Button x:Name="filterButton" ToolTip="Filter" Width="25" Margin="0,2,0,0" VerticalAlignment="Top">
+                        <Button.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="KRAV-märkt" IsCheckable="True" Click="MenuItem_Click_1" />
+                                <MenuItem Header="Fairtrade" IsCheckable="True" />
+                                <MenuItem Header="Vegetariskt" IsCheckable="True" />
+                                <MenuItem Header="Närproducerat" IsCheckable="True" />
+                                <MenuItem Header="På erbjudande" IsCheckable="True" />
+                                <MenuItem Header="Glutenfritt" IsCheckable="True" />
+                                <MenuItem Header="Laktosfritt" IsCheckable="True" />
+                            </ContextMenu>
+                        </Button.ContextMenu>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Resources\Icons\filter_new.png" Width="17" Height="16" OpacityMask="Black" Stretch="UniformToFill" RenderTransformOrigin="0,0.25"/>
                         </StackPanel>

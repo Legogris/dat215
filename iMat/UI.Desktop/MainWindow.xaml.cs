@@ -39,7 +39,14 @@ namespace UI.Desktop
             listContextMenu = new ListContextMenuManager(this, dataHandler);
             DataContext = listContextMenu;
             InitializeComponent();
+            filterButton.Click += filterButton_Click;
             initDataBinding();
+        }
+
+        void filterButton_Click(object sender, RoutedEventArgs e)
+        {
+            filterButton.ContextMenu.IsOpen = true;
+            e.Handled = true;
         }
 
         private void initDataBinding() {
@@ -62,7 +69,7 @@ namespace UI.Desktop
 
         private void menuItemQuitClick(object sender, RoutedEventArgs e)
         {
-            this.Close();
+
         }
 
         private void gridViewButton_Click(object sender, RoutedEventArgs e)
@@ -130,6 +137,12 @@ namespace UI.Desktop
         {
             Window about = new About();
             about.Show();
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            ((MenuItem)sender).IsChecked = true;
+            e.Handled = true;
         }
     }
 
