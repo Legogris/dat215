@@ -48,6 +48,7 @@ namespace UI.Desktop
             selectorContainer.Children.Add(sel);
             productImage.Source = ImageManager.GetImageForProduct(Product);
             productIcons.DataContext = Product;
+            descriptionText.Text = Product.Description;
         }
 
         private void addToListButton_Click(object sender, RoutedEventArgs e)

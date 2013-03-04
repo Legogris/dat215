@@ -12,6 +12,10 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="80"/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="70" />
+        </Grid.RowDefinitions>
         <Image x:Name="productImage" Grid.Column="0" Margin="10,0,0,0" HorizontalAlignment="Left" Height="100" VerticalAlignment="Center" Width="100"/>
         <Label x:Name="productName" Content="produkt" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.Column="1" FontWeight="Bold"/>
         <Grid x:Name="selectorContainer" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right">
@@ -23,6 +27,6 @@
         <Button x:Name="addToListButton" ToolTip="Lägg till i lista" Grid.Column="2" HorizontalAlignment="Left" Margin="5,71,0,0" VerticalAlignment="Top" Width="62" Height="25" Click="addToListButton_Click">
             <Image Source="..\..\Resources\Icons\toList.png" Width="61" Height="20" OpacityMask="Black"/>
         </Button>
-
+        <TextBlock TextWrapping="Wrap" x:Name="descriptionText" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="Blaha" Margin="5, 5, 0, 0" />
     </Grid>
 </local:ProductView>

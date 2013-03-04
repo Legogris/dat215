@@ -23,6 +23,8 @@ namespace UI.Desktop
     {
         Dictionary<ShoppingItem, GridViewItem> gridItems = new Dictionary<ShoppingItem, GridViewItem>();
         Dictionary<ShoppingItem, DetailedItem> detailedItems = new Dictionary<ShoppingItem, DetailedItem>();
+
+        DetailedItem currentDLI;
         public GridView()
         {
             InitializeComponent();
@@ -34,7 +36,6 @@ namespace UI.Desktop
         {
             foreach (DetailedItem dli in detailedItems.Values)
             {
-                //dli.Width = stackPanel.ActualWidth > dli.Width ? stackPanel.ActualWidth : dli.Width;
                 dli.Width = stackPanel.ActualWidth;
             }
         }
@@ -58,7 +59,7 @@ namespace UI.Desktop
                             li = new GridViewItem(item);
                             gridItems[item] = li;
                             li.ItemAdded += li_ItemAdded;
-                            li.MouseUp += li_MouseUp;
+                            li.MouseEnter += li_MouseUp;
                         }
                         if (detailedItems.ContainsKey(item))
                         {
@@ -67,15 +68,13 @@ namespace UI.Desktop
                             dli = new DetailedItem(item);
                             detailedItems[item] = dli;
                             dli.ItemAdded += li_ItemAdded;
-                            dli.MouseUp += dli_MouseUp;
                             dli.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
                             dli.Width = stackPanel.ActualWidth;
                         }
                         li.Visibility = System.Windows.Visibility.Visible;
                         dli.Visibility = System.Windows.Visibility.Collapsed;
-                        li.Background = new SolidColorBrush((Color)(i % 2 == 0 ? App.Current.Resources["ItemOddBack"] : App.Current.Resources["ItemEvenBack"]));
+                        li.Background = (Brush)(i % 2 == 0 ? App.Current.Resources["ItemOddBack"] : App.Current.Resources["ItemEvenBack"]);
                         stackPanel.Children.Add(li);
-                        stackPanel.Children.Add(dli);
                         i++;
                     }
                 }
@@ -84,10 +83,23 @@ namespace UI.Desktop
 
         void li_MouseUp(object sender, MouseEventArgs e)
         {
+            int currentIndex = -1;
+            foreach(DetailedItem ddli in stackPanel.Children.OfType<DetailedItem>().ToList<DetailedItem>()) {
+                currentIndex = stackPanel.Children.IndexOf(ddli);
+                dli_MouseUp(ddli, null);
+            }
             GridViewItem li = (GridViewItem)sender;
             DetailedItem dli = detailedItems[li.Item];
-            li.Visibility = System.Windows.Visibility.Collapsed;
+            int gridItemWidth = (int)Math.Max(1, Math.Floor(stackPanel.ActualWidth / li.ActualWidth));
+            int index = stackPanel.Children.IndexOf(li);
+            int newIndex = (int)Math.Min(1+ index + gridItemWidth - (index % gridItemWidth), stackPanel.Children.Count -1);
+            if(newIndex >= currentIndex && index < currentIndex) {
+                newIndex -= gridItemWidth+1;
+            }
+            stackPanel.Children.Insert(newIndex, dli);
             dli.Visibility = System.Windows.Visibility.Visible;
+            li.Visibility = System.Windows.Visibility.Collapsed;
+            currentDLI = dli;
         }
         
         void dli_MouseUp(object sender, MouseEventArgs e)
@@ -95,8 +107,13 @@ namespace UI.Desktop
             DetailedItem dli = (DetailedItem)sender;
             GridViewItem li = gridItems[dli.Item];
 
-            li.Visibility = System.Windows.Visibility.Visible;
-            dli.Visibility = System.Windows.Visibility.Collapsed;
+            if (dli.Visibility == System.Windows.Visibility.Visible)
+            {
+                dli.Visibility = System.Windows.Visibility.Collapsed;
+                li.Visibility = System.Windows.Visibility.Visible;
+                currentDLI = null;
+            }
+            stackPanel.Children.Remove(dli);
         }
 
         void li_ItemAdded(object sender, CartEventArgs e)
