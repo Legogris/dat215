@@ -20,8 +20,8 @@
         </ListView>
         <TextBlock x:Name="chosenPaymentOption" HorizontalAlignment="Left" Height="26" Margin="10,307,0,0" VerticalAlignment="Top" Width="236"/>
         <TextBlock x:Name="chosenDeliveryOption" HorizontalAlignment="Left" Height="26" Margin="10,333,0,0" VerticalAlignment="Top" Width="236"/>
-        <TextBlock x:Name="chosenPaymentAnswer" HorizontalAlignment="Left" Margin="251,307,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="26" Width="139" FontWeight="Bold"/>
-        <TextBlock x:Name="chosenDeliveryAnswer" HorizontalAlignment="Left" Margin="251,333,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="26" Width="139" FontWeight="Bold"/>
+        <TextBlock x:Name="chosenPaymentAnswer" HorizontalAlignment="Left" Margin="251,307,0,0" TextWrapping="NoWrap" Text="TextBlock" VerticalAlignment="Top" Height="26" Width="139" FontWeight="Bold"/>
+        <TextBlock x:Name="chosenDeliveryAnswer" HorizontalAlignment="Left" Margin="251,333,0,0" TextWrapping="NoWrap" Text="TextBlock" VerticalAlignment="Top" Height="26" Width="139" FontWeight="Bold"/>
 
     </Grid>
 </UserControl>

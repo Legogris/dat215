@@ -26,7 +26,6 @@ namespace UI.Desktop.Checkout
         private CheckoutStep3 step3;
         private CheckoutStep4 step4;
         private LogInPage logIn;
-        private DataHandler dataHandler;
         private ShoppingCart shoppingCart;
 
         public CheckoutWindow(DataHandler data)
@@ -53,10 +52,13 @@ namespace UI.Desktop.Checkout
             if (data.GetUser() != null)
             {
                 PageGrid.Children.Add(step2);
+                logInUser.Content = data.GetUser().Email;
+                logInStatus.Content = "Inloggad som: ";
             }
             else
             {
                 PageGrid.Children.Add(step1);
+                logInStatus.Content = "Inte inloggad!";
             }
             
             initWizSteps(wStep1, "Konto", "UserImage");
@@ -116,6 +118,10 @@ namespace UI.Desktop.Checkout
         void step4_ExitCheckout(object sender, EventArgs e)
         {
             this.Close();
+            if (shoppingCart != null)
+            {
+                shoppingCart.Clear();
+            }
         }
 
         void step2_BackStep2(object sender, EventArgs e)

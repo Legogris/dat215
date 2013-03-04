@@ -12,11 +12,12 @@
         </Grid.ColumnDefinitions>
         <Grid x:Name="PageGrid" VerticalAlignment="Stretch" Margin="0,0,0,0" Grid.Column="1"/>
         <Grid x:Name="wizardSteps">
-            <Label Content="Inloggningstatus" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="logInStatus" Content="Inloggningstatus" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="160"/>
             <local:WizardSteps x:Name="wStep1" HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top"/>
             <local:WizardSteps x:Name="wStep2" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top"/>
             <local:WizardSteps x:Name="wStep3" HorizontalAlignment="Left" Margin="0,150,0,0" VerticalAlignment="Top"/>
             <local:WizardSteps x:Name="wStep4" HorizontalAlignment="Left" Margin="0,200,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="logInUser" Content="Label" HorizontalAlignment="Left" Height="26" Margin="10,24,0,0" VerticalAlignment="Top" Width="160" FontWeight="Bold"/>
         </Grid>
     </Grid>
 </Window>
