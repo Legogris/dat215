@@ -77,10 +77,11 @@ namespace UI.Desktop.Content
 
         private void showDetails(AbstractListItem listItem)
         {
+            detailPanel.Children.Clear();
             FavoriteList list = listItem.DataContext as FavoriteList;
-            listNameTextBox.Text = list.Name;
+            listNameTextBox.Content= list.Name;
             listTotalPriceLabel.Content = list.TotalCost + " kr";
-            
+            detailDetails.Visibility = System.Windows.Visibility.Visible;
             foreach (ShoppingItem item in list.GetItems())
             {
                 addShoppingItemToDetail(item);
@@ -95,12 +96,28 @@ namespace UI.Desktop.Content
             listItem.Second(item.Amount + " " + item.Product.UnitSuffix);
             listItem.Third(item.Total + " kr");
             listItem.MakeRemovable();
+            listItem.RemoveClick += listItem_RemoveClick;
+        }
+
+        void listItem_RemoveClick(AbstractListItem sender)
+        {
+            AbstractListItem selected = getSelectedOverview();
+            if (selected == null) return;
+            FavoriteList list = selected.DataContext as FavoriteList;
+            if (list == null) return;
+            list.Remove(detailPanel.Children.IndexOf(sender));
+            showDetails(selected);
+            selected.First(list.Name);
+            selected.Second(list.NumberOfItems + " st");
+            selected.Third(list.TotalCost + " kr");
         }
 
         private void hideDetails()
         {
-            listNameTextBox.Text = "";
-            listTotalPriceLabel.Content = "";
+            //listNameTextBox.Content = "";
+            //listTotalPriceLabel.Content = "";
+            detailDetails.Visibility = System.Windows.Visibility.Collapsed;
+            detailPanel.Children.Clear();
         }
 
         private AbstractListItem getSelectedOverview()

@@ -21,6 +21,8 @@ namespace UI.Desktop.Content.Controls
     /// </summary>
     public partial class ShoppingCartItem : UserControl
     {
+        public static readonly Brush BG = (Brush)App.Current.Resources["PanelBackground"];
+        public static readonly Brush HOVER = (Brush)App.Current.Resources["ItemHighlight"];
         public delegate void RemoveShoppingCartItem(ShoppingCartItem shoppingCartItem);
         public event RemoveShoppingCartItem RemoveShoppingCartItemPress;
         public delegate void ItemAmountChanged(ShoppingCartItem shoppingCartItem, double amount);
@@ -48,11 +50,13 @@ namespace UI.Desktop.Content.Controls
         private void mouseEnter(object sender, MouseEventArgs e)
         {
             removeButton.Visibility = System.Windows.Visibility.Visible;
+            Background = HOVER;
         }
 
         private void mouseLeave(object sender, MouseEventArgs e)
         {
             removeButton.Visibility = System.Windows.Visibility.Collapsed;
+            Background = BG;
         }
 
         private void removeButton_Click(object sender, RoutedEventArgs e)

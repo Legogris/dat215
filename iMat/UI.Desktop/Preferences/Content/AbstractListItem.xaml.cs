@@ -20,6 +20,8 @@ namespace UI.Desktop.Preferences.Content
     /// </summary>
     public partial class AbstractListItem : UserControl
     {
+        public delegate void RemoveEvent(AbstractListItem sender);
+        public event RemoveEvent RemoveClick;
         public static readonly Brush WHITE = new SolidColorBrush(Colors.White);
         public static readonly Brush HOVER = (Brush)App.Current.Resources["ItemHighlight"];
         public static readonly Brush SELECTED = (Brush)App.Current.Resources["PanelBackground"];
@@ -92,7 +94,10 @@ namespace UI.Desktop.Preferences.Content
 
         private void removeButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (RemoveClick != null)
+            {
+                RemoveClick.Invoke(this);
+            }
         }
     }
 }

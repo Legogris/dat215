@@ -44,14 +44,16 @@
                 <Image Source="..\Resources\Icons\importList.png" Width="41" Height="33"/>
             </StackPanel>
         </Button>
-        <TextBox x:Name="listNameTextBox" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
-        <Label x:Name="listTotalPriceLabel" Content=" " Grid.Column="2" HorizontalAlignment="Left" Margin="214,26,0,0" VerticalAlignment="Top" Height="26"/>
+        <Grid x:Name="detailDetails" Grid.Column="2" Margin="10,28,0,177" Visibility="Collapsed">
+            <Label x:Name="listNameTextBox" Content="listnamn" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Label x:Name="listTotalPriceLabel" Content="pris" Grid.Column="2" HorizontalAlignment="Left" Margin="214,0,0,0" VerticalAlignment="Top" Height="26"/>
+            <Button Content="Byt namn" HorizontalAlignment="Left" Margin="134,2,0,0" VerticalAlignment="Top" Width="75"/>
+        </Grid>
         <Label Content="Länk:" Grid.Column="1" HorizontalAlignment="Left" Margin="6,52,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="37"/>
         <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="56,55,0,0" Grid.Row="1" TextWrapping="Wrap" Text="http://imat.se/l/asdfasdf" VerticalAlignment="Top" Width="145"/>
 
         <Content:AbstractListItem x:Name="overviewHeader" Grid.Column="1" HorizontalAlignment="Left" Margin="1,29,0,0" VerticalAlignment="Top" Width="300"/>
         <StackPanel x:Name="overviewPanel" Grid.Column="1" HorizontalAlignment="Left" Margin="1,55,0,0" VerticalAlignment="Stretch" Width="300"/>
-        <Image Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="206,55,0,0" Grid.Row="1" VerticalAlignment="Top" Source="/UI.Desktop;component/Resources/Icons/social.png"/>
         <Content:AbstractListItem x:Name="detailHeader" Grid.Column="2" HorizontalAlignment="Left" Margin="10,55,-9,0" VerticalAlignment="Top" Width="300"/>
         <StackPanel x:Name="detailPanel" Grid.Column="2" HorizontalAlignment="Left" Margin="10,81,-9,0" VerticalAlignment="Stretch" Width="300"/>
 
