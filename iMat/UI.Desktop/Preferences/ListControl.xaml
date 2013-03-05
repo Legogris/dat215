@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:Desktop="clr-namespace:UI.Desktop" x:Class="UI.Desktop.Content.ListControl" 
+             xmlns:Desktop="clr-namespace:UI.Desktop" xmlns:Content="clr-namespace:UI.Desktop.Preferences.Content" x:Class="UI.Desktop.Content.ListControl" 
              mc:Ignorable="d"
              DataContext="{Binding RelativeSource={RelativeSource Self}}"
              d:DesignHeight="440" Width="640">
@@ -17,8 +17,8 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="53*"/>
-            <ColumnDefinition Width="73*"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="300"/>
         </Grid.ColumnDefinitions>
         <Label Content="Dina Shoppingistor" HorizontalAlignment="Left" Height="28" Margin="1,0,0,0" VerticalAlignment="Top" Grid.Column="1" Width="112"/>
         <Label Content="Innehåll" HorizontalAlignment="Left" Height="28" Margin="10,0,0,0" VerticalAlignment="Top" Width="68" Grid.Column="2"/>
@@ -44,34 +44,16 @@
                 <Image Source="..\Resources\Icons\importList.png" Width="41" Height="33"/>
             </StackPanel>
         </Button>
-        <ListView x:Name="overview" ItemsSource="{Binding ShoppingListsCollection}" MouseUp="overview_MouseLeftButtonDown_1" Grid.Column="1" HorizontalAlignment="Left" Height="199" Margin="0,29,0,0" VerticalAlignment="Top" Width="254">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Width="100" Header="Namn" DisplayMemberBinding="{Binding Name}"/>
-                    <GridViewColumn Width="70" Header="Antal varor" DisplayMemberBinding="{Binding NumberOfItems}"/>
-                    <GridViewColumn Width="70" Header="Kostnad" DisplayMemberBinding="{Binding TotalCost}"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <ListView x:Name="detail" Grid.Column="2" MouseUp="detail_MouseDown_1" HorizontalAlignment="Left" Height="170" Margin="10,58,0,0" VerticalAlignment="Top" Width="265">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Width="90" Header="Vara" DisplayMemberBinding="{Binding Product.Name}"/>
-                    <GridViewColumn Width="50" Header="Antal" DisplayMemberBinding="{Binding Amount}"/>
-                    <GridViewColumn Width="60" Header="Kostnad" DisplayMemberBinding="{Binding Total}"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <TextBox x:Name="listNameTextBox" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198" LostFocus="listNameTextLostFocus" KeyDown="listNameTextKeyDown"/>
-        <Label x:Name="listTotalPriceLabel" Content=" " Grid.Column="2" HorizontalAlignment="Left" Margin="214,26,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="listNameTextBox" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+        <Label x:Name="listTotalPriceLabel" Content=" " Grid.Column="2" HorizontalAlignment="Left" Margin="214,26,0,0" VerticalAlignment="Top" Height="26"/>
         <Label Content="Länk:" Grid.Column="1" HorizontalAlignment="Left" Margin="6,52,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="37"/>
         <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="56,55,0,0" Grid.Row="1" TextWrapping="Wrap" Text="http://imat.se/l/asdfasdf" VerticalAlignment="Top" Width="145"/>
-        <Button x:Name="removeItemButton" Grid.Column="2" ToolTip="Ta bort varan ur listan" HorizontalAlignment="Left" Margin="71,13,0,0" VerticalAlignment="Top" Width="38" Click="removeItemButton_Click" Height="38" Grid.Row="1">
-            <StackPanel Orientation="Horizontal">
-                <Image Source="..\Resources\Icons\remove.png" Width="32" Height="32"/>
-            </StackPanel>
-        </Button>
-        <TextBox x:Name="amountTextBox" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,13,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" LostFocus="amountTextLostFocus" KeyDown="amountTextKeyDown"/>
+
+        <Content:AbstractListItem x:Name="overviewHeader" Grid.Column="1" HorizontalAlignment="Left" Margin="1,29,0,0" VerticalAlignment="Top" Width="300"/>
+        <StackPanel x:Name="overviewPanel" Grid.Column="1" HorizontalAlignment="Left" Margin="1,55,0,0" VerticalAlignment="Stretch" Width="300"/>
+        <Image Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="206,55,0,0" Grid.Row="1" VerticalAlignment="Top" Source="/UI.Desktop;component/Resources/Icons/social.png"/>
+        <Content:AbstractListItem x:Name="detailHeader" Grid.Column="2" HorizontalAlignment="Left" Margin="10,55,-9,0" VerticalAlignment="Top" Width="300"/>
+        <StackPanel x:Name="detailPanel" Grid.Column="2" HorizontalAlignment="Left" Margin="10,81,-9,0" VerticalAlignment="Stretch" Width="300"/>
 
     </Grid>
 </UserControl>

@@ -114,15 +114,15 @@ namespace UI.Desktop.Preferences
 
         private void initOverview()
         {
-            orderHeader.fulhack();
+            orderHeader.MakeHeader();
             IList<Order> orders = dataHandler.GetOrders();
             foreach (Order order in orders)
             {
-                AbstractOrderItem item = new AbstractOrderItem();
+                AbstractListItem item = new AbstractListItem();
                 overview.Children.Add(item);
-                item.Date(order.Date.ToString());
-                item.Order(order.OrderNumber.ToString());
-                item.Total(order.TotalCost.ToString());
+                item.First(order.Date.ToString());
+                item.Second(order.OrderNumber.ToString());
+                item.Third(order.TotalCost + " kr");
             }
         }
     }

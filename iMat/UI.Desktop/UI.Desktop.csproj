@@ -140,8 +140,8 @@
     <Compile Include="Content\StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Preferences\Content\AbstractOrderItem.xaml.cs">
-      <DependentUpon>AbstractOrderItem.xaml</DependentUpon>
+    <Compile Include="Preferences\Content\AbstractListItem.xaml.cs">
+      <DependentUpon>AbstractListItem.xaml</DependentUpon>
     </Compile>
     <Compile Include="Preferences\Content\PreferenceTab.xaml.cs">
       <DependentUpon>PreferenceTab.xaml</DependentUpon>
@@ -265,7 +265,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Preferences\Content\AbstractOrderItem.xaml">
+    <Page Include="Preferences\Content\AbstractListItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -585,6 +585,7 @@
     <Resource Include="Resources\Icons\payment_BW.png" />
     <Resource Include="Resources\Icons\confirm_BW.png" />
     <Resource Include="Resources\Icons\featurex.png" />
+    <Resource Include="Resources\Icons\social.png" />
     <Content Include="Resources\products.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
