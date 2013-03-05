@@ -27,9 +27,11 @@ namespace UI.Desktop.Checkout
         private CheckoutStep4 step4;
         private LogInPage logIn;
         private ShoppingCart shoppingCart;
+        private DataHandler dataHandler;
 
         public CheckoutWindow(DataHandler data)
         {
+            dataHandler = data;
             shoppingCart = data.GetCart(); 
             InitializeComponent();
             wizardSteps.Background = (Brush)App.Current.Resources["DarkComplement"];
@@ -122,6 +124,7 @@ namespace UI.Desktop.Checkout
             this.Close();
             if (shoppingCart != null)
             {
+                dataHandler.GetOrders().Add(new Order(shoppingCart, DateTime.Now, 1337));
                 shoppingCart.Clear();
             }
         }

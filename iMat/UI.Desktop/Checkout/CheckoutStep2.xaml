@@ -25,12 +25,12 @@
                 <TextBox x:Name="EmailTextBox" HorizontalAlignment="Left" Margin="10,135,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="130"/>
                 <Label x:Name="AddressLabel" Content="Adress:" HorizontalAlignment="Left" Margin="10,162,0,0" VerticalAlignment="Top" Width="70"/>
                 <TextBox x:Name="AddressTextBox" HorizontalAlignment="Left" Margin="10,188,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="130"/>
-                <Label x:Name="PhoneNumberLabel" Content="Telefonnummer:" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top" Width="70"/>
+                <Label x:Name="PhoneNumberLabel" Content="Telefonnummer:" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="PhoneNumberTextBox" HorizontalAlignment="Left" Margin="10,241,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="130"/>
                 <Label x:Name="PostcodeLabel" Content="Postkod:" HorizontalAlignment="Left" Margin="10,268,0,0" VerticalAlignment="Top" Width="70"/>
                 <TextBox x:Name="PostcodeTextBox" HorizontalAlignment="Left" Margin="10,294,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="70" LostFocus="PostcodeTextBox_LostFocus"/>
                 <Label x:Name="PostAddressLabel" Content="Postadress:" HorizontalAlignment="Left" Margin="85,268,0,0" VerticalAlignment="Top" Width="80"/>
-                <TextBox x:Name="PostAddressTextBox" HorizontalAlignment="Left" Margin="85,294,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="127" IsReadOnly="True"/>
+                <TextBox x:Name="PostAddressTextBox" HorizontalAlignment="Left" Margin="85,294,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="127" IsReadOnly="True" IsEnabled="False"/>
             </Grid>
         </StackPanel>
 

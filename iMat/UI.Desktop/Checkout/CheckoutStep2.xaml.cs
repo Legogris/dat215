@@ -72,15 +72,29 @@ namespace UI.Desktop.Checkout
 
         private void NextStep2Button_Click(object sender, RoutedEventArgs e)
         {
+            if (HomeDelivery.IsChecked.Value)
+            {
+                if (sa.Count == 0)
+                {
+                    sa.Add(new ShippingAddress());
+                }
+                sa.First().FirstName = FirstNameTextBox.Text;
+                sa.First().LastName = LastNameTextBox.Text;
+                sa.First().Address = AddressTextBox.Text;
+                sa.First().PostAddress = PostAddressTextBox.Text;
+                sa.First().PostCode = PostcodeTextBox.Text;
+                sa.First().PhoneNumber = PhoneNumberTextBox.Text;
+                sa.First().Email = EmailTextBox.Text;
+            }
             if (NextStep2 != null)
             {
                 NextStep2.Invoke(this, null);
-            }
+            }            
         }
 
         private void PostcodeTextBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            PostAddressTextBox.Text = "Götefuckingborg";
+            PostAddressTextBox.Text = "Göteborg";
         }
 
     }

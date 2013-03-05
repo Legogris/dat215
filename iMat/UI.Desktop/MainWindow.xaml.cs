@@ -28,7 +28,7 @@ namespace UI.Desktop
         public static readonly String PRODUCTS = "Resources/products.txt";
         public static readonly String DATABASE = "Resources/favs.db";
         private DataHandler dataHandler;
-        private User user;
+        
         private static ListContextMenuManager listContextMenu;
         public static ContextMenu ListContextMenu { get { return listContextMenu.ShoppingListContextMenu; } }
         public static Window WindowContainer { get; set; }
@@ -37,7 +37,7 @@ namespace UI.Desktop
         {
             WindowContainer = this;
             dataHandler = DataHandler.ReadFromFile(DATABASE, PRODUCTS);
-            user = dataHandler.GetUser();
+            
             listContextMenu = new ListContextMenuManager(this, dataHandler);
             DataContext = listContextMenu;
             InitializeComponent();
@@ -149,11 +149,8 @@ namespace UI.Desktop
 
         private void menuItemLogOut_Click(object sender, RoutedEventArgs e)
         {
-            if (user != null) 
-            {
-                //Doesn't work for shit
-                user = null;
-            }
+            // Yeah. No. Man kan inte logga ut.
+            // DEAL WITH IT.
         }
     }
 

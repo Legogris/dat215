@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UI.Desktop.Preferences.Content;
 
 namespace UI.Desktop.Preferences
 {
@@ -25,19 +26,34 @@ namespace UI.Desktop.Preferences
         private DataHandler dataHandler;
         private ShippingAddress sa;
 
+        public IList<Order> OrderCollection
+        {
+            get { return dataHandler.GetOrders(); }
+        }
+
         public AccountControl(DataHandler dh)
         {
-            InitializeComponent();
             dataHandler = dh;
-            if (dataHandler.GetUser() != null)
+            InitializeComponent();
+            initOverview();
+            if (dataHandler.GetUser() == null)
             {
-                labels();
+                accountLogIn.Visibility = System.Windows.Visibility.Visible;
+                accountStatus.Content = "Inte inloggad";
+            }
+            else
+            {
+                accountInfo.Visibility = System.Windows.Visibility.Visible;
+                if (dataHandler.GetShippingAddresses().Count != 0)
+                {
+                    sa = dataHandler.GetShippingAddresses().First();
+                    labels();
+                } 
             }
         }
 
         private void labels()
         {
-            sa = dataHandler.GetShippingAddresses().First();
             accountname.Content = dataHandler.GetUser().Email;
             forename.Text = sa.FirstName;
             lastname.Text = sa.LastName;
@@ -51,7 +67,62 @@ namespace UI.Desktop.Preferences
         {
             if (dataHandler.GetUser() != null)
             {
-                
+                if (sa == null)
+                {
+                    dataHandler.GetShippingAddresses().Add(new ShippingAddress());
+                    sa = dataHandler.GetShippingAddresses().First();
+                }
+                sa.FirstName = forename.Text;
+                sa.LastName = lastname.Text;
+                sa.Address = street.Text;
+                sa.PostAddress = "Göteborg";
+                sa.PostCode = postcode.Text;
+                sa.PhoneNumber = phone.Text;
+                sa.Email = email.Text;
+            }
+        }
+
+        private void logIn(object sender, RoutedEventArgs e)
+        {
+            dataHandler.setUser(logInAccName.Text, logInPW.Text);
+            logIn();
+        }
+
+        private void goToCreateAccount(object sender, RoutedEventArgs e)
+        {
+            accountLogIn.Visibility = System.Windows.Visibility.Collapsed;
+            accountCreate.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        private void createAccount(object sender, RoutedEventArgs e)
+        {
+            dataHandler.setUser(createAccName.Text, createPW.Text);
+            logIn();
+        }
+
+        private void logIn() {
+            accountInfo.Visibility = System.Windows.Visibility.Visible;
+            accountLogIn.Visibility = System.Windows.Visibility.Collapsed;
+            accountCreate.Visibility = System.Windows.Visibility.Collapsed;
+            accountname.Content = dataHandler.GetUser().Email;
+            accountStatus.Content = "Inloggad som";
+            if (dataHandler.GetShippingAddresses().Count != 0)
+            {
+                labels();
+            }
+        }
+
+        private void initOverview()
+        {
+            orderHeader.fulhack();
+            IList<Order> orders = dataHandler.GetOrders();
+            foreach (Order order in orders)
+            {
+                AbstractOrderItem item = new AbstractOrderItem();
+                overview.Children.Add(item);
+                item.Date(order.Date.ToString());
+                item.Order(order.OrderNumber.ToString());
+                item.Total(order.TotalCost.ToString());
             }
         }
     }

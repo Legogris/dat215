@@ -12,8 +12,11 @@ namespace Data
         public DateTime Date { get; private set; }
         public int OrderNumber { get; private set; }
         public IList<ShoppingItem> Items { get; private set; }
+        public double TotalCost { get; private set; }
 
-        public Order(ShoppingCart cart, DateTime date, int orderNumber) : this(cart.GetItems(), date, orderNumber) { }
+        public Order(ShoppingCart cart, DateTime date, int orderNumber) : this(cart.GetItems(), date, orderNumber) {
+            TotalCost = cart.Total;
+        }
 
         public Order(IList<ShoppingItem> items, DateTime date, int orderNumber)
         {

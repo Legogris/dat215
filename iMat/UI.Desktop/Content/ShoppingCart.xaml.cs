@@ -143,6 +143,7 @@ namespace UI.Desktop.Content
 
         private void checkoutButton_Click(object sender, RoutedEventArgs e)
         {
+            if (ShoppingCart.GetItems().Count == 0) return;
             Checkout.CheckoutWindow wizard = new Checkout.CheckoutWindow(DataHandler);
             wizard.Owner = MainWindow.WindowContainer;
             wizard.ShowDialog();
