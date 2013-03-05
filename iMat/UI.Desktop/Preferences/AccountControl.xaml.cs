@@ -23,18 +23,22 @@ namespace UI.Desktop.Preferences
     public partial class AccountControl : UserControl
     {
         private DataHandler dataHandler;
+        private ShippingAddress sa;
 
         public AccountControl(DataHandler dh)
         {
             InitializeComponent();
             dataHandler = dh;
-            labels();
+            if (dataHandler.GetUser() != null)
+            {
+                labels();
+            }
         }
 
         private void labels()
         {
+            sa = dataHandler.GetShippingAddresses().First();
             accountname.Content = dataHandler.GetUser().Email;
-            ShippingAddress sa = dataHandler.GetShippingAddresses().First();
             forename.Text = sa.FirstName;
             lastname.Text = sa.LastName;
             email.Text = sa.Email;
@@ -45,7 +49,10 @@ namespace UI.Desktop.Preferences
 
         public void save()
         {
-            // TODO: save that shit
+            if (dataHandler.GetUser() != null)
+            {
+                
+            }
         }
     }
 }

@@ -101,10 +101,10 @@ namespace UI.Desktop
 
         private void shoppingListPrefsClick(object sender, RoutedEventArgs e)
         {
-            openPreferences(new ListControl(dataHandler));
+            openPreferences(PreferencesWindow.StartupView.List);
         }
 
-        private void openPreferences(UserControl prefs)
+        private void openPreferences(PreferencesWindow.StartupView prefs)
         {
             PreferencesWindow pref = new PreferencesWindow(dataHandler, prefs);
             pref.Owner = this;
@@ -113,7 +113,7 @@ namespace UI.Desktop
 
         private void menuItemPropertiesClick(object sender, RoutedEventArgs e)
         {
-            openPreferences(new AccountControl(dataHandler));
+            openPreferences(PreferencesWindow.StartupView.Account);
         }
 
         private void shoppingListComboBoxSelectedChanged(object sender, SelectionChangedEventArgs e)

@@ -24,22 +24,31 @@ namespace UI.Desktop.Preferences
     {
         private DataHandler dataHandler;
         private List<PreferenceTab> prefTabs = new List<PreferenceTab>();
+        private AccountControl account;
+        private ListControl shoppinglist;
 
-        public PreferencesWindow(DataHandler dh, UserControl open)
+        public enum StartupView
+        {
+            Account, List
+        }
+
+        public PreferencesWindow(DataHandler dh, StartupView open)
         {
             InitializeComponent();
             dataHandler = dh;
-            content.Children.Add(open);
-
-            addNav(new AccountControl(dataHandler), "Konto", (BitmapImage)App.Current.Resources["UserImage"]);
-            addNav(new ListControl(dataHandler), "Shoppinglistor", (BitmapImage)App.Current.Resources["ShoppingListImage"]);
-
-            if (open is AccountControl)
+            account = new AccountControl(dataHandler);
+            shoppinglist = new ListControl(dataHandler);
+            addNav(account, "Konto", (BitmapImage)App.Current.Resources["UserImage"]);
+            addNav(shoppinglist, "Shoppinglistor", (BitmapImage)App.Current.Resources["ShoppingListImage"]);
+            
+            if (open == StartupView.Account)
             {
+                content.Children.Add(account);
                 prefTabs[0].Selected = true;
             }
             else
             {
+                content.Children.Add(shoppinglist);
                 prefTabs[1].Selected = true;
             }
         }
@@ -70,6 +79,7 @@ namespace UI.Desktop.Preferences
         private void okClick(object sender, RoutedEventArgs e)
         {
             DialogResult = true;
+            account.save();
         }
     }
 }
