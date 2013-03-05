@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UI.Desktop.Controls;
+using UI.Desktop.Preferences.Content;
 
 namespace UI.Desktop.Content
 {
@@ -24,159 +25,146 @@ namespace UI.Desktop.Content
     public partial class ListControl : UserControl
     {
         private ShoppingListHandler listHandler;
-        private IEnumerable<ShoppingItem> detailList
-        {
-            get { return (IList<ShoppingItem>) detail.ItemsSource; }
-            set { detail.ItemsSource = value; }
-        }
-        private FavoriteList current = null;
-
-        public IList<FavoriteList> ShoppingListsCollection
-        { get { return listHandler.GetFavLists(); } }
+        public IList<FavoriteList> ShoppingListsCollection { get { return listHandler.GetFavLists(); } }
 
         public ListControl(DataHandler dh)
         {
             listHandler = dh.GetFavorites();
             InitializeComponent();
+            setUpOverview();
+            setUpDetail();
         }
 
-        private void overview_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
+        private void setUpOverview()
         {
-            var item = ((FrameworkElement)e.OriginalSource).DataContext as FavoriteList;
-            if (item != null)
+            overviewHeader.MakeHeader();
+            overviewHeader.First("Namn");
+            overviewHeader.Second("Antal");
+            overviewHeader.Third("Pris");
+            foreach (FavoriteList fav in ShoppingListsCollection)
             {
-                //updateDetail(item);
-                current = item;
-                saveAmountChanges();
-                amountTextBox.Clear();
+                addFavoriteListToOverview(fav);
             }
+        }
+
+        private void addFavoriteListToOverview(FavoriteList fav) {
+            AbstractListItem shoppingListItem = new AbstractListItem();
+            overviewPanel.Children.Add(shoppingListItem);
+            shoppingListItem.First(fav.Name);
+            shoppingListItem.Second(fav.NumberOfItems + " st");
+            shoppingListItem.Third(fav.TotalCost + " kr");
+            shoppingListItem.Cursor = Cursors.Hand;
+            shoppingListItem.MouseUp += overviewItem_Click;
+            shoppingListItem.DataContext = fav;
         }
         
-        private void deleteShoppingListClick(object sender, RoutedEventArgs e)
+        void overviewItem_Click(object sender, MouseButtonEventArgs e)
         {
-            if (current != null)
+            AbstractListItem item = sender as AbstractListItem;
+            if (item.Selected) return;
+            deselectOverview();
+            item.Selected = true;
+            showDetails(item);
+        }
+
+        private void setUpDetail()
+        {
+            detailHeader.MakeHeader();
+            detailHeader.First("Vara");
+            detailHeader.Second("Antal");
+            detailHeader.Third("Pris");
+        }
+
+        private void showDetails(AbstractListItem listItem)
+        {
+            detailPanel.Children.Clear();
+            FavoriteList list = listItem.DataContext as FavoriteList;
+            listNameTextBox.Content= list.Name;
+            listTotalPriceLabel.Content = list.TotalCost + " kr";
+            detailDetails.Visibility = System.Windows.Visibility.Visible;
+            foreach (ShoppingItem item in list.GetItems())
             {
-                listHandler.Remove(current);
-                reloadOverview();
-                updateDetail(null);
-                current = null;
+                addShoppingItemToDetail(item);
             }
         }
 
-        private void updateDetail(FavoriteList item)
+        private void addShoppingItemToDetail(ShoppingItem item)
         {
-            if (item == null)
-            {
-                current = null;
-                detailList = null;
-                listTotalPriceLabel.Content = "";
-                listNameTextBox.Text = "";
-            }
-            else
-            {
-                current = item;
-                detail.ItemsSource = null;
-                detailList = item.GetItems();
-                listTotalPriceLabel.Content = item.TotalCost + " kr";
-                listNameTextBox.Text = item.Name;
-            }
+            AbstractListItem listItem = new AbstractListItem();
+            detailPanel.Children.Add(listItem);
+            listItem.First(item.Product.Name);
+            listItem.Second(item.Amount + " " + item.Product.UnitSuffix);
+            listItem.Third(item.Total + " kr");
+            listItem.MakeRemovable();
+            listItem.RemoveClick += listItem_RemoveClick;
         }
 
-        private void reloadOverview()
+        void listItem_RemoveClick(AbstractListItem sender)
         {
-            overview.ItemsSource = null;
-            overview.ItemsSource = ShoppingListsCollection;
+            AbstractListItem selected = getSelectedOverview();
+            if (selected == null) return;
+            FavoriteList list = selected.DataContext as FavoriteList;
+            if (list == null) return;
+            list.Remove(detailPanel.Children.IndexOf(sender));
+            showDetails(selected);
+            selected.First(list.Name);
+            selected.Second(list.NumberOfItems + " st");
+            selected.Third(list.TotalCost + " kr");
         }
 
+        private void hideDetails()
+        {
+            //listNameTextBox.Content = "";
+            //listTotalPriceLabel.Content = "";
+            detailDetails.Visibility = System.Windows.Visibility.Collapsed;
+            detailPanel.Children.Clear();
+        }
+
+        private AbstractListItem getSelectedOverview()
+        {
+            AbstractListItem listItem = null;
+            foreach (AbstractListItem item in overviewPanel.Children)
+            {
+                if (item.Selected)
+                {
+                    listItem = item;
+                    break;
+                }
+            }
+            return listItem;
+        }
+                
         private void copyClick(object sender, RoutedEventArgs e) // TODO: referenser till fel objekt. fakken hell.
         {
-            if (current == null) return;
-            FavoriteList copyList = new FavoriteList(current.Name);
-            copyList.Add(current.GetItems());
-            listHandler.Add(copyList);
-            reloadOverview();
+            
         }
 
         private void newShoppingList(object sender, RoutedEventArgs e)
         {
             FavoriteList list = new FavoriteList("Ny lista");
-            current = list;
             listHandler.Add(list);
-            reloadOverview();
-            updateDetail(list);
+            deselectOverview();
+            addFavoriteListToOverview(list);
+            AbstractListItem item = overviewPanel.Children[overviewPanel.Children.Count - 1] as AbstractListItem;
+            item.Selected = true;
+            showDetails(item);
         }
 
-        private void removeItemButton_Click(object sender, RoutedEventArgs e)
+        private void deleteShoppingListClick(object sender, RoutedEventArgs e)
         {
-            if (current == null || detail.SelectedIndex == -1) return;
-            current.Remove(detail.SelectedIndex);
-            updateDetail(current);
-            reloadOverview();
-            amountTextBox.Clear();
+            AbstractListItem item = getSelectedOverview();
+            if (item == null) return;
+            overviewPanel.Children.Remove(item);
+            listHandler.Remove(item.DataContext as FavoriteList);
+            hideDetails();
         }
 
-        private void detail_MouseDown_1(object sender, MouseButtonEventArgs e)
+        private void deselectOverview()
         {
-            var item = ((FrameworkElement)e.OriginalSource).DataContext as ShoppingItem;
-            if (item != null)
+            foreach (AbstractListItem item in overviewPanel.Children)
             {
-                amountTextBox.Text = item.Amount.ToString();
+                item.Selected = false;
             }
         }
-
-        private void saveNameChanges()
-        {
-            if (listNameTextBox.Text.Length != 0)
-            {
-                current.Name = listNameTextBox.Text;
-                listHandler.Change(current);
-                
-                updateDetail(current);
-                reloadOverview();
-            }
-            
-        }
-
-        private void saveAmountChanges()
-        {
-            if (amountTextBox.Text.Length != 0)
-            {
-                int i = detail.SelectedIndex;
-                detail.ItemsSource = null;
-                double d = Convert.ToDouble(amountTextBox.Text);
-                current.Change(i, d);
-            }
-            
-            updateDetail(current);
-            reloadOverview();
-            amountTextBox.Clear();
-        }
-
-        private void amountTextLostFocus(object sender, RoutedEventArgs e)
-        {
-            saveAmountChanges();
-        }
-
-        private void amountTextKeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                saveAmountChanges();
-            }
-        }
-
-        private void listNameTextLostFocus(object sender, RoutedEventArgs e)
-        {
-            saveNameChanges();
-        }
-
-        private void listNameTextKeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                saveNameChanges();
-            }
-        }
-
     }
 }
