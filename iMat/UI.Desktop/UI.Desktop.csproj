@@ -578,12 +578,8 @@
     <Resource Include="Resources\Icons\payment_BW.png" />
     <Resource Include="Resources\Icons\remove.png" />
     <Resource Include="Resources\Icons\remove_16.png" />
-    <Resource Include="Resources\Icons\shippment_BW.png" />
-    <Resource Include="Resources\Icons\user_BW.png" />
     <Resource Include="Resources\Icons\user_BW.png" />
     <Resource Include="Resources\Icons\shippment_BW.png" />
-    <Resource Include="Resources\Icons\payment_BW.png" />
-    <Resource Include="Resources\Icons\confirm_BW.png" />
     <Resource Include="Resources\Icons\featurex.png" />
     <Content Include="Resources\products.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
