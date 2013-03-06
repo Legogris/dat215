@@ -68,9 +68,6 @@ namespace UI.Desktop
             addIT.Add(new ShoppingItem(Product, NumberOfItems));
             addToListButton.DataContext = addIT;
             e.Handled = true;
-            
         }
-
-
     }
 }

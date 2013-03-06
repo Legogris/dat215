@@ -60,6 +60,8 @@ namespace UI.Desktop
                             gridItems[item] = li;
                             li.ItemAdded += li_ItemAdded;
                             li.MouseUp += li_MouseUp;
+                            li.BorderBrush = (Brush)App.Current.Resources["GridBorder"];
+                            li.BorderThickness = new Thickness(0, 5, 5, 0);
                         }
                         if (detailedItems.ContainsKey(item))
                         {
@@ -70,6 +72,8 @@ namespace UI.Desktop
                             dli.ItemAdded += li_ItemAdded;
                             dli.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
                             dli.Width = stackPanel.ActualWidth;
+                            dli.BorderBrush = (Brush)App.Current.Resources["GridBorder"];
+                            dli.BorderThickness = new Thickness(0, 5, 5, 0);
                         }
                         li.Visibility = System.Windows.Visibility.Visible;
                         dli.Visibility = System.Windows.Visibility.Collapsed;
@@ -98,6 +102,7 @@ namespace UI.Desktop
             }
             stackPanel.Children.Insert(newIndex, dli);
             dli.Visibility = System.Windows.Visibility.Visible;
+            li.BorderThickness = new Thickness(0, 0, 5, 0);
             //li.Visibility = System.Windows.Visibility.Collapsed;
             currentDLI = dli;
         }
@@ -110,6 +115,7 @@ namespace UI.Desktop
             if (dli.Visibility == System.Windows.Visibility.Visible)
             {
                 dli.Visibility = System.Windows.Visibility.Collapsed;
+                li.BorderThickness = new Thickness(0, 5, 5, 0);
                 //li.Visibility = System.Windows.Visibility.Visible;
                 currentDLI = null;
             }

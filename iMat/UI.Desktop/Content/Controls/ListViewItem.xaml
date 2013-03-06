@@ -16,7 +16,5 @@
         <Label x:Name="productName" Grid.Column="1" Content="produkt" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="productPriceLabel" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="kr"  Margin="0,0,0,34"/>
         <Label x:Name="productJmfLabel" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="kr / "/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Stretch" Height="1" Stroke="Black" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
-
     </Grid>
 </local:ProductView>

@@ -61,6 +61,8 @@ namespace UI.Desktop
                                 listItems[item] = li;
                                 li.ItemAdded += li_ItemAdded;
                                 li.MouseEnter += li_MouseDown;
+                                li.BorderThickness = new Thickness(0, 0, 0, 1);
+                                li.BorderBrush = (Brush)App.Current.Resources["ListBorder"];
                             }
                             if (detailedItems.ContainsKey(item))
                             {
@@ -70,6 +72,8 @@ namespace UI.Desktop
                                 detailedItems[item] = dli;
                                 dli.ItemAdded += li_ItemAdded;
                                 dli.MouseLeave += dli_MouseDown;
+                                dli.BorderThickness = new Thickness(0, 0, 0, 1);
+                                dli.BorderBrush = (Brush)App.Current.Resources["ListBorder"];
                             }
                             li.Visibility = System.Windows.Visibility.Visible;
                             dli.Visibility = System.Windows.Visibility.Collapsed;
