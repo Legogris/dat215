@@ -24,7 +24,7 @@
 
         <Label x:Name="grandTotalLabel" Content="0,00 kr" HorizontalAlignment="Left" Margin="50,0,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="65" Grid.RowSpan="2"/>
         <Label x:Name="itemsTotalLabel" Content="0 st" HorizontalAlignment="Left" Margin="189,0,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="29" Grid.RowSpan="2"/>
-        <Button x:Name="checkoutButton" Margin="5,10,5,0" Grid.Row="2" VerticalAlignment="Top" Height="50" BorderBrush="#FF707070" ToolTip="Till Kassan" Foreground="Black" Click="checkoutButton_Click">
+        <Button x:Name="checkoutButton" Margin="5,10,5,0" Grid.Row="2" VerticalAlignment="Top" Height="50" BorderBrush="#FF707070" ToolTip="Till kassan" Foreground="Black" Click="checkoutButton_Click">
             <Button.Background>
 
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
@@ -35,7 +35,7 @@
 
             </Button.Background>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="199">
-                <TextBlock Margin="10, 0, 0, 0" Foreground="Black" Width="106" Height="24" OpacityMask="Black" Text="Till Kassan" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+                <TextBlock Margin="10, 0, 0, 0" Foreground="Black" Width="106" Height="24" OpacityMask="Black" Text="Till kassan" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" FontWeight="Bold"/>
                 <Image Source="..\Resources\Icons\checkout.png" Width="102" Height="41"/>
             </StackPanel>
         </Button>
@@ -55,7 +55,7 @@
                 </StackPanel>
             </Button>
 
-            <Button HorizontalAlignment="Left" Margin="112,0,0,0" VerticalAlignment="Top" Width="60" Height="50" ToolTip="Visa Kundvagn" Click="showCart_Click">
+            <Button HorizontalAlignment="Left" Margin="112,0,0,0" VerticalAlignment="Top" Width="60" Height="50" ToolTip="Visa kundvagn" Click="showCart_Click">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                         <GradientStop Color="#FFF1F1F1" Offset="0"/>

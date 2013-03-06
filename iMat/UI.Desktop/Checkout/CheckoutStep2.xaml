@@ -11,7 +11,7 @@
             <ComboBoxItem Content="iMat Storgatan"/>
             <ComboBoxItem Content="iMat Tvärgatan"/>
         </ComboBox>
-        <RadioButton x:Name="PickupInStore" Content="Plocka up i affär" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" GroupName="DeliveryGroup" Checked="PickupInStore_Checked" IsChecked="True" Margin="19,40,0,0"/>
+        <RadioButton x:Name="PickupInStore" Content="Plocka upp i affär" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" GroupName="DeliveryGroup" Checked="PickupInStore_Checked" IsChecked="True" Margin="19,40,0,0"/>
         <RadioButton x:Name="HomeDelivery" Content="Hemleverans" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="103" GroupName="DeliveryGroup" Checked="HomeDelivery_Checked" Margin="177,40,0,0" IsChecked="True"/>
         <StackPanel HorizontalAlignment="Left" Height="349" Margin="19,60,0,0" VerticalAlignment="Top" Width="381">
             <Grid x:Name="HomedeliveryGrid" HorizontalAlignment="Left" Height="329" VerticalAlignment="Top" Width="381">

@@ -20,11 +20,12 @@
                     <ComboBoxItem Content="Amex"/>
                 </ComboBox>
                 <Label x:Name="CardNumberLabel" Content="Kortnummer:" HorizontalAlignment="Left" Height="26" Margin="10,124,0,0" VerticalAlignment="Top" Width="80"/>
-                <TextBox x:Name="CardNumber1" HorizontalAlignment="Left" Margin="10,150,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="35" MaxLength="4" PreviewTextInput="CardNumberTextBox_PreviewTextInput" Text="1234" Height="22"/>
-                <TextBox x:Name="CardNumber2" HorizontalAlignment="Left" Margin="50,150,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="35" MaxLength="4" PreviewTextInput="CardNumber2_PreviewTextInput" Text="1234" Height="22" KeyUp="CardNumber2_KeyUp"/>
+                <TextBox x:Name="CardNumber1" HorizontalAlignment="Left" Margin="10,150,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="35" MaxLength="4" PreviewTextInput="CardNumberTextBox_PreviewTextInput" Text="1234" />
+                <TextBox x:Name="CardNumber2" HorizontalAlignment="Left" Margin="50,150,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="35" MaxLength="4" PreviewTextInput="CardNumber2_PreviewTextInput" Text="1234" KeyUp="CardNumber2_KeyUp"/>
                 <TextBox x:Name="CardNumber3" HorizontalAlignment="Left" Margin="90,150,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="35" MaxLength="4" PreviewTextInput="CardNumber3_PreviewTextInput" Text="1234" KeyUp="CardNumber3_KeyUp"/>
                 <TextBox x:Name="CardNumber4" HorizontalAlignment="Left" Margin="130,150,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="35" MaxLength="4" Text="1234" KeyUp="CardNumber4_KeyUp"/>
-                <Label x:Name="ValidMoYeLabel" Content="M/Å:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,181,0,0" Width="35"/>
+                <Label x:Name="ValidMoLabel" Content="mm:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,181,0,0" Width="35"/>
+                <Label x:Name="ValidYeLabel" Content="åå:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="70,181,0,0" Width="35"/>
                 <ComboBox x:Name="MonthComboBox" HorizontalAlignment="Left" Margin="10,207,0,0" VerticalAlignment="Top" Width="45">
                     <ComboBoxItem Content="01"/>
                     <ComboBoxItem Content="02"/>
@@ -46,8 +47,8 @@
                     <ComboBoxItem Content="16"/>
                     <ComboBoxItem Content="17"/>
                 </ComboBox>
-                <Label x:Name="VerificationCodeLabel" Content="CVC:" HorizontalAlignment="Left" Height="26" Margin="124,208,0,0" VerticalAlignment="Top" Width="35"/>
-                <TextBox x:Name="VerificationCodeTextBox" HorizontalAlignment="Left" Margin="159,208,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="30" MaxLength="3" IsUndoEnabled="False" PreviewTextInput="VerificationCodeTextBox_PreviewTextInput"/>
+                <Label x:Name="VerificationCodeLabel" Content="CVC:" HorizontalAlignment="Left" Height="26" Margin="130,181,0,0" VerticalAlignment="Top" Width="35"/>
+                <TextBox x:Name="VerificationCodeTextBox" HorizontalAlignment="Left" Margin="135,211,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="30" MaxLength="3" IsUndoEnabled="False" PreviewTextInput="VerificationCodeTextBox_PreviewTextInput"/>
                 <Label Content="/" HorizontalAlignment="Left" Height="26" Margin="55,207,0,0" VerticalAlignment="Top" Width="15"/>
             </Grid>
         </StackPanel>

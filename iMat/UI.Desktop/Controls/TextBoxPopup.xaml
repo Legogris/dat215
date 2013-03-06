@@ -21,7 +21,7 @@
         <Label x:Name="flavor" Content="Skapa ny lista:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,10,0,0"/>
         <TextBox Name="nameTextBox" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10,36,10,0"/>
         <Button Name="okButton" Click="okButton_Click_1" IsDefault="True" Margin="0,0,90,0" HorizontalAlignment="Right" Width="70" VerticalAlignment="Top" Grid.Row="1">OK</Button>
-        <Button Name="cancelButton" IsCancel="True" Width="70" Margin="0,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Row="1" Height="23">Cancel</Button>
+        <Button Name="cancelButton" IsCancel="True" Width="70" Margin="0,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Row="1">Cancel</Button>
     </Grid >
 
 </Window>
