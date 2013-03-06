@@ -20,7 +20,7 @@ namespace UI.Desktop
     /// <summary>
     /// Interaction logic for ProductBrowser.xaml
     /// </summary>
-    public partial class ProductBrowser : UserControl
+    public partial class ProductBrowser : UserControl, ProductCategoryChangedEmitter
     {
         public enum ProductsViewMode
         {
@@ -35,7 +35,10 @@ namespace UI.Desktop
         private ListView listView;
         private GridView gridView;
         private TreeView treeView;
-        
+        private CategoryControl categoryControl;
+
+        public event ProductCategoryChangedHandler PreviewProductCategorySelectionChanged;
+        public event ProductCategoryChangedHandler ProductCategorySelectionChanged;
 
         public ProductCategory RootCategory
         {
@@ -122,12 +125,12 @@ namespace UI.Desktop
             container.Children.Add(sp);
             //container.Children.Add(homeLabel);
 
-            CategoryControl root = new CategoryControl(rootCategory, 1);
-            container.Children.Add(root);
-            root.Expand();
-            Thickness margin = root.stackPanel.Margin;
+            categoryControl = new CategoryControl(rootCategory, 1, this);
+            container.Children.Add(categoryControl);
+            categoryControl.Expand();
+            Thickness margin = categoryControl.stackPanel.Margin;
             margin.Left = 0;
-            root.stackPanel.Margin = margin;
+            categoryControl.stackPanel.Margin = margin;
             
             breadCrumbs.DataContext = rootCategory;
             listView.DataContext = rootCategory;
@@ -135,7 +138,7 @@ namespace UI.Desktop
             treeView.DataContext = rootCategory;
 
             homeLabel.MouseUp += homeLabel_MouseUp;
-            root.ProductCategorySelectionChanged += root_ProductCategorySelectionChanged;
+            categoryControl.ProductCategorySelectionChanged += root_ProductCategorySelectionChanged;
             breadCrumbs.ProductCategorySelected += root_ProductCategorySelectionChanged;
         }
 
@@ -152,6 +155,7 @@ namespace UI.Desktop
                 ViewMode = ProductBrowser.ProductsViewMode.List;
             }
             listView.DataContext = gridView.DataContext = breadCrumbs.DataContext = e.Category;
+            PreviewProductCategorySelectionChanged.Invoke(sender, e);
         }
 
         void itemAdded(object sender, CartEventArgs e)
