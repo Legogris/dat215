@@ -166,5 +166,10 @@ namespace Data.Desktop
         {
             user = new User(email, password);
         }
+
+        public void logout()
+        {
+            user = null;
+        }
     }
 }

@@ -149,8 +149,7 @@ namespace UI.Desktop
 
         private void menuItemLogOut_Click(object sender, RoutedEventArgs e)
         {
-            // Yeah. No. Man kan inte logga ut.
-            // DEAL WITH IT.
+            dataHandler.logout();
         }
     }
 
