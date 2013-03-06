@@ -38,6 +38,7 @@ namespace UI.Desktop.Preferences
             if (dataHandler.GetUser() == null)
             {
                 accountLogIn.Visibility = System.Windows.Visibility.Visible;
+                accountInfo.Visibility = System.Windows.Visibility.Collapsed;
                 accountStatus.Content = "Inte inloggad";
             }
             else
