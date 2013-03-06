@@ -75,7 +75,7 @@ namespace UI.Desktop
 
         private void menuItemQuitClick(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
 
         private void gridViewButton_Click(object sender, RoutedEventArgs e)
