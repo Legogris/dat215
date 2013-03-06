@@ -55,21 +55,26 @@ namespace UI.Desktop
                 switch (value)
                 {
                     case ProductsViewMode.Grid:
+                        //What's that smell?!
+                        ((MainWindow)MainWindow.WindowContainer).sortFilterToolBar.Visibility = System.Windows.Visibility.Visible;
                         itemFrame.Content = gridView;
                         showCategories();
                         breadCrumbs.Visibility = System.Windows.Visibility.Visible;
                         break;
                     case ProductsViewMode.List:
+                        ((MainWindow)MainWindow.WindowContainer).sortFilterToolBar.Visibility = System.Windows.Visibility.Visible;
                         itemFrame.Content = listView;
                         showCategories();
                         breadCrumbs.Visibility = System.Windows.Visibility.Visible;
                         break;
                     case ProductsViewMode.Tree:
+                        ((MainWindow)MainWindow.WindowContainer).sortFilterToolBar.Visibility = System.Windows.Visibility.Visible;
                         itemFrame.Content = treeView;
                         hideCategories();
                         breadCrumbs.Visibility = System.Windows.Visibility.Visible;
                         break;
                     case ProductsViewMode.Start:
+                        ((MainWindow)MainWindow.WindowContainer).sortFilterToolBar.Visibility = System.Windows.Visibility.Collapsed;
                         itemFrame.Content = new StartPage();
                         showCategories();
                         breadCrumbs.Visibility = System.Windows.Visibility.Collapsed;

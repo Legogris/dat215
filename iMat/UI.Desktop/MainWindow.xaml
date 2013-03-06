@@ -37,7 +37,7 @@
                         </StackPanel>
                     </Button>
                 </ToolBar>
-                <ToolBar  ToolBarTray.IsLocked="True">
+                <ToolBar  ToolBarTray.IsLocked="True" x:Name="sortFilterToolBar">
                     <ComboBox x:Name="sortCB" Text="Sortera" IsReadOnly="True" IsEditable="True">
                         <MenuItem Header="Alfabetisk (A-Ö)"/>
                         <MenuItem Header="Alfabetisk (Ö-A)"/>
