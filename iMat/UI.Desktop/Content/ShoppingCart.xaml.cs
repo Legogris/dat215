@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using UI.Desktop.Content.Controls;
 using Data.Desktop;
 using UI.Desktop.Controls;
+using System.Windows.Media.Animation;
 
 namespace UI.Desktop.Content
 {
@@ -144,10 +145,27 @@ namespace UI.Desktop.Content
 
         private void checkoutButton_Click(object sender, RoutedEventArgs e)
         {
-            if (ShoppingCart.GetItems().Count == 0) return;
+            if (ShoppingCart.GetItems().Count == 0)
+            {
+                screenFlash();
+                return;
+            }
             Checkout.CheckoutWindow wizard = new Checkout.CheckoutWindow(DataHandler);
             wizard.Owner = MainWindow.WindowContainer;
             wizard.ShowDialog();
+        }
+
+        public void screenFlash()
+        {
+            backgroundBrush.Color = Color.FromRgb(117, 151, 61);
+            ColorAnimation color = new ColorAnimation();
+            color.To = Color.FromRgb(232, 232, 232);
+            color.Duration = TimeSpan.FromSeconds(2);
+            Storyboard.SetTargetName(color, "backgroundBrush");
+            Storyboard.SetTargetProperty(color, new PropertyPath(SolidColorBrush.ColorProperty));
+            Storyboard story = new Storyboard();
+            story.Children.Add(color);
+            story.Begin(bg);
         }
 
         private void showCart_Click(object sender, RoutedEventArgs e)

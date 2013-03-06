@@ -140,7 +140,7 @@ namespace UI.Desktop
 
         public void screenFlash()
         {
-            comboBoxBrush.Color = Colors.Black;
+            comboBoxBrush.Color = Color.FromRgb(117, 151, 61);
             ColorAnimation color = new ColorAnimation();
             color.To = Colors.White;
             color.Duration = TimeSpan.FromSeconds(2);
