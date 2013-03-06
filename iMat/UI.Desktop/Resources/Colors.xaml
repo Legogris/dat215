@@ -9,6 +9,7 @@
     <SolidColorBrush x:Key="CategoryLevel1Background">#e8e8e8</SolidColorBrush>
     <SolidColorBrush x:Key="CategoryLevel2Background">#e8e8e8</SolidColorBrush>
     <SolidColorBrush x:Key="CategoryLevel3Background">#d0d0d0</SolidColorBrush>
+    <SolidColorBrush x:Key="ToolBarBackground">#FFEEF5FD</SolidColorBrush>
     <BitmapImage x:Key="UserImage" UriSource="/UI.Desktop;component/Resources/Icons/user.png"/>
     <BitmapImage x:Key="UserImageBW" UriSource="/UI.Desktop;component/Resources/Icons/user_BW.png"/>
     <BitmapImage x:Key="ConfirmImage" UriSource="/UI.Desktop;component/Resources/Icons/confirm.png"/>
