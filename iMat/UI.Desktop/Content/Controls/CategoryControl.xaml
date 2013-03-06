@@ -6,8 +6,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="70" d:DesignWidth="100">
     <Grid>
-        <Label x:Name="categoryLabel" Content="Label" HorizontalAlignment="Stretch" VerticalAlignment="Top" Cursor="Hand" Margin="0,-2,0,0" FontSize="14" Foreground="Black"/>
+        <StackPanel Orientation="Horizontal" Margin="0,-2,0,0" >
+            <Image x:Name="icon" Width="24" Height="24" Visibility="Collapsed" VerticalAlignment="Top" HorizontalAlignment="Left" Source="..\..\Resources\Icons\listbutton.png"/>
+            <Label x:Name="categoryLabel" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" Cursor="Hand" FontSize="14" Foreground="Black"/>
+        </StackPanel>
         <StackPanel x:Name="stackPanel"  HorizontalAlignment="Stretch" Margin="10,27,0,0" VerticalAlignment="Stretch"/>
-
     </Grid>
 </UserControl>

@@ -65,6 +65,11 @@ namespace UI.Desktop
             {
                 parentControl.PreviewProductCategorySelectionChanged += parentControl_PreviewProductCategorySelectionChanged;
             }
+            ShoppingListHandler listHandler = productCategory as ShoppingListHandler;
+            if (listHandler != null)
+            {
+                icon.Visibility = System.Windows.Visibility.Visible;
+            }
         }
 
         public void Refresh()
