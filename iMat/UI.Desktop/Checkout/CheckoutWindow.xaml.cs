@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Data.Desktop;
+using UI.Desktop.Preferences;
 
 namespace UI.Desktop.Checkout
 {
@@ -25,6 +26,7 @@ namespace UI.Desktop.Checkout
         private CheckoutStep2 step2;
         private CheckoutStep3 step3;
         private CheckoutStep4 step4;
+        private CompletedCheckoutPage step5;
         private LogInPage logIn;
         private ShoppingCart shoppingCart;
         private DataHandler dataHandler;
@@ -55,6 +57,9 @@ namespace UI.Desktop.Checkout
             logIn = new LogInPage(data);
             logIn.NextStep += logIn_NextStep;
             logIn.BackStep += logIn_BackStep;
+            step5 = new CompletedCheckoutPage();
+            step5.ExitWizard += step5_ExitWizard;
+            step5.ShowReciept += step5_ShowReciept;
             if (data.GetUser() != null)
             {
                 PageGrid.Children.Add(step2);
@@ -70,6 +75,18 @@ namespace UI.Desktop.Checkout
             }
             
 
+        }
+
+        void step5_ShowReciept(object sender, EventArgs e)
+        {
+            this.Close();
+            PreferencesWindow pref = new PreferencesWindow(dataHandler, PreferencesWindow.StartupView.Account);
+            pref.ShowDialog();
+        }
+
+        void step5_ExitWizard(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void initWizSteps(WizardSteps wStep, String title, String img)
@@ -121,7 +138,9 @@ namespace UI.Desktop.Checkout
 
         void step4_ExitCheckout(object sender, EventArgs e)
         {
-            this.Close();
+            PageGrid.Children.Clear();
+            PageGrid.Children.Add(step5);
+            wStep4.StepActive = false;
             if (shoppingCart != null)
             {
                 dataHandler.GetOrders().Insert(0, new Order(shoppingCart, DateTime.Now, 1337));
@@ -168,6 +187,14 @@ namespace UI.Desktop.Checkout
         {
             PageGrid.Children.Clear();
             PageGrid.Children.Add(step3);
+            if (step2.PickupInStore.IsChecked == true)
+            {
+                step3.PayOnPickup.IsEnabled = true;
+            }
+            else
+            {
+                step3.PayOnPickup.IsEnabled = false;
+            }
         }
 
         public void ActivateStep4()

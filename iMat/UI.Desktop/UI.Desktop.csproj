@@ -90,6 +90,9 @@
     <Compile Include="Checkout\CheckoutWindow.xaml.cs">
       <DependentUpon>CheckoutWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Checkout\CompletedCheckoutPage.xaml.cs">
+      <DependentUpon>CompletedCheckoutPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Checkout\LogInPage.xaml.cs">
       <DependentUpon>LogInPage.xaml</DependentUpon>
     </Compile>
@@ -198,6 +201,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Checkout\CheckoutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Checkout\CompletedCheckoutPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

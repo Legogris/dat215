@@ -7,32 +7,31 @@
              d:DesignHeight="450" d:DesignWidth="400">
     <Grid>
         <Label x:Name="DeliveryLabel" Content="Välj leveranssätt:" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" VerticalAlignment="Top" Width="125" FontWeight="Bold" FontSize="14"/>
-        <ComboBox x:Name="StoreComboBox" HorizontalAlignment="Left" Margin="285,30,0,0" VerticalAlignment="Top" Width="105" SelectedIndex="0">
+        <ComboBox x:Name="StoreComboBox" HorizontalAlignment="Left" Margin="30,65,0,0" VerticalAlignment="Top" Width="105" SelectedIndex="0">
             <ComboBoxItem Content="iMat Storgatan"/>
             <ComboBoxItem Content="iMat Tvärgatan"/>
         </ComboBox>
         <Button x:Name="NextStep2Button" Content="Fortsätt" HorizontalAlignment="Left" Height="26" Margin="305,414,0,0" VerticalAlignment="Top" Width="85" Click="NextStep2Button_Click"/>
         <Button x:Name="BackButtonStep2" Content="Tillbaka" HorizontalAlignment="Left" Height="26" Margin="215,414,0,0" VerticalAlignment="Top" Width="85" Click="BackButtonStep2_Click"/>
         <StackPanel HorizontalAlignment="Left" Height="369" Margin="19,40,0,0" VerticalAlignment="Top" Width="381">
-            <RadioButton x:Name="PickupInStore" Content="Plocka up i affär:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" GroupName="DeliveryGroup" Checked="PickupInStore_Checked" IsChecked="True"/>
-            <RadioButton x:Name="HomeDelivery" Content="Hemleverans:" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="103" GroupName="DeliveryGroup" Checked="HomeDelivery_Checked"/>
+            <RadioButton x:Name="PickupInStore" Content="Plocka up i affär" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" GroupName="DeliveryGroup" Checked="PickupInStore_Checked" IsChecked="True"/>
             <Grid x:Name="HomedeliveryGrid" HorizontalAlignment="Left" Height="329" VerticalAlignment="Top" Width="381" Visibility="Collapsed">
                 <Label x:Name="FirstNameLabel" Content="Förnamn:" HorizontalAlignment="Left" Margin="10,3,0,0" VerticalAlignment="Top" Width="70"/>
                 <TextBox x:Name="FirstNameTextBox" HorizontalAlignment="Left" Margin="10,29,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="130"/>
                 <Label x:Name="LastNameLabel" Content="Efternamn:" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Width="68"/>
                 <TextBox x:Name="LastNameTextBox" HorizontalAlignment="Left" Margin="10,82,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="130"/>
-                <Label x:Name="EmailLabel" Content="Email:" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top" Width="70"/>
-                <TextBox x:Name="EmailTextBox" HorizontalAlignment="Left" Margin="10,135,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="130"/>
-                <Label x:Name="AddressLabel" Content="Adress:" HorizontalAlignment="Left" Margin="10,162,0,0" VerticalAlignment="Top" Width="70"/>
-                <TextBox x:Name="AddressTextBox" HorizontalAlignment="Left" Margin="10,188,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="130"/>
+                <Label x:Name="EmailLabel" Content="Email:" HorizontalAlignment="Left" Margin="10,271,0,0" VerticalAlignment="Top" Width="70"/>
+                <TextBox x:Name="EmailTextBox" HorizontalAlignment="Left" Margin="10,297,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="130"/>
+                <Label x:Name="AddressLabel" Content="Adress:" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top" Width="70"/>
+                <TextBox x:Name="AddressTextBox" HorizontalAlignment="Left" Margin="10,135,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="130"/>
                 <Label x:Name="PhoneNumberLabel" Content="Telefonnummer:" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="PhoneNumberTextBox" HorizontalAlignment="Left" Margin="10,241,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="130"/>
-                <Label x:Name="PostcodeLabel" Content="Postkod:" HorizontalAlignment="Left" Margin="10,268,0,0" VerticalAlignment="Top" Width="70"/>
-                <TextBox x:Name="PostcodeTextBox" HorizontalAlignment="Left" Margin="10,294,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="70" LostFocus="PostcodeTextBox_LostFocus"/>
-                <Label x:Name="PostAddressLabel" Content="Postadress:" HorizontalAlignment="Left" Margin="85,268,0,0" VerticalAlignment="Top" Width="80"/>
-                <TextBox x:Name="PostAddressTextBox" HorizontalAlignment="Left" Margin="85,294,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="127" IsReadOnly="True" IsEnabled="False"/>
+                <TextBox x:Name="PostcodeTextBox" HorizontalAlignment="Left" Margin="10,188,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="70" LostFocus="PostcodeTextBox_LostFocus"/>
+                <Label x:Name="PostAddressLabel" Content="Postadress:" HorizontalAlignment="Left" Margin="10,162,0,0" VerticalAlignment="Top" Width="80"/>
+                <TextBox x:Name="PostAddressTextBox" HorizontalAlignment="Left" Margin="85,188,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="127" IsReadOnly="True" IsHitTestVisible="True" IsTabStop="False"/>
             </Grid>
         </StackPanel>
+        <RadioButton x:Name="HomeDelivery" Content="Hemleverans" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="103" GroupName="DeliveryGroup" Checked="HomeDelivery_Checked" Margin="177,40,0,0"/>
 
     </Grid>
 </UserControl>

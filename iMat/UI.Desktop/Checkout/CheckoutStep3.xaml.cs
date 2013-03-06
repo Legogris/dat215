@@ -48,18 +48,18 @@ namespace UI.Desktop.Checkout
 
         private void agreeCheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            //if (NextStep2Button != null)
-            //{
-            //    NextStep2Button.IsEnabled = true;
-            //}
+            if (NextStep3Button != null)
+            {
+                NextStep3Button.IsEnabled = true;
+            }
         }
 
         private void agreeCheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
-            //if (NextStep2Button != null)
-            //{
-            //    NextStep2Button.IsEnabled = false;
-            //}
+            if (NextStep3Button != null)
+            {
+                NextStep3Button.IsEnabled = false;
+            }
         }
 
         private void BackButtonStep3_Click(object sender, RoutedEventArgs e)

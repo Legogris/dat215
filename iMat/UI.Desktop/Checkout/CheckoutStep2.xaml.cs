@@ -36,7 +36,7 @@ namespace UI.Desktop.Checkout
         private void HomeDelivery_Checked(object sender, RoutedEventArgs e)
         {
             HomedeliveryGrid.Visibility = Visibility.Visible;
-            StoreComboBox.IsEnabled = false;
+            StoreComboBox.Visibility = Visibility.Collapsed;
             
             sa = dataHandler.GetShippingAddresses();
             cc = dataHandler.GetCreditCards();
@@ -58,7 +58,7 @@ namespace UI.Desktop.Checkout
             if (StoreComboBox != null && HomedeliveryGrid != null)
             {
                 HomedeliveryGrid.Visibility = Visibility.Collapsed;
-                StoreComboBox.IsEnabled = true;
+                StoreComboBox.Visibility = Visibility.Visible;
             }
         }
 

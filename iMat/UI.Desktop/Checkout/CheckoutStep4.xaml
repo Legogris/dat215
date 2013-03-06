@@ -7,14 +7,14 @@
              d:DesignHeight="450" d:DesignWidth="400">
     <Grid>
         <Label x:Name="step3TitelLabel" Content="Din beställning:" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" VerticalAlignment="Top" Width="380"/>
-        <Button x:Name="exitCheckoutButton" Content="Slutför" HorizontalAlignment="Left" Height="26" Margin="305,414,0,0" VerticalAlignment="Top" Width="85" Click="exitCheckoutButton_Click" Cursor="Hand"/>
+        <Button x:Name="exitCheckoutButton" Content="Slutför Köp" HorizontalAlignment="Left" Height="26" Margin="305,414,0,0" VerticalAlignment="Top" Width="85" Click="exitCheckoutButton_Click" Cursor="Hand"/>
         <Button x:Name="backStep3Button" Content="Tillbaka" HorizontalAlignment="Left" Height="26" Margin="215,414,0,0" VerticalAlignment="Top" Width="85" Click="backStep3Button_Click" Cursor="Hand"/>
         <ListView x:Name="checkoutListView" HorizontalAlignment="Left" Height="257" Margin="10,45,0,0" VerticalAlignment="Top" Width="380">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="200" Header="Vara:" DisplayMemberBinding="{Binding Product.Name}"/>
-                    <GridViewColumn Width="90" Header="Antal" DisplayMemberBinding="{Binding Amount}"/>
-                    <GridViewColumn Width="90" Header="Pris" DisplayMemberBinding="{Binding Total}"/>
+                    <GridViewColumn Width="85" Header="Antal" DisplayMemberBinding="{Binding Amount}"/>
+                    <GridViewColumn Width="85" Header="Pris" DisplayMemberBinding="{Binding Total}"/>
                 </GridView>
             </ListView.View>
         </ListView>
