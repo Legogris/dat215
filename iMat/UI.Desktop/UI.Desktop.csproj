@@ -581,6 +581,7 @@
     <Resource Include="Resources\Icons\user_BW.png" />
     <Resource Include="Resources\Icons\shippment_BW.png" />
     <Resource Include="Resources\Icons\featurex.png" />
+    <Resource Include="Resources\Icons\social.png" />
     <Content Include="Resources\products.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

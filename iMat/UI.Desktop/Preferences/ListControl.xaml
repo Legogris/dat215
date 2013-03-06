@@ -56,6 +56,7 @@
         <StackPanel x:Name="overviewPanel" Grid.Column="1" HorizontalAlignment="Left" Margin="1,55,0,0" VerticalAlignment="Stretch" Width="300"/>
         <Content:AbstractListItem x:Name="detailHeader" Grid.Column="2" HorizontalAlignment="Left" Margin="10,55,-9,0" VerticalAlignment="Top" Width="300"/>
         <StackPanel x:Name="detailPanel" Grid.Column="2" HorizontalAlignment="Left" Margin="10,81,-9,0" VerticalAlignment="Stretch" Width="300"/>
+        <Image Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="206,55,0,0" Grid.Row="1" VerticalAlignment="Top" Width="85" Source="/UI.Desktop;component/Resources/Icons/social.png"/>
 
     </Grid>
 </UserControl>
