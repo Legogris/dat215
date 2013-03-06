@@ -197,6 +197,10 @@ namespace UI.Desktop.Checkout
         {
             PageGrid.Children.Clear();
             PageGrid.Children.Add(step2);
+            if (dataHandler.GetUser() != null)
+            {
+                step2.EmailTextBox.Text = dataHandler.GetUser().ShippingAddress.Email;
+            }
         }
 
         private void ActivateStep3()
