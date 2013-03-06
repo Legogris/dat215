@@ -15,7 +15,7 @@
         <Menu HorizontalAlignment="Stretch" Height="22" VerticalAlignment="Top" Grid.Row="0">
             <MenuItem Header="Arkiv">
                 <MenuItem x:Name="menuItemLogOut" Header="Logga ut" Click="menuItemLogOut_Click"/>
-                <MenuItem x:Name="menuItemQuit" Header="Avsluta" Click="menuItemQuitClick" InputGestureText="Ctrl+Q"/>
+                <MenuItem x:Name="menuItemQuit" Header="Avsluta" Click="menuItemQuitClick"/>
             </MenuItem>
             <MenuItem Header="Hantera">
                 <MenuItem x:Name="menuItemLists" Click="shoppingListPrefsClick" Header="Shoppinglistor..."/>

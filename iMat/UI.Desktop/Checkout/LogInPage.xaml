@@ -7,8 +7,8 @@
              d:DesignHeight="430" d:DesignWidth="400">
     <Grid>
         <Label x:Name="logInTitleLabel" Content="Logga in med ditt iMat-konto" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <Label x:Name="logInEmailLabel" Content="Email:" HorizontalAlignment="Left" Margin="15,54,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="logInEmailTextBox" HorizontalAlignment="Left" Margin="15,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" SpellCheck.IsEnabled="True"/>
+        <Label x:Name="logInEmailLabel" Content="E-mail:" HorizontalAlignment="Left" Margin="15,54,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="logInEmailTextBox" HorizontalAlignment="Left" Margin="15,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" SpellCheck.IsEnabled="True"/>
         <Label x:Name="logInPasswordLabel" Content="Lösenord:" HorizontalAlignment="Left" Margin="15,107,0,0" VerticalAlignment="Top"/>
         <PasswordBox x:Name="logInPasswordBox" HorizontalAlignment="Left" Margin="15,133,0,0" VerticalAlignment="Top" Width="170" KeyDown="logInPasswordBox_KeyDown"/>
         <Button x:Name="logInNextButton" Content="Fortsätt" Height="25" HorizontalAlignment="Left" Margin="305,395,0,0" VerticalAlignment="Top" Width="85" Click="LogInNextButton_Click"/>

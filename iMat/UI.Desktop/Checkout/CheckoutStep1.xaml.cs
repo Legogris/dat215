@@ -41,14 +41,15 @@ namespace UI.Desktop.Checkout
 
         private void NextStep1Button_Click(object sender, RoutedEventArgs e)
         {
-            if (NextStep != null)
-            {
-                NextStep.Invoke(this, null);
-            }
             if (rememberDetailsStep1 != null && rememberDetailsStep1.IsChecked == true)
             {
                 dataHandler.setUser(emailTextBox.Text, mainPasswordBox.Password);
             }
+            if (NextStep != null)
+            {
+                NextStep.Invoke(this, null);
+            }
+
         }
 
         private void LogInLabel_MouseUp(object sender, MouseButtonEventArgs e)

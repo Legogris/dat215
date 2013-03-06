@@ -6,10 +6,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="400">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Height="250" Margin="75,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"><Run Language="sv-se" Text="Ditt köp har registrerats och godkänts."/><LineBreak/><Run Language="sv-se" Text="Ditt ordernummer är 1337."/><LineBreak/><Run Language="sv-se"/><LineBreak/><Run Language="sv-se" Text="Du kan se ditt kvitto under: "/><LineBreak/><Run Language="sv-se" Text="Hantera&gt;Konto..."/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="250" Margin="112,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"><Run Language="sv-se" Text="Ditt köp har registrerats och godkänts."/><LineBreak/><Run Language="sv-se" Text="Ditt ordernummer är 1337."/><LineBreak/><Run Language="sv-se"/><LineBreak/><Run Language="sv-se" Text="Du kan se ditt kvitto under"/><LineBreak/><Run Language="sv-se" Text="Hantera / Konto..."/></TextBlock>
         <Button x:Name="exitButton" Content="Avsluta" HorizontalAlignment="Left" Height="30" Margin="320,410,0,0" VerticalAlignment="Top" Width="70" Click="exitButton_Click"/>
         <Button x:Name="showRecieptButton" Content="Visa Kvitto" HorizontalAlignment="Left" Height="30" Margin="235,410,0,0" VerticalAlignment="Top" Width="80" Click="showRecieptButton_Click"/>
-        <Label Content="Tack för att du handlat hos iMat!" HorizontalAlignment="Left" Height="34" Margin="75,10,0,0" VerticalAlignment="Top" Width="240" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Tack för att du handlat hos iMat!" HorizontalAlignment="Left" Height="34" Margin="112,10,0,0" VerticalAlignment="Top" Width="240" FontWeight="Bold" FontSize="14"/>
+        <Image HorizontalAlignment="Left" Height="80" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Source="/UI.Desktop;component/Resources/Icons/confirm.png"/>
 
     </Grid>
 </UserControl>

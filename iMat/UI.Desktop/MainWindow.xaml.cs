@@ -75,7 +75,7 @@ namespace UI.Desktop
 
         private void menuItemQuitClick(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
 
         private void gridViewButton_Click(object sender, RoutedEventArgs e)
@@ -279,6 +279,7 @@ namespace UI.Desktop
             }
             mainWindow.shoppingListSelectComboBox.ItemsSource = null;
             mainWindow.shoppingListSelectComboBox.ItemsSource = ShoppingListsCollection;
+            mainWindow.shoppingListSelectComboBox.Text = "Shoppinglistor";
         }
         
         void openDialog(IList<ShoppingItem> items)
