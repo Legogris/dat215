@@ -41,7 +41,10 @@ namespace UI.Desktop.Checkout
             if (cc != null && cc.Count > 0)
             {
                 CardHolderNameTextBox.Text = cc.First().HoldersName;
-                CardNumber1.Text = cc.First().CardNumber;
+                CardNumber1.Text = cc.First().CardNumber.Substring(0, 4);
+                CardNumber2.Text = cc.First().CardNumber.Substring(4, 4);
+                CardNumber3.Text = cc.First().CardNumber.Substring(8, 4);
+                CardNumber4.Text = cc.First().CardNumber.Substring(12, 4);
                 switch (cc.First().CardType)
                 {
                     case CardType.Amex:
@@ -102,7 +105,7 @@ namespace UI.Desktop.Checkout
                     cc.Add(new CreditCard());
                 }
                 cc.First().HoldersName = CardHolderNameTextBox.Text;
-                cc.First().CardNumber = CardNumber1.Text;
+                cc.First().CardNumber = CardNumber1.Text + CardNumber2.Text + CardNumber3.Text + CardNumber4.Text;
                 ComboBoxItem temp = (ComboBoxItem)CardTypeComboBox.SelectedItem;
                 switch (temp.Content.ToString()) 
                 {
@@ -157,6 +160,33 @@ namespace UI.Desktop.Checkout
         private void VerificationCodeTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = CheckoutWindow.isTextAllowed(e.Text);
+        }
+
+        private void CardNumber4_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Back && CardNumber4.Text.Length == 0)
+            {
+                CardNumber3.Focus();
+                CardNumber3.SelectionStart = CardNumber3.Text.Length;
+            }
+        }
+
+        private void CardNumber3_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Back && CardNumber3.Text.Length == 0)
+            {
+                CardNumber2.Focus();
+                CardNumber2.SelectionStart = CardNumber2.Text.Length;
+            }
+        }
+
+        private void CardNumber2_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Back && CardNumber2.Text.Length == 0)
+            {
+                CardNumber1.Focus();
+                CardNumber1.SelectionStart = CardNumber1.Text.Length;
+            }
         }
     }
 }
