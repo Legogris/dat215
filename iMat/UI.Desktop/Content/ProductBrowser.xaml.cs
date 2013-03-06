@@ -150,6 +150,7 @@ namespace UI.Desktop
             homeLabel.MouseUp += homeLabel_MouseUp;
             categoryControl.ProductCategorySelectionChanged += root_ProductCategorySelectionChanged;
             breadCrumbs.ProductCategorySelected += root_ProductCategorySelectionChanged;
+            Refresh();
         }
 
         void homeLabel_MouseUp(object sender, MouseButtonEventArgs e)
@@ -177,5 +178,10 @@ namespace UI.Desktop
         }
 
         public event ShoppingCartChangedHandler ItemAdded;
+
+        public void Refresh()
+        {
+            categoryControl.Refresh();
+        }
     }
 }

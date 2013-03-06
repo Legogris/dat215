@@ -91,7 +91,13 @@ namespace UI.Desktop
 
         private void shoppingCart_Loaded(object sender, RoutedEventArgs e)
         {
+            dataHandler.GetFavorites().Changed += MainWindow_Changed;
 
+        }
+
+        void MainWindow_Changed(ShoppingListsChangedEventArgs e)
+        {
+            productBrowser.Refresh();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

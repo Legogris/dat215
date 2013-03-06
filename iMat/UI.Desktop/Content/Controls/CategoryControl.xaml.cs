@@ -67,6 +67,23 @@ namespace UI.Desktop
             }
         }
 
+        public void Refresh()
+        {
+            ShoppingListHandler listHandler = productCategory as ShoppingListHandler;
+            if (listHandler != null && listHandler.GetFavLists().Count == 0)
+            {
+                this.Retract();
+                this.Visibility = System.Windows.Visibility.Collapsed;
+            }
+            else
+            {
+                this.Visibility = System.Windows.Visibility.Visible;
+            }
+            foreach(CategoryControl c in stackPanel.Children.OfType<CategoryControl>()) {
+                c.Refresh();
+            }
+        }
+
         void parentControl_PreviewProductCategorySelectionChanged(UserControl sender, ProductCategoryChangedEventArgs e)
         {
             updateVisuals(e.Category == productCategory);
