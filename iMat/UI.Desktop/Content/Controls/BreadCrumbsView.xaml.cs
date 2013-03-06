@@ -35,7 +35,7 @@ namespace UI.Desktop
             addListToCartButton.Visibility = list == null ? System.Windows.Visibility.Hidden : System.Windows.Visibility.Visible;
         }
 
-        void breadCrumb_ProductCategorySelected(UserControl sender, ProductCategoryChangedEventArgs e)
+        void breadCrumb_ProductCategorySelected(object sender, ProductCategoryChangedEventArgs e)
         {
             if (ProductCategorySelected != null)
             {

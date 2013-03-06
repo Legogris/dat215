@@ -23,7 +23,7 @@ namespace UI.Desktop
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, ProductCategoryChangedEmitter
     {
         public static readonly String PRODUCTS = "Resources/products.txt";
         public static readonly String DATABASE = "Resources/favs.db";
@@ -32,6 +32,9 @@ namespace UI.Desktop
         private static ListContextMenuManager listContextMenu;
         public static ContextMenu ListContextMenu { get { return listContextMenu.ShoppingListContextMenu; } }
         public static Window WindowContainer { get; set; }
+        
+        public event ProductCategoryChangedHandler PreviewProductCategorySelectionChanged;
+        public event ProductCategoryChangedHandler ProductCategorySelectionChanged;
 
         public MainWindow()
         {
@@ -42,6 +45,7 @@ namespace UI.Desktop
             DataContext = listContextMenu;
             InitializeComponent();
             filterButton.Click += filterButton_Click;
+            
             initDataBinding();
         }
 
@@ -124,8 +128,14 @@ namespace UI.Desktop
 
         private void shoppingListComboBoxSelectedChanged(object sender, SelectionChangedEventArgs e)
         {
-            //MessageBox.Show(listContextMenu.ShoppingListDummy.Name);
-            //TODO: koppla till product browser
+            if (e.AddedItems.Count > 0) //Should always be 1 (maybe 0?)
+            {
+                FavoriteList list = (FavoriteList)e.AddedItems[0];
+                if (list != null)
+                {
+                    productBrowser.SetCategory(list);
+                }
+            }
         }
 
         public void screenFlash()

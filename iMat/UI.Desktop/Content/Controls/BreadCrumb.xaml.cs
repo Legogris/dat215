@@ -87,7 +87,7 @@ namespace UI.Desktop
             }
         }
 
-        void parentCrumb_ProductCategorySelected(UserControl sender, ProductCategoryChangedEventArgs e)
+        void parentCrumb_ProductCategorySelected(object sender, ProductCategoryChangedEventArgs e)
         {
             if (ProductCategorySelected != null)
             {

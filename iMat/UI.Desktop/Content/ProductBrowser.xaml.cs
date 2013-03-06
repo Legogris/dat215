@@ -106,6 +106,11 @@ namespace UI.Desktop
             breadCrumbs.ItemAdded += itemAdded;
         }
 
+        public void SetCategory(ProductCategory cat)
+        {
+            root_ProductCategorySelectionChanged(this, new ProductCategoryChangedEventArgs(cat));
+        }
+
         private void showCategories()
         {
             categoryListScrollView.Visibility = System.Windows.Visibility.Visible;
@@ -158,7 +163,7 @@ namespace UI.Desktop
             ViewMode = ProductsViewMode.Start;
         }
 
-        void root_ProductCategorySelectionChanged(UserControl sender, ProductCategoryChangedEventArgs e)
+        void root_ProductCategorySelectionChanged(object sender, ProductCategoryChangedEventArgs e)
         {
             if (viewMode == ProductsViewMode.Start)
             {

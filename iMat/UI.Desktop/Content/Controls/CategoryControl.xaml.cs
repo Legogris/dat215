@@ -19,7 +19,7 @@ namespace UI.Desktop
     /// <summary>
     /// Interaction logic for CategoryControl.xaml
     /// </summary>
-    public delegate void ProductCategoryChangedHandler(UserControl sender, ProductCategoryChangedEventArgs e);
+    public delegate void ProductCategoryChangedHandler(object sender, ProductCategoryChangedEventArgs e);
 
     public class ProductCategoryChangedEventArgs
     {
@@ -89,7 +89,7 @@ namespace UI.Desktop
             }
         }
 
-        void parentControl_PreviewProductCategorySelectionChanged(UserControl sender, ProductCategoryChangedEventArgs e)
+        void parentControl_PreviewProductCategorySelectionChanged(object sender, ProductCategoryChangedEventArgs e)
         {
             updateVisuals(e.Category == productCategory);
             if (PreviewProductCategorySelectionChanged != null)
@@ -102,7 +102,7 @@ namespace UI.Desktop
             categoryLabel.FontWeight = currentlySelected ? FontWeights.Bold : FontWeights.Normal;
         }
 
-        void CategoryControl_ProductCategorySelectionChanged(UserControl sender, ProductCategoryChangedEventArgs e)
+        void CategoryControl_ProductCategorySelectionChanged(object sender, ProductCategoryChangedEventArgs e)
         {
             updateVisuals(e.Category == productCategory);
         }
@@ -152,7 +152,7 @@ namespace UI.Desktop
             }
         }
 
-        void childProductCategorySelectionChanged(UserControl sender, ProductCategoryChangedEventArgs e)
+        void childProductCategorySelectionChanged(object sender, ProductCategoryChangedEventArgs e)
         {
             if (ProductCategorySelectionChanged != null)
             {
