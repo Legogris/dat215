@@ -91,6 +91,6 @@
             </Button>
         </Grid>
         
-        <Rectangle Fill="Black" HorizontalAlignment="Stretch" Height="1" Margin="5,0,5,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top"/>
+        <Rectangle HorizontalAlignment="Stretch" Height="1" Margin="5,0,5,0" Grid.Row="1" Stroke="{StaticResource ResourceKey=CartBorder}" VerticalAlignment="Top"/>
     </Grid>
 </UserControl>

@@ -10,8 +10,10 @@
     <SolidColorBrush x:Key="CategoryLevel2Background">#e8e8e8</SolidColorBrush>
     <SolidColorBrush x:Key="CategoryLevel3Background">#d0d0d0</SolidColorBrush>
     <SolidColorBrush x:Key="ToolBarBackground">#fff7f7f7</SolidColorBrush>
-    <SolidColorBrush x:Key="GridBorder">#ffffff</SolidColorBrush>
-    <SolidColorBrush x:Key="ListBorder">#000000</SolidColorBrush>
+    <SolidColorBrush x:Key="GridBorder">#f7f7f7</SolidColorBrush>
+    <SolidColorBrush x:Key="ListBorder">#666666</SolidColorBrush>
+    <SolidColorBrush x:Key="CartBorder">#666666</SolidColorBrush>
+    <SolidColorBrush x:Key="CrumbBorder">#666666</SolidColorBrush>
     <BitmapImage x:Key="UserImage" UriSource="/UI.Desktop;component/Resources/Icons/user.png"/>
     <BitmapImage x:Key="UserImageBW" UriSource="/UI.Desktop;component/Resources/Icons/user_BW.png"/>
     <BitmapImage x:Key="ConfirmImage" UriSource="/UI.Desktop;component/Resources/Icons/confirm.png"/>
