@@ -18,10 +18,10 @@
                 </ComboBox>
                 <Label x:Name="CardHolderNameLabel" Content="Namn:" HorizontalAlignment="Left" Height="26" Margin="10,10,0,0" VerticalAlignment="Top" Width="55"/>
                 <TextBox x:Name="CardHolderNameTextBox" HorizontalAlignment="Left" Height="26" Margin="10,36,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="170"/>
-                <Label x:Name="CardNumberLabel" Content="KortNr:" HorizontalAlignment="Left" Height="26" Margin="10,124,0,0" VerticalAlignment="Top" Width="55"/>
-                <TextBox x:Name="CardNumberTextBox" HorizontalAlignment="Left" Height="26" Margin="10,150,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="114" MaxLength="20"/>
+                <Label x:Name="CardNumberLabel" Content="Kortnummer:" HorizontalAlignment="Left" Height="26" Margin="10,124,0,0" VerticalAlignment="Top" Width="55"/>
+                <TextBox x:Name="CardNumberTextBox" HorizontalAlignment="Left" Height="26" Margin="10,150,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="114" MaxLength="16" PreviewTextInput="CardNumberTextBox_PreviewTextInput"/>
                 <Label x:Name="ValidMoYeLabel" Content="M/Å:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,181,0,0" Width="35"/>
-                <ComboBox x:Name="MonthComboBox" HorizontalAlignment="Left" Height="26" Margin="10,207,0,0" VerticalAlignment="Top" Width="45" SelectionChanged="MonthComboBox_SelectionChanged">
+                <ComboBox x:Name="MonthComboBox" HorizontalAlignment="Left" Height="26" Margin="10,207,0,0" VerticalAlignment="Top" Width="45">
                     <ComboBoxItem Content="01"/>
                     <ComboBoxItem Content="02"/>
                     <ComboBoxItem Content="03"/>
@@ -43,7 +43,7 @@
                     <ComboBoxItem Content="17"/>
                 </ComboBox>
                 <Label x:Name="VerificationCodeLabel" Content="CVC:" HorizontalAlignment="Left" Height="26" Margin="124,208,0,0" VerticalAlignment="Top" Width="35"/>
-                <TextBox x:Name="VerificationCodeTextBox" HorizontalAlignment="Left" Height="26" Margin="159,208,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="30" MaxLength="3" IsUndoEnabled="False"/>
+                <TextBox x:Name="VerificationCodeTextBox" HorizontalAlignment="Left" Height="26" Margin="159,208,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="30" MaxLength="3" IsUndoEnabled="False" PreviewTextInput="VerificationCodeTextBox_PreviewTextInput"/>
                 <Label Content="/" HorizontalAlignment="Left" Height="26" Margin="55,207,0,0" VerticalAlignment="Top" Width="15"/>
             </Grid>
         </StackPanel>
