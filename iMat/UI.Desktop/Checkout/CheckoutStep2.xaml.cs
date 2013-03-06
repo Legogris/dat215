@@ -25,7 +25,7 @@ namespace UI.Desktop.Checkout
         private DataHandler dataHandler;
         public event EventHandler NextStep2;
         public event EventHandler BackStep2;
-        private List<CreditCard> cc;
+        private ShippingAddress sa;
         public CheckoutStep2(DataHandler data)
         {
             InitializeComponent();
@@ -36,9 +36,7 @@ namespace UI.Desktop.Checkout
         {
             HomedeliveryGrid.Visibility = Visibility.Visible;
             StoreComboBox.Visibility = Visibility.Collapsed;
-
-            ShippingAddress sa = dataHandler.GetUser().ShippingAddress;
-            cc = dataHandler.GetCreditCards();
+            sa = dataHandler.GetUser().ShippingAddress;
             if (sa != null)
             {
                 FirstNameTextBox.Text = sa.FirstName;
@@ -48,8 +46,7 @@ namespace UI.Desktop.Checkout
                 PostcodeTextBox.Text = sa.PostCode;
                 PhoneNumberTextBox.Text = sa.PhoneNumber;
                 EmailTextBox.Text = sa.Email;
-            }
-            
+            }            
         }
 
         private void PickupInStore_Checked(object sender, RoutedEventArgs e)
@@ -96,6 +93,16 @@ namespace UI.Desktop.Checkout
         private void PostcodeTextBox_LostFocus(object sender, RoutedEventArgs e)
         {
             PostAddressTextBox.Text = "Göteborg";
+        }
+
+        private void PhoneNumberTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = CheckoutWindow.isTextAllowed(e.Text);
+        }
+
+        private void PostcodeTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = CheckoutWindow.isTextAllowed(e.Text);
         }
 
     }
