@@ -11,6 +11,7 @@
             <RowDefinition Height="32"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <DockPanel HorizontalAlignment="Stretch" Height="32" LastChildFill="False" Grid.Row="1" VerticalAlignment="Top" Background="#FFF7F7F7"/>
         <Menu HorizontalAlignment="Stretch" Height="22" VerticalAlignment="Top" Grid.Row="0">
             <MenuItem Header="Arkiv">
                 <MenuItem x:Name="menuItemLogOut" Header="Logga ut" Click="menuItemLogOut_Click"/>
@@ -26,7 +27,7 @@
                 <MenuItem Header="Användarguide"/>
             </MenuItem>
         </Menu>
-        <DockPanel Grid.Row="1" Background="#FFF7F7F7">
+        <DockPanel Grid.Row="1" Background="#FFF7F7F7" Margin="0,0,252,0" >
             <ToolBarTray HorizontalAlignment="Left" DockPanel.Dock="Left">
                 <ToolBar ToolBarTray.IsLocked="True">
                     <TextBox x:Name="searchField" Width="100"/>
