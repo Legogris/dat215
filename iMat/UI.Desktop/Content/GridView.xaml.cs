@@ -59,7 +59,7 @@ namespace UI.Desktop
                             li = new GridViewItem(item);
                             gridItems[item] = li;
                             li.ItemAdded += li_ItemAdded;
-                            li.MouseEnter += li_MouseUp;
+                            li.MouseUp += li_MouseUp;
                         }
                         if (detailedItems.ContainsKey(item))
                         {
@@ -92,13 +92,13 @@ namespace UI.Desktop
             DetailedItem dli = detailedItems[li.Item];
             int gridItemWidth = (int)Math.Max(1, Math.Floor(stackPanel.ActualWidth / li.ActualWidth));
             int index = stackPanel.Children.IndexOf(li);
-            int newIndex = (int)Math.Min(1+ index + gridItemWidth - (index % gridItemWidth), stackPanel.Children.Count -1);
+            int newIndex = (int)Math.Min( index - (index % gridItemWidth), stackPanel.Children.Count -1);
             if(newIndex >= currentIndex && index < currentIndex) {
-                newIndex -= gridItemWidth+1;
+                //newIndex -= gridItemWidth+1;
             }
             stackPanel.Children.Insert(newIndex, dli);
             dli.Visibility = System.Windows.Visibility.Visible;
-            li.Visibility = System.Windows.Visibility.Collapsed;
+            //li.Visibility = System.Windows.Visibility.Collapsed;
             currentDLI = dli;
         }
         
@@ -110,7 +110,7 @@ namespace UI.Desktop
             if (dli.Visibility == System.Windows.Visibility.Visible)
             {
                 dli.Visibility = System.Windows.Visibility.Collapsed;
-                li.Visibility = System.Windows.Visibility.Visible;
+                //li.Visibility = System.Windows.Visibility.Visible;
                 currentDLI = null;
             }
             stackPanel.Children.Remove(dli);
