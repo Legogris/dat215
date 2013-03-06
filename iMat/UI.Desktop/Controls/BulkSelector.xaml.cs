@@ -32,6 +32,8 @@ namespace UI.Desktop
 
         protected override Spinner AmountSpinner
         { get { return amountSpinner; } }
+
+        private bool _useAmount = true;
         
         public BulkSelector(ShoppingItem item) : base(item)
         {
@@ -53,6 +55,7 @@ namespace UI.Desktop
 
         private void toggleSpinners(bool useAmount)
         {
+            _useAmount = useAmount;
             amountSpinner.Enabled = useAmount;
             bulkSpinner.Enabled = !useAmount;
             if (useAmount)

@@ -17,12 +17,15 @@ namespace UI.Desktop
         protected abstract Label PieceLabel { get; }
         protected abstract Label JmfLabel { get; }
         protected abstract Spinner AmountSpinner { get; }
-        private double numberOfItems;
+        protected double numberOfItems;
         public double NumberOfItems
         {
             get { return numberOfItems; }
-            protected set { numberOfItems = value;
-            if (AmountSpinner != null) { AmountSpinner.Value = value; }
+            protected set {
+                numberOfItems = value;
+                //if (AmountSpinner != null) {
+                //    AmountSpinner.Value = value;
+                //}
             }
         }
 
