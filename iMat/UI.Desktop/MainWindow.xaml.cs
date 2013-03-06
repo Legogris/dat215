@@ -167,6 +167,14 @@ namespace UI.Desktop
         {
             dataHandler.logout();
         }
+
+        private void searchField_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                searchField.Text = "Det blev ingen glass";
+            }
+        }
     }
 
     public class ListContextMenuManager {

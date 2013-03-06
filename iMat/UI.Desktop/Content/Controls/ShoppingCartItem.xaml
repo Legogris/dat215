@@ -9,26 +9,20 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="70"/>
             <ColumnDefinition Width="80"/>
-            <ColumnDefinition Width="60"/>
-            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="55"/>
+            <ColumnDefinition Width="25"/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="3" Margin="0,5,0,0">
-            <Label HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-            <Button x:Name="removeButton" Content="x" HorizontalAlignment="Left" VerticalAlignment="Top" Width="16" Height="20" Visibility="Hidden" Click="removeButton_Click" BorderBrush="Transparent">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                        <GradientStop Color="#00000000" Offset="0"/>
-                        <GradientStop Color="#00000000" Offset="0.5"/>
-                        <GradientStop Color="#00000000" Offset="0.5"/>
-                        <GradientStop Color="#00000000" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.Background>
+        <Grid Grid.Column="3" Margin="0,0,0,0">
+            <Button x:Name="removeButton" HorizontalAlignment="Left" VerticalAlignment="Center" Width="25" Height="25" Visibility="Collapsed" Click="removeButton_Click">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <Image Source="/UI.Desktop;component/Resources/Icons/remove_16.png" Width="16" Height="16" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </StackPanel>
             </Button>
         </Grid>
         <Label x:Name="nameLabel" Content="Kanelbulle" Grid.Column="1" HorizontalAlignment="Stretch" Margin="0,5,0,0" VerticalAlignment="Top" Height="26"/>
         <TextBox x:Name="amountTextBox" HorizontalAlignment="Left" Height="23" Margin="5,5,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="30" KeyDown="amountTextBox_KeyDown" LostFocus="amountText_LostFocus"/>
         <Label x:Name="unitSuffixLabel" Content="asdf" HorizontalAlignment="Stretch" Margin="35,5,0,0" VerticalAlignment="Top" Height="26"/>
-        <Label x:Name="costLabel" Content="100,00 kr" Grid.Column="2" HorizontalAlignment="Stretch" Margin="0,5,0,0" VerticalAlignment="Top" Height="26"/>
+        <Label x:Name="costLabel" Content="100,00 kr" Grid.Column="1" HorizontalAlignment="Stretch" Margin="75,5,0,0" VerticalAlignment="Top" Height="26" Grid.ColumnSpan="2"/>
 
     </Grid>
 </UserControl>

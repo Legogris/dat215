@@ -37,6 +37,7 @@ namespace UI.Desktop.Preferences
             InitializeComponent();
             dataHandler = dh;
             account = new AccountControl(dataHandler);
+            account.SettingsChanged += account_SettingsChanged;
             shoppinglist = new ListControl(dataHandler);
             addNav(account, "Konto", (BitmapImage)App.Current.Resources["UserImage"]);
             addNav(shoppinglist, "Shoppinglistor", (BitmapImage)App.Current.Resources["ShoppingListImage"]);
@@ -51,6 +52,11 @@ namespace UI.Desktop.Preferences
                 content.Children.Add(shoppinglist);
                 prefTabs[1].Selected = true;
             }
+        }
+
+        void account_SettingsChanged(UserControl sender)
+        {
+            okButton.Content = "Spara";
         }
 
         private void addNav(UserControl control, String name, BitmapImage image)

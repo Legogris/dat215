@@ -41,7 +41,7 @@ namespace UI.Desktop.Checkout
             if (cc != null && cc.Count > 0)
             {
                 CardHolderNameTextBox.Text = cc.First().HoldersName;
-                CardNumberTextBox.Text = cc.First().CardNumber;
+                CardNumber1.Text = cc.First().CardNumber;
                 switch (cc.First().CardType)
                 {
                     case CardType.Amex:
@@ -102,7 +102,7 @@ namespace UI.Desktop.Checkout
                     cc.Add(new CreditCard());
                 }
                 cc.First().HoldersName = CardHolderNameTextBox.Text;
-                cc.First().CardNumber = CardNumberTextBox.Text;
+                cc.First().CardNumber = CardNumber1.Text;
                 ComboBoxItem temp = (ComboBoxItem)CardTypeComboBox.SelectedItem;
                 switch (temp.Content.ToString()) 
                 {
@@ -130,6 +130,28 @@ namespace UI.Desktop.Checkout
         private void CardNumberTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = CheckoutWindow.isTextAllowed(e.Text);
+            if (CardNumber1.Text.Length == 4)
+            {
+                CardNumber2.Focus();
+            }
+        }
+
+        private void CardNumber2_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = CheckoutWindow.isTextAllowed(e.Text);
+            if (CardNumber2.Text.Length == 4)
+            {
+                CardNumber3.Focus();
+            }
+        }
+
+        private void CardNumber3_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = CheckoutWindow.isTextAllowed(e.Text);
+            if (CardNumber3.Text.Length == 4)
+            {
+                CardNumber4.Focus();
+            }
         }
 
         private void VerificationCodeTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
