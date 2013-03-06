@@ -81,6 +81,7 @@ namespace UI.Desktop.Checkout
         {
             this.Close();
             PreferencesWindow pref = new PreferencesWindow(dataHandler, PreferencesWindow.StartupView.Account);
+            pref.Owner = MainWindow.WindowContainer;
             pref.ShowDialog();
         }
 

@@ -36,6 +36,7 @@ namespace UI.Desktop.Preferences.Content
             InitializeComponent();
             nameLabel.Content = name;
             imageLabel.Source = image;
+            background.Background = BACKGROUND;
         }
 
         private void toggleSelected()
