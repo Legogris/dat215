@@ -25,7 +25,6 @@ namespace UI.Desktop.Checkout
         private DataHandler dataHandler;
         public event EventHandler NextStep2;
         public event EventHandler BackStep2;
-        private List<ShippingAddress> sa;
         private List<CreditCard> cc;
         public CheckoutStep2(DataHandler data)
         {
@@ -37,18 +36,18 @@ namespace UI.Desktop.Checkout
         {
             HomedeliveryGrid.Visibility = Visibility.Visible;
             StoreComboBox.Visibility = Visibility.Collapsed;
-            
-            sa = dataHandler.GetShippingAddresses();
+
+            ShippingAddress sa = dataHandler.GetUser().ShippingAddress;
             cc = dataHandler.GetCreditCards();
-            if (sa != null && sa.Count > 0 )
+            if (sa != null)
             {
-                FirstNameTextBox.Text = sa.First().FirstName;
-                LastNameTextBox.Text = sa.First().LastName;
-                AddressTextBox.Text = sa.First().Address;
-                PostAddressTextBox.Text = sa.First().PostAddress;
-                PostcodeTextBox.Text = sa.First().PostCode;
-                PhoneNumberTextBox.Text = sa.First().PhoneNumber;
-                EmailTextBox.Text = sa.First().Email;
+                FirstNameTextBox.Text = sa.FirstName;
+                LastNameTextBox.Text = sa.LastName;
+                AddressTextBox.Text = sa.Address;
+                PostAddressTextBox.Text = sa.PostAddress;
+                PostcodeTextBox.Text = sa.PostCode;
+                PhoneNumberTextBox.Text = sa.PhoneNumber;
+                EmailTextBox.Text = sa.Email;
             }
             
         }
@@ -74,17 +73,19 @@ namespace UI.Desktop.Checkout
         {
             if (HomeDelivery.IsChecked.Value)
             {
-                if (sa.Count == 0)
+                ShippingAddress sa = dataHandler.GetUser().ShippingAddress;
+                if (sa == null)
                 {
-                    sa.Add(new ShippingAddress());
+                    dataHandler.GetUser().ShippingAddress = new ShippingAddress();
+                    sa = dataHandler.GetUser().ShippingAddress;
                 }
-                sa.First().FirstName = FirstNameTextBox.Text;
-                sa.First().LastName = LastNameTextBox.Text;
-                sa.First().Address = AddressTextBox.Text;
-                sa.First().PostAddress = PostAddressTextBox.Text;
-                sa.First().PostCode = PostcodeTextBox.Text;
-                sa.First().PhoneNumber = PhoneNumberTextBox.Text;
-                sa.First().Email = EmailTextBox.Text;
+                sa.FirstName = FirstNameTextBox.Text;
+                sa.LastName = LastNameTextBox.Text;
+                sa.Address = AddressTextBox.Text;
+                sa.PostAddress = PostAddressTextBox.Text;
+                sa.PostCode = PostcodeTextBox.Text;
+                sa.PhoneNumber = PhoneNumberTextBox.Text;
+                sa.Email = EmailTextBox.Text;
             }
             if (NextStep2 != null)
             {

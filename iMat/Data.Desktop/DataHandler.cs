@@ -15,7 +15,6 @@ namespace Data.Desktop
     public class DataHandler
     {
         private ShoppingListHandler favorites;
-        private List<ShippingAddress> shippingAddresses;
         private List<CreditCard> creditCards;
         private List<Order> orders;
         private User user;
@@ -27,7 +26,6 @@ namespace Data.Desktop
         public DataHandler(string productsPath)
         {
             favorites = new ShoppingListHandler();
-            shippingAddresses = new List<ShippingAddress>();
             creditCards = new List<CreditCard>();
             orders = new List<Order>();
             cart = new ShoppingCart();
@@ -143,12 +141,7 @@ namespace Data.Desktop
         {
             return creditCards;
         }
-
-        public List<ShippingAddress> GetShippingAddresses() 
-        {
-            return shippingAddresses; 
-        }
-
+        
         public User GetUser()
         {
             return user;
@@ -168,6 +161,7 @@ namespace Data.Desktop
         {
             return cart;
         }
+
         public void setUser(string email, string password)
         {
             user = new User(email, password);
