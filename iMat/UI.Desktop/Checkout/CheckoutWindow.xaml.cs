@@ -174,6 +174,15 @@ namespace UI.Desktop.Checkout
             ActivateStep2();
             wStep2.StepActive = true;
             wStep1.StepActive = false;
+            if (dataHandler.GetUser() != null)
+            {
+                logInUser.Content = dataHandler.GetUser().Email;
+                logInStatus.Content = "Inloggad som: ";
+            }
+            else
+            {
+                logInStatus.Content = "Inte inloggad!";
+            }
         }
         
         public void ActivateStep1()
@@ -202,6 +211,7 @@ namespace UI.Desktop.Checkout
             {
                 step3.PayOnPickup.IsEnabled = false;
             }
+            step3.PayWithCard.IsChecked = true;
         }
 
         public void ActivateStep4()
