@@ -11,6 +11,7 @@ namespace Data
     {
         public string Password { private get; set; }
         public string Email { get; set; }
+        public ShippingAddress ShippingAddress { get; set; }
 
         public User(string email, string password)
         {
