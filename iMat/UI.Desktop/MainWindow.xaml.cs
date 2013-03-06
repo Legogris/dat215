@@ -279,6 +279,7 @@ namespace UI.Desktop
             }
             mainWindow.shoppingListSelectComboBox.ItemsSource = null;
             mainWindow.shoppingListSelectComboBox.ItemsSource = ShoppingListsCollection;
+            mainWindow.shoppingListSelectComboBox.Text = "Shoppinglistor";
         }
         
         void openDialog(IList<ShoppingItem> items)
