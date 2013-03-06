@@ -84,6 +84,14 @@ namespace UI.Desktop
                     parentCrumb.ProductCategorySelected += parentCrumb_ProductCategorySelected;
                     parentPanel.Children.Add(parentCrumb);
                 }
+                FavoriteList list = pc as FavoriteList;
+                if (list == null)
+                {
+                    listsLabel.Visibility = System.Windows.Visibility.Collapsed;
+                }
+                else {
+                    listsLabel.Visibility = arrowLabel.Visibility = System.Windows.Visibility.Visible;
+                }
             }
         }
 

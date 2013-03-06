@@ -9,6 +9,7 @@
     <StackPanel x:Name="contentPanel" Orientation="Horizontal" >
         <StackPanel x:Name="parentPanel" Visibility="Collapsed" Orientation="Horizontal">
         </StackPanel>
+        <TextBlock x:Name="listsLabel" Text="Shoppinglistor" Visibility="Collapsed" />
         <TextBlock x:Name="arrowLabel" Text="»" Margin="5,0,5,0" />
         <TextBlock x:Name="titleLabel" Text="Label" />
     </StackPanel>
