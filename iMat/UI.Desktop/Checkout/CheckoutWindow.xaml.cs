@@ -231,7 +231,7 @@ namespace UI.Desktop.Checkout
             else
             {
                 step4.chosenPaymentOption.Text = "Du betalar med kort med nr: ";
-                step4.chosenPaymentAnswer.Text = step3.CardNumberTextBox.Text;
+                step4.chosenPaymentAnswer.Text = step3.CardNumber1.Text;
             }
             if (step2.HomeDelivery.IsChecked == true)
             {
