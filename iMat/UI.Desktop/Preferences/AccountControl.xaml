@@ -18,18 +18,18 @@
         <StackPanel Grid.Column="1" Margin="0,30,10,0" Orientation="Vertical">
             <Grid x:Name="accountInfo" Height="370" Visibility="Visible">
                 <Label Content="Förnamn" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
-                <TextBox x:Name="forename" HorizontalAlignment="Left" Height="23" Margin="10,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
+                <TextBox x:Name="forename" HorizontalAlignment="Left" Height="23" Margin="10,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" KeyDown="settingsChanged"/>
                 <Label Content="Efternamn" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,60,0,0"/>
-                <TextBox x:Name="lastname" HorizontalAlignment="Left" Height="23" Margin="10,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
+                <TextBox x:Name="lastname" HorizontalAlignment="Left" Height="23" Margin="10,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" KeyDown="settingsChanged"/>
                 <Label Content="E-mail" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,110,0,0"/>
-                <TextBox x:Name="email" HorizontalAlignment="Left" Height="23" Margin="10,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                <TextBox x:Name="email" HorizontalAlignment="Left" Height="23" Margin="10,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" KeyDown="settingsChanged"/>
                 <Label Content="Adress" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,160,0,0"/>
-                <TextBox x:Name="street" HorizontalAlignment="Left" Height="23" Margin="10,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
+                <TextBox x:Name="street" HorizontalAlignment="Left" Height="23" Margin="10,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" KeyDown="settingsChanged"/>
                 <Label Content="Postadress" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,210,0,0"/>
-                <TextBox x:Name="postcode" HorizontalAlignment="Left" Height="23" Margin="10,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
+                <TextBox x:Name="postcode" HorizontalAlignment="Left" Height="23" Margin="10,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" KeyDown="settingsChanged"/>
                 <TextBox HorizontalAlignment="Left" Text="Göteborg" Height="23" Margin="75,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" IsEnabled="False"/>
                 <Label Content="Telefonnummer" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,260,0,0"/>
-                <TextBox x:Name="phone" HorizontalAlignment="Left" Height="23" Margin="10,286,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="phone" HorizontalAlignment="Left" Height="23" Margin="10,286,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyDown="settingsChanged"/>
             </Grid>
             <Grid x:Name="accountLogIn" Height="370" Visibility="Collapsed">
                 <Label Content="E-mail" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>

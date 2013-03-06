@@ -24,6 +24,9 @@ namespace UI.Desktop.Preferences
     /// </summary>
     public partial class AccountControl : UserControl
     {
+        public delegate void SettingsChangedEvent(UserControl sender);
+        public event SettingsChangedEvent SettingsChanged;
+        
         private DataHandler dataHandler;
 
         public IList<Order> OrderCollection
@@ -145,6 +148,19 @@ namespace UI.Desktop.Preferences
         {
             dataHandler.GetOrders().Clear();
             overview.Children.Clear();
+        }
+
+        private void settingsChanged(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                // kanske stänga?
+                // kanske inte.
+            }
+            if (SettingsChanged != null)
+            {
+                SettingsChanged.Invoke(this);
+            }
         }
     }
 }

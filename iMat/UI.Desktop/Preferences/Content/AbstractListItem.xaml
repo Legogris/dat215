@@ -19,7 +19,11 @@
         </Grid>
         <Grid Grid.Column="2" HorizontalAlignment="Stretch">
             <Label x:Name="total" Content="Kostnad" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <Button x:Name="removeButton" Content="x" HorizontalAlignment="Right" VerticalAlignment="Top" ToolTip="Ta bort vara" Visibility="Collapsed" Width="25" Click="removeButton_Click" Margin="0,2,2,0"/>
+            <Button x:Name="removeButton" HorizontalAlignment="Right" VerticalAlignment="Top" ToolTip="Ta bort vara" Visibility="Collapsed" Width="25" Height="25" Click="removeButton_Click" Margin="0,2,2,0">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <Image Source="/UI.Desktop;component/Resources/Icons/remove_16.png" Width="16" Height="16" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
         </Grid>
     </Grid>
 </UserControl>
