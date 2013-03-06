@@ -6,7 +6,10 @@
              xmlns:Controls="clr-namespace:UI.Desktop.Content.Controls" x:Class="UI.Desktop.Content.ShoppingCartView" 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="250">
-    <Grid Background="{StaticResource PanelBackground}">
+    <Grid x:Name="bg">
+        <Grid.Background>
+            <SolidColorBrush x:Name="backgroundBrush" Color="#e8e8e8"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="24"/>

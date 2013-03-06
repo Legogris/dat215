@@ -88,7 +88,7 @@
                             <Image Source="Resources\Icons\copylist_2.png" Stretch="UniformToFill" Width="20" Height="20" OpacityMask="Black"/>
                         </StackPanel>
                     </Button>
-                    <ComboBox x:Name="shoppingListSelectComboBox" Text="Shoppinglistor" IsEditable="True" ItemsSource="{Binding ShoppingListsCollection}" DisplayMemberPath="Name" SelectedValue="{Binding ShoppingListDummy}"  Margin="0" VerticalAlignment="Stretch" Width="100" SelectionChanged="shoppingListComboBoxSelectedChanged">
+                    <ComboBox x:Name="shoppingListSelectComboBox" Text="Shoppinglistor" IsReadOnly="True" IsEditable="True" ItemsSource="{Binding ShoppingListsCollection}" DisplayMemberPath="Name" SelectedValue="{Binding ShoppingListDummy}"  Margin="0" VerticalAlignment="Stretch" Width="100" SelectionChanged="shoppingListComboBoxSelectedChanged">
                         <ComboBox.Background>
                             <SolidColorBrush x:Name="comboBoxBrush" Color="White"/>
                         </ComboBox.Background>

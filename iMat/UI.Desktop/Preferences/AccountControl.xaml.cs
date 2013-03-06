@@ -99,6 +99,7 @@ namespace UI.Desktop.Preferences
         private void createAccount(object sender, RoutedEventArgs e)
         {
             dataHandler.setUser(createAccName.Text, createPW.Text);
+            dataHandler.GetUser().ShippingAddress.Email = createAccName.Text;
             logIn();
         }
 
