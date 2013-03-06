@@ -102,8 +102,7 @@ namespace UI.Desktop.Content
         void listItem_RemoveClick(AbstractListItem sender)
         {
             AbstractListItem selected = getSelectedOverview();
-            if (selected == null) return;
-            FavoriteList list = selected.DataContext as FavoriteList;
+            FavoriteList list = getSelectedFavoriteList();
             if (list == null) return;
             list.Remove(detailPanel.Children.IndexOf(sender));
             showDetails(selected);
@@ -134,7 +133,7 @@ namespace UI.Desktop.Content
             return listItem;
         }
                 
-        private void copyClick(object sender, RoutedEventArgs e) // TODO: referenser till fel objekt. fakken hell.
+        private void copyClick(object sender, RoutedEventArgs e)
         {
             
         }
@@ -164,6 +163,34 @@ namespace UI.Desktop.Content
             foreach (AbstractListItem item in overviewPanel.Children)
             {
                 item.Selected = false;
+            }
+        }
+
+        private FavoriteList getSelectedFavoriteList()
+        {
+            return getSelectedOverview().DataContext as FavoriteList;
+        }
+
+        private void changeShoppingListName_Click(object sender, RoutedEventArgs e)
+        {
+            openDialog(getSelectedFavoriteList());
+        }
+
+        void openDialog(FavoriteList favs)
+        {
+            TextBoxPopup tbp = new TextBoxPopup();
+            tbp.setFlavor("Byt namn på shoppinglistan " + favs.Name + ":");
+            //tbp.Owner = ;
+            tbp.ShowDialog();
+            
+            if (tbp.DialogResult == true)
+            {
+                string s = tbp.TextBoxText;
+                favs.Name = s;
+                listHandler.Change(favs);
+                AbstractListItem selected = getSelectedOverview();
+                showDetails(selected);
+                selected.First(favs.Name);
             }
         }
     }

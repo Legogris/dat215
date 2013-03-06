@@ -125,5 +125,11 @@ namespace UI.Desktop.Preferences
                 item.Third(order.TotalCost + " kr");
             }
         }
+
+        private void clearOrderHistory_Click(object sender, RoutedEventArgs e)
+        {
+            dataHandler.GetOrders().Clear();
+            overview.Children.Clear();
+        }
     }
 }

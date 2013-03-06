@@ -30,6 +30,11 @@ namespace UI.Desktop.Controls
             InitializeComponent();
         }
 
+        public void setFlavor(string s)
+        {
+            flavor.Content = s;
+        }
+
         private void okButton_Click_1(object sender, RoutedEventArgs e)
         {
             TextBoxText = nameTextBox.Text;
