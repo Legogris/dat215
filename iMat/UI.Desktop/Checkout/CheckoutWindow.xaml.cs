@@ -124,7 +124,7 @@ namespace UI.Desktop.Checkout
             this.Close();
             if (shoppingCart != null)
             {
-                dataHandler.GetOrders().Add(new Order(shoppingCart, DateTime.Now, 1337));
+                dataHandler.GetOrders().Insert(0, new Order(shoppingCart, DateTime.Now, 1337));
                 shoppingCart.Clear();
             }
         }

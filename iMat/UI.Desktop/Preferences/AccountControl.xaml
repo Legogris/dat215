@@ -52,7 +52,9 @@
         <Rectangle Grid.Column="1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="300" Margin="217,45,0,0" Stroke="Black" VerticalAlignment="Top" Width="1"/>
         <Grid Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Label Content="Orderhistorik" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top"/>
-            <StackPanel x:Name="overview" HorizontalAlignment="Left" Height="250" Margin="10,92,0,0" VerticalAlignment="Top" Width="300"/>
+            <ScrollViewer HorizontalAlignment="Left" Height="250" Margin="10,92,0,0" VerticalAlignment="Top" Width="317">
+                <StackPanel x:Name="overview" Width="300"/>
+            </ScrollViewer>
             <Content:AbstractListItem x:Name="orderHeader" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Width="300"/>
             <Button Content="Rensa" HorizontalAlignment="Left" Margin="235,35,0,0" VerticalAlignment="Top" Width="75" Click="clearOrderHistory_Click"/>
         </Grid>
