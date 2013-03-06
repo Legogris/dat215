@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UI.Desktop.Controls;
 using UI.Desktop.Preferences.Content;
 
 namespace UI.Desktop.Preferences
@@ -124,7 +125,19 @@ namespace UI.Desktop.Preferences
                 item.First(order.Date.ToString());
                 item.Second(order.OrderNumber.ToString());
                 item.Third(order.TotalCost + " kr");
+                item.DataContext = order;
+                item.MouseUp += item_MouseUp;
+                item.Cursor = Cursors.Hand;
             }
+        }
+
+        void item_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            DetailShoppingCartView view = new DetailShoppingCartView();
+            view.Owner = MainWindow.WindowContainer;
+            AbstractListItem item = sender as AbstractListItem;
+            view.setOrder(item.DataContext as Order);
+            view.ShowDialog();
         }
 
         private void clearOrderHistory_Click(object sender, RoutedEventArgs e)

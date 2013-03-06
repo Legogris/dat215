@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UI.Desktop.Content.Controls;
 using Data.Desktop;
+using UI.Desktop.Controls;
 
 namespace UI.Desktop.Content
 {
@@ -147,6 +148,14 @@ namespace UI.Desktop.Content
             Checkout.CheckoutWindow wizard = new Checkout.CheckoutWindow(DataHandler);
             wizard.Owner = MainWindow.WindowContainer;
             wizard.ShowDialog();
+        }
+
+        private void showCart_Click(object sender, RoutedEventArgs e)
+        {
+            DetailShoppingCartView view = new DetailShoppingCartView();
+            view.Owner = MainWindow.WindowContainer;
+            view.setData(ShoppingCart.GetItems());
+            view.ShowDialog();
         }
     }
 }

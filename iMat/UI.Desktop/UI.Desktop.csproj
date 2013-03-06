@@ -143,6 +143,9 @@
     <Compile Include="Content\StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\DetailShoppingCartView.xaml.cs">
+      <DependentUpon>DetailShoppingCartView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Preferences\Content\AbstractListItem.xaml.cs">
       <DependentUpon>AbstractListItem.xaml</DependentUpon>
     </Compile>
@@ -269,6 +272,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Content\StartPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\DetailShoppingCartView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
