@@ -36,6 +36,7 @@ namespace UI.Desktop
         private GridView gridView;
         private TreeView treeView;
         private CategoryControl categoryControl;
+        private Label homeLabel;
 
         public event ProductCategoryChangedHandler PreviewProductCategorySelectionChanged;
         public event ProductCategoryChangedHandler ProductCategorySelectionChanged;
@@ -72,9 +73,17 @@ namespace UI.Desktop
                         itemFrame.Content = new StartPage();
                         showCategories();
                         breadCrumbs.Visibility = System.Windows.Visibility.Collapsed;
+                        if (PreviewProductCategorySelectionChanged != null)
+                        {
+                            PreviewProductCategorySelectionChanged.Invoke(this, new ProductCategoryChangedEventArgs(null));
+                        }
                         break;
                     default:
                         throw new NotImplementedException();
+                }
+                if (homeLabel != null)
+                {
+                    homeLabel.FontWeight = value == ProductsViewMode.Start ? FontWeights.Bold : FontWeights.Normal;
                 }
                 viewMode = value;
             }
@@ -117,10 +126,11 @@ namespace UI.Desktop
             StackPanel sp = new StackPanel();
             sp.Orientation = Orientation.Horizontal;
             sp.Children.Add(image);
-            Label homeLabel = new Label();
+            homeLabel = new Label();
             homeLabel.Content = "Start";
             homeLabel.FontSize = 14;
             homeLabel.Cursor = Cursors.Hand;
+            homeLabel.FontWeight =  viewMode == ProductsViewMode.Start ? FontWeights.Bold : FontWeights.Normal;
             sp.Children.Add(homeLabel);
             container.Children.Add(sp);
             //container.Children.Add(homeLabel);
