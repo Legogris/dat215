@@ -24,7 +24,6 @@ namespace UI.Desktop.Preferences
     public partial class AccountControl : UserControl
     {
         private DataHandler dataHandler;
-        private ShippingAddress sa;
 
         public IList<Order> OrderCollection
         {
@@ -44,9 +43,8 @@ namespace UI.Desktop.Preferences
             else
             {
                 accountInfo.Visibility = System.Windows.Visibility.Visible;
-                if (dataHandler.GetShippingAddresses().Count != 0)
+                if (dataHandler.GetUser().ShippingAddress != null)
                 {
-                    sa = dataHandler.GetShippingAddresses().First();
                     labels();
                 } 
             }
@@ -54,6 +52,7 @@ namespace UI.Desktop.Preferences
 
         private void labels()
         {
+            ShippingAddress sa = dataHandler.GetUser().ShippingAddress;
             accountname.Content = dataHandler.GetUser().Email;
             forename.Text = sa.FirstName;
             lastname.Text = sa.LastName;
@@ -67,10 +66,11 @@ namespace UI.Desktop.Preferences
         {
             if (dataHandler.GetUser() != null)
             {
+                ShippingAddress sa = dataHandler.GetUser().ShippingAddress;
                 if (sa == null)
                 {
-                    dataHandler.GetShippingAddresses().Add(new ShippingAddress());
-                    sa = dataHandler.GetShippingAddresses().First();
+                    dataHandler.GetUser().ShippingAddress = new ShippingAddress();
+                    sa = dataHandler.GetUser().ShippingAddress;
                 }
                 sa.FirstName = forename.Text;
                 sa.LastName = lastname.Text;
@@ -106,7 +106,7 @@ namespace UI.Desktop.Preferences
             accountCreate.Visibility = System.Windows.Visibility.Collapsed;
             accountname.Content = dataHandler.GetUser().Email;
             accountStatus.Content = "Inloggad som";
-            if (dataHandler.GetShippingAddresses().Count != 0)
+            if (dataHandler.GetUser().ShippingAddress != null)
             {
                 labels();
             }
