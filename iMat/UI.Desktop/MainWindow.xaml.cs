@@ -166,6 +166,8 @@ namespace UI.Desktop
         private void menuItemLogOut_Click(object sender, RoutedEventArgs e)
         {
             dataHandler.logout();
+            dataHandler.GetCreditCards().Clear();
+            dataHandler.GetOrders().Clear();
         }
 
         private void searchField_KeyDown(object sender, KeyEventArgs e)
