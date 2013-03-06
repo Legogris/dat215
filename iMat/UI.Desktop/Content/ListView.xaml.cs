@@ -96,7 +96,7 @@ namespace UI.Desktop
         {
             
             DetailedItem dli = (DetailedItem)sender;
-            if (!dli.IsListContextMenuOpen)
+            if (dli != null && !dli.IsListContextMenuOpen)
             {
                 ListViewItem li = listItems[dli.Item];
 

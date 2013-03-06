@@ -151,11 +151,15 @@ namespace UI.Desktop.Content
 
         private void deleteShoppingListClick(object sender, RoutedEventArgs e)
         {
+
             AbstractListItem item = getSelectedOverview();
             if (item == null) return;
-            overviewPanel.Children.Remove(item);
-            listHandler.Remove(item.DataContext as FavoriteList);
-            hideDetails();
+            MessageBoxResult result = MessageBox.Show(string.Format("Är du säker på att du vill radera shoppinglistan {0}?", item.Name), "iMat", MessageBoxButton.YesNo);
+            if(result == MessageBoxResult.Yes) {
+                overviewPanel.Children.Remove(item);
+                listHandler.Remove(item.DataContext as FavoriteList);
+                hideDetails();
+            }
         }
 
         private void deselectOverview()
