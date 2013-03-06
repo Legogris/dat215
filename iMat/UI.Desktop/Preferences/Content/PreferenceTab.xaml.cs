@@ -27,9 +27,9 @@ namespace UI.Desktop.Preferences.Content
             set { selected = value; toggleSelected(); }
         }
 
-        public static readonly Brush WHITE = new SolidColorBrush(Colors.White);
-        public static readonly Brush HOVER = (Brush)App.Current.Resources["ItemHighlight"];
-        public static readonly Brush SELECTED = (Brush)App.Current.Resources["PanelBackground"];
+        public static readonly Brush BACKGROUND = (Brush)App.Current.Resources["ItemEvenBack"];
+        public static readonly Brush HOVER = (Brush)App.Current.Resources["ItemOddBack"];
+        public static readonly Brush SELECTED = (Brush)App.Current.Resources["DarkComplement"];
         
         public PreferenceTab(String name, BitmapImage image)
         {
@@ -40,7 +40,7 @@ namespace UI.Desktop.Preferences.Content
 
         private void toggleSelected()
         {
-            background.Background = selected ? SELECTED : WHITE;
+            background.Background = selected ? SELECTED : BACKGROUND;
         }
 
         private void BGMouseEnter(object sender, MouseEventArgs e)
