@@ -153,7 +153,9 @@ namespace UI.Desktop.Checkout
         public void ActivateStep1()
         {
             PageGrid.Children.Clear();
-            PageGrid.Children.Add(step1);
+            PageGrid.Children.Add(step1 = new CheckoutStep1(dataHandler));
+            step1.NextStep += step1_NextStep;
+            step1.LogIn += step1_LogIn;
         }
         
         public void ActivateStep2()

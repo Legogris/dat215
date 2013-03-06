@@ -24,7 +24,7 @@
         <Button x:Name="NextStep1Button" Content="Fortsätt" HorizontalAlignment="Left" Height="25" Margin="305,415,0,0" VerticalAlignment="Top" Width="85" Click="NextStep1Button_Click" IsEnabled="False"/>
         <PasswordBox x:Name="mainPasswordBox" HorizontalAlignment="Left" Margin="15,128,0,0" VerticalAlignment="Top" Width="170" Cursor="" PasswordChanged="mainPasswordBox_PasswordChanged"/>
         <PasswordBox x:Name="repeatPasswordBox" HorizontalAlignment="Left" Margin="15,179,0,0" VerticalAlignment="Top" Width="170" PasswordChanged="repeatPasswordBox_PasswordChanged"/>
-        <Label x:Name="passwordsNotEqualLabel" Content="" HorizontalAlignment="Left" Margin="190,185,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FFFD3131"/>
+        <Label x:Name="passwordsNotEqualLabel" Content="" HorizontalAlignment="Left" Margin="190,175,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FFFD3131"/>
         <CheckBox x:Name="rememberDetailsStep1" Content="Kom ihåg mitt lösenord" HorizontalAlignment="Left" Margin="15,204,0,0" VerticalAlignment="Top" IsChecked="True"/>
 
     </Grid>

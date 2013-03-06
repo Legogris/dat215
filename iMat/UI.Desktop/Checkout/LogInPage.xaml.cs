@@ -49,26 +49,25 @@ namespace UI.Desktop.Checkout
             BackStep.Invoke(this, null);
         }
 
-        private void logInEmailTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            //checkIfReadyToContinue();
-        }
-
-        private void logInPasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
-        {
-            //checkIfReadyToContinue();
-        }
         private void checkIfReadyToContinue()
         {
             if (user != null && user.isPassword(logInPasswordBox.Password) && !(string.IsNullOrEmpty(logInEmailTextBox.Text) || string.IsNullOrEmpty(logInPasswordBox.Password)))
             {
-                //logInNextButton.IsEnabled = true;
                 passwordWarningLabel.Content = null;
             }
             else
             {
-                //logInNextButton.IsEnabled = false;
                 passwordWarningLabel.Content = "Fel lösenord eller e-mail.";
+            }
+        }
+
+        private void logInPasswordBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                checkIfReadyToContinue();
+                if (passwordWarningLabel.Content != null) return;
+                NextStep.Invoke(this, null);
             }
         }
     }

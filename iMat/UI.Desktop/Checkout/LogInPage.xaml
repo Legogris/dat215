@@ -8,13 +8,13 @@
     <Grid>
         <Label x:Name="logInTitleLabel" Content="Logga in med ditt iMat-konto" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
         <Label x:Name="logInEmailLabel" Content="Email:" HorizontalAlignment="Left" Margin="15,54,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="logInEmailTextBox" HorizontalAlignment="Left" Margin="15,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" TextChanged="logInEmailTextBox_TextChanged" SpellCheck.IsEnabled="True"/>
+        <TextBox x:Name="logInEmailTextBox" HorizontalAlignment="Left" Margin="15,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" SpellCheck.IsEnabled="True"/>
         <Label x:Name="logInPasswordLabel" Content="Lösenord:" HorizontalAlignment="Left" Margin="15,107,0,0" VerticalAlignment="Top"/>
-        <PasswordBox x:Name="logInPasswordBox" HorizontalAlignment="Left" Margin="15,133,0,0" VerticalAlignment="Top" Width="170" PasswordChanged="logInPasswordBox_PasswordChanged"/>
+        <PasswordBox x:Name="logInPasswordBox" HorizontalAlignment="Left" Margin="15,133,0,0" VerticalAlignment="Top" Width="170" KeyDown="logInPasswordBox_KeyDown"/>
         <Button x:Name="logInNextButton" Content="Fortsätt" Height="25" HorizontalAlignment="Left" Margin="305,395,0,0" VerticalAlignment="Top" Width="85" Click="LogInNextButton_Click"/>
         <Button x:Name="backToCreateButton" Content="Skapa nytt" Height="25" HorizontalAlignment="Left" Margin="215,395,0,0" VerticalAlignment="Top" Width="85" Click="backToCreateButton_Click"/>
         <CheckBox Content="Kom ihåg mitt lösenord" HorizontalAlignment="Left" Margin="15,182,0,0" VerticalAlignment="Top" Height="17" Width="171" IsChecked="True"/>
-        <Label x:Name="passwordWarningLabel" Content="" HorizontalAlignment="Left" Margin="186,148,0,0" VerticalAlignment="Top" Foreground="#FFFD3131"/>
+        <Label x:Name="passwordWarningLabel" Content="" HorizontalAlignment="Left" Margin="185,129,0,0" VerticalAlignment="Top" Foreground="#FFFD3131"/>
 
     </Grid>
 </UserControl>

@@ -36,7 +36,6 @@ namespace UI.Desktop.Checkout
             if (dataHandler.GetUser() != null)
             {
                 user = dataHandler.GetUser();
-                emailTextBox.Text = user.Email;
             }
         }
 
