@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Data.Desktop;
 using UI.Desktop.Preferences;
+using System.Text.RegularExpressions;
 
 namespace UI.Desktop.Checkout
 {
@@ -76,11 +77,17 @@ namespace UI.Desktop.Checkout
             
 
         }
+        public static bool isTextAllowed(String s)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            return regex.IsMatch(s);
+        }
 
         void step5_ShowReciept(object sender, EventArgs e)
         {
             this.Close();
             PreferencesWindow pref = new PreferencesWindow(dataHandler, PreferencesWindow.StartupView.Account);
+            pref.Owner = MainWindow.WindowContainer;
             pref.ShowDialog();
         }
 
