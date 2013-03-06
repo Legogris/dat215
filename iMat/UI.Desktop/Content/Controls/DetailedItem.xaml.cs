@@ -32,10 +32,19 @@ namespace UI.Desktop
             }
         }
 
+        public bool IsListContextMenuOpen
+        {
+            get
+            {
+                return addToListButton.ContextMenu.IsOpen;
+            }
+        }
+
         public DetailedItem(ShoppingItem i) :  base(i)
         {
             InitializeComponent();
             addToListButton.ContextMenu = MainWindow.ListContextMenu;
+
             initContent();
         }
 
@@ -52,12 +61,16 @@ namespace UI.Desktop
 
         private void addToListButton_Click(object sender, RoutedEventArgs e)
         {
+            addToListButton.ContextMenu.Tag = this;
             addToListButton.ContextMenu.IsOpen = true;
             addToListButton.ContextMenu.PlacementTarget = addToListButton;
             IList<ShoppingItem> addIT = new List<ShoppingItem>();
             addIT.Add(new ShoppingItem(Product, NumberOfItems));
             addToListButton.DataContext = addIT;
             e.Handled = true;
+            
         }
+
+
     }
 }

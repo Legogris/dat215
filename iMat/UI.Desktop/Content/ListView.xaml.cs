@@ -28,6 +28,12 @@ namespace UI.Desktop
         {
             InitializeComponent();
             this.DataContextChanged += ListView_DataContextChanged;
+            MainWindow.ListContextMenu.Closed += ListContextMenu_Closed;
+        }
+
+        void ListContextMenu_Closed(object sender, RoutedEventArgs e)
+        {
+            dli_MouseDown(MainWindow.ListContextMenu.Tag, null);
         }
 
         void ListView_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -88,11 +94,15 @@ namespace UI.Desktop
         
         void dli_MouseDown(object sender, MouseEventArgs e)
         {
+            
             DetailedItem dli = (DetailedItem)sender;
-            ListViewItem li = listItems[dli.Item];
+            if (!dli.IsListContextMenuOpen)
+            {
+                ListViewItem li = listItems[dli.Item];
 
-            li.Visibility = System.Windows.Visibility.Visible;
-            dli.Visibility = System.Windows.Visibility.Collapsed;
+                li.Visibility = System.Windows.Visibility.Visible;
+                dli.Visibility = System.Windows.Visibility.Collapsed;
+            }
         }
 
         void li_ItemAdded(object sender, CartEventArgs e)
