@@ -17,6 +17,8 @@ namespace Data
         {
             Email = email;
             Password = password;
+            ShippingAddress = new ShippingAddress();
+            ShippingAddress.Email = email;
         }
 
         public bool isPassword(string password)

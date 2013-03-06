@@ -25,28 +25,39 @@ namespace UI.Desktop.Checkout
         private DataHandler dataHandler;
         public event EventHandler NextStep2;
         public event EventHandler BackStep2;
-        private ShippingAddress sa;
         public CheckoutStep2(DataHandler data)
         {
-            InitializeComponent();
             dataHandler = data;
+            InitializeComponent();
+            if (dataHandler.GetUser() != null)
+            {
+                placeLabels();
+            }
         }
 
         private void HomeDelivery_Checked(object sender, RoutedEventArgs e)
         {
-            HomedeliveryGrid.Visibility = Visibility.Visible;
-            StoreComboBox.Visibility = Visibility.Collapsed;
-            sa = dataHandler.GetUser().ShippingAddress;
-            if (sa != null)
+            if (StoreComboBox != null && HomedeliveryGrid != null)
             {
-                FirstNameTextBox.Text = sa.FirstName;
-                LastNameTextBox.Text = sa.LastName;
-                AddressTextBox.Text = sa.Address;
-                PostAddressTextBox.Text = sa.PostAddress;
-                PostcodeTextBox.Text = sa.PostCode;
-                PhoneNumberTextBox.Text = sa.PhoneNumber;
-                EmailTextBox.Text = sa.Email;
+                HomedeliveryGrid.Visibility = Visibility.Visible;
+                StoreComboBox.Visibility = Visibility.Collapsed;
+                if (dataHandler.GetUser() != null)
+                {
+                    placeLabels();
+                }
             }            
+        }
+
+        public void placeLabels()
+        {
+            ShippingAddress sa = dataHandler.GetUser().ShippingAddress;
+            FirstNameTextBox.Text = sa.FirstName;
+            LastNameTextBox.Text = sa.LastName;
+            AddressTextBox.Text = sa.Address;
+            PostAddressTextBox.Text = sa.PostAddress;
+            PostcodeTextBox.Text = sa.PostCode;
+            PhoneNumberTextBox.Text = sa.PhoneNumber;
+            EmailTextBox.Text = sa.Email;
         }
 
         private void PickupInStore_Checked(object sender, RoutedEventArgs e)
@@ -68,7 +79,7 @@ namespace UI.Desktop.Checkout
 
         private void NextStep2Button_Click(object sender, RoutedEventArgs e)
         {
-            if (HomeDelivery.IsChecked.Value)
+            if (HomeDelivery.IsChecked.Value && dataHandler.GetUser() != null)
             {
                 ShippingAddress sa = dataHandler.GetUser().ShippingAddress;
                 if (sa == null)
