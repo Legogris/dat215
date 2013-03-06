@@ -1,0 +1,14 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Content="clr-namespace:UI.Desktop.Preferences.Content" x:Class="UI.Desktop.Controls.DetailShoppingCartView"
+        Title="Detaljer" Height="300" Width="334" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" ShowInTaskbar="False">
+    <Grid>
+
+        <Content:AbstractListItem x:Name="head" HorizontalAlignment="Left" Width="300" VerticalAlignment="Top"/>
+        <ScrollViewer HorizontalAlignment="Stretch" Margin="0,26,0,0" Height="250" VerticalAlignment="Top">
+            <StackPanel x:Name="content" HorizontalAlignment="Left" VerticalAlignment="Top" Width="300"/>
+        </ScrollViewer>
+
+    </Grid>
+</Window>

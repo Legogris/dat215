@@ -30,14 +30,21 @@ namespace UI.Desktop
         }
     }
 
-    public partial class CategoryControl : UserControl
+    public interface ProductCategoryChangedEmitter
+    {
+        event ProductCategoryChangedHandler ProductCategorySelectionChanged;
+        event ProductCategoryChangedHandler PreviewProductCategorySelectionChanged;
+    }
+
+    public partial class CategoryControl : UserControl, ProductCategoryChangedEmitter
     {
         private ProductCategory productCategory;
         private bool expanded = false;
         public event ProductCategoryChangedHandler ProductCategorySelectionChanged;
+        public event ProductCategoryChangedHandler PreviewProductCategorySelectionChanged;
         private int level;
 
-        public CategoryControl(ProductCategory pc, int level)
+        public CategoryControl(ProductCategory pc, int level, ProductCategoryChangedEmitter parentControl)
         {
             InitializeComponent();
             productCategory = pc;
@@ -53,6 +60,29 @@ namespace UI.Desktop
                 categoryLabel.Content = "DUMMY";
             }
             this.Background = (Brush)App.Current.Resources[string.Format("CategoryLevel{0}Background", level)];
+            ProductCategorySelectionChanged += CategoryControl_ProductCategorySelectionChanged;
+            if (parentControl != null)
+            {
+                parentControl.PreviewProductCategorySelectionChanged += parentControl_PreviewProductCategorySelectionChanged;
+            }
+        }
+
+        void parentControl_PreviewProductCategorySelectionChanged(UserControl sender, ProductCategoryChangedEventArgs e)
+        {
+            updateVisuals(e.Category == productCategory);
+            if (PreviewProductCategorySelectionChanged != null)
+            {
+                PreviewProductCategorySelectionChanged.Invoke(sender, e);
+            }
+        }
+        private void updateVisuals(bool currentlySelected)
+        {
+            categoryLabel.FontWeight = currentlySelected ? FontWeights.Bold : FontWeights.Normal;
+        }
+
+        void CategoryControl_ProductCategorySelectionChanged(UserControl sender, ProductCategoryChangedEventArgs e)
+        {
+            updateVisuals(e.Category == productCategory);
         }
 
         void categoryLabel_MouseUp(object sender, MouseButtonEventArgs e)
@@ -70,8 +100,16 @@ namespace UI.Desktop
             }
             if (productCategory as ShoppingListHandler == null) // Don't replace content just for displaying list of favorite lists
             {
-                ProductCategorySelectionChanged.Invoke(this, new ProductCategoryChangedEventArgs(productCategory));
+                if (ProductCategorySelectionChanged != null)
+                {
+                    ProductCategorySelectionChanged.Invoke(this, new ProductCategoryChangedEventArgs(productCategory));
+                }
+                if (PreviewProductCategorySelectionChanged != null)
+                {
+                    PreviewProductCategorySelectionChanged.Invoke(this, new ProductCategoryChangedEventArgs(productCategory));
+                }
             }
+
         }
 
         public void Expand()
@@ -85,7 +123,7 @@ namespace UI.Desktop
                 pcs.AddRange(productCategory.SubCategories.OfType<ConcreteProductCategory>());
                 foreach (ProductCategory pc in pcs)
                 {
-                    CategoryControl c = new CategoryControl(pc, level+1);
+                    CategoryControl c = new CategoryControl(pc, level+1, this);
                     stackPanel.Children.Add(c);
                     c.ProductCategorySelectionChanged += childProductCategorySelectionChanged;
                 }
@@ -94,7 +132,14 @@ namespace UI.Desktop
 
         void childProductCategorySelectionChanged(UserControl sender, ProductCategoryChangedEventArgs e)
         {
-            ProductCategorySelectionChanged.Invoke(sender, e);
+            if (ProductCategorySelectionChanged != null)
+            {
+                ProductCategorySelectionChanged.Invoke(sender, e);
+            }
+            if (PreviewProductCategorySelectionChanged != null)
+            {
+                PreviewProductCategorySelectionChanged.Invoke(sender, e);
+            }
         }
 
         public void Retract() {

@@ -20,7 +20,7 @@ namespace UI.Desktop
     /// <summary>
     /// Interaction logic for ProductBrowser.xaml
     /// </summary>
-    public partial class ProductBrowser : UserControl
+    public partial class ProductBrowser : UserControl, ProductCategoryChangedEmitter
     {
         public enum ProductsViewMode
         {
@@ -35,7 +35,11 @@ namespace UI.Desktop
         private ListView listView;
         private GridView gridView;
         private TreeView treeView;
-        
+        private CategoryControl categoryControl;
+        private Label homeLabel;
+
+        public event ProductCategoryChangedHandler PreviewProductCategorySelectionChanged;
+        public event ProductCategoryChangedHandler ProductCategorySelectionChanged;
 
         public ProductCategory RootCategory
         {
@@ -69,9 +73,17 @@ namespace UI.Desktop
                         itemFrame.Content = new StartPage();
                         showCategories();
                         breadCrumbs.Visibility = System.Windows.Visibility.Collapsed;
+                        if (PreviewProductCategorySelectionChanged != null)
+                        {
+                            PreviewProductCategorySelectionChanged.Invoke(this, new ProductCategoryChangedEventArgs(null));
+                        }
                         break;
                     default:
                         throw new NotImplementedException();
+                }
+                if (homeLabel != null)
+                {
+                    homeLabel.FontWeight = value == ProductsViewMode.Start ? FontWeights.Bold : FontWeights.Normal;
                 }
                 viewMode = value;
             }
@@ -114,20 +126,21 @@ namespace UI.Desktop
             StackPanel sp = new StackPanel();
             sp.Orientation = Orientation.Horizontal;
             sp.Children.Add(image);
-            Label homeLabel = new Label();
+            homeLabel = new Label();
             homeLabel.Content = "Start";
             homeLabel.FontSize = 14;
             homeLabel.Cursor = Cursors.Hand;
+            homeLabel.FontWeight =  viewMode == ProductsViewMode.Start ? FontWeights.Bold : FontWeights.Normal;
             sp.Children.Add(homeLabel);
             container.Children.Add(sp);
             //container.Children.Add(homeLabel);
 
-            CategoryControl root = new CategoryControl(rootCategory, 1);
-            container.Children.Add(root);
-            root.Expand();
-            Thickness margin = root.stackPanel.Margin;
+            categoryControl = new CategoryControl(rootCategory, 1, this);
+            container.Children.Add(categoryControl);
+            categoryControl.Expand();
+            Thickness margin = categoryControl.stackPanel.Margin;
             margin.Left = 0;
-            root.stackPanel.Margin = margin;
+            categoryControl.stackPanel.Margin = margin;
             
             breadCrumbs.DataContext = rootCategory;
             listView.DataContext = rootCategory;
@@ -135,7 +148,7 @@ namespace UI.Desktop
             treeView.DataContext = rootCategory;
 
             homeLabel.MouseUp += homeLabel_MouseUp;
-            root.ProductCategorySelectionChanged += root_ProductCategorySelectionChanged;
+            categoryControl.ProductCategorySelectionChanged += root_ProductCategorySelectionChanged;
             breadCrumbs.ProductCategorySelected += root_ProductCategorySelectionChanged;
         }
 
@@ -152,6 +165,7 @@ namespace UI.Desktop
                 ViewMode = ProductBrowser.ProductsViewMode.List;
             }
             listView.DataContext = gridView.DataContext = breadCrumbs.DataContext = e.Category;
+            PreviewProductCategorySelectionChanged.Invoke(sender, e);
         }
 
         void itemAdded(object sender, CartEventArgs e)
