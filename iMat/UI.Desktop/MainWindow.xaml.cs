@@ -177,6 +177,16 @@ namespace UI.Desktop
                 searchField.Text = "Det blev ingen glass";
             }
         }
+
+        private void commandBinding_Preferences(object sender, ExecutedRoutedEventArgs e)
+        {
+            openPreferences(PreferencesWindow.StartupView.Account);
+        }
+
+        private void commandBinding_ShoppingList(object sender, ExecutedRoutedEventArgs e)
+        {
+            openPreferences(PreferencesWindow.StartupView.List);
+        }
     }
 
     public class ListContextMenuManager {

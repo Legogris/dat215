@@ -5,6 +5,14 @@
         xmlns:Content="clr-namespace:UI.Desktop.Content"
         x:Class="UI.Desktop.MainWindow"
         Title="iMat" Height="550" Width="1180" Closing="Window_Closing">
+    <Window.CommandBindings>
+        <CommandBinding Command="Properties" Executed="commandBinding_Preferences"/>
+        <CommandBinding Command="New" Executed="commandBinding_ShoppingList"/>
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Key="L" Modifiers="Control" Command="New"/>
+        <KeyBinding Key="P" Modifiers="Control" Command="Properties"/>
+    </Window.InputBindings>
     <Grid Background="{StaticResource PanelBackground}">
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
@@ -18,8 +26,8 @@
                 <MenuItem x:Name="menuItemQuit" Header="Avsluta" Click="menuItemQuitClick"/>
             </MenuItem>
             <MenuItem Header="Hantera">
-                <MenuItem x:Name="menuItemLists" Click="shoppingListPrefsClick" Header="Shoppinglistor..."/>
-                <MenuItem x:Name="menuItemAccount" Header="Konto..." Click="menuItemPropertiesClick"/>
+                <MenuItem x:Name="menuItemLists" Click="shoppingListPrefsClick" Header="Shoppinglistor..." InputGestureText="Ctrl + L"/>
+                <MenuItem x:Name="menuItemAccount" Header="Konto..." Click="menuItemPropertiesClick" InputGestureText="Ctrl + P"/>
             </MenuItem>
             <MenuItem Header="Hjälp">
                 <MenuItem x:Name="menuItemAbout" Header="Om iMat" Click="menuItemAbout_Click_1"/>

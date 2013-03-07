@@ -87,5 +87,36 @@ namespace UI.Desktop.Preferences
             DialogResult = true;
             account.save();
         }
+
+        private void openPane(StartupView view)
+        {
+            content.Children.Clear();
+            foreach (PreferenceTab tabx in prefTabs)
+            {
+                tabx.Selected = false;
+            }
+            if (view == StartupView.Account)
+            {
+                content.Children.Add(account);
+                prefTabs[0].Selected = true;
+            }
+            else
+            {
+                content.Children.Add(shoppinglist);
+                prefTabs[1].Selected = true;
+            }
+        }
+
+        private void commandBinding_Preferences(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (prefTabs[1].Selected) return;
+            openPane(StartupView.List);
+        }
+
+        private void commandBinding_ShoppingList(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (prefTabs[0].Selected) return;
+            openPane(StartupView.Account);
+        }
     }
 }
