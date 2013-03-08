@@ -135,15 +135,14 @@ namespace UI.Desktop
             image.Height = 24;
             StackPanel sp = new StackPanel();
             sp.Orientation = Orientation.Horizontal;
-            sp.Children.Add(image);
             homeLabel = new Label();
             homeLabel.Content = "Start";
             homeLabel.FontSize = 14;
             homeLabel.Cursor = Cursors.Hand;
             homeLabel.FontWeight =  viewMode == ProductsViewMode.Start ? FontWeights.Bold : FontWeights.Normal;
             sp.Children.Add(homeLabel);
+            sp.Children.Add(image);
             container.Children.Add(sp);
-            //container.Children.Add(homeLabel);
 
             categoryControl = new CategoryControl(rootCategory, 1, this);
             container.Children.Add(categoryControl);
