@@ -140,7 +140,9 @@ namespace UI.Desktop.Preferences
             DetailShoppingCartView view = new DetailShoppingCartView();
             view.Owner = MainWindow.WindowContainer;
             AbstractListItem item = sender as AbstractListItem;
-            view.setOrder(item.DataContext as Order);
+            Order order = item.DataContext as Order;
+            view.setOrder(order);
+            view.description("Datum: " + order.Date, "Ordernr: " + order.OrderNumber, "Summa: " + order.TotalCost);
             view.ShowDialog();
         }
 

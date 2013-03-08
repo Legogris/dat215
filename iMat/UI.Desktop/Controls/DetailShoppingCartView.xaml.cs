@@ -35,6 +35,13 @@ namespace UI.Desktop.Controls
             head.Third("Pris");
         }
 
+        public void description(String what, String nr, String total)
+        {
+            desc.First(what);
+            desc.Second(nr);
+            desc.Third(total + "kr");
+        }
+
         public void setData(IList<ShoppingItem> list)
         {
             foreach (ShoppingItem item in list)
