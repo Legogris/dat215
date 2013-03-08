@@ -172,9 +172,11 @@ namespace UI.Desktop
 
         private void searchField_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter)
+            string term =((TextBox)sender).Text;
+            if (term.Length >= 2)
             {
-                searchField.Text = "Det blev ingen glass";
+                ProductCategory searchResult = SearchManager.SearchForProducts(term, dataHandler.GetRootCategory());
+                productBrowser.SetCategory(searchResult);
             }
         }
 

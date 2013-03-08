@@ -38,7 +38,7 @@
         <DockPanel Grid.Row="1" Background="{StaticResource ToolBarBackground}" Margin="0,0,252,0" >
             <ToolBarTray HorizontalAlignment="Left" DockPanel.Dock="Left"  Background="{StaticResource ToolBarBackground}">
                 <ToolBar ToolBarTray.IsLocked="True"  Background="{StaticResource ToolBarBackground}">
-                    <TextBox x:Name="searchField" Width="100" KeyDown="searchField_KeyDown"/>
+                    <TextBox x:Name="searchField" Width="100" KeyUp="searchField_KeyDown"/>
                     <Button x:Name="searchButton" ToolTip="Sök" Width="29" Height="30" Margin="0,0,0,-5">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Resources\Icons\search_256.png" Width="18" Height="18" OpacityMask="Black" Stretch="UniformToFill" RenderTransformOrigin="0,0.25"/>
