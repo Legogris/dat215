@@ -22,7 +22,7 @@
         </Grid.RowDefinitions>
         <StackPanel x:Name="navigation" Background="{StaticResource ItemEvenBack}" Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         <Grid x:Name="content" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="1"/>
-        <Button x:Name="okButton" Content="Ok" HorizontalAlignment="Left" Height="24" Margin="447,5,0,0" VerticalAlignment="Top" Width="86" Grid.Row="2" Click="okClick"/>
+        <Button x:Name="okButton" Content="OK" HorizontalAlignment="Left" Height="24" Margin="447,5,0,0" VerticalAlignment="Top" Width="86" Grid.Row="2" Click="okClick"/>
         <Button Content="Avbryt" IsCancel="True" HorizontalAlignment="Left" Height="24" Margin="538,5,0,0" VerticalAlignment="Top" Width="86" Grid.Row="2"/>
     </Grid>
 </Window>
