@@ -13,8 +13,8 @@ namespace Data
         [field:NonSerialized()]
         public event ShoppingListsChanged Changed;
         public ProductCategory Parent { get; set; }
-        public string ID { get { return "Favoritlistor*"; } }
-        public string Name { get { return "Favoritlistor"; } }
+        public string ID { get { return "Shoppinglistor*"; } }
+        public string Name { get { return "Shoppinglistor"; } }
 
         private IList<FavoriteList> favLists;
 
