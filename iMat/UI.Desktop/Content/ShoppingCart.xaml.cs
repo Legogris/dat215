@@ -173,6 +173,7 @@ namespace UI.Desktop.Content
             DetailShoppingCartView view = new DetailShoppingCartView();
             view.Owner = MainWindow.WindowContainer;
             view.setData(ShoppingCart.GetItems());
+            view.description("Kundvagn", "", ShoppingCart.Total + "");
             view.ShowDialog();
         }
     }
